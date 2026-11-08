@@ -1,0 +1,284 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Small oscillations and normal modes · UPESSC maths</title><meta name="description" content="What to study for the UPESSC (formerly UPHESC) Assistant Professor maths paper, built from every paper that survives."><link rel="icon" href="/uphesc-maths/favicon.svg" type="image/svg+xml"><link rel="preload" href="/uphesc-maths/fonts/inter-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin><!-- the saved light/dark, 2019 and chart-view choices, before first paint --><script>
+    try { var m = localStorage.getItem('um:mode'); if (m) document.documentElement.dataset.mode = m; } catch (e) {}
+    try { if (localStorage.getItem('um:old') === 'on') document.documentElement.dataset.old = 'on'; } catch (e) {}
+    try { if (localStorage.getItem('um:view') === 'bars') document.documentElement.dataset.view = 'bars'; } catch (e) {}
+  </script><!-- maths: the vendored MathJax typesets \( \) and \[ \] text, loaded only on pages that have any --><script>(function(){const VENDOR = "/uphesc-maths/vendor";
+
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+      loader: { paths: { mathjax: VENDOR + '/mathjax', fonts: VENDOR + '/mathjax/fonts' } },
+      output: { font: 'mathjax-stix2', displayOverflow: 'scroll' },
+      options: { ignoreHtmlClass: 'no-math', processHtmlClass: 'math', menuOptions: { settings: { enrich: false, speech: false, braille: false } } },
+      chtml: { displayOverflow: 'scroll' },
+      // an inline formula with a piece wider than its line gets its own scrolling line, like display maths
+      startup: { pageReady: () => MathJax.startup.defaultPageReady().then(fitMath) },
+    };
+    function fitMath() {
+      for (const m of document.querySelectorAll('mjx-container:not([display="true"]):not(.mjx-wide)')) {
+        const box = m.closest('p, li, dd, blockquote, div');
+        if (!box || m.closest('td, th')) continue;
+        const right = box.getBoundingClientRect().right + 1;
+        if ([...m.getClientRects()].some((r) => r.right > right)) m.classList.add('mjx-wide');
+      }
+    }
+    let fitQueued = 0;
+    const queueFit = () => { if (window.MathJax?.startup?.document && !fitQueued) fitQueued = requestAnimationFrame(() => { fitQueued = 0; fitMath(); }); };
+    addEventListener('resize', queueFit);
+    addEventListener('click', () => setTimeout(queueFit, 50));
+    document.addEventListener('DOMContentLoaded', () => {
+      if (!document.querySelector('.math')) return;
+      const s = document.createElement('script');
+      s.async = true;
+      s.src = VENDOR + '/mathjax/tex-chtml-nofont.js';
+      document.head.appendChild(s);
+    });
+  })();</script><link rel="stylesheet" href="/uphesc-maths/_astro/Base.CkQ5KWO8.css"></head><body data-tab="learn"><nav class="appnav" aria-label="Main"><a class="appnav-brand" href="/uphesc-maths/" aria-label="UPESSC maths home">∑</a><a class="appnav-item" href="/uphesc-maths/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4 10.2 12 4l8 6.2V19a1 1 0 0 1-1 1h-4.5v-5.5h-5V20H5a1 1 0 0 1-1-1z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Plan</span></a><a class="appnav-item" href="/uphesc-maths/learn/" aria-current="page"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M12 6.5C10 5 7.5 4.5 4 4.5v13c3.5 0 6 .5 8 2 2-1.5 4.5-2 8-2v-13c-3.5 0-6 .5-8 2zM12 6.5v13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Learn</span></a><a class="appnav-item" href="/uphesc-maths/units/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4 5h7v7H4zM13 5h7v7h-7zM4 14h7v6H4zM13 14h7v6h-7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Units</span></a><a class="appnav-item" href="/uphesc-maths/papers/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M7 3h7l4 4v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zM14 3v4h4M9 12h6M9 16h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Papers</span></a><a class="appnav-item" href="/uphesc-maths/revise/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M5 12.5 9.5 17 19 7.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Revise</span></a></nav><header class="topbar"><a class="bar-back" href="/uphesc-maths/learn/mechanics-fluids/" aria-label="Back"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a><p class="bar-title">Unit 8</p><button class="bar-btn" type="button" data-mode-toggle aria-label="Switch light or dark"><svg class="i-moon" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path></svg><svg class="i-sun" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path></svg></button></header><main class="page"><div class="reader" data-topic="small-oscillations"><header class="page-head topic-head"><p class="kicker"><a href="/uphesc-maths/learn/mechanics-fluids/">Unit 8 · Mechanics and Fluid Dynamics</a></p><h1>Small oscillations and normal modes</h1><ul class="meta"><li class="prio high">High priority</li><li>2 h to study</li><li>Asked 3 times</li><li class="read-flag" data-read-flag hidden>Read</li></ul><p class="pyq-line">Previous papers: 2025 Q71, 2026 Q46, 2026 Q67</p><p class="prereq">Read first: <a href="/uphesc-maths/learn/mechanics-fluids/lagrangian-mechanics/">Lagrangian mechanics</a></p></header><div class="reader-grid"><nav class="toc" aria-label="On this page"><details class="toc-box" data-toc><summary>On this page</summary><ol><li><a href="#why-it-matters-for-the-exam">Why it matters for the exam</a></li><li><a href="#core-ideas">Core ideas</a></li><li class="sub"><a href="#equilibrium-and-stability">Equilibrium and stability</a></li><li class="sub"><a href="#quadratic-t">Quadratic <span class="math">\(T\)</span></a></li><li class="sub"><a href="#normal-modes-and-frequencies">Normal modes and frequencies</a></li><li class="sub"><a href="#normal-coordinates">Normal coordinates</a></li><li class="sub"><a href="#standard-systems">Standard systems</a></li><li class="sub"><a href="#physical-meaning-of-the-special-cases">Physical meaning of the special cases</a></li><li><a href="#formulas-and-results">Formulas and results</a></li><li><a href="#worked-examples">Worked examples</a></li><li class="sub"><a href="#example-1-equilibrium-and-stability">Example 1: equilibrium and stability</a></li><li class="sub"><a href="#example-2-normal-modes-with-kinetic-coupling">Example 2: normal modes with kinetic coupling</a></li><li class="sub"><a href="#example-3-coupled-pendulums">Example 3: coupled pendulums</a></li><li class="sub"><a href="#example-4-linear-triatomic-mmm">Example 4: linear triatomic <span class="math">\(m,M,m\)</span></a></li><li class="sub"><a href="#example-5-instability-from-a-hessian">Example 5: instability from a Hessian</a></li><li><a href="#common-traps">Common traps</a></li><li><a href="#previous-year-questions">Previous-year questions</a></li><li class="sub"><a href="#2025-q71-coupled-oscillator-lagrangian">2025-Q71: coupled-oscillator Lagrangian</a></li><li class="sub"><a href="#2026-q46-orthogonality-of-eigenvectors">2026-Q46: orthogonality of eigenvectors</a></li><li class="sub"><a href="#2026-q67-zero-eigenfrequency">2026-Q67: zero eigenfrequency</a></li><li><a href="#quick-revision">Quick revision</a></li></ol></details></nav><article class="prose"><section class="note-section ns-why-it-matters-for-the-exam" aria-labelledby="why-it-matters-for-the-exam"><h2 id="why-it-matters-for-the-exam">Why it matters for the exam</h2>
+<p>Three questions in two years: a coupled-oscillator Lagrangian with several statements about momenta and normal modes (2025-Q71), orthogonality of eigenvectors with respect to the mass matrix (2026-Q46), and the meaning of a zero eigenfrequency (2026-Q67). The method is the same each time: write <span class="math">\(T\)</span> and <span class="math">\(V\)</span> as quadratic forms, solve <span class="math">\(\det(V-\omega^2T)=0\)</span>, and interpret the eigenvectors.</p>
+</section><section class="note-section ns-core-ideas" aria-labelledby="core-ideas"><h2 id="core-ideas">Core ideas</h2>
+<h3 id="equilibrium-and-stability">Equilibrium and stability</h3>
+<p>For a scleronomic system with potential <span class="math">\(V(q_1,\dots,q_n)\)</span>, a configuration <span class="math">\(q^0\)</span> is an <strong>equilibrium</strong> if all generalized forces vanish:</p>
+<p><span class="math">\(\left.\frac{\partial V}{\partial q_j}\right|_{q^0}=0\quad(j=1,\dots,n).\)</span></p>
+<p>Put <span class="math">\(\eta_j=q_j-q_j^0\)</span> and expand <span class="math">\(V\)</span> to second order:</p>
+<p><span class="math">\(V\approx V(q^0)+\tfrac12\sum_{jk}V_{jk}\,\eta_j\eta_k,\qquad V_{jk}=\left.\frac{\partial^2V}{\partial q_j\partial q_k}\right|_{q^0}.\)</span></p>
+<p>The constant is dropped. Stability:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Hessian <span class="math">\(V_{jk}\)</span></th>
+<th>Equilibrium</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Positive definite (all eigenvalues <span class="math">\(&gt;0\)</span>)</td>
+<td>stable (a minimum of <span class="math">\(V\)</span>)</td>
+</tr>
+<tr>
+<td>At least one negative eigenvalue</td>
+<td>unstable (maximum or saddle)</td>
+</tr>
+<tr>
+<td>Positive semi-definite, some zero eigenvalues</td>
+<td>neutral in those directions: higher-order terms or a free mode decide</td>
+</tr>
+</tbody>
+</table></div>
+<p>For one degree of freedom: <span class="math">\(V'(q_0)=0\)</span>, stable if <span class="math">\(V''(q_0)&gt;0\)</span>, unstable if <span class="math">\(V''(q_0)&lt;0\)</span>. If <span class="math">\(V''=0\)</span>, look at the first non-zero derivative: even order and positive means stable, odd order means unstable (Lagrange-Dirichlet gives stability when <span class="math">\(V\)</span> has a strict minimum).</p>
+<h3 id="quadratic-t">Quadratic <span class="math">\(T\)</span></h3>
+<p>For <span class="math">\(\mathbf r_i=\mathbf r_i(q)\)</span> (scleronomic), <span class="math">\(T=\tfrac12\sum m_{jk}(q)\dot q_j\dot q_k\)</span>. At the equilibrium, evaluate the coefficients at <span class="math">\(q^0\)</span> and call them <span class="math">\(T_{jk}\)</span>:</p>
+<p><span class="math">\(T\approx\tfrac12\sum_{jk}T_{jk}\,\dot\eta_j\dot\eta_k.\)</span></p>
+<p>The matrix <span class="math">\(T=(T_{jk})\)</span> is symmetric and positive definite (the <strong>mass or kinetic matrix</strong>); <span class="math">\(V=(V_{jk})\)</span> is symmetric (the <strong>stiffness or potential matrix</strong>). The Lagrangian is <span class="math">\(L=\tfrac12\dot\eta^TT\dot\eta-\tfrac12\eta^TV\eta\)</span>. Lagrange’s equations give</p>
+<p><span class="math">\(\boxed{T\ddot\eta+V\eta=0.}\)</span></p>
+<p>If <span class="math">\(T\)</span> is not diagonal there is <strong>kinetic coupling</strong> and if <span class="math">\(V\)</span> is not diagonal <strong>potential coupling</strong>. A system can have either or both.</p>
+<h3 id="normal-modes-and-frequencies">Normal modes and frequencies</h3>
+<p>Try <span class="math">\(\eta=\mathbf a\,e^{i\omega t}\)</span>:</p>
+<p><span class="math">\((V-\omega^2T)\,\mathbf a=0.\)</span></p>
+<p>A non-trivial amplitude vector exists only if</p>
+<p><span class="math">\(\boxed{\det(V-\omega^2T)=0.}\)</span></p>
+<p>This <strong>secular (characteristic) equation</strong> is a polynomial of degree <span class="math">\(n\)</span> in <span class="math">\(\omega^2\)</span>. Its roots <span class="math">\(\omega_1^2,\dots,\omega_n^2\)</span> are the squared <strong>normal-mode frequencies</strong>. For each root, the eigenvector <span class="math">\(\mathbf a_k\)</span> solves <span class="math">\((V-\omega_k^2T)\mathbf a_k=0\)</span>. A <strong>normal mode</strong> is a motion in which every coordinate oscillates at the same frequency <span class="math">\(\omega_k\)</span> with a fixed amplitude ratio <span class="math">\(\mathbf a_k\)</span>.</p>
+<p>Properties (hypotheses matter):</p>
+<ol>
+<li>Since <span class="math">\(T\)</span> is positive definite and <span class="math">\(V\)</span> symmetric, all <span class="math">\(\omega_k^2\)</span> are <strong>real</strong>.</li>
+<li>If <span class="math">\(V\)</span> is positive definite, all <span class="math">\(\omega_k^2&gt;0\)</span>: stable oscillation.</li>
+<li>If some <span class="math">\(\omega_k^2&lt;0\)</span>, the mode grows exponentially: unstable equilibrium.</li>
+<li>If <span class="math">\(\omega_k^2=0\)</span>, the mode has no restoring force: a <strong>free-motion mode</strong>. Typical cause: a symmetry such as translation or rotation of the whole system. The coordinate changes linearly in time, <span class="math">\(\zeta=c_1+c_2t\)</span>.</li>
+<li><strong>Orthogonality with respect to <span class="math">\(T\)</span>.</strong> For distinct frequencies <span class="math">\(\omega_k^2\ne\omega_l^2\)</span>,</li>
+</ol>
+<p><span class="math">\(\mathbf a_k^T\,T\,\mathbf a_l=0\quad(k\ne l),\qquad \mathbf a_k^T\,V\,\mathbf a_l=0.\)</span></p>
+<p>Proof: <span class="math">\(V\mathbf a_k=\omega_k^2T\mathbf a_k\)</span> and <span class="math">\(V\mathbf a_l=\omega_l^2T\mathbf a_l\)</span>; take the inner products with <span class="math">\(\mathbf a_l^T\)</span> and <span class="math">\(\mathbf a_k^T\)</span> and subtract using symmetry: <span class="math">\((\omega_k^2-\omega_l^2)\mathbf a_l^TT\mathbf a_k=0\)</span>. In general the eigenvectors are <strong>not orthogonal under the ordinary dot product</strong>; they are dot-orthogonal only in special cases, such as when <span class="math">\(T\)</span> and <span class="math">\(V\)</span> commute (for instance <span class="math">\(T\)</span> a multiple of the identity). They are always <span class="math">\(T\)</span>-orthogonal. The matrix that supplies orthogonality is the <strong>mass (kinetic) matrix</strong> (2026-Q46). For degenerate frequencies one can still choose <span class="math">\(T\)</span>-orthogonal vectors.</p>
+<ol start="6">
+<li>Normalise: <span class="math">\(\mathbf a_k^TT\mathbf a_k=1\)</span>.</li>
+</ol>
+<h3 id="normal-coordinates">Normal coordinates</h3>
+<p>Form the modal matrix <span class="math">\(A=(\mathbf a_1|\dots|\mathbf a_n)\)</span> with <span class="math">\(\mathbf a_k^TT\mathbf a_l=\delta_{kl}\)</span>. Then <span class="math">\(A^TTA=1\)</span> and <span class="math">\(A^TVA=\mathrm{diag}(\omega_k^2)\)</span>. Define normal coordinates by <span class="math">\(\eta=A\zeta\)</span>. Then</p>
+<p><span class="math">\(T=\tfrac12\sum_k\dot\zeta_k^2,\qquad V=\tfrac12\sum_k\omega_k^2\zeta_k^2,\qquad\ddot\zeta_k+\omega_k^2\zeta_k=0.\)</span></p>
+<p>The system is a set of <span class="math">\(n\)</span> independent harmonic oscillators:</p>
+<p><span class="math">\(\zeta_k=C_k\cos(\omega_kt+\delta_k),\qquad\eta=\sum_k\zeta_k(t)\,\mathbf a_k.\)</span></p>
+<p>The energy of each normal mode is separately conserved. The <span class="math">\(2n\)</span> constants <span class="math">\(C_k,\delta_k\)</span> are fixed by the initial conditions. With one mode excited, all coordinates move in step; with two nearly equal frequencies excited, one sees beats at the difference frequency.</p>
+<p><strong>Standard solution routine:</strong></p>
+<ol>
+<li>Find <span class="math">\(q^0\)</span> from <span class="math">\(\partial V/\partial q=0\)</span>.</li>
+<li>Write <span class="math">\(T\)</span> and <span class="math">\(V\)</span> to second order; read off the matrices.</li>
+<li>Solve <span class="math">\(\det(V-\omega^2T)=0\)</span>.</li>
+<li>Substitute each <span class="math">\(\omega^2\)</span> to get <span class="math">\(\mathbf a_k\)</span> (amplitude ratio only needs one row).</li>
+<li>Describe each mode (in phase, out of phase, translation).</li>
+</ol>
+<h3 id="standard-systems">Standard systems</h3>
+<p><strong>Two equal masses and three springs</strong> (wall, <span class="math">\(k\)</span>, mass <span class="math">\(m\)</span>, spring <span class="math">\(\kappa\)</span>, mass <span class="math">\(m\)</span>, <span class="math">\(k\)</span>, wall). With <span class="math">\(x_1,x_2\)</span> the displacements,</p>
+<p><span class="math">\(T=\tfrac12m(\dot x_1^2+\dot x_2^2),\qquad V=\tfrac12kx_1^2+\tfrac12\kappa(x_1-x_2)^2+\tfrac12kx_2^2.\)</span></p>
+<p><span class="math">\(V=\begin{pmatrix}k+\kappa&amp;-\kappa\\-\kappa&amp;k+\kappa\end{pmatrix}\)</span>, <span class="math">\(T=m\mathbf 1\)</span>.</p>
+<p><span class="math">\(\omega_1^2=\frac km\ \ (x_1=x_2,\ \text{in phase; middle spring not stretched}),\qquad\omega_2^2=\frac{k+2\kappa}m\ \ (x_1=-x_2,\ \text{out of phase}).\)</span></p>
+<p>The normal coordinates are <span class="math">\(\zeta_1\propto x_1+x_2\)</span> and <span class="math">\(\zeta_2\propto x_1-x_2\)</span>. This is the model behind the question 2025-Q71.</p>
+<p><strong>Two equal coupled pendulums</strong> (length <span class="math">\(l\)</span>, mass <span class="math">\(m\)</span>, coupling spring <span class="math">\(k\)</span>): <span class="math">\(\theta_1,\theta_2\)</span>, <span class="math">\(T=\tfrac12ml^2(\dot\theta_1^2+\dot\theta_2^2)\)</span>, <span class="math">\(V=\tfrac12mgl(\theta_1^2+\theta_2^2)+\tfrac12kl^2(\theta_1-\theta_2)^2\)</span> (horizontal spring attached at the bobs, small angles).</p>
+<p><span class="math">\(\omega_1^2=\frac gl\ (\theta_1=\theta_2),\qquad\omega_2^2=\frac gl+\frac{2k}m\ (\theta_1=-\theta_2).\)</span></p>
+<p>For weak coupling the energy passes back and forth with beat frequency <span class="math">\(\omega_2-\omega_1\approx k/(m\omega_0)\)</span>.</p>
+<p><strong>Double pendulum</strong> (masses <span class="math">\(m_1,m_2\)</span>, lengths <span class="math">\(l_1,l_2\)</span>, angles from the downward vertical):</p>
+<p><span class="math">\(T=\tfrac12(m_1+m_2)l_1^2\dot\theta_1^2+\tfrac12m_2l_2^2\dot\theta_2^2+m_2l_1l_2\dot\theta_1\dot\theta_2\cos(\theta_1-\theta_2),\)</span>
+<span class="math">\(V=-(m_1+m_2)gl_1\cos\theta_1-m_2gl_2\cos\theta_2.\)</span></p>
+<p>Equilibrium <span class="math">\(\theta_1=\theta_2=0\)</span> (stable). To second order <span class="math">\(\cos(\theta_1-\theta_2)\to1\)</span>, <span class="math">\(\cos\theta\to1-\theta^2/2\)</span>:</p>
+<p><span class="math">\(T=\tfrac12\begin{pmatrix}\dot\theta_1&amp;\dot\theta_2\end{pmatrix}\begin{pmatrix}(m_1+m_2)l_1^2&amp;m_2l_1l_2\\m_2l_1l_2&amp;m_2l_2^2\end{pmatrix}\begin{pmatrix}\dot\theta_1\\\dot\theta_2\end{pmatrix},\qquad V=\tfrac12\left[(m_1+m_2)gl_1\theta_1^2+m_2gl_2\theta_2^2\right].\)</span></p>
+<p>For <span class="math">\(m_1=m_2=m\)</span> and <span class="math">\(l_1=l_2=l\)</span>, with <span class="math">\(\lambda=\omega^2l/g\)</span>:</p>
+<p><span class="math">\(\det\begin{pmatrix}2-2\lambda&amp;-\lambda\\-\lambda&amp;1-\lambda\end{pmatrix}=0\ \Rightarrow\ \lambda^2-4\lambda+2=0\ \Rightarrow\ \omega^2=(2\mp\sqrt2)\frac gl.\)</span></p>
+<p>Slow mode, <span class="math">\(\omega^2=(2-\sqrt2)g/l\)</span>, amplitudes <span class="math">\(\theta_2/\theta_1=+\sqrt2\)</span> (in phase). Fast mode, <span class="math">\(\omega^2=(2+\sqrt2)g/l\)</span>, <span class="math">\(\theta_2/\theta_1=-\sqrt2\)</span> (out of phase). The equilibrium <span class="math">\(\theta_1=\theta_2=\pi\)</span> (both up) would have negative <span class="math">\(\omega^2\)</span>: unstable.</p>
+<p><strong>Linear symmetric triatomic molecule</strong> <span class="math">\(X\,Y\,X\)</span> (masses <span class="math">\(m,M,m\)</span> on a line, equal springs <span class="math">\(k\)</span>, longitudinal motion only; this models CO<span class="math">\(_2\)</span> stretching). With <span class="math">\(x_1,x_2,x_3\)</span> the displacements:</p>
+<p><span class="math">\(m\ddot x_1=k(x_2-x_1),\quad M\ddot x_2=-k(x_2-x_1)+k(x_3-x_2),\quad m\ddot x_3=-k(x_3-x_2).\)</span></p>
+<p>There are three modes:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Amplitudes <span class="math">\((x_1:x_2:x_3)\)</span></th>
+<th><span class="math">\(\omega^2\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Translation of the whole molecule</td>
+<td><span class="math">\(1:1:1\)</span></td>
+<td><span class="math">\(0\)</span></td>
+</tr>
+<tr>
+<td>Symmetric stretch (central atom at rest)</td>
+<td><span class="math">\(1:0:-1\)</span></td>
+<td><span class="math">\(\dfrac km\)</span></td>
+</tr>
+<tr>
+<td>Antisymmetric stretch</td>
+<td><span class="math">\(1:-\dfrac{2m}{M}:1\)</span></td>
+<td><span class="math">\(\dfrac km\left(1+\dfrac{2m}M\right)=\dfrac{k(M+2m)}{mM}\)</span></td>
+</tr>
+</tbody>
+</table></div>
+<p>The zero-frequency mode is the free translation, not a vibration. Real molecules also bend. For <span class="math">\(N\)</span> atoms, the number of vibrational modes is <span class="math">\(3N-6\)</span> (non-linear) or <span class="math">\(3N-5\)</span> (linear molecule): a linear triatomic has 4 (two stretches and a doubly degenerate bend).</p>
+<p><strong>One degree of freedom</strong> has <span class="math">\(\omega^2=V''(q_0)/T_{11}\)</span>. For example, radial oscillation about a circular orbit of a central force: <span class="math">\(\omega_r^2=V_{\rm eff}''(r_0)/m\)</span>. For <span class="math">\(V=-k/r\)</span>, <span class="math">\(\omega_r=\omega_\theta\)</span> (closed orbits); for <span class="math">\(V=\tfrac12kr^2\)</span>, <span class="math">\(\omega_r=2\omega_\theta\)</span>.</p>
+<h3 id="physical-meaning-of-the-special-cases">Physical meaning of the special cases</h3>
+<ul>
+<li><span class="math">\(\omega^2&gt;0\)</span>: oscillation, restoring force.</li>
+<li><span class="math">\(\omega^2=0\)</span>: <strong>free motion</strong> (zero restoring force). It signals a symmetry (translation, rotation) of the system, and is not instability, infinite stiffness or absence of motion.</li>
+<li><span class="math">\(\omega^2&lt;0\)</span>: exponential growth, instability.</li>
+<li>Degenerate roots: two modes share one frequency, any combination is a mode.</li>
+</ul>
+</section><section class="note-section ns-formulas-and-results" aria-labelledby="formulas-and-results"><h2 id="formulas-and-results">Formulas and results</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Formula</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Equilibrium</td>
+<td><span class="math">\(\partial V/\partial q_j=0\)</span></td>
+</tr>
+<tr>
+<td>Stable if</td>
+<td>Hessian <span class="math">\(V_{jk}\)</span> positive definite</td>
+</tr>
+<tr>
+<td>Quadratic forms</td>
+<td><span class="math">\(T=\tfrac12T_{jk}\dot\eta_j\dot\eta_k\)</span>, <span class="math">\(V=\tfrac12V_{jk}\eta_j\eta_k\)</span></td>
+</tr>
+<tr>
+<td>Equations of motion</td>
+<td><span class="math">\(T\ddot\eta+V\eta=0\)</span></td>
+</tr>
+<tr>
+<td>Secular equation</td>
+<td><span class="math">\(\det(V-\omega^2T)=0\)</span></td>
+</tr>
+<tr>
+<td>Eigenvectors</td>
+<td><span class="math">\((V-\omega_k^2T)\mathbf a_k=0\)</span></td>
+</tr>
+<tr>
+<td>Orthogonality</td>
+<td><span class="math">\(\mathbf a_k^TT\mathbf a_l=0\)</span>, <span class="math">\(\mathbf a_k^TV\mathbf a_l=0\)</span> (<span class="math">\(k\ne l\)</span>)</td>
+</tr>
+<tr>
+<td>Normalisation</td>
+<td><span class="math">\(\mathbf a_k^TT\mathbf a_k=1\)</span></td>
+</tr>
+<tr>
+<td>Normal coordinates</td>
+<td><span class="math">\(\eta=A\zeta\)</span>; <span class="math">\(\ddot\zeta_k+\omega_k^2\zeta_k=0\)</span></td>
+</tr>
+<tr>
+<td>General solution</td>
+<td><span class="math">\(\eta=\sum C_k\cos(\omega_kt+\delta_k)\,\mathbf a_k\)</span></td>
+</tr>
+<tr>
+<td>Two masses, 3 springs</td>
+<td><span class="math">\(\omega^2=k/m,\ (k+2\kappa)/m\)</span></td>
+</tr>
+<tr>
+<td>Coupled pendulums</td>
+<td><span class="math">\(\omega^2=g/l,\ g/l+2k/m\)</span></td>
+</tr>
+<tr>
+<td>Double pendulum, equal</td>
+<td><span class="math">\(\omega^2=(2\mp\sqrt2)g/l\)</span></td>
+</tr>
+<tr>
+<td>Linear <span class="math">\(XYX\)</span></td>
+<td><span class="math">\(0,\ k/m,\ k(M+2m)/(mM)\)</span></td>
+</tr>
+<tr>
+<td>Zero root</td>
+<td>free-motion (translation or rotation) mode</td>
+</tr>
+<tr>
+<td>Vibrational modes</td>
+<td><span class="math">\(3N-6\)</span> (non-linear), <span class="math">\(3N-5\)</span> (linear)</td>
+</tr>
+</tbody>
+</table></div>
+</section><section class="note-section ns-worked-examples" aria-labelledby="worked-examples"><h2 id="worked-examples">Worked examples</h2>
+<h3 id="example-1-equilibrium-and-stability">Example 1: equilibrium and stability</h3>
+<p><span class="math">\(V=x^2+xy+y^2-3x\)</span>. <span class="math">\(V_x=2x+y-3=0\)</span>, <span class="math">\(V_y=x+2y=0\)</span> give <span class="math">\(x=2\)</span>, <span class="math">\(y=-1\)</span>. The Hessian is <span class="math">\(\begin{pmatrix}2&amp;1\\1&amp;2\end{pmatrix}\)</span> with eigenvalues <span class="math">\(1,3\)</span>, both positive: stable.</p>
+<h3 id="example-2-normal-modes-with-kinetic-coupling">Example 2: normal modes with kinetic coupling</h3>
+<p>Take <span class="math">\(T=\tfrac12\dot q^T\begin{pmatrix}2&amp;1\\1&amp;2\end{pmatrix}\dot q\)</span> (kinetic coupling) and <span class="math">\(V=q_1^2+q_2^2\)</span>, i.e. <span class="math">\(V=2\cdot\mathbf 1\)</span> in the matrix convention <span class="math">\(V=\tfrac12q^TVq\)</span>. Then</p>
+<p><span class="math">\(\det\begin{pmatrix}2-2\omega^2&amp;-\omega^2\\-\omega^2&amp;2-2\omega^2\end{pmatrix}=(2-2\omega^2)^2-\omega^4=0\ \Rightarrow\ 2-2\omega^2=\pm\omega^2.\)</span></p>
+<p>So <span class="math">\(\omega^2=\tfrac23\)</span> (mode <span class="math">\(q_1=q_2\)</span>) or <span class="math">\(\omega^2=2\)</span> (mode <span class="math">\(q_1=-q_2\)</span>). Normalised modes: <span class="math">\((1,1)/\sqrt6\)</span> (since <span class="math">\((1,1)T(1,1)^T=6\)</span>) and <span class="math">\((1,-1)/\sqrt2\)</span>. The two vectors are orthogonal under <span class="math">\(T\)</span> (<span class="math">\((1,1)T(1,-1)^T=0\)</span>) and also under the dot product here because both are eigenvectors of <span class="math">\(T\)</span>. In general they are not orthogonal under the dot product.</p>
+<h3 id="example-3-coupled-pendulums">Example 3: coupled pendulums</h3>
+<p><span class="math">\(g/l=1\)</span> s<span class="math">\(^{-2}\)</span>, <span class="math">\(k/m=0.3\)</span> s<span class="math">\(^{-2}\)</span>. Frequencies: <span class="math">\(\omega_1^2=1\)</span>, <span class="math">\(\omega_2^2=1+0.6=1.6\)</span>. Beat period <span class="math">\(=2\pi/(\omega_2-\omega_1)=2\pi/(1.265-1)\approx23.7\)</span> s. Starting with <span class="math">\(\theta_1=\theta_0\)</span>, <span class="math">\(\theta_2=0\)</span>, at rest: <span class="math">\(\theta_1=\theta_0\cos\!\left(\tfrac{\omega_2-\omega_1}2t\right)\cos\!\left(\tfrac{\omega_1+\omega_2}2t\right)\)</span> and the energy passes entirely to pendulum 2 after half a beat period.</p>
+<h3 id="example-4-linear-triatomic-mmm">Example 4: linear triatomic <span class="math">\(m,M,m\)</span></h3>
+<p><span class="math">\(m=1\)</span>, <span class="math">\(M=3\)</span>, <span class="math">\(k=1\)</span>: frequencies squared <span class="math">\(0\)</span>, <span class="math">\(1\)</span>, <span class="math">\(1(1+2/3)=5/3\)</span>. Eigenvector check for the third mode: <span class="math">\((1,-2/3,1)\)</span>: row 1 of <span class="math">\(T^{-1}K\)</span>: <span class="math">\(\dfrac km(x_1-x_2)=1\cdot(1+\tfrac23)=\tfrac53=\omega^2x_1\)</span>. ✓. Row 2: <span class="math">\(\dfrac kM(-x_1+2x_2-x_3)=\tfrac13(-1-\tfrac43-1)=-\tfrac{10}9=\tfrac53\cdot(-\tfrac23)\)</span> ✓.</p>
+<h3 id="example-5-instability-from-a-hessian">Example 5: instability from a Hessian</h3>
+<p>An inverted pendulum <span class="math">\(V=mgl\cos\theta\)</span> at <span class="math">\(\theta=0\)</span>: <span class="math">\(V''=-mgl&lt;0\)</span>, <span class="math">\(\omega^2=V''/ml^2=-g/l&lt;0\)</span>, so the deviation grows like <span class="math">\(e^{\sqrt{g/l}\,t}\)</span>.</p>
+</section><section class="note-section ns-common-traps" aria-labelledby="common-traps"><h2 id="common-traps">Common traps</h2>
+<ul>
+<li><strong>Orthogonality is with respect to the mass (kinetic) matrix <span class="math">\(T\)</span></strong>, not the standard dot product and not the potential matrix alone. (2026-Q46: A, mass matrix.) The identity matrix is the answer only if one already uses mass-weighted coordinates.</li>
+<li><strong>Zero eigenfrequency is a free (translation or rotation) mode</strong>, not instability, infinite stiffness or “no motion” (2026-Q67: B). Instability corresponds to <span class="math">\(\omega^2&lt;0\)</span>.</li>
+<li><strong>Frequency equation is <span class="math">\(\det(V-\omega^2T)=0\)</span></strong>, not <span class="math">\(\det(T-\omega^2V)=0\)</span>. The second gives <span class="math">\(1/\omega^2\)</span>.</li>
+<li><strong>Kinetic coupling counts.</strong> A diagonal <span class="math">\(V\)</span> with a non-diagonal <span class="math">\(T\)</span> still has coupled equations. Solve the full generalised problem, not two separate oscillators.</li>
+<li><strong>Check the statement on the ratio</strong> <span class="math">\(\dot p_1/\dot p_2\)</span>: it equals <span class="math">\(q_1/q_2\)</span> for 2025-Q71’s Lagrangian, not <span class="math">\(q_2/q_1\)</span>.</li>
+<li><strong>A stable equilibrium needs a positive definite Hessian</strong>, not just <span class="math">\(V'=0\)</span>. Positive diagonal entries are not enough (<span class="math">\(V=x^2+4xy+y^2\)</span> is a saddle).</li>
+<li><strong>Number of modes equals the number of degrees of freedom</strong>, including zero modes. The triatomic 1-D model has 3 modes, one of which is a translation.</li>
+<li><strong>Equilibrium of a rotating-frame problem</strong> needs the effective potential, not the bare one.</li>
+<li>In the double pendulum, the coupling term in <span class="math">\(T\)</span> has <span class="math">\(\cos(\theta_1-\theta_2)\)</span> which is <span class="math">\(1\)</span> to this order: it still appears as a coupling.</li>
+</ul>
+</section><section class="note-section ns-previous-year-questions" aria-labelledby="previous-year-questions"><h2 id="previous-year-questions">Previous-year questions</h2>
+<h3 id="2025-q71-coupled-oscillator-lagrangian">2025-Q71: coupled-oscillator Lagrangian</h3>
+<p><strong>Question.</strong> For the system with <span class="math">\(L=\dot q_1^2+\dot q_2^2+\dot q_1\dot q_2-q_1^2-q_2^2\)</span>, which statement is not true? (A) <span class="math">\(p_1+p_2=3(\dot q_1+\dot q_2)\)</span> (B) <span class="math">\(\dot p_1+\dot p_2=-2(q_1+q_2)\)</span> (C) <span class="math">\(q_1+q_2\)</span> executes simple harmonic motion given by <span class="math">\(\ddot q_1+\ddot q_2=-\tfrac23(q_1+q_2)\)</span> (D) <span class="math">\(\dot p_1/\dot p_2=q_2/q_1\)</span>.</p>
+<p><strong>Answer: D.</strong> <span class="math">\(p_1=2\dot q_1+\dot q_2\)</span>, <span class="math">\(p_2=\dot q_1+2\dot q_2\)</span>, so <span class="math">\(p_1+p_2=3(\dot q_1+\dot q_2)\)</span> (A true). <span class="math">\(\dot p_1=\partial L/\partial q_1=-2q_1\)</span>, <span class="math">\(\dot p_2=-2q_2\)</span> so (B) is true and <span class="math">\(\dot p_1/\dot p_2=q_1/q_2\)</span> (D false). Adding gives <span class="math">\(3(\ddot q_1+\ddot q_2)=-2(q_1+q_2)\)</span> (C true). The normal frequencies are <span class="math">\(\omega^2=\tfrac23\)</span> (mode <span class="math">\(q_1+q_2\)</span>) and <span class="math">\(\omega^2=2\)</span> (mode <span class="math">\(q_1-q_2\)</span>). (Official key.)</p>
+<h3 id="2026-q46-orthogonality-of-eigenvectors">2026-Q46: orthogonality of eigenvectors</h3>
+<p><strong>Question.</strong> In small oscillations, if the eigenvectors are not orthogonal under the standard dot product, what ensures orthogonality? (A) mass matrix (B) potential matrix (C) identity matrix (D) zero matrix.</p>
+<p><strong>Answer: A.</strong> The eigenvectors of <span class="math">\(V\mathbf a=\omega^2T\mathbf a\)</span> satisfy <span class="math">\(\mathbf a_k^TT\mathbf a_l=0\)</span>: they are orthogonal with respect to the kinetic (mass) matrix. (Worked key, unofficial.)</p>
+<h3 id="2026-q67-zero-eigenfrequency">2026-Q67: zero eigenfrequency</h3>
+<p><strong>Question.</strong> A two-degree system has kinetic coupling and potential coupling. After diagonalisation one eigenfrequency becomes zero. Interpret physically: (A) instability (B) free motion mode (C) infinite stiffness (D) no motion.</p>
+<p><strong>Answer: B.</strong> <span class="math">\(\omega=0\)</span> means zero restoring force for that normal coordinate, so <span class="math">\(\ddot\zeta=0\)</span> and the coordinate moves freely (for example rigid translation or rotation of the whole system). (Worked key, unofficial.)</p>
+</section><section class="note-section ns-quick-revision" aria-labelledby="quick-revision"><h2 id="quick-revision">Quick revision</h2>
+<ul>
+<li>Equilibrium: <span class="math">\(\partial V/\partial q_j=0\)</span>; stable if the Hessian <span class="math">\(V_{jk}\)</span> is positive definite.</li>
+<li>Expand <span class="math">\(T=\tfrac12T_{jk}\dot\eta_j\dot\eta_k\)</span>, <span class="math">\(V=\tfrac12V_{jk}\eta_j\eta_k\)</span>; equation <span class="math">\(T\ddot\eta+V\eta=0\)</span>.</li>
+<li>Frequencies from <span class="math">\(\det(V-\omega^2T)=0\)</span>; eigenvectors from <span class="math">\((V-\omega_k^2T)\mathbf a_k=0\)</span>.</li>
+<li>Eigenvectors are orthogonal with respect to <span class="math">\(T\)</span> (the mass matrix), not the plain dot product.</li>
+<li>Normal coordinates diagonalise both <span class="math">\(T\)</span> and <span class="math">\(V\)</span>: <span class="math">\(T=\tfrac12\sum\dot\zeta^2\)</span>, <span class="math">\(V=\tfrac12\sum\omega_k^2\zeta_k^2\)</span>.</li>
+<li><span class="math">\(\omega^2=0\)</span>: free (translation/rotation) mode. <span class="math">\(\omega^2&lt;0\)</span>: instability.</li>
+<li>Two masses and three springs: <span class="math">\(\omega^2=k/m\)</span> and <span class="math">\((k+2\kappa)/m\)</span>. Coupled pendulums: <span class="math">\(g/l\)</span> and <span class="math">\(g/l+2k/m\)</span>.</li>
+<li>Equal double pendulum: <span class="math">\(\omega^2=(2\mp\sqrt2)g/l\)</span>, mode ratios <span class="math">\(\pm\sqrt2\)</span>.</li>
+<li>Linear <span class="math">\(XYX\)</span>: <span class="math">\(\omega^2=0\)</span>, <span class="math">\(k/m\)</span>, <span class="math">\(k(M+2m)/(mM)\)</span>.</li>
+<li>Vibrational modes: <span class="math">\(3N-6\)</span> (non-linear), <span class="math">\(3N-5\)</span> (linear).</li>
+</ul>
+</section></article></div><section class="section reader-end"><button class="read-btn" type="button" data-read-btn aria-pressed="false"><span class="box" aria-hidden="true"></span><span data-read-label>Mark as read</span></button><ul class="units end-links"><li><a class="unit-card" href="/uphesc-maths/learn/mechanics-fluids/small-oscillations/practice/"><span class="unit-top"><span class="unit-name">Practise this topic</span></span><p class="flush">14 questions with worked solutions</p></a></li><li><a class="unit-card" href="/uphesc-maths/learn/mechanics-fluids/fluid-kinematics/"><span class="unit-top"><span class="unit-name">Next: Fluid kinematics</span></span><p class="flush">High priority · 1 h 40 min</p></a></li></ul><p class="prev-link"><a href="/uphesc-maths/learn/mechanics-fluids/rigid-body-motion/">Previous: Rigid body motion and Euler&#39;s equations</a></p></section></div><footer class="foot"><p>Built from every paper that survives: the full 2025 and 2026 papers (140 maths questions) and half of 2019 (35, from a solution video). 2015 left only an answer key, and nothing was found for 2021. The commission has never published its booklets. Unit counts use 2025 and 2026 only, so they show a range, not a trend.</p><p>2025 answers match the official key. 2026 has no key yet, so its answers were worked out by hand and marked high, medium or low confidence, and every unsure one was solved again, blind. 2019 answers come from the video and are not checked against the official key.</p></footer></main><script type="module">var e=document.documentElement,t=()=>e.dataset.mode?e.dataset.mode===`dark`:matchMedia(`(prefers-color-scheme: dark)`).matches;document.querySelector(`[data-mode-toggle]`)?.addEventListener(`click`,()=>{let n=t()?`light`:`dark`;e.dataset.mode=n;try{localStorage.setItem(`um:mode`,n)}catch{}}),!e.dataset.mode&&t()&&(e.dataset.mode=`dark`);var n=document.querySelectorAll(`[data-old-toggle]`),r=t=>{t?e.dataset.old=`on`:delete e.dataset.old,n.forEach(e=>e.setAttribute(`aria-checked`,String(t)))};r(e.dataset.old===`on`),n.forEach(t=>t.addEventListener(`click`,()=>{let t=e.dataset.old!==`on`;r(t);try{localStorage.setItem(`um:old`,t?`on`:`off`)}catch{}}));var i=document.querySelectorAll(`[data-view]`),a=t=>{t===`bars`?e.dataset.view=`bars`:delete e.dataset.view,i.forEach(e=>e.setAttribute(`aria-pressed`,String(e.dataset.view===t)))};a(e.dataset.view===`bars`?`bars`:`heat`),i.forEach(e=>e.addEventListener(`click`,()=>{a(e.dataset.view);try{localStorage.setItem(`um:view`,e.dataset.view)}catch{}}));var o=document.createElement(`div`);o.className=`tip`,o.setAttribute(`role`,`tooltip`),o.hidden=!0,document.body.append(o);var s=null,c=(e,t)=>{let n=o.offsetWidth,r=o.offsetHeight,i=e+12,a=t+12;i+n>innerWidth-8&&(i=Math.max(8,e-n-12)),a+r>innerHeight-8&&(a=Math.max(8,t-r-12)),o.style.left=`${i}px`,o.style.top=`${a}px`},l=()=>{if(s){let e=s.getBoundingClientRect();c(e.left+e.width*.3,e.bottom-8)}},u=e=>{e!==s&&(s=e,o.replaceChildren(...[...e.querySelector(`.tip-src`).childNodes].map(e=>e.cloneNode(!0)))),o.hidden=!1},d=()=>{o.hidden=!0,s=null};document.addEventListener(`pointermove`,e=>{if(e.pointerType!==`mouse`)return;let t=e.target.closest(`[data-tip]`);t?(u(t),c(e.clientX,e.clientY)):s&&d()}),document.addEventListener(`focusin`,e=>{let t=e.target.closest(`[data-tip]`);t&&(u(t),l())}),document.addEventListener(`focusout`,()=>d()),addEventListener(`scroll`,()=>{s&&document.activeElement===s?l():s&&d()},{passive:!0}),document.addEventListener(`keydown`,e=>{e.key===`Escape`&&d()});var f=`um:done`,p={};try{p=JSON.parse(localStorage.getItem(f)||`{}`)}catch{}var m=()=>{document.querySelectorAll(`[data-progress]`).forEach(e=>{let t=[...document.querySelectorAll(`[data-group="${e.dataset.progress}"]`)],n=t.filter(e=>e.checked).length;e.querySelector(`.progress-bar span`).style.width=`${n/t.length*100}%`,e.querySelector(`[data-count]`).textContent=`${n} of ${t.length} done`})};document.querySelectorAll(`input[data-check]`).forEach(e=>{e.checked=!!p[e.dataset.check],e.addEventListener(`change`,()=>{p[e.dataset.check]=e.checked;try{localStorage.setItem(f,JSON.stringify(p))}catch{}m()})}),m();</script></body></html><script type="module" src="/uphesc-maths/_astro/index.astro_astro_type_script_index_0_lang.t7qZbIYF.js"></script>

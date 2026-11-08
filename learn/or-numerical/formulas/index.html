@@ -1,0 +1,121 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Unit 9 formula sheet · UPESSC maths</title><meta name="description" content="What to study for the UPESSC (formerly UPHESC) Assistant Professor maths paper, built from every paper that survives."><link rel="icon" href="/uphesc-maths/favicon.svg" type="image/svg+xml"><link rel="preload" href="/uphesc-maths/fonts/inter-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin><!-- the saved light/dark, 2019 and chart-view choices, before first paint --><script>
+    try { var m = localStorage.getItem('um:mode'); if (m) document.documentElement.dataset.mode = m; } catch (e) {}
+    try { if (localStorage.getItem('um:old') === 'on') document.documentElement.dataset.old = 'on'; } catch (e) {}
+    try { if (localStorage.getItem('um:view') === 'bars') document.documentElement.dataset.view = 'bars'; } catch (e) {}
+  </script><!-- maths: the vendored MathJax typesets \( \) and \[ \] text, loaded only on pages that have any --><script>(function(){const VENDOR = "/uphesc-maths/vendor";
+
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+      loader: { paths: { mathjax: VENDOR + '/mathjax', fonts: VENDOR + '/mathjax/fonts' } },
+      output: { font: 'mathjax-stix2', displayOverflow: 'scroll' },
+      options: { ignoreHtmlClass: 'no-math', processHtmlClass: 'math', menuOptions: { settings: { enrich: false, speech: false, braille: false } } },
+      chtml: { displayOverflow: 'scroll' },
+      // an inline formula with a piece wider than its line gets its own scrolling line, like display maths
+      startup: { pageReady: () => MathJax.startup.defaultPageReady().then(fitMath) },
+    };
+    function fitMath() {
+      for (const m of document.querySelectorAll('mjx-container:not([display="true"]):not(.mjx-wide)')) {
+        const box = m.closest('p, li, dd, blockquote, div');
+        if (!box || m.closest('td, th')) continue;
+        const right = box.getBoundingClientRect().right + 1;
+        if ([...m.getClientRects()].some((r) => r.right > right)) m.classList.add('mjx-wide');
+      }
+    }
+    let fitQueued = 0;
+    const queueFit = () => { if (window.MathJax?.startup?.document && !fitQueued) fitQueued = requestAnimationFrame(() => { fitQueued = 0; fitMath(); }); };
+    addEventListener('resize', queueFit);
+    addEventListener('click', () => setTimeout(queueFit, 50));
+    document.addEventListener('DOMContentLoaded', () => {
+      if (!document.querySelector('.math')) return;
+      const s = document.createElement('script');
+      s.async = true;
+      s.src = VENDOR + '/mathjax/tex-chtml-nofont.js';
+      document.head.appendChild(s);
+    });
+  })();</script><link rel="stylesheet" href="/uphesc-maths/_astro/Base.CkQ5KWO8.css"></head><body data-tab="learn"><nav class="appnav" aria-label="Main"><a class="appnav-brand" href="/uphesc-maths/" aria-label="UPESSC maths home">∑</a><a class="appnav-item" href="/uphesc-maths/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4 10.2 12 4l8 6.2V19a1 1 0 0 1-1 1h-4.5v-5.5h-5V20H5a1 1 0 0 1-1-1z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Plan</span></a><a class="appnav-item" href="/uphesc-maths/learn/" aria-current="page"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M12 6.5C10 5 7.5 4.5 4 4.5v13c3.5 0 6 .5 8 2 2-1.5 4.5-2 8-2v-13c-3.5 0-6 .5-8 2zM12 6.5v13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Learn</span></a><a class="appnav-item" href="/uphesc-maths/units/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4 5h7v7H4zM13 5h7v7h-7zM4 14h7v6H4zM13 14h7v6h-7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Units</span></a><a class="appnav-item" href="/uphesc-maths/papers/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M7 3h7l4 4v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zM14 3v4h4M9 12h6M9 16h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Papers</span></a><a class="appnav-item" href="/uphesc-maths/revise/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M5 12.5 9.5 17 19 7.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Revise</span></a></nav><header class="topbar"><a class="bar-back" href="/uphesc-maths/learn/or-numerical/" aria-label="Back"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a><p class="bar-title">Unit 9</p><button class="bar-btn" type="button" data-mode-toggle aria-label="Switch light or dark"><svg class="i-moon" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path></svg><svg class="i-sun" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path></svg></button></header><main class="page"><header class="page-head"><p class="kicker">Unit 9 · Operations Research and Numerical Analysis</p><h1>Formula sheet</h1><p class="lede">Every formula and result of the unit. Each topic page explains where they come from.</p></header><article class="prose formula-sheet">
+<h3 id="linear-programming">Linear programming</h3>
+<ul>
+<li>Standard form: <span class="math">\(\max Z=c^Tx\)</span>, <span class="math">\(Ax=b\)</span>, <span class="math">\(x\ge0\)</span>, with slack (<span class="math">\(\le\)</span>), surplus (<span class="math">\(\ge\)</span>) and artificial variables (<span class="math">\(\ge\)</span> and <span class="math">\(=\)</span>).</li>
+<li>Number of basic solutions <span class="math">\(\le\binom nm\)</span> (<span class="math">\(n\)</span> variables, <span class="math">\(m\)</span> equations). Basic feasible solution <span class="math">\(\Longleftrightarrow\)</span> extreme point.</li>
+<li>The feasible region is convex; the optimum of a linear objective over a bounded feasible region is at an extreme point; the set of optimal solutions is convex.</li>
+<li><span class="math">\(\min Z=-\max(-Z)\)</span>.</li>
+<li>Simplex (<span class="math">\(\max\)</span>): enter the variable with the most negative <span class="math">\(Z_j-C_j\)</span>; leave by the minimum ratio <span class="math">\(b_i/a_{ik}\)</span> over <span class="math">\(a_{ik}&gt;0\)</span>. Optimal when all <span class="math">\(Z_j-C_j\ge0\)</span>.</li>
+<li>Unbounded: some <span class="math">\(Z_j-C_j&lt;0\)</span> with an entering column <span class="math">\(\le0\)</span>. Alternative optima: a nonbasic <span class="math">\(Z_j-C_j=0\)</span> at the optimum. Degenerate: a basic variable equals <span class="math">\(0\)</span> (ties in the ratio test).</li>
+<li>Big-M: artificial variables get <span class="math">\(-M\)</span> in a maximisation and <span class="math">\(+M\)</span> in a minimisation. Infeasible if an artificial stays positive at the optimum.</li>
+<li>Two-phase: Phase I minimises <span class="math">\(W=\sum\)</span> artificials; infeasible iff <span class="math">\(\min W&gt;0\)</span>. Phase II uses the original objective.</li>
+<li>Extra variables: <span class="math">\(\le\)</span> one slack; <span class="math">\(\ge\)</span> one surplus and one artificial; <span class="math">\(=\)</span> one artificial.</li>
+</ul>
+<h3 id="duality">Duality</h3>
+<ul>
+<li><span class="math">\(\max c^Tx\)</span>, <span class="math">\(Ax\le b\)</span>, <span class="math">\(x\ge0\)</span> has dual <span class="math">\(\min b^Ty\)</span>, <span class="math">\(A^Ty\ge c\)</span>, <span class="math">\(y\ge0\)</span>. Dual of the dual is the primal.</li>
+<li>For a maximisation primal: <span class="math">\(\le\)</span> constraint <span class="math">\(\to y\ge0\)</span>; <span class="math">\(\ge\to y\le0\)</span>; <span class="math">\(=\to y\)</span> free; <span class="math">\(x\ge0\to\)</span> constraint <span class="math">\(\ge\)</span>; <span class="math">\(x\)</span> free <span class="math">\(\to\)</span> constraint <span class="math">\(=\)</span>.</li>
+<li>Weak duality: <span class="math">\(c^Tx\le b^Ty\)</span> for feasible <span class="math">\(x,y\)</span>. Strong duality: both optima exist and are equal.</li>
+<li>Complementary slackness: <span class="math">\(y_i(b_i-a_i^Tx)=0\)</span>, <span class="math">\(x_j(a_j^Ty-c_j)=0\)</span>.</li>
+<li>Dual solution from a tableau: <span class="math">\(y^T=c_B^TB^{-1}\)</span>, read from the <span class="math">\(Z_j-C_j\)</span> of the slack columns. Shadow price <span class="math">\(y_i^*=\partial Z^*/\partial b_i\)</span>.</li>
+<li>Primal unbounded <span class="math">\(\Rightarrow\)</span> dual infeasible (and symmetrically, dual unbounded <span class="math">\(\Rightarrow\)</span> primal infeasible); both can also be infeasible.</li>
+<li>Dual simplex: leave on the most negative right-hand side; enter by the minimum of <span class="math">\(\left\lvert (Z_j-C_j)/a_{rj}\right\rvert\)</span> over <span class="math">\(a_{rj}&lt;0\)</span>.</li>
+</ul>
+<h3 id="transportation-and-assignment">Transportation and assignment</h3>
+<ul>
+<li>Balanced: <span class="math">\(\sum a_i=\sum b_j\)</span>; otherwise add a dummy row or column of the difference with zero costs.</li>
+<li><span class="math">\(mn\)</span> variables, <span class="math">\(m+n\)</span> constraints, rank <span class="math">\(m+n-1\)</span>, so a BFS has <span class="math">\(m+n-1\)</span> basic cells (no closed loop). Fewer positive cells means degenerate: add <span class="math">\(\varepsilon\)</span>.</li>
+<li>VAM penalty = second smallest minus smallest cost in a line.</li>
+<li>MODI: <span class="math">\(u_i+v_j=c_{ij}\)</span> on basic cells; <span class="math">\(\Delta_{ij}=c_{ij}-u_i-v_j\)</span> on the others. Optimal (min) iff all <span class="math">\(\Delta_{ij}\ge0\)</span>; a zero <span class="math">\(\Delta\)</span> on a nonbasic cell means alternative optima. Cost change <span class="math">\(=\theta\Delta_{ij}\)</span>.</li>
+<li>Assignment: <span class="math">\(n!\)</span> assignments. Hungarian: row and column reduce, cover zeros with the minimum number of lines; optimal when that number is <span class="math">\(n\)</span>; otherwise subtract the smallest uncovered entry from uncovered entries and add it at line crossings.</li>
+<li>Maximisation: convert with <span class="math">\(\ell_{ij}=p_{\max}-p_{ij}\)</span>. Travelling salesman: <span class="math">\((n-1)!\)</span> tours (asymmetric).</li>
+</ul>
+<h3 id="game-theory">Game theory</h3>
+<ul>
+<li>Payoff matrix is written for the row player (maximiser). <span class="math">\(\underline v=\max_i\min_ja_{ij}\le v\le\overline v=\min_j\max_ia_{ij}\)</span>.</li>
+<li>Saddle point: smallest in its row and largest in its column; exists iff <span class="math">\(\underline v=\overline v\)</span>. All saddle points have the same value.</li>
+<li>Minimax theorem: every finite matrix game has a value in mixed strategies.</li>
+<li><span class="math">\(2\times2\)</span> without a saddle point, <span class="math">\(D=a+d-b-c\)</span>: <span class="math">\(x_1=\frac{d-c}{D}\)</span>, <span class="math">\(y_1=\frac{d-b}{D}\)</span>, <span class="math">\(v=\frac{ad-bc}{D}\)</span>.</li>
+<li>Dominance: delete the smaller row (A) and the larger column (B); averages count. Graphical: <span class="math">\(2\times n\)</span>, highest point of the lower envelope; <span class="math">\(m\times2\)</span>, lowest point of the upper envelope.</li>
+<li>LP form: add <span class="math">\(k\)</span> to make all entries positive, <span class="math">\(\min\sum X_i\)</span> s.t. <span class="math">\(\sum_ia_{ij}X_i\ge1\)</span>, <span class="math">\(v=1/\sum X_i-k\)</span>. Skew-symmetric matrix <span class="math">\(\Rightarrow v=0\)</span>.</li>
+</ul>
+<h3 id="roots-of-equations">Roots of equations</h3>
+<ul>
+<li>Bisection: <span class="math">\(c=\frac{a+b}2\)</span>; steps <span class="math">\(n\ge\log_2\frac{b-a}{\varepsilon}\)</span>; order <span class="math">\(1\)</span>.</li>
+<li>Regula falsi: <span class="math">\(c=\frac{af(b)-bf(a)}{f(b)-f(a)}\)</span>; order <span class="math">\(1\)</span>. Secant: order <span class="math">\(\frac{1+\sqrt5}2\approx1.618\)</span>.</li>
+<li>Fixed point <span class="math">\(x_{n+1}=g(x_n)\)</span> converges if <span class="math">\(\lvert g'\rvert\le k&lt;1\)</span> on an interval mapped into itself; <span class="math">\(e_{n+1}\approx g'(\alpha)e_n\)</span> (order <span class="math">\(1\)</span>).</li>
+<li>Newton-Raphson: <span class="math">\(x_{n+1}=x_n-\frac{f(x_n)}{f'(x_n)}\)</span>; <span class="math">\(e_{n+1}\approx\frac{f''(\alpha)}{2f'(\alpha)}e_n^2\)</span> (order <span class="math">\(2\)</span>). Multiple root of multiplicity <span class="math">\(m\)</span>: linear, ratio <span class="math">\(1-\frac1m\)</span>; fix with <span class="math">\(x-m\frac{f}{f'}\)</span>.</li>
+<li>Special cases: <span class="math">\(\sqrt N\)</span>: <span class="math">\(\frac12\left(x+\frac Nx\right)\)</span>; <span class="math">\(\frac1N\)</span>: <span class="math">\(x(2-Nx)\)</span>; <span class="math">\(\sqrt[3]N\)</span>: <span class="math">\(\frac13\left(2x+\frac N{x^2}\right)\)</span>.</li>
+</ul>
+<h3 id="linear-systems">Linear systems</h3>
+<ul>
+<li>Gauss elimination: reduce to upper triangular, back substitute; <span class="math">\(\det A=(-1)^s\prod u_{ii}\)</span>; cost <span class="math">\(\approx n^3/3\)</span>. Gauss-Jordan <span class="math">\(\approx n^3/2\)</span>.</li>
+<li><span class="math">\(A=LU\)</span> exists if all leading principal minors are nonzero. Doolittle <span class="math">\(l_{ii}=1\)</span>; Crout <span class="math">\(u_{ii}=1\)</span>; Cholesky <span class="math">\(A=LL^T\)</span> for symmetric positive definite <span class="math">\(A\)</span>.</li>
+<li>Jacobi: <span class="math">\(x_i^{(k+1)}=\frac1{a_{ii}}\left(b_i-\sum_{j\ne i}a_{ij}x_j^{(k)}\right)\)</span>. Gauss-Seidel: same, but use new values at once.</li>
+<li>Convergence for every start iff <span class="math">\(\rho(T)&lt;1\)</span>; sufficient: <span class="math">\(A\)</span> strictly diagonally dominant (or <span class="math">\(\lVert T\rVert&lt;1\)</span>). For consistently ordered matrices <span class="math">\(\rho(T_{GS})=\rho(T_J)^2\)</span>.</li>
+<li>Condition number <span class="math">\(\kappa(A)=\lVert A\rVert\lVert A^{-1}\rVert\ge1\)</span>.</li>
+</ul>
+<h3 id="interpolation-and-finite-differences">Interpolation and finite differences</h3>
+<ul>
+<li><span class="math">\(\Delta=E-1\)</span>, <span class="math">\(\nabla=1-E^{-1}\)</span>, <span class="math">\(\delta=E^{1/2}-E^{-1/2}\)</span>, <span class="math">\(E=e^{hD}\)</span>, <span class="math">\(hD=\ln(1+\Delta)\)</span>.</li>
+<li>A polynomial of degree <span class="math">\(n\)</span> has <span class="math">\(\Delta^ny=a_nn!h^n\)</span> and <span class="math">\(\Delta^{n+1}y=0\)</span>.</li>
+<li>Newton forward: <span class="math">\(y_0+p\Delta y_0+\frac{p(p-1)}{2!}\Delta^2y_0+\cdots\)</span>, <span class="math">\(p=\frac{x-x_0}h\)</span>. Backward: <span class="math">\(y_n+p\nabla y_n+\frac{p(p+1)}{2!}\nabla^2y_n+\cdots\)</span>.</li>
+<li>Lagrange: <span class="math">\(P(x)=\sum_iy_i\prod_{j\ne i}\frac{x-x_j}{x_i-x_j}\)</span>. Divided difference <span class="math">\(f[x_0..x_n]=\sum_i\frac{f(x_i)}{\prod_{j\ne i}(x_i-x_j)}=\frac{f^{(n)}(\xi)}{n!}\)</span>.</li>
+<li>For <span class="math">\(f(x)=\frac1x\)</span>: <span class="math">\(f[x_0,\dots,x_n]=\frac{(-1)^n}{x_0x_1\cdots x_n}\)</span>, for example <span class="math">\(f[a,b,c,d]=-\frac1{abcd}\)</span>.</li>
+<li>Error: <span class="math">\(\frac{f^{(n+1)}(\xi)}{(n+1)!}\prod(x-x_i)\)</span>. Hermite on <span class="math">\(n+1\)</span> nodes: degree <span class="math">\(\le2n+1\)</span>, error <span class="math">\(\frac{f^{(2n+2)}(\xi)}{(2n+2)!}\prod(x-x_i)^2\)</span>.</li>
+<li>Natural cubic spline: piecewise cubic, <span class="math">\(C^2\)</span>, <span class="math">\(S''=0\)</span> at both ends; <span class="math">\(M_{i-1}+4M_i+M_{i+1}=\frac6{h^2}\delta^2y_i\)</span>.</li>
+</ul>
+<h3 id="numerical-differentiation-and-integration">Numerical differentiation and integration</h3>
+<ul>
+<li><span class="math">\(f'(x_0)=\frac1h\left[\Delta y_0-\frac12\Delta^2y_0+\frac13\Delta^3y_0-\cdots\right]\)</span>; <span class="math">\(f''(x_0)=\frac1{h^2}\left[\Delta^2y_0-\Delta^3y_0+\frac{11}{12}\Delta^4y_0-\cdots\right]\)</span>.</li>
+<li>Central: <span class="math">\(f'\approx\frac{f(x+h)-f(x-h)}{2h}\)</span> (error <span class="math">\(O(h^2)\)</span>); <span class="math">\(f''\approx\frac{f(x+h)-2f(x)+f(x-h)}{h^2}\)</span> (error <span class="math">\(O(h^2)\)</span>).</li>
+<li>Trapezoid: <span class="math">\(\frac h2[y_0+2\sum y_i+y_n]\)</span>, error <span class="math">\(-\frac{(b-a)h^2}{12}f''\)</span>, exact for degree <span class="math">\(\le1\)</span>.</li>
+<li>Simpson <span class="math">\(\frac13\)</span> (<span class="math">\(n\)</span> even): <span class="math">\(\frac h3[y_0+4\sum_{\text{odd}}+2\sum_{\text{even}}+y_n]\)</span>, error <span class="math">\(-\frac{(b-a)h^4}{180}f^{(4)}\)</span>, exact for degree <span class="math">\(\le3\)</span>.</li>
+<li>Simpson <span class="math">\(\frac38\)</span> (<span class="math">\(3\mid n\)</span>): error <span class="math">\(-\frac{(b-a)h^4}{80}f^{(4)}\)</span>. Weddle (<span class="math">\(6\mid n\)</span>): exact for degree <span class="math">\(\le5\)</span>.</li>
+<li>Gauss-Legendre with <span class="math">\(n\)</span> points is exact for degree <span class="math">\(\le2n-1\)</span>; <span class="math">\(2\)</span>-point nodes <span class="math">\(\pm\frac1{\sqrt3}\)</span>, weights <span class="math">\(1,1\)</span>.</li>
+<li>Romberg: <span class="math">\(R_{k,j}=\frac{4^jR_{k,j-1}-R_{k-1,j-1}}{4^j-1}\)</span>.</li>
+</ul>
+<h3 id="odes">ODEs</h3>
+<ul>
+<li>Picard: <span class="math">\(y_{n+1}(x)=y_0+\int_{x_0}^xf(t,y_n(t))\,dt\)</span>. Taylor: <span class="math">\(y=y_0+hy_0'+\frac{h^2}{2!}y_0''+\cdots\)</span>.</li>
+<li>Euler: <span class="math">\(y_{n+1}=y_n+hf(x_n,y_n)\)</span>; local <span class="math">\(O(h^2)\)</span>, global <span class="math">\(O(h)\)</span>.</li>
+<li>Modified Euler (Heun): <span class="math">\(y_{n+1}=y_n+\frac h2[f(x_n,y_n)+f(x_{n+1},y_n+hf(x_n,y_n))]\)</span>; local <span class="math">\(O(h^3)\)</span>, global <span class="math">\(O(h^2)\)</span>.</li>
+<li>RK4: <span class="math">\(y_{n+1}=y_n+\frac h6(k_1+2k_2+2k_3+k_4)\)</span>; local <span class="math">\(O(h^5)\)</span>, global <span class="math">\(O(h^4)\)</span>. A method of order <span class="math">\(p\)</span> has local error <span class="math">\(O(h^{p+1})\)</span> and global error <span class="math">\(O(h^p)\)</span>.</li>
+<li>Stability on <span class="math">\(y'=\lambda y\)</span>: Euler needs <span class="math">\(h&lt;2/\lvert\lambda\rvert\)</span>.</li>
+<li>Milne predictor <span class="math">\(y_{n+1}=y_{n-3}+\frac{4h}3(2f_n-f_{n-1}+2f_{n-2})\)</span>, corrector <span class="math">\(y_{n+1}=y_{n-1}+\frac h3(f_{n+1}+4f_n+f_{n-1})\)</span>.</li>
+</ul>
+</article><p class="prev-link"><a href="/uphesc-maths/learn/or-numerical/">Back to the unit</a></p><footer class="foot"><p>Built from every paper that survives: the full 2025 and 2026 papers (140 maths questions) and half of 2019 (35, from a solution video). 2015 left only an answer key, and nothing was found for 2021. The commission has never published its booklets. Unit counts use 2025 and 2026 only, so they show a range, not a trend.</p><p>2025 answers match the official key. 2026 has no key yet, so its answers were worked out by hand and marked high, medium or low confidence, and every unsure one was solved again, blind. 2019 answers come from the video and are not checked against the official key.</p></footer></main><script type="module">var e=document.documentElement,t=()=>e.dataset.mode?e.dataset.mode===`dark`:matchMedia(`(prefers-color-scheme: dark)`).matches;document.querySelector(`[data-mode-toggle]`)?.addEventListener(`click`,()=>{let n=t()?`light`:`dark`;e.dataset.mode=n;try{localStorage.setItem(`um:mode`,n)}catch{}}),!e.dataset.mode&&t()&&(e.dataset.mode=`dark`);var n=document.querySelectorAll(`[data-old-toggle]`),r=t=>{t?e.dataset.old=`on`:delete e.dataset.old,n.forEach(e=>e.setAttribute(`aria-checked`,String(t)))};r(e.dataset.old===`on`),n.forEach(t=>t.addEventListener(`click`,()=>{let t=e.dataset.old!==`on`;r(t);try{localStorage.setItem(`um:old`,t?`on`:`off`)}catch{}}));var i=document.querySelectorAll(`[data-view]`),a=t=>{t===`bars`?e.dataset.view=`bars`:delete e.dataset.view,i.forEach(e=>e.setAttribute(`aria-pressed`,String(e.dataset.view===t)))};a(e.dataset.view===`bars`?`bars`:`heat`),i.forEach(e=>e.addEventListener(`click`,()=>{a(e.dataset.view);try{localStorage.setItem(`um:view`,e.dataset.view)}catch{}}));var o=document.createElement(`div`);o.className=`tip`,o.setAttribute(`role`,`tooltip`),o.hidden=!0,document.body.append(o);var s=null,c=(e,t)=>{let n=o.offsetWidth,r=o.offsetHeight,i=e+12,a=t+12;i+n>innerWidth-8&&(i=Math.max(8,e-n-12)),a+r>innerHeight-8&&(a=Math.max(8,t-r-12)),o.style.left=`${i}px`,o.style.top=`${a}px`},l=()=>{if(s){let e=s.getBoundingClientRect();c(e.left+e.width*.3,e.bottom-8)}},u=e=>{e!==s&&(s=e,o.replaceChildren(...[...e.querySelector(`.tip-src`).childNodes].map(e=>e.cloneNode(!0)))),o.hidden=!1},d=()=>{o.hidden=!0,s=null};document.addEventListener(`pointermove`,e=>{if(e.pointerType!==`mouse`)return;let t=e.target.closest(`[data-tip]`);t?(u(t),c(e.clientX,e.clientY)):s&&d()}),document.addEventListener(`focusin`,e=>{let t=e.target.closest(`[data-tip]`);t&&(u(t),l())}),document.addEventListener(`focusout`,()=>d()),addEventListener(`scroll`,()=>{s&&document.activeElement===s?l():s&&d()},{passive:!0}),document.addEventListener(`keydown`,e=>{e.key===`Escape`&&d()});var f=`um:done`,p={};try{p=JSON.parse(localStorage.getItem(f)||`{}`)}catch{}var m=()=>{document.querySelectorAll(`[data-progress]`).forEach(e=>{let t=[...document.querySelectorAll(`[data-group="${e.dataset.progress}"]`)],n=t.filter(e=>e.checked).length;e.querySelector(`.progress-bar span`).style.width=`${n/t.length*100}%`,e.querySelector(`[data-count]`).textContent=`${n} of ${t.length} done`})};document.querySelectorAll(`input[data-check]`).forEach(e=>{e.checked=!!p[e.dataset.check],e.addEventListener(`change`,()=>{p[e.dataset.check]=e.checked;try{localStorage.setItem(f,JSON.stringify(p))}catch{}m()})}),m();</script></body></html>

@@ -1,0 +1,295 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Modules and Noetherian rings · UPESSC maths</title><meta name="description" content="What to study for the UPESSC (formerly UPHESC) Assistant Professor maths paper, built from every paper that survives."><link rel="icon" href="/uphesc-maths/favicon.svg" type="image/svg+xml"><link rel="preload" href="/uphesc-maths/fonts/inter-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin><!-- the saved light/dark, 2019 and chart-view choices, before first paint --><script>
+    try { var m = localStorage.getItem('um:mode'); if (m) document.documentElement.dataset.mode = m; } catch (e) {}
+    try { if (localStorage.getItem('um:old') === 'on') document.documentElement.dataset.old = 'on'; } catch (e) {}
+    try { if (localStorage.getItem('um:view') === 'bars') document.documentElement.dataset.view = 'bars'; } catch (e) {}
+  </script><!-- maths: the vendored MathJax typesets \( \) and \[ \] text, loaded only on pages that have any --><script>(function(){const VENDOR = "/uphesc-maths/vendor";
+
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+      loader: { paths: { mathjax: VENDOR + '/mathjax', fonts: VENDOR + '/mathjax/fonts' } },
+      output: { font: 'mathjax-stix2', displayOverflow: 'scroll' },
+      options: { ignoreHtmlClass: 'no-math', processHtmlClass: 'math', menuOptions: { settings: { enrich: false, speech: false, braille: false } } },
+      chtml: { displayOverflow: 'scroll' },
+      // an inline formula with a piece wider than its line gets its own scrolling line, like display maths
+      startup: { pageReady: () => MathJax.startup.defaultPageReady().then(fitMath) },
+    };
+    function fitMath() {
+      for (const m of document.querySelectorAll('mjx-container:not([display="true"]):not(.mjx-wide)')) {
+        const box = m.closest('p, li, dd, blockquote, div');
+        if (!box || m.closest('td, th')) continue;
+        const right = box.getBoundingClientRect().right + 1;
+        if ([...m.getClientRects()].some((r) => r.right > right)) m.classList.add('mjx-wide');
+      }
+    }
+    let fitQueued = 0;
+    const queueFit = () => { if (window.MathJax?.startup?.document && !fitQueued) fitQueued = requestAnimationFrame(() => { fitQueued = 0; fitMath(); }); };
+    addEventListener('resize', queueFit);
+    addEventListener('click', () => setTimeout(queueFit, 50));
+    document.addEventListener('DOMContentLoaded', () => {
+      if (!document.querySelector('.math')) return;
+      const s = document.createElement('script');
+      s.async = true;
+      s.src = VENDOR + '/mathjax/tex-chtml-nofont.js';
+      document.head.appendChild(s);
+    });
+  })();</script><link rel="stylesheet" href="/uphesc-maths/_astro/Base.CkQ5KWO8.css"></head><body data-tab="learn"><nav class="appnav" aria-label="Main"><a class="appnav-brand" href="/uphesc-maths/" aria-label="UPESSC maths home">∑</a><a class="appnav-item" href="/uphesc-maths/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4 10.2 12 4l8 6.2V19a1 1 0 0 1-1 1h-4.5v-5.5h-5V20H5a1 1 0 0 1-1-1z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Plan</span></a><a class="appnav-item" href="/uphesc-maths/learn/" aria-current="page"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M12 6.5C10 5 7.5 4.5 4 4.5v13c3.5 0 6 .5 8 2 2-1.5 4.5-2 8-2v-13c-3.5 0-6 .5-8 2zM12 6.5v13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Learn</span></a><a class="appnav-item" href="/uphesc-maths/units/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4 5h7v7H4zM13 5h7v7h-7zM4 14h7v6H4zM13 14h7v6h-7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Units</span></a><a class="appnav-item" href="/uphesc-maths/papers/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M7 3h7l4 4v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zM14 3v4h4M9 12h6M9 16h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Papers</span></a><a class="appnav-item" href="/uphesc-maths/revise/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M5 12.5 9.5 17 19 7.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Revise</span></a></nav><header class="topbar"><a class="bar-back" href="/uphesc-maths/learn/algebra/" aria-label="Back"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a><p class="bar-title">Unit 1</p><button class="bar-btn" type="button" data-mode-toggle aria-label="Switch light or dark"><svg class="i-moon" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path></svg><svg class="i-sun" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path></svg></button></header><main class="page"><div class="reader" data-topic="modules"><header class="page-head topic-head"><p class="kicker"><a href="/uphesc-maths/learn/algebra/">Unit 1 · Abstract Algebra</a></p><h1>Modules and Noetherian rings</h1><ul class="meta"><li class="prio medium">Medium priority</li><li>1 h 10 min to study</li><li>Not asked yet</li><li class="read-flag" data-read-flag hidden>Read</li></ul><p class="prereq">Read first: <a href="/uphesc-maths/learn/algebra/rings-and-ideals/">Rings and ideals</a>, <a href="/uphesc-maths/learn/algebra/polynomial-rings-and-domains/">Polynomial rings and factorisation domains</a></p></header><div class="reader-grid"><nav class="toc" aria-label="On this page"><details class="toc-box" data-toc><summary>On this page</summary><ol><li><a href="#why-it-matters-for-the-exam">Why it matters for the exam</a></li><li><a href="#core-ideas">Core ideas</a></li><li class="sub"><a href="#modules-definition-and-basic-examples">Modules: definition and basic examples</a></li><li class="sub"><a href="#submodules-quotients-homomorphisms">Submodules, quotients, homomorphisms</a></li><li class="sub"><a href="#annihilators-and-torsion">Annihilators and torsion</a></li><li class="sub"><a href="#free-modules">Free modules</a></li><li class="sub"><a href="#structure-theorem-over-a-pid">Structure theorem over a PID</a></li><li class="sub"><a href="#simple-modules-and-length">Simple modules and length</a></li><li class="sub"><a href="#noetherian-modules-and-rings">Noetherian modules and rings</a></li><li class="sub"><a href="#hilbert-basis-theorem">Hilbert basis theorem</a></li><li><a href="#formulas-and-results">Formulas and results</a></li><li><a href="#worked-examples">Worked examples</a></li><li class="sub"><a href="#example-1-counting-module-homomorphisms">Example 1: counting module homomorphisms</a></li><li class="sub"><a href="#example-2-the-ideal-2xsubsetmathbb-zx-is-not-a-free-mathbb-zx-module">Example 2: the ideal <span class="math">\((2,x)\subset\mathbb Z[x]\)</span> is not a free <span class="math">\(\mathbb Z[x]\)</span>-module</a></li><li class="sub"><a href="#example-3-mathbb-q-is-not-a-noetherian-mathbb-z-module">Example 3: <span class="math">\(\mathbb Q\)</span> is not a Noetherian <span class="math">\(\mathbb Z\)</span>-module</a></li><li class="sub"><a href="#example-4-number-of-abelian-groups-and-invariant-factors">Example 4: number of abelian groups and invariant factors</a></li><li class="sub"><a href="#example-5-an-fx-module">Example 5: an <span class="math">\(F[x]\)</span>-module</a></li><li class="sub"><a href="#example-6-noetherian-or-not">Example 6: Noetherian or not?</a></li><li><a href="#common-traps">Common traps</a></li><li><a href="#previous-year-questions">Previous-year questions</a></li><li><a href="#quick-revision">Quick revision</a></li></ol></details></nav><article class="prose"><section class="note-section ns-why-it-matters-for-the-exam" aria-labelledby="why-it-matters-for-the-exam"><h2 id="why-it-matters-for-the-exam">Why it matters for the exam</h2>
+<p>The syllabus marks this part “A+” (advanced) and no module question has appeared yet in the 2019, 2025 or 2026 papers, so expect at most one question, usually a true/false item on Noetherian rings, free modules, or a count of homomorphisms. The facts below are short and mechanical: learn the examples and counterexamples (which rings are Noetherian, which modules are free, <span class="math">\(\mathbb Q\)</span> as a <span class="math">\(\mathbb Z\)</span>-module).</p>
+</section><section class="note-section ns-core-ideas" aria-labelledby="core-ideas"><h2 id="core-ideas">Core ideas</h2>
+<h3 id="modules-definition-and-basic-examples">Modules: definition and basic examples</h3>
+<p>Let <span class="math">\(R\)</span> be a ring with <span class="math">\(1\)</span>. A (left, unital) <strong><span class="math">\(R\)</span>-module</strong> is an abelian group <span class="math">\(M\)</span> with a scalar multiplication <span class="math">\(R\times M\to M\)</span> satisfying <span class="math">\(r(m+n)=rm+rn\)</span>, <span class="math">\((r+s)m=rm+sm\)</span>, <span class="math">\((rs)m=r(sm)\)</span>, <span class="math">\(1m=m\)</span>.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Ring <span class="math">\(R\)</span></th>
+<th><span class="math">\(R\)</span>-modules are</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a field <span class="math">\(F\)</span></td>
+<td>vector spaces over <span class="math">\(F\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(\mathbb Z\)</span></td>
+<td>abelian groups (the action <span class="math">\(nm\)</span> is forced)</td>
+</tr>
+<tr>
+<td><span class="math">\(\mathbb Z_n\)</span></td>
+<td>abelian groups with <span class="math">\(nm=0\)</span> for all <span class="math">\(m\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(F[x]\)</span></td>
+<td>pairs <span class="math">\((V,T)\)</span>: a vector space with a linear operator, <span class="math">\(x\cdot v=T(v)\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(R\)</span> itself</td>
+<td><span class="math">\(R\)</span> is a module over itself; its submodules are the left ideals</td>
+</tr>
+</tbody>
+</table></div>
+<p>More examples: <span class="math">\(R^n\)</span>; <span class="math">\(R/I\)</span> for an ideal <span class="math">\(I\)</span>; any ideal <span class="math">\(I\subseteq R\)</span>; <span class="math">\(F^n\)</span> over <span class="math">\(F[x]\)</span> via a matrix <span class="math">\(A\)</span> (<span class="math">\(x\cdot v=Av\)</span>); <span class="math">\(\mathbb Q\)</span> and <span class="math">\(\mathbb Z_n\)</span> over <span class="math">\(\mathbb Z\)</span>. A module over a field behaves like a vector space (always has a basis); over a general ring it need not.</p>
+<h3 id="submodules-quotients-homomorphisms">Submodules, quotients, homomorphisms</h3>
+<ul>
+<li><span class="math">\(N\subseteq M\)</span> is a <strong>submodule</strong> if it is a subgroup closed under scalars. Submodules of <span class="math">\(R\)</span> (as a module over itself) are ideals. For <span class="math">\(F[x]\)</span>-modules <span class="math">\((V,T)\)</span>, submodules are the <strong><span class="math">\(T\)</span>-invariant subspaces</strong>.</li>
+<li>Sum <span class="math">\(N+N'\)</span> and intersection <span class="math">\(N\cap N'\)</span> of submodules are submodules. The submodule generated by <span class="math">\(S\)</span> is <span class="math">\(\{\sum r_is_i\}\)</span>. <span class="math">\(M\)</span> is <strong>cyclic</strong> if <span class="math">\(M=Rm\)</span>, <strong>finitely generated</strong> if generated by finitely many elements.</li>
+<li><strong>Quotient</strong> <span class="math">\(M/N\)</span> with <span class="math">\(r(m+N)=rm+N\)</span>.</li>
+<li><strong>Homomorphism</strong> <span class="math">\(f:M\to N\)</span>: additive and <span class="math">\(f(rm)=rf(m)\)</span>. Kernel and image are submodules. <span class="math">\(\operatorname{Hom}_R(M,N)\)</span> is an abelian group (a module if <span class="math">\(R\)</span> is commutative).</li>
+<li><strong>First isomorphism theorem:</strong> <span class="math">\(M/\ker f\cong\operatorname{im}f\)</span>. Second: <span class="math">\((A+B)/B\cong A/(A\cap B)\)</span>. Third: <span class="math">\((M/A)/(B/A)\cong M/B\)</span> for <span class="math">\(A\subseteq B\)</span>. <strong>Correspondence:</strong> submodules of <span class="math">\(M/N\)</span> correspond to submodules of <span class="math">\(M\)</span> containing <span class="math">\(N\)</span>.</li>
+<li><span class="math">\(\operatorname{Hom}_R(R,M)\cong M\)</span> via <span class="math">\(f\mapsto f(1)\)</span>. A hom out of a cyclic module <span class="math">\(R/I\)</span> is determined by <span class="math">\(f(\bar1)=m\)</span>, which must satisfy <span class="math">\(Im=0\)</span>.</li>
+</ul>
+<p><strong>Counting homomorphisms of abelian groups.</strong> <span class="math">\(\operatorname{Hom}_{\mathbb Z}(\mathbb Z_m,\mathbb Z_n)\cong\mathbb Z_{\gcd(m,n)}\)</span>: send <span class="math">\(1\mapsto a\)</span> with <span class="math">\(ma\equiv0\pmod n\)</span>; there are <span class="math">\(\gcd(m,n)\)</span> choices. <span class="math">\(\operatorname{Hom}_{\mathbb Z}(\mathbb Z,M)\cong M\)</span>. <span class="math">\(\operatorname{Hom}_{\mathbb Z}(\mathbb Q,\mathbb Z)=0\)</span> and <span class="math">\(\operatorname{Hom}_{\mathbb Z}(\mathbb Q,\mathbb Z_n)=0\)</span>: for a hom <span class="math">\(f\)</span> and every integer <span class="math">\(m\)</span>, <span class="math">\(f(q)=m\,f(q/m)\)</span>, so <span class="math">\(f(q)\)</span> is divisible by every integer, which forces <span class="math">\(f(q)=0\)</span> in <span class="math">\(\mathbb Z\)</span>; in <span class="math">\(\mathbb Z_n\)</span> take <span class="math">\(m=n\)</span>.</p>
+<h3 id="annihilators-and-torsion">Annihilators and torsion</h3>
+<ul>
+<li><span class="math">\(\operatorname{Ann}(m)=\{r:rm=0\}\)</span> is a (left) ideal; <span class="math">\(\operatorname{Ann}(M)=\bigcap_m\operatorname{Ann}(m)\)</span> is a two-sided ideal.</li>
+<li>Over a domain, <span class="math">\(\operatorname{Tor}(M)=\{m:\operatorname{Ann}(m)\neq0\}\)</span> is a submodule; <span class="math">\(M\)</span> is <strong>torsion</strong> if <span class="math">\(\operatorname{Tor}M=M\)</span> and <strong>torsion-free</strong> if <span class="math">\(\operatorname{Tor}M=0\)</span>. <span class="math">\(\mathbb Z_n\)</span> is torsion; <span class="math">\(\mathbb Q\)</span> and <span class="math">\(\mathbb Z\)</span> are torsion-free; <span class="math">\(\mathbb Q/\mathbb Z\)</span> is torsion.</li>
+<li>For an <span class="math">\(F[x]\)</span>-module <span class="math">\((V,T)\)</span>, <span class="math">\(\operatorname{Ann}(V)\)</span> is generated by the <strong>minimal polynomial</strong> of <span class="math">\(T\)</span>. This is the bridge to Jordan and rational canonical forms in linear algebra.</li>
+</ul>
+<h3 id="free-modules">Free modules</h3>
+<p><span class="math">\(M\)</span> is <strong>free</strong> if it has a basis (a linearly independent generating set), equivalently <span class="math">\(M\cong R^{(I)}\)</span>, a direct sum of copies of <span class="math">\(R\)</span>.</p>
+<ul>
+<li>Universal property: a hom from a free module is determined by arbitrary values on a basis.</li>
+<li>Over a commutative ring any two bases of a free module have the same cardinality (rank).</li>
+<li>Every module is a quotient of a free module (map <span class="math">\(R^{(M)}\to M\)</span>). So <span class="math">\(M\cong F/K\)</span>.</li>
+<li><strong>Vector spaces:</strong> every module over a field is free. <strong>Over other rings, not so</strong>: <span class="math">\(\mathbb Z_n\)</span> is not free over <span class="math">\(\mathbb Z\)</span> (torsion), <span class="math">\(\mathbb Q\)</span> is not free over <span class="math">\(\mathbb Z\)</span> (any two rationals are linearly dependent over <span class="math">\(\mathbb Z\)</span>, and <span class="math">\(\mathbb Q\)</span> is not cyclic). On the other hand <span class="math">\(\mathbb Z^n\)</span> is free over <span class="math">\(\mathbb Z\)</span> and <span class="math">\(F[x]\)</span> is free over <span class="math">\(F\)</span>.</li>
+<li><strong>Free over <span class="math">\(\mathbb Z_6\)</span>:</strong> a free <span class="math">\(\mathbb Z_6\)</span>-module of rank <span class="math">\(n\)</span> has <span class="math">\(6^n\)</span> elements, so <span class="math">\(\mathbb Z_2\)</span> and <span class="math">\(\mathbb Z_3\)</span> are <span class="math">\(\mathbb Z_6\)</span>-modules that are not free (they are direct summands of <span class="math">\(\mathbb Z_6\)</span>, hence “projective”).</li>
+<li><strong>Submodules of free modules over a PID are free</strong> (of rank at most that of the ambient module). This fails over a non-PID: the ideal <span class="math">\((2,x)\subset\mathbb Z[x]\)</span> is a submodule of the free module <span class="math">\(\mathbb Z[x]\)</span> but is not free (any two elements <span class="math">\(a,b\)</span> satisfy <span class="math">\(b\cdot a-a\cdot b=0\)</span>, so a basis would have at most one element; a one-element basis would make the ideal principal).</li>
+<li><strong>Finitely generated torsion-free modules over a PID are free.</strong> Not true over a non-PID.</li>
+</ul>
+<h3 id="structure-theorem-over-a-pid">Structure theorem over a PID</h3>
+<p>Let <span class="math">\(R\)</span> be a PID and <span class="math">\(M\)</span> finitely generated. Then
+<span class="math">\(M\cong R^r\oplus R/(d_1)\oplus\dots\oplus R/(d_k),\quad d_1\mid d_2\mid\dots\mid d_k,\)</span>
+(invariant factor form), or equivalently a sum of <span class="math">\(R^r\)</span> and cyclic modules <span class="math">\(R/(p_i^{e_i})\)</span> for primes <span class="math">\(p_i\)</span> (elementary divisor form). The rank <span class="math">\(r\)</span> and the <span class="math">\(d_i\)</span> (up to units) are unique.</p>
+<p>Applications:</p>
+<ul>
+<li><strong>Abelian groups (<span class="math">\(R=\mathbb Z\)</span>):</strong> a finitely generated abelian group is <span class="math">\(\mathbb Z^r\oplus\)</span> finite. A finite abelian group of order <span class="math">\(p_1^{a_1}\cdots p_k^{a_k}\)</span> is a product of its Sylow parts, and the number of such groups is <span class="math">\(\prod_i P(a_i)\)</span>, where <span class="math">\(P(a)\)</span> is the number of partitions of <span class="math">\(a\)</span>. For <span class="math">\(72=2^3\cdot3^2\)</span>: <span class="math">\(P(3)P(2)=3\cdot2=6\)</span>.</li>
+<li><strong>Reading off the group from a presentation:</strong> <span class="math">\(\mathbb Z^2/\langle(2,4),(0,6)\rangle\)</span>: the relation matrix <span class="math">\(\begin{pmatrix}2&amp;4\\0&amp;6\end{pmatrix}\)</span> has gcd of entries <span class="math">\(2\)</span> and determinant <span class="math">\(12\)</span>, so invariant factors <span class="math">\(2,6\)</span>: the group is <span class="math">\(\mathbb Z_2\oplus\mathbb Z_6\)</span>, not cyclic. By contrast <span class="math">\(\mathbb Z^2/\langle(2,0),(0,3)\rangle\cong\mathbb Z_6\)</span> (invariant factors <span class="math">\(1,6\)</span>).</li>
+<li><strong>Canonical forms:</strong> for <span class="math">\(V=F^n\)</span> with operator <span class="math">\(T\)</span>, the invariant factors of the <span class="math">\(F[x]\)</span>-module <span class="math">\(V\)</span> are the invariant factors of <span class="math">\(xI-A\)</span>; the last one is the minimal polynomial, their product is the characteristic polynomial. Rational canonical form = invariant-factor form; Jordan form = elementary-divisor form (when the eigenvalues lie in <span class="math">\(F\)</span>).</li>
+<li><span class="math">\(\mathbb Z_m\oplus\mathbb Z_n\cong\mathbb Z_{mn}\)</span> iff <span class="math">\(\gcd(m,n)=1\)</span>; <span class="math">\(\mathbb Z_4\oplus\mathbb Z_6\cong\mathbb Z_2\oplus\mathbb Z_{12}\)</span>.</li>
+<li>CRT for modules: <span class="math">\(\mathbb Q[x]/(x^2(x-1))\cong\mathbb Q[x]/(x^2)\oplus\mathbb Q[x]/(x-1)\)</span> (coprime factors), but it is <strong>not</strong> <span class="math">\(\mathbb Q[x]/(x)\oplus\mathbb Q[x]/(x)\oplus\mathbb Q[x]/(x-1)\)</span>.</li>
+</ul>
+<h3 id="simple-modules-and-length">Simple modules and length</h3>
+<p><span class="math">\(M\neq0\)</span> is <strong>simple</strong> if its only submodules are <span class="math">\(0\)</span> and <span class="math">\(M\)</span>. Over commutative <span class="math">\(R\)</span> the simple modules are <span class="math">\(R/\mathfrak m\)</span> for maximal ideals <span class="math">\(\mathfrak m\)</span>. <span class="math">\(\mathbb Z_p\)</span> is a simple <span class="math">\(\mathbb Z\)</span>-module; <span class="math">\(\mathbb Z_n\)</span> is simple iff <span class="math">\(n\)</span> is prime. A module of finite <strong>length</strong> has a composition series with simple factors; the factors are unique (Jordan-Hölder). Length of <span class="math">\(\mathbb Z_n\)</span> is the number of prime factors counted with multiplicity: <span class="math">\(\mathbb Z_{12}\)</span> has length <span class="math">\(3\)</span>.</p>
+<h3 id="noetherian-modules-and-rings">Noetherian modules and rings</h3>
+<p>An <span class="math">\(R\)</span>-module <span class="math">\(M\)</span> is <strong>Noetherian</strong> if it satisfies the <strong>ascending chain condition</strong> (ACC): every chain <span class="math">\(N_1\subseteq N_2\subseteq\cdots\)</span> of submodules is eventually constant. A ring <span class="math">\(R\)</span> is Noetherian if <span class="math">\(R\)</span> is a Noetherian module over itself, i.e. ACC on ideals.</p>
+<p><strong>Equivalent conditions (for a module <span class="math">\(M\)</span>):</strong></p>
+<ol>
+<li>ACC on submodules.</li>
+<li>Every nonempty set of submodules has a <strong>maximal element</strong>.</li>
+<li>Every submodule of <span class="math">\(M\)</span> is <strong>finitely generated</strong>.</li>
+</ol>
+<p>So a ring is Noetherian iff every ideal is finitely generated (an infinite strictly ascending chain would give a non-f.g. ideal as the union).</p>
+<p><strong>Closure properties.</strong></p>
+<ul>
+<li>Exact sequences: in <span class="math">\(0\to N\to M\to M/N\to0\)</span>, <span class="math">\(M\)</span> is Noetherian iff both <span class="math">\(N\)</span> and <span class="math">\(M/N\)</span> are Noetherian.</li>
+<li>A finite direct sum of Noetherian modules is Noetherian. If <span class="math">\(R\)</span> is a Noetherian ring, every <strong>finitely generated</strong> <span class="math">\(R\)</span>-module is Noetherian (a quotient of <span class="math">\(R^n\)</span>).</li>
+<li>A quotient of a Noetherian ring is Noetherian. A finite direct product of Noetherian rings is Noetherian.</li>
+<li>A <strong>subring</strong> of a Noetherian ring need not be Noetherian (see below).</li>
+<li>A surjective endomorphism of a Noetherian module is injective (the chain <span class="math">\(\ker f\subseteq\ker f^2\subseteq\cdots\)</span> stabilises). The converse fails: multiplication by <span class="math">\(2\)</span> on <span class="math">\(\mathbb Z\)</span> is injective but not surjective.</li>
+<li><strong>Cohen:</strong> a commutative ring is Noetherian iff every prime ideal is finitely generated.</li>
+<li>Hopkins-Levitzki: a ring with <span class="math">\(1\)</span> that is Artinian (DCC on ideals) is Noetherian. The converse fails: <span class="math">\(\mathbb Z\)</span>.</li>
+</ul>
+<p><strong>Examples of Noetherian rings.</strong> Fields; <span class="math">\(\mathbb Z\)</span>; every PID (<span class="math">\(F[x]\)</span>, <span class="math">\(\mathbb Z[i]\)</span>); <span class="math">\(\mathbb Z_n\)</span> and every finite ring; <span class="math">\(\mathbb Z[x]\)</span>, <span class="math">\(F[x_1,\dots,x_n]\)</span> (Hilbert); <span class="math">\(\mathbb Z[x_1,\dots,x_n]\)</span>; quotients of these; <span class="math">\(R[[x]]\)</span> for Noetherian <span class="math">\(R\)</span>; finitely generated commutative algebras over a field or over <span class="math">\(\mathbb Z\)</span>.</p>
+<p><strong>Non-Noetherian rings (the traps).</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Ring</th>
+<th>Why not Noetherian</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math">\(F[x_1,x_2,x_3,\dots]\)</span> (infinitely many variables)</td>
+<td><span class="math">\((x_1)\subsetneq(x_1,x_2)\subsetneq(x_1,x_2,x_3)\subsetneq\cdots\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(C[0,1]\)</span></td>
+<td><span class="math">\(J_n=\{f:f=0\text{ on }[0,1/n]\}\)</span> gives <span class="math">\(J_1\subsetneq J_2\subsetneq\cdots\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(\mathbb Z+x\mathbb Q[x]\)</span></td>
+<td><span class="math">\((x)\subsetneq(x/2)\subsetneq(x/4)\subsetneq\cdots\)</span>, though <span class="math">\(\mathbb Q[x]\)</span> is Noetherian</td>
+</tr>
+<tr>
+<td>ring of all real functions on an infinite set <span class="math">\(\{x_1,x_2,\dots\}\)</span></td>
+<td>ideals of functions supported on <span class="math">\(\{x_1,\dots,x_n\}\)</span> grow strictly with <span class="math">\(n\)</span></td>
+</tr>
+</tbody>
+</table></div>
+<p>In <span class="math">\(C[0,1]\)</span> the interval <span class="math">\([0,1/n]\)</span> shrinks as <span class="math">\(n\)</span> grows, so the condition “<span class="math">\(f=0\)</span> on <span class="math">\([0,1/n]\)</span>” weakens and the ideals grow; a continuous <span class="math">\(f\)</span> that vanishes on <span class="math">\([0,\frac1{n+1}]\)</span> but not everywhere on <span class="math">\([0,\frac1n]\)</span> lies in <span class="math">\(J_{n+1}\setminus J_n\)</span>.</p>
+<p><strong>Non-Noetherian modules.</strong> <span class="math">\(\mathbb Q\)</span> and <span class="math">\(\mathbb Z[1/2]\)</span> over <span class="math">\(\mathbb Z\)</span> (chain <span class="math">\(\mathbb Z\subsetneq\frac12\mathbb Z\subsetneq\frac14\mathbb Z\subsetneq\cdots\)</span>); the Prüfer group <span class="math">\(\mathbb Z(p^\infty)\)</span> over <span class="math">\(\mathbb Z\)</span> (Artinian, not Noetherian); <span class="math">\(\mathbb Z^{(\infty)}=\bigoplus_{\mathbb N}\mathbb Z\)</span>; <span class="math">\(\mathbb Q\)</span> over <span class="math">\(\mathbb Q\)</span> <strong>is</strong> Noetherian (a one-dimensional vector space); a finite-dimensional vector space is Noetherian and Artinian, an infinite-dimensional one is neither.</p>
+<p>A Noetherian domain is atomic: every nonzero nonunit is a product of irreducibles. Uniqueness of factorisation is not automatic: <span class="math">\(\mathbb Z[\sqrt{-5}]\)</span> is Noetherian but not a UFD.</p>
+<h3 id="hilbert-basis-theorem">Hilbert basis theorem</h3>
+<p><strong>Theorem.</strong> If <span class="math">\(R\)</span> is a Noetherian ring (commutative with <span class="math">\(1\)</span>), then <span class="math">\(R[x]\)</span> is Noetherian.</p>
+<p>Proof idea: for an ideal <span class="math">\(I\subseteq R[x]\)</span>, let <span class="math">\(L_k\)</span> be the ideal of leading coefficients of elements of <span class="math">\(I\)</span> of degree <span class="math">\(\le k\)</span> (including <span class="math">\(0\)</span>). The <span class="math">\(L_k\)</span> form an ascending chain in <span class="math">\(R\)</span>, stabilising at some <span class="math">\(L_N\)</span>. Choose finitely many polynomials in <span class="math">\(I\)</span> whose leading coefficients generate each <span class="math">\(L_k\)</span> for <span class="math">\(k\le N\)</span>; they generate <span class="math">\(I\)</span> by induction on degree.</p>
+<p><strong>Corollaries.</strong></p>
+<ul>
+<li><span class="math">\(R[x_1,\dots,x_n]\)</span> is Noetherian by induction. So <span class="math">\(\mathbb Z[x]\)</span>, <span class="math">\(\mathbb Z[x,y]\)</span>, <span class="math">\(F[x_1,\dots,x_n]\)</span> are Noetherian; every ideal there is finitely generated (e.g. <span class="math">\((2,x)\subset\mathbb Z[x]\)</span>).</li>
+<li>Every finitely generated commutative algebra over a Noetherian ring is Noetherian (a quotient of a polynomial ring).</li>
+<li><span class="math">\(R[[x]]\)</span> is Noetherian for Noetherian <span class="math">\(R\)</span>.</li>
+<li><strong>Fails for infinitely many variables</strong>: <span class="math">\(F[x_1,x_2,\dots]\)</span> is not Noetherian. Hilbert’s theorem gives finite generation of ideals, not of the ring; it also does not say <span class="math">\(R[x]\)</span> is a PID (<span class="math">\(\mathbb Z[x]\)</span> is Noetherian and not a PID).</li>
+<li>Hilbert basis theorem also implies the ideal of a polynomial system is generated by finitely many polynomials: any algebraic set is the zero set of finitely many polynomials.</li>
+</ul>
+</section><section class="note-section ns-formulas-and-results" aria-labelledby="formulas-and-results"><h2 id="formulas-and-results">Formulas and results</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Fact</th>
+<th>Statement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math">\(\mathbb Z\)</span>-modules</td>
+<td>= abelian groups</td>
+</tr>
+<tr>
+<td><span class="math">\(F[x]\)</span>-modules</td>
+<td>= <span class="math">\((V,T)\)</span>; submodules = <span class="math">\(T\)</span>-invariant subspaces</td>
+</tr>
+<tr>
+<td><span class="math">\(\operatorname{Hom}_{\mathbb Z}(\mathbb Z_m,\mathbb Z_n)\)</span></td>
+<td><span class="math">\(\cong\mathbb Z_{\gcd(m,n)}\)</span> (so <span class="math">\(\gcd(m,n)\)</span> homs)</td>
+</tr>
+<tr>
+<td><span class="math">\(\operatorname{Hom}_R(R,M)\)</span></td>
+<td><span class="math">\(\cong M\)</span></td>
+</tr>
+<tr>
+<td>Iso theorem</td>
+<td><span class="math">\(M/\ker f\cong\operatorname{im}f\)</span></td>
+</tr>
+<tr>
+<td>Noetherian module</td>
+<td>ACC <span class="math">\(\iff\)</span> every submodule f.g. <span class="math">\(\iff\)</span> maximal elements exist</td>
+</tr>
+<tr>
+<td><span class="math">\(0\to N\to M\to M/N\to0\)</span></td>
+<td><span class="math">\(M\)</span> Noetherian iff <span class="math">\(N\)</span>, <span class="math">\(M/N\)</span> Noetherian</td>
+</tr>
+<tr>
+<td><span class="math">\(R\)</span> Noetherian</td>
+<td>f.g. <span class="math">\(R\)</span>-modules are Noetherian</td>
+</tr>
+<tr>
+<td>Surjective endo of Noetherian module</td>
+<td>injective</td>
+</tr>
+<tr>
+<td>Hilbert basis theorem</td>
+<td><span class="math">\(R\)</span> Noetherian <span class="math">\(\Rightarrow R[x_1,\dots,x_n]\)</span> Noetherian</td>
+</tr>
+<tr>
+<td>PID, finite ring, field</td>
+<td>Noetherian</td>
+</tr>
+<tr>
+<td>Infinitely many variables, <span class="math">\(C[0,1]\)</span>, <span class="math">\(\mathbb Z+x\mathbb Q[x]\)</span></td>
+<td>not Noetherian</td>
+</tr>
+<tr>
+<td>Submodules of free over a PID</td>
+<td>free</td>
+</tr>
+<tr>
+<td>Structure theorem</td>
+<td>f.g. over PID <span class="math">\(=R^r\oplus\bigoplus R/(d_i)\)</span>, <span class="math">\(d_1\mid\dots\mid d_k\)</span></td>
+</tr>
+<tr>
+<td>Abelian groups of order <span class="math">\(\prod p_i^{a_i}\)</span></td>
+<td><span class="math">\(\prod P(a_i)\)</span></td>
+</tr>
+<tr>
+<td>Simple <span class="math">\(R\)</span>-module</td>
+<td><span class="math">\(R/\mathfrak m\)</span> (<span class="math">\(R\)</span> commutative)</td>
+</tr>
+</tbody>
+</table></div>
+</section><section class="note-section ns-worked-examples" aria-labelledby="worked-examples"><h2 id="worked-examples">Worked examples</h2>
+<h3 id="example-1-counting-module-homomorphisms">Example 1: counting module homomorphisms</h3>
+<p><span class="math">\(\operatorname{Hom}_{\mathbb Z}(\mathbb Z_{12},\mathbb Z_{18})\)</span>: send <span class="math">\(1\mapsto a\in\mathbb Z_{18}\)</span> with <span class="math">\(12a\equiv0\pmod{18}\)</span>, i.e. <span class="math">\(2a\equiv0\pmod3\)</span>, i.e. <span class="math">\(3\mid a\)</span>: <span class="math">\(a\in\{0,3,6,9,12,15\}\)</span>. Six homomorphisms, <span class="math">\(=\gcd(12,18)\)</span>. (Contrast with ring homomorphisms <span class="math">\(\mathbb Z_{12}\to\mathbb Z_{18}\)</span>: only <span class="math">\(2\)</span>, since <span class="math">\(\varphi(1)\)</span> must be idempotent.) Also <span class="math">\(\operatorname{Hom}_{\mathbb Z}(\mathbb Z_8,\mathbb Z_{12})\)</span> has <span class="math">\(\gcd=4\)</span> elements.</p>
+<h3 id="example-2-the-ideal-2xsubsetmathbb-zx-is-not-a-free-mathbb-zx-module">Example 2: the ideal <span class="math">\((2,x)\subset\mathbb Z[x]\)</span> is not a free <span class="math">\(\mathbb Z[x]\)</span>-module</h3>
+<p>The ideal <span class="math">\(I=(2,x)\)</span> is generated by <span class="math">\(2\)</span> and <span class="math">\(x\)</span>. Any two elements <span class="math">\(a,b\in I\)</span> satisfy the nontrivial relation <span class="math">\(ba+(-a)b=0\)</span> (coefficients <span class="math">\(b,-a\in\mathbb Z[x]\)</span>, not both zero since <span class="math">\(\mathbb Z[x]\)</span> is a domain and <span class="math">\(a,b\neq0\)</span>). So a basis of <span class="math">\(I\)</span> has at most one element, and then <span class="math">\(I\)</span> would be principal, which it is not (Polynomial topic). Hence <span class="math">\(I\)</span> is not free, although it is a submodule of the free module <span class="math">\(\mathbb Z[x]\)</span>. This is why “submodules of free modules are free” needs a PID.</p>
+<h3 id="example-3-mathbb-q-is-not-a-noetherian-mathbb-z-module">Example 3: <span class="math">\(\mathbb Q\)</span> is not a Noetherian <span class="math">\(\mathbb Z\)</span>-module</h3>
+<p>The chain <span class="math">\(\mathbb Z\subsetneq\tfrac12\mathbb Z\subsetneq\tfrac14\mathbb Z\subsetneq\tfrac18\mathbb Z\subsetneq\cdots\)</span> of <span class="math">\(\mathbb Z\)</span>-submodules of <span class="math">\(\mathbb Q\)</span> never stabilises (<span class="math">\(\tfrac1{2^{k+1}}\notin\tfrac1{2^k}\mathbb Z\)</span>). Equivalently, <span class="math">\(\bigcup_k\tfrac1{2^k}\mathbb Z=\mathbb Z[\tfrac12]\)</span> is a submodule of <span class="math">\(\mathbb Q\)</span> that is not finitely generated. (Over the field <span class="math">\(\mathbb Q\)</span> itself, <span class="math">\(\mathbb Q\)</span> is Noetherian.)</p>
+<h3 id="example-4-number-of-abelian-groups-and-invariant-factors">Example 4: number of abelian groups and invariant factors</h3>
+<p>Abelian groups of order <span class="math">\(72=2^3\cdot3^2\)</span>: partitions of <span class="math">\(3\)</span> (three) times partitions of <span class="math">\(2\)</span> (two) <span class="math">\(=6\)</span>. The <span class="math">\(2\)</span>-part is one of <span class="math">\(\mathbb Z_8\)</span>, <span class="math">\(\mathbb Z_4\oplus\mathbb Z_2\)</span>, <span class="math">\(\mathbb Z_2^3\)</span> and the <span class="math">\(3\)</span>-part is one of <span class="math">\(\mathbb Z_9\)</span>, <span class="math">\(\mathbb Z_3^2\)</span>; the six combinations are the six groups. Invariant factors of <span class="math">\(\mathbb Z_4\oplus\mathbb Z_6\)</span>: elementary divisors <span class="math">\(4,2,3\)</span>, so <span class="math">\(\mathbb Z_{12}\oplus\mathbb Z_2\)</span>.</p>
+<h3 id="example-5-an-fx-module">Example 5: an <span class="math">\(F[x]\)</span>-module</h3>
+<p>Let <span class="math">\(M=\mathbb Q[x]/(x^3-x^2)\)</span> and note <span class="math">\(x^3-x^2=x^2(x-1)\)</span>. By CRT, <span class="math">\(M\cong\mathbb Q[x]/(x^2)\oplus\mathbb Q[x]/(x-1)\)</span>; <span class="math">\(\dim_{\mathbb Q}M=3\)</span>. As an operator (<span class="math">\(T=\)</span> multiplication by <span class="math">\(x\)</span>) it has Jordan blocks <span class="math">\(J_2(0)\oplus J_1(1)\)</span> and minimal polynomial <span class="math">\(x^2(x-1)\)</span>. It is cyclic (generated by <span class="math">\(\bar1\)</span>). <span class="math">\(\mathbb Q[x]/(x)\oplus\mathbb Q[x]/(x)\oplus\mathbb Q[x]/(x-1)\)</span> is a different module of the same dimension (minimal polynomial <span class="math">\(x(x-1)\)</span>).</p>
+<h3 id="example-6-noetherian-or-not">Example 6: Noetherian or not?</h3>
+<p>(a) <span class="math">\(\mathbb Z[x,y,z]\)</span>: Noetherian (Hilbert, three times).
+(b) <span class="math">\(\mathbb Q[x_1,x_2,\dots]\)</span>: not Noetherian, <span class="math">\((x_1)\subsetneq(x_1,x_2)\subsetneq\cdots\)</span>.
+(c) <span class="math">\(\mathbb Z+x\mathbb Q[x]\)</span>: not Noetherian, even though it sits inside the Noetherian ring <span class="math">\(\mathbb Q[x]\)</span>.
+(d) <span class="math">\(\mathbb Z_6[x]\)</span>: Noetherian (<span class="math">\(\mathbb Z_6\)</span> is a finite ring).
+(e) <span class="math">\(\mathbb Z[x]/(x^2+1)=\mathbb Z[i]\)</span>: Noetherian (quotient of a Noetherian ring).</p>
+</section><section class="note-section ns-common-traps" aria-labelledby="common-traps"><h2 id="common-traps">Common traps</h2>
+<ul>
+<li><strong>Subrings of Noetherian rings.</strong> Quotients are Noetherian; subrings need not be (<span class="math">\(\mathbb Z+x\mathbb Q[x]\subset\mathbb Q[x]\)</span>; also <span class="math">\(F[x,xy,xy^2,\dots]\subset F[x,y]\)</span>).</li>
+<li><strong>Hilbert is about finitely many variables.</strong> <span class="math">\(R[x_1,x_2,\dots]\)</span> is not Noetherian even for <span class="math">\(R\)</span> a field.</li>
+<li><strong><span class="math">\(\mathbb Q\)</span> over <span class="math">\(\mathbb Z\)</span> vs over <span class="math">\(\mathbb Q\)</span>.</strong> Noetherian over <span class="math">\(\mathbb Q\)</span> (dimension <span class="math">\(1\)</span>), not over <span class="math">\(\mathbb Z\)</span>.</li>
+<li><strong>Free vs projective vs torsion-free.</strong> <span class="math">\(\mathbb Z_n\)</span> is torsion, so not free over <span class="math">\(\mathbb Z\)</span>; <span class="math">\(\mathbb Q\)</span> is torsion-free but not free; <span class="math">\(\mathbb Z_2\)</span> is a non-free summand of <span class="math">\(\mathbb Z_6\)</span> over <span class="math">\(\mathbb Z_6\)</span>.</li>
+<li><strong>Submodules of free modules.</strong> Free over a PID; not over <span class="math">\(\mathbb Z[x]\)</span> or <span class="math">\(\mathbb Z_6\)</span> (<span class="math">\(2\mathbb Z_6\cong\mathbb Z_3\)</span> is not free).</li>
+<li><strong>Homomorphism count.</strong> <span class="math">\(\gcd(m,n)\)</span> for <span class="math">\(\mathbb Z\)</span>-module homs <span class="math">\(\mathbb Z_m\to\mathbb Z_n\)</span>. For ring homs the answer is different (idempotents).</li>
+<li><strong>Noetherian is not PID.</strong> <span class="math">\(\mathbb Z[x]\)</span> and <span class="math">\(F[x,y]\)</span> are Noetherian but not PIDs; <span class="math">\(\mathbb Z[\sqrt{-5}]\)</span> is Noetherian but not a UFD.</li>
+<li><strong>Injective vs surjective.</strong> Surjective endomorphisms of Noetherian modules are injective; the converse is false (<span class="math">\(\times2\)</span> on <span class="math">\(\mathbb Z\)</span>). For Artinian modules the converse holds instead.</li>
+<li><strong>Noetherian and Artinian are independent</strong> for modules: <span class="math">\(\mathbb Z\)</span> is Noetherian not Artinian; <span class="math">\(\mathbb Z(p^\infty)\)</span> is Artinian not Noetherian. Rings with <span class="math">\(1\)</span>: Artinian implies Noetherian.</li>
+<li><strong>Rank-nullity does not hold for modules</strong>: <span class="math">\(\mathbb Z\xrightarrow{\times2}\mathbb Z\)</span> has kernel <span class="math">\(0\)</span> and cokernel <span class="math">\(\mathbb Z_2\)</span>.</li>
+</ul>
+</section><section class="note-section ns-previous-year-questions" aria-labelledby="previous-year-questions"><h2 id="previous-year-questions">Previous-year questions</h2>
+<p>None yet. (No module or Noetherian question appears in the recovered 2019, 2025 or 2026 papers; the syllabus tags the topic “A+”, so a question is possible.)</p>
+</section><section class="note-section ns-quick-revision" aria-labelledby="quick-revision"><h2 id="quick-revision">Quick revision</h2>
+<ul>
+<li><span class="math">\(\mathbb Z\)</span>-modules = abelian groups; <span class="math">\(F[x]\)</span>-modules = (vector space, linear operator); submodules = invariant subspaces.</li>
+<li>Noetherian module <span class="math">\(\iff\)</span> ACC <span class="math">\(\iff\)</span> every submodule finitely generated.</li>
+<li>Hilbert basis theorem: <span class="math">\(R\)</span> Noetherian <span class="math">\(\Rightarrow R[x_1,\dots,x_n]\)</span> Noetherian; fails for infinitely many variables.</li>
+<li>PID, field, finite ring, <span class="math">\(\mathbb Z[x]\)</span>, <span class="math">\(F[x,y]\)</span>: Noetherian. <span class="math">\(F[x_1,x_2,\dots]\)</span>, <span class="math">\(C[0,1]\)</span>, <span class="math">\(\mathbb Z+x\mathbb Q[x]\)</span>: not.</li>
+<li><span class="math">\(N\)</span> and <span class="math">\(M/N\)</span> Noetherian <span class="math">\(\iff\)</span> <span class="math">\(M\)</span> Noetherian; f.g. modules over Noetherian rings are Noetherian.</li>
+<li><span class="math">\(\mathbb Q\)</span> is not a Noetherian (or f.g., or free) <span class="math">\(\mathbb Z\)</span>-module.</li>
+<li>Surjective endomorphism of a Noetherian module is injective; <span class="math">\(\times2\)</span> on <span class="math">\(\mathbb Z\)</span> is injective, not surjective.</li>
+<li><span class="math">\(\#\operatorname{Hom}_{\mathbb Z}(\mathbb Z_m,\mathbb Z_n)=\gcd(m,n)\)</span>.</li>
+<li>Submodules of free modules over a PID are free; <span class="math">\((2,x)\subset\mathbb Z[x]\)</span> is not free.</li>
+<li>F.g. module over a PID <span class="math">\(=R^r\oplus\bigoplus R/(d_i)\)</span> with <span class="math">\(d_1\mid\dots\mid d_k\)</span>.</li>
+<li>Number of abelian groups of order <span class="math">\(\prod p_i^{a_i}\)</span> is <span class="math">\(\prod P(a_i)\)</span>; order <span class="math">\(72\)</span> gives <span class="math">\(6\)</span>.</li>
+<li>Simple <span class="math">\(R\)</span>-modules (<span class="math">\(R\)</span> commutative) are <span class="math">\(R/\mathfrak m\)</span>.</li>
+</ul>
+</section></article></div><section class="section reader-end"><button class="read-btn" type="button" data-read-btn aria-pressed="false"><span class="box" aria-hidden="true"></span><span data-read-label>Mark as read</span></button><ul class="units end-links"><li><a class="unit-card" href="/uphesc-maths/learn/algebra/modules/practice/"><span class="unit-top"><span class="unit-name">Practise this topic</span></span><p class="flush">14 questions with worked solutions</p></a></li><li><a class="unit-card" href="/uphesc-maths/learn/algebra/formulas/"><span class="unit-top"><span class="unit-name">Unit 1 formula sheet</span></span><p class="flush">Last topic of the unit. Revise every formula in one place.</p></a></li></ul><p class="prev-link"><a href="/uphesc-maths/learn/algebra/fields-and-extensions/">Previous: Fields and field extensions</a></p></section></div><footer class="foot"><p>Built from every paper that survives: the full 2025 and 2026 papers (140 maths questions) and half of 2019 (35, from a solution video). 2015 left only an answer key, and nothing was found for 2021. The commission has never published its booklets. Unit counts use 2025 and 2026 only, so they show a range, not a trend.</p><p>2025 answers match the official key. 2026 has no key yet, so its answers were worked out by hand and marked high, medium or low confidence, and every unsure one was solved again, blind. 2019 answers come from the video and are not checked against the official key.</p></footer></main><script type="module">var e=document.documentElement,t=()=>e.dataset.mode?e.dataset.mode===`dark`:matchMedia(`(prefers-color-scheme: dark)`).matches;document.querySelector(`[data-mode-toggle]`)?.addEventListener(`click`,()=>{let n=t()?`light`:`dark`;e.dataset.mode=n;try{localStorage.setItem(`um:mode`,n)}catch{}}),!e.dataset.mode&&t()&&(e.dataset.mode=`dark`);var n=document.querySelectorAll(`[data-old-toggle]`),r=t=>{t?e.dataset.old=`on`:delete e.dataset.old,n.forEach(e=>e.setAttribute(`aria-checked`,String(t)))};r(e.dataset.old===`on`),n.forEach(t=>t.addEventListener(`click`,()=>{let t=e.dataset.old!==`on`;r(t);try{localStorage.setItem(`um:old`,t?`on`:`off`)}catch{}}));var i=document.querySelectorAll(`[data-view]`),a=t=>{t===`bars`?e.dataset.view=`bars`:delete e.dataset.view,i.forEach(e=>e.setAttribute(`aria-pressed`,String(e.dataset.view===t)))};a(e.dataset.view===`bars`?`bars`:`heat`),i.forEach(e=>e.addEventListener(`click`,()=>{a(e.dataset.view);try{localStorage.setItem(`um:view`,e.dataset.view)}catch{}}));var o=document.createElement(`div`);o.className=`tip`,o.setAttribute(`role`,`tooltip`),o.hidden=!0,document.body.append(o);var s=null,c=(e,t)=>{let n=o.offsetWidth,r=o.offsetHeight,i=e+12,a=t+12;i+n>innerWidth-8&&(i=Math.max(8,e-n-12)),a+r>innerHeight-8&&(a=Math.max(8,t-r-12)),o.style.left=`${i}px`,o.style.top=`${a}px`},l=()=>{if(s){let e=s.getBoundingClientRect();c(e.left+e.width*.3,e.bottom-8)}},u=e=>{e!==s&&(s=e,o.replaceChildren(...[...e.querySelector(`.tip-src`).childNodes].map(e=>e.cloneNode(!0)))),o.hidden=!1},d=()=>{o.hidden=!0,s=null};document.addEventListener(`pointermove`,e=>{if(e.pointerType!==`mouse`)return;let t=e.target.closest(`[data-tip]`);t?(u(t),c(e.clientX,e.clientY)):s&&d()}),document.addEventListener(`focusin`,e=>{let t=e.target.closest(`[data-tip]`);t&&(u(t),l())}),document.addEventListener(`focusout`,()=>d()),addEventListener(`scroll`,()=>{s&&document.activeElement===s?l():s&&d()},{passive:!0}),document.addEventListener(`keydown`,e=>{e.key===`Escape`&&d()});var f=`um:done`,p={};try{p=JSON.parse(localStorage.getItem(f)||`{}`)}catch{}var m=()=>{document.querySelectorAll(`[data-progress]`).forEach(e=>{let t=[...document.querySelectorAll(`[data-group="${e.dataset.progress}"]`)],n=t.filter(e=>e.checked).length;e.querySelector(`.progress-bar span`).style.width=`${n/t.length*100}%`,e.querySelector(`[data-count]`).textContent=`${n} of ${t.length} done`})};document.querySelectorAll(`input[data-check]`).forEach(e=>{e.checked=!!p[e.dataset.check],e.addEventListener(`change`,()=>{p[e.dataset.check]=e.checked;try{localStorage.setItem(f,JSON.stringify(p))}catch{}m()})}),m();</script></body></html><script type="module" src="/uphesc-maths/_astro/index.astro_astro_type_script_index_0_lang.t7qZbIYF.js"></script>

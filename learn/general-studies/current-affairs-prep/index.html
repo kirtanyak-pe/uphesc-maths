@@ -1,0 +1,337 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>How to prepare current affairs · UPESSC maths</title><meta name="description" content="What to study for the UPESSC (formerly UPHESC) Assistant Professor maths paper, built from every paper that survives."><link rel="icon" href="/uphesc-maths/favicon.svg" type="image/svg+xml"><link rel="preload" href="/uphesc-maths/fonts/inter-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin><!-- the saved light/dark, 2019 and chart-view choices, before first paint --><script>
+    try { var m = localStorage.getItem('um:mode'); if (m) document.documentElement.dataset.mode = m; } catch (e) {}
+    try { if (localStorage.getItem('um:old') === 'on') document.documentElement.dataset.old = 'on'; } catch (e) {}
+    try { if (localStorage.getItem('um:view') === 'bars') document.documentElement.dataset.view = 'bars'; } catch (e) {}
+  </script><!-- maths: the vendored MathJax typesets \( \) and \[ \] text, loaded only on pages that have any --><script>(function(){const VENDOR = "/uphesc-maths/vendor";
+
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+      loader: { paths: { mathjax: VENDOR + '/mathjax', fonts: VENDOR + '/mathjax/fonts' } },
+      output: { font: 'mathjax-stix2', displayOverflow: 'scroll' },
+      options: { ignoreHtmlClass: 'no-math', processHtmlClass: 'math', menuOptions: { settings: { enrich: false, speech: false, braille: false } } },
+      chtml: { displayOverflow: 'scroll' },
+      // an inline formula with a piece wider than its line gets its own scrolling line, like display maths
+      startup: { pageReady: () => MathJax.startup.defaultPageReady().then(fitMath) },
+    };
+    function fitMath() {
+      for (const m of document.querySelectorAll('mjx-container:not([display="true"]):not(.mjx-wide)')) {
+        const box = m.closest('p, li, dd, blockquote, div');
+        if (!box || m.closest('td, th')) continue;
+        const right = box.getBoundingClientRect().right + 1;
+        if ([...m.getClientRects()].some((r) => r.right > right)) m.classList.add('mjx-wide');
+      }
+    }
+    let fitQueued = 0;
+    const queueFit = () => { if (window.MathJax?.startup?.document && !fitQueued) fitQueued = requestAnimationFrame(() => { fitQueued = 0; fitMath(); }); };
+    addEventListener('resize', queueFit);
+    addEventListener('click', () => setTimeout(queueFit, 50));
+    document.addEventListener('DOMContentLoaded', () => {
+      if (!document.querySelector('.math')) return;
+      const s = document.createElement('script');
+      s.async = true;
+      s.src = VENDOR + '/mathjax/tex-chtml-nofont.js';
+      document.head.appendChild(s);
+    });
+  })();</script><link rel="stylesheet" href="/uphesc-maths/_astro/Base.CkQ5KWO8.css"></head><body data-tab="learn"><nav class="appnav" aria-label="Main"><a class="appnav-brand" href="/uphesc-maths/" aria-label="UPESSC maths home">∑</a><a class="appnav-item" href="/uphesc-maths/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4 10.2 12 4l8 6.2V19a1 1 0 0 1-1 1h-4.5v-5.5h-5V20H5a1 1 0 0 1-1-1z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Plan</span></a><a class="appnav-item" href="/uphesc-maths/learn/" aria-current="page"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M12 6.5C10 5 7.5 4.5 4 4.5v13c3.5 0 6 .5 8 2 2-1.5 4.5-2 8-2v-13c-3.5 0-6 .5-8 2zM12 6.5v13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Learn</span></a><a class="appnav-item" href="/uphesc-maths/units/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4 5h7v7H4zM13 5h7v7h-7zM4 14h7v6H4zM13 14h7v6h-7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Units</span></a><a class="appnav-item" href="/uphesc-maths/papers/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M7 3h7l4 4v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zM14 3v4h4M9 12h6M9 16h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Papers</span></a><a class="appnav-item" href="/uphesc-maths/revise/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M5 12.5 9.5 17 19 7.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Revise</span></a></nav><header class="topbar"><a class="bar-back" href="/uphesc-maths/learn/general-studies/" aria-label="Back"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a><p class="bar-title">Unit 11</p><button class="bar-btn" type="button" data-mode-toggle aria-label="Switch light or dark"><svg class="i-moon" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path></svg><svg class="i-sun" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path></svg></button></header><main class="page"><div class="reader" data-topic="current-affairs-prep"><header class="page-head topic-head"><p class="kicker"><a href="/uphesc-maths/learn/general-studies/">Unit 11 · General Studies (GK)</a></p><h1>How to prepare current affairs</h1><ul class="meta"><li class="prio high">High priority</li><li>1 h 30 min to study</li><li>Asked 8 times</li><li class="read-flag" data-read-flag hidden>Read</li></ul><p class="pyq-line">Previous papers: 2025 Q1, 2025 Q2, 2025 Q3, 2025 Q4, 2025 Q5, 2025 Q6, 2026 Q9, 2026 Q18</p></header><div class="reader-grid"><nav class="toc" aria-label="On this page"><details class="toc-box" data-toc><summary>On this page</summary><ol><li><a href="#why-it-matters-for-the-exam">Why it matters for the exam</a></li><li><a href="#core-ideas">Core ideas</a></li><li class="sub"><a href="#what-was-asked-by-type">What was asked, by type</a></li><li class="sub"><a href="#which-months-to-cover">Which months to cover</a></li><li class="sub"><a href="#the-eight-buckets-and-what-to-note-in-each">The eight buckets, and what to note in each</a></li><li class="sub"><a href="#how-examiners-frame-the-question">How examiners frame the question</a></li><li class="sub"><a href="#the-stable-skeleton">The stable skeleton</a></li><li class="sub"><a href="#a-daily-method-that-fits-in-30-minutes">A daily method that fits in 30 minutes</a></li><li><a href="#formulas-and-results">Formulas and results</a></li><li><a href="#worked-examples">Worked examples</a></li><li class="sub"><a href="#example-1-a-date-question-with-neighbouring-options">Example 1: A date question with neighbouring options</a></li><li class="sub"><a href="#example-2-a-venue-question">Example 2: A venue question</a></li><li class="sub"><a href="#example-3-a-stem-with-a-doubtful-date">Example 3: A stem with a doubtful date</a></li><li class="sub"><a href="#example-4-match-the-list-using-one-certain-pair">Example 4: Match the list using one certain pair</a></li><li class="sub"><a href="#example-5-budget-question">Example 5: Budget question</a></li><li><a href="#common-traps">Common traps</a></li><li><a href="#previous-year-questions">Previous-year questions</a></li><li class="sub"><a href="#2025-q1-aditya-l1">2025-Q1 (Aditya-L1)</a></li><li class="sub"><a href="#2025-q2-para-asian-games">2025-Q2 (Para Asian Games)</a></li><li class="sub"><a href="#2025-q3-sebi">2025-Q3 (SEBI)</a></li><li class="sub"><a href="#2025-q4-new-party-in-tamil-nadu">2025-Q4 (new party in Tamil Nadu)</a></li><li class="sub"><a href="#2025-q5-g20">2025-Q5 (G20)</a></li><li class="sub"><a href="#2025-q6-swachh-bharat">2025-Q6 (Swachh Bharat)</a></li><li class="sub"><a href="#2025-q30-budget-covered-in-the-polity-and-economy-page">2025-Q30 (Budget, covered in the polity and economy page)</a></li><li class="sub"><a href="#2026-q9-persons-in-the-news-match">2026-Q9 (persons in the news, match)</a></li><li class="sub"><a href="#2026-q18-international-organisations-match">2026-Q18 (international organisations, match)</a></li><li><a href="#quick-revision">Quick revision</a></li></ol></details></nav><article class="prose"><section class="note-section ns-why-it-matters-for-the-exam" aria-labelledby="why-it-matters-for-the-exam"><h2 id="why-it-matters-for-the-exam">Why it matters for the exam</h2>
+<p>Current affairs is the single largest block of the General Knowledge section. In the 2025 paper, Q1-Q6 (6 of 30) were pure current affairs, and Q30 (the Union Budget 2025-26) was a seventh. In the 2026 paper the question style changed: fewer “which year” questions and more “persons in the news” and “organisation and focus” matching, plus science questions with a news hook (quantum communication, AI in drug discovery, the global biodiversity framework). You cannot predict the item, but you can predict the type, and you can cover the right window of months.</p>
+<p>This page does not contain news. News ages in a week. It tells you how to prepare, shows the kinds of items that were asked, and gives the stable facts that those items hang on.</p>
+</section><section class="note-section ns-core-ideas" aria-labelledby="core-ideas"><h2 id="core-ideas">Core ideas</h2>
+<h3 id="what-was-asked-by-type">What was asked, by type</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Type</th>
+<th>2025 example</th>
+<th>2026 example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Space mission, date</td>
+<td>Launch month of India’s first solar mission (Aditya-L1)</td>
+<td>none</td>
+</tr>
+<tr>
+<td>Sports event, venue</td>
+<td>City that hosted the Para Asian Games 2023</td>
+<td>none</td>
+</tr>
+<tr>
+<td>Regulator or office-holder</td>
+<td>Chair of SEBI</td>
+<td>none</td>
+</tr>
+<tr>
+<td>Political event</td>
+<td>Who launched Tamilaga Vettri Kazhagam</td>
+<td>none</td>
+</tr>
+<tr>
+<td>Summit, host city</td>
+<td>Where the 19th G20 summit was held</td>
+<td>none</td>
+</tr>
+<tr>
+<td>Flagship scheme or date</td>
+<td>Start date of Swachh Bharat Mission</td>
+<td>none</td>
+</tr>
+<tr>
+<td>Budget item</td>
+<td>Social security scheme proposed for online platform workers (Budget 2025-26)</td>
+<td>none</td>
+</tr>
+<tr>
+<td>Persons in news, match</td>
+<td>none</td>
+<td>Gukesh, Sam Altman, Demis Hassabis, Narges Mohammadi against their fields</td>
+</tr>
+<tr>
+<td>International organisations, match</td>
+<td>none</td>
+<td>WHO, WTO, IAEA, UNEP against their core focus</td>
+</tr>
+<tr>
+<td>Science with a news hook</td>
+<td>Planet orbital periods, ship in sea water</td>
+<td>Quantum communication, AI drug discovery, CMB, 30 per cent conservation target</td>
+</tr>
+</tbody>
+</table></div>
+<p>Two things stand out. First, the 2025 items are all facts that a daily newspaper reader would hold: one name, one date, one place. Second, the 2026 items reward knowing the field of a person or the mandate of an organisation, not a date.</p>
+<h3 id="which-months-to-cover">Which months to cover</h3>
+<p>The 2025 paper (held 16 April 2025) drew on events from September 2023 (Aditya-L1 launch), October 2023 (Para Asian Games), February 2024 (Tamilaga Vettri Kazhagam announced), November 2024 (G20 in Rio) and February 2025 (Union Budget, presented 1 February 2025). That is a spread of about 18 months before the exam, with most items in the last 12.</p>
+<p>Working rule:</p>
+<ol>
+<li>Cover the 12 months before the exam date in full detail.</li>
+<li>Cover the 12 months before that in outline (only the headline events in each bucket below).</li>
+<li>Treat the last two weeks before the exam as a revision window; do not start new reading then.</li>
+<li>A static anchor (a Constitution article, a convention, a date of a scheme) is worth more than any single news item. Spend a third of your time on the stable skeleton below.</li>
+</ol>
+<h3 id="the-eight-buckets-and-what-to-note-in-each">The eight buckets, and what to note in each</h3>
+<p>Keep one page per month. For each item write only the fields that an examiner can turn into a question.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Bucket</th>
+<th>Fields to note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Summits and conferences</td>
+<td>Name, number (19th), host city and country, year, any “first” (first in Africa)</td>
+</tr>
+<tr>
+<td>Sports</td>
+<td>Event, host city, year, India’s headline result, winner of the marquee final</td>
+</tr>
+<tr>
+<td>Appointments</td>
+<td>Post, name, since when, “first woman” or “youngest” style firsts, predecessor</td>
+</tr>
+<tr>
+<td>Awards and prizes</td>
+<td>Prize, year, winner, field</td>
+</tr>
+<tr>
+<td>Space and science</td>
+<td>Mission or discovery, agency, launch vehicle, date, purpose</td>
+</tr>
+<tr>
+<td>Schemes and budget</td>
+<td>Ministry, year launched, target group, one-line purpose</td>
+</tr>
+<tr>
+<td>Reports and indices</td>
+<td>Publisher, what it measures, India’s headline position (only if the rank is stable)</td>
+</tr>
+<tr>
+<td>Places, persons, defence</td>
+<td>Why in news, state, one defining detail</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="how-examiners-frame-the-question">How examiners frame the question</h3>
+<ul>
+<li>The question repeats a well-known term and asks one attribute of it (date, city, person).</li>
+<li>Options are neighbours: adjacent months, adjacent host cities, predecessor and successor.</li>
+<li>Sometimes the stem itself is imprecise. In 2025 Q3 the stem says the SEBI chair was appointed in 2024, and the official key is Madhabi Puri Buch, who in fact took charge in March 2022 and served until February 2025. When a stem and your memory disagree on a date, pick the option that matches the person or event, not the date.</li>
+<li>Match-the-list questions reward one certain pair: fix it, eliminate options, and the rest follows.</li>
+</ul>
+<h3 id="the-stable-skeleton">The stable skeleton</h3>
+<p>These facts do not change, and they are the anchors for many news items.</p>
+<p><strong>G20 hosts.</strong> 17th summit Bali (2022), 18th New Delhi (9-10 September 2023; the African Union was admitted as a permanent member), 19th Rio de Janeiro (November 2024), 20th Johannesburg (November 2025, the first G20 summit held in Africa). The United States hosts the 2026 summit.</p>
+<p><strong>Indian space missions.</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Mission</th>
+<th>Year</th>
+<th>Fact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Chandrayaan-1</td>
+<td>2008</td>
+<td>First lunar probe; helped confirm water molecules on the Moon</td>
+</tr>
+<tr>
+<td>Mangalyaan (Mars Orbiter Mission)</td>
+<td>launched 5 November 2013, Mars orbit 24 September 2014</td>
+<td>First Asian mission to reach Mars orbit; India succeeded on its first attempt</td>
+</tr>
+<tr>
+<td>Chandrayaan-3</td>
+<td>landed 23 August 2023</td>
+<td>India became the fourth country to soft-land on the Moon, and the first near the south polar region</td>
+</tr>
+<tr>
+<td>Aditya-L1</td>
+<td>launched 2 September 2023 (PSLV-C57, Sriharikota)</td>
+<td>India’s first solar observatory, at the Sun-Earth Lagrange point L1, about 1.5 million km from Earth</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Sports calendar.</strong> Asian Games 2022 were held at Hangzhou in September-October 2023 (postponed by a year). The Asian Para Games at Hangzhou followed in October 2023. Paris hosted the Summer Olympics in 2024 and Los Angeles hosts in 2028. The Commonwealth Games 2022 were at Birmingham; Glasgow hosted the 2026 Games in July-August 2026. India hosted the men’s ODI World Cup in 2023 (Australia won). Gukesh Dommaraju became the youngest World Chess Champion in December 2024 by beating Ding Liren.</p>
+<p><strong>Regulators and offices.</strong> SEBI was set up in 1988 and given statutory powers in 1992. Madhabi Puri Buch was its first woman chair (March 2022 to February 2025); Tuhin Kanta Pandey took over in March 2025. The Reserve Bank of India began work on 1 April 1935. Shaktikanta Das was governor until December 2024; Sanjay Malhotra took over in December 2024. NITI Aayog replaced the Planning Commission on 1 January 2015.</p>
+<p><strong>Awards.</strong> Nobel Peace Prize 2023: Narges Mohammadi (human rights activist, Iran). Nobel Peace Prize 2024: Nihon Hidankyo. Physics 2024: John Hopfield and Geoffrey Hinton (artificial neural networks). Chemistry 2024: David Baker (protein design) with Demis Hassabis and John Jumper (AlphaFold protein structure prediction). Bharat Ratna was announced in 2024 for Karpoori Thakur, L. K. Advani, P. V. Narasimha Rao, Chaudhary Charan Singh and M. S. Swaminathan.</p>
+<p><strong>Schemes and laws.</strong> Swachh Bharat Mission began on 2 October 2014. The three new criminal laws (Bharatiya Nyaya Sanhita, Bharatiya Nagarik Suraksha Sanhita, Bharatiya Sakshya Adhiniyam) came into force on 1 July 2024. The Nari Shakti Vandan Adhiniyam (women’s reservation) was passed in 2023 as the 106th Constitution Amendment. The Digital Personal Data Protection Act was passed in 2023.</p>
+<p><strong>Union Budget 2025-26.</strong> Presented on 1 February 2025 by Nirmala Sitharaman. It proposed identity cards, registration on the e-Shram portal and health cover under PM-JAY for gig workers on online platforms: the first social security proposal aimed at them.</p>
+<p><strong>Climate conferences.</strong> COP28 Dubai (2023), COP29 Baku (2024), COP30 Belem, Brazil (2025). The Kunming-Montreal Global Biodiversity Framework was adopted in December 2022 at the CBD COP15 held in Montreal; its headline target is to protect 30 per cent of land and sea by 2030.</p>
+<p><strong>International organisations.</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Body</th>
+<th>Focus</th>
+<th>Headquarters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>WHO</td>
+<td>Public health</td>
+<td>Geneva</td>
+</tr>
+<tr>
+<td>WTO</td>
+<td>Rules of global trade (successor to GATT, from 1995)</td>
+<td>Geneva</td>
+</tr>
+<tr>
+<td>IAEA</td>
+<td>Nuclear safeguards and peaceful use of nuclear energy</td>
+<td>Vienna</td>
+</tr>
+<tr>
+<td>UNEP</td>
+<td>Environmental policy</td>
+<td>Nairobi</td>
+</tr>
+<tr>
+<td>IMF and World Bank</td>
+<td>Monetary stability, development finance</td>
+<td>Washington DC</td>
+</tr>
+<tr>
+<td>FAO</td>
+<td>Food and agriculture</td>
+<td>Rome</td>
+</tr>
+<tr>
+<td>UNESCO</td>
+<td>Education, science, culture</td>
+<td>Paris</td>
+</tr>
+<tr>
+<td>ILO</td>
+<td>Labour standards</td>
+<td>Geneva</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Uttar Pradesh in the news.</strong> Maha Kumbh at Prayagraj, 13 January to 26 February 2025. Pran Pratishtha of the Ram temple at Ayodhya, 22 January 2024. The Ayodhya airport opened in December 2023.</p>
+<h3 id="a-daily-method-that-fits-in-30-minutes">A daily method that fits in 30 minutes</h3>
+<ol>
+<li>Read one newspaper’s national and international pages for headlines only.</li>
+<li>Make one line per item in the eight buckets above.</li>
+<li>Every Sunday, convert the week’s lines into 10 flashcards (question one side, answer the other).</li>
+<li>Every month, take a 20-question self-test from your own cards.</li>
+<li>When a new item appears, link it to a stable anchor: “Aditya-L1 is the Sun mission; Chandrayaan-3 was the Moon landing, three weeks earlier”.</li>
+</ol>
+</section><section class="note-section ns-formulas-and-results" aria-labelledby="formulas-and-results"><h2 id="formulas-and-results">Formulas and results</h2>
+<p>No formulas. The results to hold are the one-line anchors:</p>
+<ul>
+<li>Aditya-L1: launched 2 September 2023, first Indian solar mission, at L1.</li>
+<li>Chandrayaan-3: landing 23 August 2023.</li>
+<li>Para Asian Games 2023: Hangzhou. Asian Games 2022 (held 2023): Hangzhou.</li>
+<li>19th G20: Rio de Janeiro. 18th: New Delhi. 20th: Johannesburg.</li>
+<li>Swachh Bharat Mission: 2 October 2014.</li>
+<li>Union Budget 2025-26: 1 February 2025; gig-worker social security.</li>
+<li>Gukesh: World Chess Champion, December 2024.</li>
+<li>Narges Mohammadi: Nobel Peace Prize 2023.</li>
+<li>WHO public health, WTO trade, IAEA nuclear, UNEP environment.</li>
+<li>Kunming-Montreal framework: 30 per cent by 2030.</li>
+</ul>
+</section><section class="note-section ns-worked-examples" aria-labelledby="worked-examples"><h2 id="worked-examples">Worked examples</h2>
+<h3 id="example-1-a-date-question-with-neighbouring-options">Example 1: A date question with neighbouring options</h3>
+<p>“When was India’s first solar mission, Aditya-L1, launched?” Options: September 2023, October 2024, June 2023, November 2023.</p>
+<p>Anchor: Chandrayaan-3 landed on 23 August 2023, and Aditya-L1 followed days later (2 September). That removes June 2023 (before the Moon mission) and any 2024 date. Between September and November 2023, recall that the launch was within two weeks of the Moon landing. Answer: September 2023.</p>
+<h3 id="example-2-a-venue-question">Example 2: A venue question</h3>
+<p>“Para Asian Games 2023 were held in: Beijing, Guangzhou, Hangzhou, Shanghai.”</p>
+<p>Beijing hosted the 2008 Olympics, Guangzhou the 2010 Asian Games. The 2022 Asian Games, postponed to 2023, were awarded to Hangzhou, and the para edition used the same host city. Answer: Hangzhou.</p>
+<h3 id="example-3-a-stem-with-a-doubtful-date">Example 3: A stem with a doubtful date</h3>
+<p>“Who was appointed SEBI chairperson in 2024?” with Ajay Tyagi, Madhabi Puri Buch, U. K. Sinha, D. R. Mehta.</p>
+<p>Ajay Tyagi (2017-2022) and U. K. Sinha (2011-2017) are earlier chairs; D. R. Mehta (1992-1995) was a much earlier one. Only Buch was in office in 2024. The stem’s year is loose, but only one option is a person who held the post then. Official key: Madhabi Puri Buch.</p>
+<h3 id="example-4-match-the-list-using-one-certain-pair">Example 4: Match the list using one certain pair</h3>
+<p>Match: a. D. Gukesh, b. Sam Altman, c. Demis Hassabis, d. Narges Mohammadi with I. AI research and DeepMind leadership, II. World Chess Championship, III. Human rights activism, IV. Generative AI industry leadership.</p>
+<p>Gukesh is certain: a with II. Mohammadi is certain: d with III. That already fixes the options that begin a-II and end d-III. Hassabis (DeepMind) pairs with I and Altman (OpenAI) with IV. Mapping: a-II, b-IV, c-I, d-III.</p>
+<h3 id="example-5-budget-question">Example 5: Budget question</h3>
+<p>“Under the Union Budget 2025-26, a social security scheme was proposed for the first time for: manufacturing workers, agricultural workers, online platform workers, women workers.”</p>
+<p>Budget items are asked by their new beneficiary group. The year’s announcement was identity cards, e-Shram registration and PM-JAY health cover for gig and platform workers. Answer: online platform workers.</p>
+</section><section class="note-section ns-common-traps" aria-labelledby="common-traps"><h2 id="common-traps">Common traps</h2>
+<ul>
+<li><strong>Held year versus named year.</strong> The Asian Games 2022 were held in 2023. A question can use either label.</li>
+<li><strong>Adjacent hosts.</strong> 18th G20 is New Delhi, 19th is Rio, 20th is Johannesburg. Do not shift by one.</li>
+<li><strong>Moon versus Sun.</strong> Chandrayaan-3 (Moon, 23 August 2023) and Aditya-L1 (Sun, 2 September 2023) are only days apart.</li>
+<li><strong>Appointment year.</strong> An office-holder question may carry a year that is slightly off; match by person.</li>
+<li><strong>Organisation and city.</strong> WHO and WTO are both in Geneva; IAEA is in Vienna; UNEP is in Nairobi.</li>
+<li><strong>Cramming the last month.</strong> Items from 18 months before the exam appeared in 2025; do not read only the latest month.</li>
+<li><strong>Numbers and ranks.</strong> Rankings in reports change yearly. Learn the publisher and the measure, not the rank, unless the rank is a “first”.</li>
+</ul>
+</section><section class="note-section ns-previous-year-questions" aria-labelledby="previous-year-questions"><h2 id="previous-year-questions">Previous-year questions</h2>
+<h3 id="2025-q1-aditya-l1">2025-Q1 (Aditya-L1)</h3>
+<p><strong>Q.</strong> When was India’s first solar mission, Aditya-L1, launched? <strong>Answer: A, September 2023.</strong> PSLV-C57 lifted off from Sriharikota on 2 September 2023.</p>
+<h3 id="2025-q2-para-asian-games">2025-Q2 (Para Asian Games)</h3>
+<p><strong>Q.</strong> In which city were the Para Asian Games 2023 held? <strong>Answer: C, Hangzhou.</strong> Held 22-28 October 2023.</p>
+<h3 id="2025-q3-sebi">2025-Q3 (SEBI)</h3>
+<p><strong>Q.</strong> Who was appointed Chairperson of SEBI in 2024? <strong>Answer: B, Madhabi Puri Buch</strong> (official key). Note that she took charge in March 2022; the stem’s year is loose. The other options are earlier chairs.</p>
+<h3 id="2025-q4-new-party-in-tamil-nadu">2025-Q4 (new party in Tamil Nadu)</h3>
+<p><strong>Q.</strong> Who launched Tamilaga Vettri Kazhagam? <strong>Answer: D, Joseph Vijay Chandrasekhar (the actor Vijay).</strong> The party was announced in February 2024.</p>
+<h3 id="2025-q5-g20">2025-Q5 (G20)</h3>
+<p><strong>Q.</strong> Where was the 19th G20 summit held? <strong>Answer: B, Rio de Janeiro, Brazil.</strong> New Delhi hosted the 18th (2023), and the 2022 summit was at Bali, not Jakarta. The 19th is the one after Delhi, in Brazil.</p>
+<h3 id="2025-q6-swachh-bharat">2025-Q6 (Swachh Bharat)</h3>
+<p><strong>Q.</strong> When did Swachh Bharat Mission start? <strong>Answer: A, 2 October 2014.</strong></p>
+<h3 id="2025-q30-budget-covered-in-the-polity-and-economy-page">2025-Q30 (Budget, covered in the polity and economy page)</h3>
+<p>Online platform workers: see the polity and economy topic for the full entry.</p>
+<h3 id="2026-q9-persons-in-the-news-match">2026-Q9 (persons in the news, match)</h3>
+<p><strong>Q.</strong> Match Gukesh, Sam Altman, Demis Hassabis, Narges Mohammadi with their fields. <strong>Answer (no official key found; standard facts): a-II, b-IV, c-I, d-III</strong> (option D in the booklet).</p>
+<h3 id="2026-q18-international-organisations-match">2026-Q18 (international organisations, match)</h3>
+<p><strong>Q.</strong> Match WHO, WTO, IAEA, UNEP with their core focus. <strong>Answer (no official key found; standard facts): WHO with public health, WTO with global trade governance, IAEA with nuclear regulation, UNEP with environmental policy.</strong></p>
+</section><section class="note-section ns-quick-revision" aria-labelledby="quick-revision"><h2 id="quick-revision">Quick revision</h2>
+<ul>
+<li>Aditya-L1: 2 September 2023, first Indian solar observatory, at L1.</li>
+<li>Chandrayaan-3: soft landing 23 August 2023, near the lunar south polar region.</li>
+<li>Para Asian Games 2023 and Asian Games 2022 (held 2023): Hangzhou.</li>
+<li>G20: 18th New Delhi 2023, 19th Rio 2024, 20th Johannesburg 2025 (first in Africa).</li>
+<li>SEBI chairs: Buch (2022-25, first woman), then Tuhin Kanta Pandey (from March 2025).</li>
+<li>Tamilaga Vettri Kazhagam: founded by actor Vijay, announced February 2024.</li>
+<li>Swachh Bharat Mission: 2 October 2014.</li>
+<li>Union Budget 2025-26: 1 February 2025; first social security proposal for gig workers.</li>
+<li>Gukesh, World Chess Champion (December 2024); Hassabis, DeepMind; Altman, OpenAI; Mohammadi, human rights and Nobel Peace 2023.</li>
+<li>WHO health, WTO trade, IAEA nuclear, UNEP environment.</li>
+<li>Cover 12 months in detail and the 12 before in outline; one line per item, one page per month.</li>
+</ul>
+</section></article></div><section class="section reader-end"><button class="read-btn" type="button" data-read-btn aria-pressed="false"><span class="box" aria-hidden="true"></span><span data-read-label>Mark as read</span></button><ul class="units end-links"><li><a class="unit-card" href="/uphesc-maths/learn/general-studies/current-affairs-prep/practice/"><span class="unit-top"><span class="unit-name">Practise this topic</span></span><p class="flush">13 questions with worked solutions</p></a></li><li><a class="unit-card" href="/uphesc-maths/learn/general-studies/teaching-research-aptitude/"><span class="unit-top"><span class="unit-name">Next: Teaching, research aptitude and higher education</span></span><p class="flush">High priority · 2 h</p></a></li></ul></section></div><footer class="foot"><p>Built from every paper that survives: the full 2025 and 2026 papers (140 maths questions) and half of 2019 (35, from a solution video). 2015 left only an answer key, and nothing was found for 2021. The commission has never published its booklets. Unit counts use 2025 and 2026 only, so they show a range, not a trend.</p><p>2025 answers match the official key. 2026 has no key yet, so its answers were worked out by hand and marked high, medium or low confidence, and every unsure one was solved again, blind. 2019 answers come from the video and are not checked against the official key.</p></footer></main><script type="module">var e=document.documentElement,t=()=>e.dataset.mode?e.dataset.mode===`dark`:matchMedia(`(prefers-color-scheme: dark)`).matches;document.querySelector(`[data-mode-toggle]`)?.addEventListener(`click`,()=>{let n=t()?`light`:`dark`;e.dataset.mode=n;try{localStorage.setItem(`um:mode`,n)}catch{}}),!e.dataset.mode&&t()&&(e.dataset.mode=`dark`);var n=document.querySelectorAll(`[data-old-toggle]`),r=t=>{t?e.dataset.old=`on`:delete e.dataset.old,n.forEach(e=>e.setAttribute(`aria-checked`,String(t)))};r(e.dataset.old===`on`),n.forEach(t=>t.addEventListener(`click`,()=>{let t=e.dataset.old!==`on`;r(t);try{localStorage.setItem(`um:old`,t?`on`:`off`)}catch{}}));var i=document.querySelectorAll(`[data-view]`),a=t=>{t===`bars`?e.dataset.view=`bars`:delete e.dataset.view,i.forEach(e=>e.setAttribute(`aria-pressed`,String(e.dataset.view===t)))};a(e.dataset.view===`bars`?`bars`:`heat`),i.forEach(e=>e.addEventListener(`click`,()=>{a(e.dataset.view);try{localStorage.setItem(`um:view`,e.dataset.view)}catch{}}));var o=document.createElement(`div`);o.className=`tip`,o.setAttribute(`role`,`tooltip`),o.hidden=!0,document.body.append(o);var s=null,c=(e,t)=>{let n=o.offsetWidth,r=o.offsetHeight,i=e+12,a=t+12;i+n>innerWidth-8&&(i=Math.max(8,e-n-12)),a+r>innerHeight-8&&(a=Math.max(8,t-r-12)),o.style.left=`${i}px`,o.style.top=`${a}px`},l=()=>{if(s){let e=s.getBoundingClientRect();c(e.left+e.width*.3,e.bottom-8)}},u=e=>{e!==s&&(s=e,o.replaceChildren(...[...e.querySelector(`.tip-src`).childNodes].map(e=>e.cloneNode(!0)))),o.hidden=!1},d=()=>{o.hidden=!0,s=null};document.addEventListener(`pointermove`,e=>{if(e.pointerType!==`mouse`)return;let t=e.target.closest(`[data-tip]`);t?(u(t),c(e.clientX,e.clientY)):s&&d()}),document.addEventListener(`focusin`,e=>{let t=e.target.closest(`[data-tip]`);t&&(u(t),l())}),document.addEventListener(`focusout`,()=>d()),addEventListener(`scroll`,()=>{s&&document.activeElement===s?l():s&&d()},{passive:!0}),document.addEventListener(`keydown`,e=>{e.key===`Escape`&&d()});var f=`um:done`,p={};try{p=JSON.parse(localStorage.getItem(f)||`{}`)}catch{}var m=()=>{document.querySelectorAll(`[data-progress]`).forEach(e=>{let t=[...document.querySelectorAll(`[data-group="${e.dataset.progress}"]`)],n=t.filter(e=>e.checked).length;e.querySelector(`.progress-bar span`).style.width=`${n/t.length*100}%`,e.querySelector(`[data-count]`).textContent=`${n} of ${t.length} done`})};document.querySelectorAll(`input[data-check]`).forEach(e=>{e.checked=!!p[e.dataset.check],e.addEventListener(`change`,()=>{p[e.dataset.check]=e.checked;try{localStorage.setItem(f,JSON.stringify(p))}catch{}m()})}),m();</script></body></html><script type="module" src="/uphesc-maths/_astro/index.astro_astro_type_script_index_0_lang.t7qZbIYF.js"></script>

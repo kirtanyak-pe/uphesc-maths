@@ -1,0 +1,289 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Inner product spaces, adjoint, special matrices and spectral theorem · UPESSC maths</title><meta name="description" content="What to study for the UPESSC (formerly UPHESC) Assistant Professor maths paper, built from every paper that survives."><link rel="icon" href="/uphesc-maths/favicon.svg" type="image/svg+xml"><link rel="preload" href="/uphesc-maths/fonts/inter-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin><!-- the saved light/dark, 2019 and chart-view choices, before first paint --><script>
+    try { var m = localStorage.getItem('um:mode'); if (m) document.documentElement.dataset.mode = m; } catch (e) {}
+    try { if (localStorage.getItem('um:old') === 'on') document.documentElement.dataset.old = 'on'; } catch (e) {}
+    try { if (localStorage.getItem('um:view') === 'bars') document.documentElement.dataset.view = 'bars'; } catch (e) {}
+  </script><!-- maths: the vendored MathJax typesets \( \) and \[ \] text, loaded only on pages that have any --><script>(function(){const VENDOR = "/uphesc-maths/vendor";
+
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+      loader: { paths: { mathjax: VENDOR + '/mathjax', fonts: VENDOR + '/mathjax/fonts' } },
+      output: { font: 'mathjax-stix2', displayOverflow: 'scroll' },
+      options: { ignoreHtmlClass: 'no-math', processHtmlClass: 'math', menuOptions: { settings: { enrich: false, speech: false, braille: false } } },
+      chtml: { displayOverflow: 'scroll' },
+      // an inline formula with a piece wider than its line gets its own scrolling line, like display maths
+      startup: { pageReady: () => MathJax.startup.defaultPageReady().then(fitMath) },
+    };
+    function fitMath() {
+      for (const m of document.querySelectorAll('mjx-container:not([display="true"]):not(.mjx-wide)')) {
+        const box = m.closest('p, li, dd, blockquote, div');
+        if (!box || m.closest('td, th')) continue;
+        const right = box.getBoundingClientRect().right + 1;
+        if ([...m.getClientRects()].some((r) => r.right > right)) m.classList.add('mjx-wide');
+      }
+    }
+    let fitQueued = 0;
+    const queueFit = () => { if (window.MathJax?.startup?.document && !fitQueued) fitQueued = requestAnimationFrame(() => { fitQueued = 0; fitMath(); }); };
+    addEventListener('resize', queueFit);
+    addEventListener('click', () => setTimeout(queueFit, 50));
+    document.addEventListener('DOMContentLoaded', () => {
+      if (!document.querySelector('.math')) return;
+      const s = document.createElement('script');
+      s.async = true;
+      s.src = VENDOR + '/mathjax/tex-chtml-nofont.js';
+      document.head.appendChild(s);
+    });
+  })();</script><link rel="stylesheet" href="/uphesc-maths/_astro/Base.CkQ5KWO8.css"></head><body data-tab="learn"><nav class="appnav" aria-label="Main"><a class="appnav-brand" href="/uphesc-maths/" aria-label="UPESSC maths home">∑</a><a class="appnav-item" href="/uphesc-maths/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4 10.2 12 4l8 6.2V19a1 1 0 0 1-1 1h-4.5v-5.5h-5V20H5a1 1 0 0 1-1-1z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Plan</span></a><a class="appnav-item" href="/uphesc-maths/learn/" aria-current="page"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M12 6.5C10 5 7.5 4.5 4 4.5v13c3.5 0 6 .5 8 2 2-1.5 4.5-2 8-2v-13c-3.5 0-6 .5-8 2zM12 6.5v13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Learn</span></a><a class="appnav-item" href="/uphesc-maths/units/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4 5h7v7H4zM13 5h7v7h-7zM4 14h7v6H4zM13 14h7v6h-7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Units</span></a><a class="appnav-item" href="/uphesc-maths/papers/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M7 3h7l4 4v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zM14 3v4h4M9 12h6M9 16h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Papers</span></a><a class="appnav-item" href="/uphesc-maths/revise/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M5 12.5 9.5 17 19 7.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Revise</span></a></nav><header class="topbar"><a class="bar-back" href="/uphesc-maths/learn/linear-algebra/" aria-label="Back"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a><p class="bar-title">Unit 2</p><button class="bar-btn" type="button" data-mode-toggle aria-label="Switch light or dark"><svg class="i-moon" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path></svg><svg class="i-sun" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path></svg></button></header><main class="page"><div class="reader" data-topic="inner-product-spaces"><header class="page-head topic-head"><p class="kicker"><a href="/uphesc-maths/learn/linear-algebra/">Unit 2 · Linear Algebra</a></p><h1>Inner product spaces, adjoint, special matrices and spectral theorem</h1><ul class="meta"><li class="prio high">High priority</li><li>2 h 30 min to study</li><li>Asked 4 times</li><li class="read-flag" data-read-flag hidden>Read</li></ul><p class="pyq-line">Previous papers: 2026 Q38, 2026 Q83, 2025 Q52, 2019</p><p class="prereq">Read first: <a href="/uphesc-maths/learn/linear-algebra/vector-spaces/">Vector spaces, subspaces and dimension</a></p></header><div class="reader-grid"><nav class="toc" aria-label="On this page"><details class="toc-box" data-toc><summary>On this page</summary><ol><li><a href="#why-it-matters-for-the-exam">Why it matters for the exam</a></li><li><a href="#core-ideas">Core ideas</a></li><li class="sub"><a href="#inner-product">Inner product</a></li><li class="sub"><a href="#basic-inequalities-and-identities">Basic inequalities and identities</a></li><li class="sub"><a href="#orthogonal-sets-and-gram-schmidt">Orthogonal sets and Gram-Schmidt</a></li><li class="sub"><a href="#orthogonal-complement-and-projection">Orthogonal complement and projection</a></li><li class="sub"><a href="#adjoint">Adjoint</a></li><li class="sub"><a href="#the-special-classes">The special classes</a></li><li class="sub"><a href="#normal-operators">Normal operators</a></li><li class="sub"><a href="#spectral-theorem">Spectral theorem</a></li><li><a href="#formulas-and-results">Formulas and results</a></li><li><a href="#worked-examples">Worked examples</a></li><li class="sub"><a href="#example-1-gram-schmidt">Example 1: Gram-Schmidt</a></li><li class="sub"><a href="#example-2-projection-and-distance">Example 2: projection and distance</a></li><li class="sub"><a href="#example-3-spectral-decomposition-of-a-symmetric-matrix">Example 3: spectral decomposition of a symmetric matrix</a></li><li class="sub"><a href="#example-4-is-it-unitary-hermitian-normal">Example 4: is it unitary, Hermitian, normal?</a></li><li class="sub"><a href="#example-5-orthogonal-3times3-with-det1-and-trace-0">Example 5: orthogonal <span class="math">\(3\times3\)</span> with <span class="math">\(\det=1\)</span> and trace <span class="math">\(0\)</span></a></li><li class="sub"><a href="#example-6-cauchy-schwarz-extremum">Example 6: Cauchy-Schwarz extremum</a></li><li><a href="#common-traps">Common traps</a></li><li><a href="#previous-year-questions">Previous-year questions</a></li><li class="sub"><a href="#2026-q38-gram-schmidt-projection-trace">2026, Q38 (Gram-Schmidt, projection trace)</a></li><li class="sub"><a href="#2026-q83-hermitian-with-a2i">2026, Q83 (Hermitian with <span class="math">\(A^2=I\)</span>)</a></li><li class="sub"><a href="#2025-q52-orthogonal-unit-vectors">2025, Q52 (orthogonal unit vectors)</a></li><li class="sub"><a href="#2019-unnumbered-question-22-orthogonal-complement">2019, unnumbered question 22 (orthogonal complement)</a></li><li><a href="#quick-revision">Quick revision</a></li></ol></details></nav><article class="prose"><section class="note-section ns-why-it-matters-for-the-exam" aria-labelledby="why-it-matters-for-the-exam"><h2 id="why-it-matters-for-the-exam">Why it matters for the exam</h2>
+<p>Hermitian, skew-Hermitian, unitary and orthogonal matrices are named in the syllabus, and inner product spaces with Gram-Schmidt are named right after them. Questions are usually short: eigenvalue facts, a projection or Gram-Schmidt calculation, an orthogonal-complement statement, or a spectral-theorem consequence (2026-Q38, Q83; 2025-Q52; 2019 orthogonal complement). The same facts feed the quadratic-forms topic.</p>
+</section><section class="note-section ns-core-ideas" aria-labelledby="core-ideas"><h2 id="core-ideas">Core ideas</h2>
+<h3 id="inner-product">Inner product</h3>
+<p>A (complex) inner product on <span class="math">\(V\)</span> is a map <span class="math">\(\langle\cdot,\cdot\rangle:V\times V\to\mathbb C\)</span> with, for all <span class="math">\(x,y,z\)</span> and scalars <span class="math">\(c\)</span>:</p>
+<ol>
+<li><span class="math">\(\langle x+y,z\rangle=\langle x,z\rangle+\langle y,z\rangle\)</span> and <span class="math">\(\langle cx,y\rangle=c\langle x,y\rangle\)</span> (linear in the first slot);</li>
+<li><span class="math">\(\langle y,x\rangle=\overline{\langle x,y\rangle}\)</span> (conjugate symmetry; plain symmetry over <span class="math">\(\mathbb R\)</span>);</li>
+<li><span class="math">\(\langle x,x\rangle&gt;0\)</span> for <span class="math">\(x\ne0\)</span> (positive definite).</li>
+</ol>
+<p>Hence <span class="math">\(\langle x,cy\rangle=\bar c\langle x,y\rangle\)</span>. Some books put the linearity in the second slot; the results below do not change. Standard examples: <span class="math">\(\langle x,y\rangle=\sum x_i\bar y_i\)</span> on <span class="math">\(\mathbb C^n\)</span>; <span class="math">\(\langle f,g\rangle=\int_a^bf\bar g\)</span> on <span class="math">\(C[a,b]\)</span>; <span class="math">\(\langle A,B\rangle=\operatorname{tr}(B^*A)\)</span> on matrices.</p>
+<p>On <span class="math">\(\mathbb R^n\)</span>, <span class="math">\(\langle x,y\rangle=x^TGy\)</span> is an inner product iff <span class="math">\(G\)</span> is a <strong>symmetric positive definite</strong> matrix. For example <span class="math">\(x_1y_1-x_1y_2-x_2y_1+2x_2y_2\)</span> is an inner product (matrix <span class="math">\(\begin{pmatrix}1&amp;-1\\-1&amp;2\end{pmatrix}\)</span>, leading minors <span class="math">\(1,1&gt;0\)</span>), but <span class="math">\(x_1y_1+2x_1y_2+2x_2y_1+x_2y_2\)</span> is not (determinant <span class="math">\(-3\)</span>).</p>
+<p>The norm is <span class="math">\(\lVert x\rVert=\sqrt{\langle x,x\rangle}\)</span>.</p>
+<h3 id="basic-inequalities-and-identities">Basic inequalities and identities</h3>
+<ul>
+<li><strong>Cauchy-Schwarz:</strong> <span class="math">\(\lvert\langle x,y\rangle\rvert\le\lVert x\rVert\lVert y\rVert\)</span>, with equality iff <span class="math">\(x,y\)</span> are linearly dependent.</li>
+<li><strong>Triangle inequality:</strong> <span class="math">\(\lVert x+y\rVert\le\lVert x\rVert+\lVert y\rVert\)</span>.</li>
+<li><strong>Parallelogram law:</strong> <span class="math">\(\lVert x+y\rVert^2+\lVert x-y\rVert^2=2\lVert x\rVert^2+2\lVert y\rVert^2\)</span>. A norm comes from an inner product iff it satisfies this law. The norms <span class="math">\(\lVert\cdot\rVert_1\)</span> and <span class="math">\(\lVert\cdot\rVert_\infty\)</span> on <span class="math">\(\mathbb R^2\)</span> fail it.</li>
+<li><strong>Polarization (real):</strong> <span class="math">\(\langle x,y\rangle=\tfrac14(\lVert x+y\rVert^2-\lVert x-y\rVert^2)\)</span>.</li>
+<li><strong>Pythagoras:</strong> <span class="math">\(x\perp y\Rightarrow\lVert x+y\rVert^2=\lVert x\rVert^2+\lVert y\rVert^2\)</span>. (The converse holds over <span class="math">\(\mathbb R\)</span> only.)</li>
+<li>Distance between orthogonal unit vectors: <span class="math">\(\lVert x-y\rVert^2=1+1-0=2\)</span>, distance <span class="math">\(\sqrt2\)</span>.</li>
+</ul>
+<p>Consequence of Cauchy-Schwarz: the maximum of <span class="math">\(a\cdot x\)</span> over <span class="math">\(\lVert x\rVert=r\)</span> is <span class="math">\(\lVert a\rVert r\)</span>, attained at <span class="math">\(x=r\,a/\lVert a\rVert\)</span>.</p>
+<h3 id="orthogonal-sets-and-gram-schmidt">Orthogonal sets and Gram-Schmidt</h3>
+<p>A set of non-zero pairwise orthogonal vectors is linearly independent. If <span class="math">\(e_1,\dots,e_n\)</span> is an orthonormal basis then</p>
+<p><span class="math">\(x=\sum\langle x,e_i\rangle e_i,\qquad\lVert x\rVert^2=\sum\lvert\langle x,e_i\rangle\rvert^2\quad(\text{Parseval}).\)</span></p>
+<p>For an orthonormal set that is not a basis, <span class="math">\(\sum\lvert\langle x,e_i\rangle\rvert^2\le\lVert x\rVert^2\)</span> (Bessel).</p>
+<p><strong>Gram-Schmidt.</strong> From independent <span class="math">\(v_1,\dots,v_k\)</span> build orthogonal <span class="math">\(u_1,\dots,u_k\)</span>:</p>
+<p><span class="math">\(u_1=v_1,\qquad u_j=v_j-\sum_{i&lt;j}\frac{\langle v_j,u_i\rangle}{\langle u_i,u_i\rangle}u_i,\qquad e_j=\frac{u_j}{\lVert u_j\rVert}.\)</span></p>
+<p>At each step <span class="math">\(\operatorname{span}(u_1,\dots,u_j)=\operatorname{span}(v_1,\dots,v_j)\)</span>. So every finite-dimensional inner product space has an orthonormal basis. Matrix form: <span class="math">\(A=QR\)</span> with <span class="math">\(Q\)</span> having orthonormal columns and <span class="math">\(R\)</span> upper triangular with positive diagonal. Applied to <span class="math">\(1,x,x^2\)</span> with <span class="math">\(\int_{-1}^1\)</span>, Gram-Schmidt gives <span class="math">\(1,\;x,\;x^2-\tfrac13\)</span> (Legendre polynomials up to scaling).</p>
+<h3 id="orthogonal-complement-and-projection">Orthogonal complement and projection</h3>
+<p>For a subset <span class="math">\(S\)</span>: <span class="math">\(S^\perp=\{x:\langle x,s\rangle=0\ \forall s\in S\}\)</span>. Facts:</p>
+<ul>
+<li><span class="math">\(S^\perp\)</span> is always a subspace, and <span class="math">\(S^\perp=(\operatorname{span}S)^\perp\)</span>.</li>
+<li><span class="math">\(S\subseteq(S^\perp)^\perp\)</span> for <strong>every</strong> subset <span class="math">\(S\)</span>. In finite dimension <span class="math">\((S^\perp)^{\perp}=\operatorname{span}S\)</span>, so equality holds for subspaces.</li>
+<li>For a subspace <span class="math">\(W\)</span> of a finite-dimensional space: <span class="math">\(V=W\oplus W^\perp\)</span> and <span class="math">\(\dim W^\perp=\dim V-\dim W\)</span>.</li>
+<li><span class="math">\((W_1+W_2)^\perp=W_1^\perp\cap W_2^\perp\)</span> and <span class="math">\((W_1\cap W_2)^\perp=W_1^\perp+W_2^\perp\)</span>.</li>
+<li><span class="math">\(W_1\subseteq W_2\Rightarrow W_2^\perp\subseteq W_1^\perp\)</span>.</li>
+<li>If <span class="math">\(S\)</span> is a set not containing <span class="math">\(0\)</span>, <span class="math">\(S^\perp\)</span> still contains <span class="math">\(0\)</span> and is a subspace. <span class="math">\(\{0\}^\perp=V\)</span>, <span class="math">\(V^\perp=\{0\}\)</span>.</li>
+<li>In infinite dimension (Hilbert space) <span class="math">\(W^{\perp\perp}=\overline W\)</span>, and <span class="math">\(V=W\oplus W^\perp\)</span> needs <span class="math">\(W\)</span> closed.</li>
+</ul>
+<p><strong>Orthogonal projection</strong> onto <span class="math">\(W\)</span> with orthonormal basis <span class="math">\(e_1,\dots,e_k\)</span>: <span class="math">\(P x=\sum\langle x,e_i\rangle e_i\)</span>. It is the <strong>closest point</strong> of <span class="math">\(W\)</span> to <span class="math">\(x\)</span>, and <span class="math">\(\operatorname{dist}(x,W)=\lVert x-Px\rVert\)</span>. If <span class="math">\(W\)</span> is the column space of <span class="math">\(A\)</span> (independent columns), then</p>
+<p><span class="math">\(P=A(A^TA)^{-1}A^T,\qquad P=\frac{vv^T}{v^Tv}\ \text{ for a line spanned by }v .\)</span></p>
+<p>An orthogonal projection satisfies <span class="math">\(P^2=P=P^*\)</span>; its eigenvalues are <span class="math">\(0,1\)</span>; <span class="math">\(\operatorname{tr}P=\operatorname{rank}P=\dim W\)</span>; <span class="math">\(I-P\)</span> projects onto <span class="math">\(W^\perp\)</span>. Least squares: the minimiser of <span class="math">\(\lVert Ax-b\rVert\)</span> solves <span class="math">\(A^TAx=A^Tb\)</span>.</p>
+<h3 id="adjoint">Adjoint</h3>
+<p>For <span class="math">\(T:V\to V\)</span> (finite dimension) there is a unique <span class="math">\(T^*\)</span> with <span class="math">\(\langle Tx,y\rangle=\langle x,T^*y\rangle\)</span> for all <span class="math">\(x,y\)</span> (Riesz). In an <strong>orthonormal</strong> basis, <span class="math">\([T^*]=[T]^*=\overline{[T]}^{\,T}\)</span>. In a non-orthonormal basis this fails.</p>
+<ul>
+<li><span class="math">\((S+T)^*=S^*+T^*\)</span>, <span class="math">\((cT)^*=\bar cT^*\)</span>, <span class="math">\((ST)^*=T^*S^*\)</span>, <span class="math">\(T^{**}=T\)</span>, <span class="math">\((T^{-1})^*=(T^*)^{-1}\)</span>.</li>
+<li><span class="math">\(\ker T^*=(\operatorname{Im}T)^\perp\)</span> and <span class="math">\(\operatorname{Im}T^*=(\ker T)^\perp\)</span>. So <span class="math">\(\operatorname{rank}T^*=\operatorname{rank}T\)</span>.</li>
+<li><span class="math">\(\ker(T^*T)=\ker T\)</span>; <span class="math">\(T^*T\)</span> is Hermitian with eigenvalues <span class="math">\(\ge0\)</span>.</li>
+<li><span class="math">\(Ax=b\)</span> is solvable iff <span class="math">\(b\perp\ker A^*\)</span>.</li>
+</ul>
+<h3 id="the-special-classes">The special classes</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Definition</th>
+<th>Eigenvalues</th>
+<th>Other facts</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hermitian (real: symmetric)</td>
+<td><span class="math">\(A^*=A\)</span></td>
+<td>real</td>
+<td>diagonal entries real, <span class="math">\(\det\)</span> real, <span class="math">\(\langle Ax,x\rangle\)</span> real</td>
+</tr>
+<tr>
+<td>Skew-Hermitian (real: skew-symmetric)</td>
+<td><span class="math">\(A^*=-A\)</span></td>
+<td>purely imaginary or <span class="math">\(0\)</span></td>
+<td>diagonal imaginary (real skew: zero), <span class="math">\(\operatorname{tr}\)</span> imaginary; real skew of odd order is singular</td>
+</tr>
+<tr>
+<td>Unitary (real: orthogonal)</td>
+<td><span class="math">\(A^*A=I\)</span></td>
+<td><span class="math">\(\lvert\lambda\rvert=1\)</span></td>
+<td>columns (and rows) orthonormal, <span class="math">\(\lvert\det\rvert=1\)</span>, preserves inner product and norm</td>
+</tr>
+<tr>
+<td>Normal</td>
+<td><span class="math">\(AA^*=A^*A\)</span></td>
+<td>arbitrary</td>
+<td>contains all three classes above</td>
+</tr>
+</tbody>
+</table></div>
+<p>Details to know:</p>
+<ul>
+<li><strong>Real orthogonal:</strong> <span class="math">\(\det=\pm1\)</span>. Eigenvalues are <span class="math">\(\pm1\)</span> or non-real pairs <span class="math">\(e^{\pm i\theta}\)</span>. In dimension 2, <span class="math">\(\det=1\)</span> means a rotation <span class="math">\(R(\theta)\)</span>; <span class="math">\(\det=-1\)</span> means a reflection (eigenvalues <span class="math">\(1,-1\)</span>). In dimension 3 with <span class="math">\(\det=1\)</span> the eigenvalues are <span class="math">\(1,e^{\pm i\theta}\)</span> (a rotation about an axis), and <span class="math">\(\operatorname{tr}=1+2\cos\theta\)</span>. Every orthogonal matrix of odd order has <span class="math">\(+1\)</span> or <span class="math">\(-1\)</span> as an eigenvalue.</li>
+<li><strong>Decomposition:</strong> every <span class="math">\(A=H+K\)</span> with <span class="math">\(H=\tfrac12(A+A^*)\)</span> Hermitian and <span class="math">\(K=\tfrac12(A-A^*)\)</span> skew-Hermitian. <span class="math">\(A\)</span> is normal iff <span class="math">\(HK=KH\)</span>.</li>
+<li><strong>Products:</strong> for Hermitian <span class="math">\(A,B\)</span>, the product <span class="math">\(AB\)</span> is Hermitian iff <span class="math">\(AB=BA\)</span>. Products and inverses of unitary matrices are unitary. <span class="math">\(A^*A\)</span> and <span class="math">\(AA^*\)</span> are always Hermitian.</li>
+<li><strong>Cayley transform:</strong> if <span class="math">\(K\)</span> is skew-Hermitian then <span class="math">\((I-K)(I+K)^{-1}\)</span> is unitary (and <span class="math">\(I+K\)</span> is always invertible). For real skew-symmetric <span class="math">\(K\)</span>, <span class="math">\(\det(I+K)&gt;0\)</span>.</li>
+<li><strong>Complex vs real:</strong> over <span class="math">\(\mathbb C\)</span>, <span class="math">\(\langle Tx,x\rangle=0\)</span> for all <span class="math">\(x\)</span> forces <span class="math">\(T=0\)</span>, and <span class="math">\(\langle Tx,x\rangle\in\mathbb R\)</span> for all <span class="math">\(x\)</span> iff <span class="math">\(T\)</span> is Hermitian. Over <span class="math">\(\mathbb R\)</span> this fails: rotation by <span class="math">\(90^\circ\)</span> has <span class="math">\(\langle Tx,x\rangle=0\)</span> for all <span class="math">\(x\)</span>.</li>
+<li><strong>Dimensions (as real vector spaces):</strong> Hermitian <span class="math">\(n\times n\)</span>: <span class="math">\(n^2\)</span>; real symmetric: <span class="math">\(\tfrac{n(n+1)}2\)</span>; real skew-symmetric: <span class="math">\(\tfrac{n(n-1)}2\)</span>, which is also the dimension of the orthogonal group.</li>
+</ul>
+<h3 id="normal-operators">Normal operators</h3>
+<p>For normal <span class="math">\(A\)</span>:</p>
+<ul>
+<li><span class="math">\(\lVert Ax\rVert=\lVert A^*x\rVert\)</span> for all <span class="math">\(x\)</span>, hence <span class="math">\(\ker A=\ker A^*\)</span>.</li>
+<li><span class="math">\(Ax=\lambda x\Rightarrow A^*x=\bar\lambda x\)</span>.</li>
+<li>Eigenvectors for distinct eigenvalues are orthogonal.</li>
+<li>A normal matrix which is upper triangular is diagonal.</li>
+<li>Normal with all eigenvalues real <span class="math">\(\Rightarrow\)</span> Hermitian. Normal with <span class="math">\(\lvert\lambda\rvert=1\)</span> <span class="math">\(\Rightarrow\)</span> unitary. Normal with imaginary eigenvalues <span class="math">\(\Rightarrow\)</span> skew-Hermitian.</li>
+</ul>
+<h3 id="spectral-theorem">Spectral theorem</h3>
+<p><strong>Complex case.</strong> For <span class="math">\(T\)</span> on a finite-dimensional complex inner product space, TFAE: (i) <span class="math">\(T\)</span> is normal; (ii) there is an orthonormal basis of eigenvectors; (iii) <span class="math">\(A=U\Lambda U^*\)</span> with <span class="math">\(U\)</span> unitary, <span class="math">\(\Lambda\)</span> diagonal. Equivalently <span class="math">\(T=\sum\lambda_iP_i\)</span> where the <span class="math">\(P_i\)</span> are the orthogonal projections onto the eigenspaces, <span class="math">\(P_iP_j=0\)</span> for <span class="math">\(i\ne j\)</span>, <span class="math">\(\sum P_i=I\)</span>.</p>
+<p><strong>Real case.</strong> A real matrix is orthogonally diagonalizable (<span class="math">\(Q^TAQ=D\)</span>, <span class="math">\(Q\)</span> orthogonal) <strong>iff it is symmetric</strong>. Hermitian and real symmetric matrices are always diagonalizable with real eigenvalues. A real normal matrix such as a rotation by <span class="math">\(90^\circ\)</span> is not diagonalizable over <span class="math">\(\mathbb R\)</span>.</p>
+<p><strong>Schur:</strong> every complex square matrix is unitarily similar to an upper triangular matrix. Normal is exactly the case where the triangular matrix is diagonal.</p>
+<p>Examples that are not covered by the theorem:</p>
+<ul>
+<li>A complex <strong>symmetric</strong> matrix need not be diagonalizable: <span class="math">\(\begin{pmatrix}1&amp;i\\i&amp;-1\end{pmatrix}\)</span> is non-zero with square <span class="math">\(0\)</span>. It is symmetric but not Hermitian or normal.</li>
+<li>A non-normal diagonalizable matrix has non-orthogonal eigenvectors, e.g. <span class="math">\(\begin{pmatrix}1&amp;1\\0&amp;2\end{pmatrix}\)</span>.</li>
+</ul>
+<p><strong>Hermitian with <span class="math">\(A^2=I\)</span>.</strong> The eigenvalues satisfy <span class="math">\(\lambda^2=1\)</span>, so <span class="math">\(\lambda=\pm1\)</span>; <span class="math">\(A=P_+-P_-=2P_+-I\)</span> (a reflection); <span class="math">\(V=E_{1}\oplus E_{-1}\)</span> orthogonally; <span class="math">\(\operatorname{tr}A=\dim E_1-\dim E_{-1}\)</span>.</p>
+</section><section class="note-section ns-formulas-and-results" aria-labelledby="formulas-and-results"><h2 id="formulas-and-results">Formulas and results</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cauchy-Schwarz</td>
+<td><span class="math">\(\lvert\langle x,y\rangle\rvert\le\lVert x\rVert\lVert y\rVert\)</span>, equality iff dependent</td>
+</tr>
+<tr>
+<td>Parallelogram law</td>
+<td><span class="math">\(\lVert x+y\rVert^2+\lVert x-y\rVert^2=2\lVert x\rVert^2+2\lVert y\rVert^2\)</span></td>
+</tr>
+<tr>
+<td>Gram-Schmidt</td>
+<td><span class="math">\(u_j=v_j-\sum_{i&lt;j}\frac{\langle v_j,u_i\rangle}{\langle u_i,u_i\rangle}u_i\)</span></td>
+</tr>
+<tr>
+<td>Expansion</td>
+<td><span class="math">\(x=\sum\langle x,e_i\rangle e_i\)</span>, Parseval <span class="math">\(\lVert x\rVert^2=\sum\lvert\langle x,e_i\rangle\rvert^2\)</span></td>
+</tr>
+<tr>
+<td>Projection</td>
+<td>onto column space of <span class="math">\(A\)</span>: <span class="math">\(A(A^TA)^{-1}A^T\)</span>; onto a line: <span class="math">\(vv^T/v^Tv\)</span></td>
+</tr>
+<tr>
+<td>Projection facts</td>
+<td><span class="math">\(P^2=P=P^*\)</span>, eigenvalues <span class="math">\(0,1\)</span>, <span class="math">\(\operatorname{tr}P=\operatorname{rank}P\)</span></td>
+</tr>
+<tr>
+<td>Complement</td>
+<td><span class="math">\(\dim W+\dim W^\perp=\dim V\)</span>, <span class="math">\(W^{\perp\perp}=W\)</span>, <span class="math">\(S\subseteq S^{\perp\perp}\)</span></td>
+</tr>
+<tr>
+<td>Adjoint</td>
+<td><span class="math">\(\langle Tx,y\rangle=\langle x,T^*y\rangle\)</span>, <span class="math">\((ST)^*=T^*S^*\)</span>, <span class="math">\(\ker T^*=(\operatorname{Im}T)^\perp\)</span></td>
+</tr>
+<tr>
+<td>Hermitian eigenvalues</td>
+<td>real</td>
+</tr>
+<tr>
+<td>Skew-Hermitian eigenvalues</td>
+<td>purely imaginary (or <span class="math">\(0\)</span>)</td>
+</tr>
+<tr>
+<td>Unitary eigenvalues</td>
+<td><span class="math">\(\lvert\lambda\rvert=1\)</span>; <span class="math">\(\lvert\det\rvert=1\)</span></td>
+</tr>
+<tr>
+<td>Real orthogonal</td>
+<td><span class="math">\(\det=\pm1\)</span>; <span class="math">\(\det=1\)</span> in 3D: eigenvalues <span class="math">\(1,e^{\pm i\theta}\)</span></td>
+</tr>
+<tr>
+<td>Normal</td>
+<td><span class="math">\(AA^*=A^*A\)</span>; unitarily diagonalizable</td>
+</tr>
+<tr>
+<td>Real symmetric</td>
+<td>orthogonally diagonalizable, real eigenvalues</td>
+</tr>
+<tr>
+<td>Spectral decomposition</td>
+<td><span class="math">\(A=\sum\lambda_iP_i\)</span>, <span class="math">\(P_iP_j=0\)</span>, <span class="math">\(\sum P_i=I\)</span></td>
+</tr>
+<tr>
+<td>Cayley transform</td>
+<td><span class="math">\(K\)</span> skew-Hermitian <span class="math">\(\Rightarrow(I-K)(I+K)^{-1}\)</span> unitary</td>
+</tr>
+</tbody>
+</table></div>
+</section><section class="note-section ns-worked-examples" aria-labelledby="worked-examples"><h2 id="worked-examples">Worked examples</h2>
+<h3 id="example-1-gram-schmidt">Example 1: Gram-Schmidt</h3>
+<p>Orthogonalize <span class="math">\(v_1=(1,1,1)\)</span>, <span class="math">\(v_2=(0,1,1)\)</span>, <span class="math">\(v_3=(0,0,1)\)</span> in <span class="math">\(\mathbb R^3\)</span>.</p>
+<p><span class="math">\(u_1=(1,1,1)\)</span>. <span class="math">\(\langle v_2,u_1\rangle=2\)</span>, <span class="math">\(\langle u_1,u_1\rangle=3\)</span>, so <span class="math">\(u_2=(0,1,1)-\tfrac23(1,1,1)=(-\tfrac23,\tfrac13,\tfrac13)\)</span>, and <span class="math">\(\langle u_2,u_2\rangle=\tfrac69=\tfrac23\)</span>.</p>
+<p>For <span class="math">\(v_3\)</span>: <span class="math">\(\langle v_3,u_1\rangle=1\)</span> gives <span class="math">\(\tfrac13u_1\)</span>. <span class="math">\(\langle v_3,u_2\rangle=\tfrac13\)</span>, so the coefficient is <span class="math">\(\tfrac{1/3}{2/3}=\tfrac12\)</span>. Then
+<span class="math">\(u_3=(0,0,1)-(\tfrac13,\tfrac13,\tfrac13)-\tfrac12(-\tfrac23,\tfrac13,\tfrac13)=(0,-\tfrac12,\tfrac12)\)</span>.</p>
+<p>Checked: the three vectors are pairwise orthogonal.</p>
+<h3 id="example-2-projection-and-distance">Example 2: projection and distance</h3>
+<p>Let <span class="math">\(W=\operatorname{span}\{(1,1,0),(0,1,1)\}\)</span> and <span class="math">\(b=(1,2,3)\)</span>. With <span class="math">\(A\)</span> the matrix with those columns, <span class="math">\(A^TA=\begin{pmatrix}2&amp;1\\1&amp;2\end{pmatrix}\)</span> (<span class="math">\(\det=3\)</span>) and <span class="math">\(A^Tb=(3,5)^T\)</span>. Solving <span class="math">\(A^TAx=A^Tb\)</span>: <span class="math">\(x=(\tfrac13,\tfrac73)\)</span>. So <span class="math">\(Pb=Ax=(\tfrac13,\tfrac83,\tfrac73)\)</span> and <span class="math">\(b-Pb=(\tfrac23,-\tfrac23,\tfrac23)\)</span>, which is parallel to the normal <span class="math">\((1,-1,1)\)</span> of <span class="math">\(W\)</span> (and orthogonal to both columns). Distance squared <span class="math">\(=\tfrac{12}9=\tfrac43\)</span>, distance <span class="math">\(\tfrac{2}{\sqrt3}\)</span>.</p>
+<h3 id="example-3-spectral-decomposition-of-a-symmetric-matrix">Example 3: spectral decomposition of a symmetric matrix</h3>
+<p><span class="math">\(A=\begin{pmatrix}2&amp;1&amp;1\\1&amp;2&amp;1\\1&amp;1&amp;2\end{pmatrix}\)</span> has <span class="math">\(\chi=(x-4)(x-1)^2\)</span>. Eigenvector for <span class="math">\(4\)</span>: <span class="math">\((1,1,1)\)</span>. The eigenspace for <span class="math">\(1\)</span> is the plane <span class="math">\(x+y+z=0\)</span> with orthogonal basis <span class="math">\((1,-1,0),(1,1,-2)\)</span> (each checked to satisfy <span class="math">\(Av=v\)</span>). Hence <span class="math">\(Q=\bigl[\tfrac{(1,1,1)}{\sqrt3},\tfrac{(1,-1,0)}{\sqrt2},\tfrac{(1,1,-2)}{\sqrt6}\bigr]\)</span> is orthogonal with <span class="math">\(Q^TAQ=\operatorname{diag}(4,1,1)\)</span>, and <span class="math">\(A=4P+(I-P)\)</span> with <span class="math">\(P=\tfrac13\begin{pmatrix}1&amp;1&amp;1\\1&amp;1&amp;1\\1&amp;1&amp;1\end{pmatrix}\)</span>.</p>
+<h3 id="example-4-is-it-unitary-hermitian-normal">Example 4: is it unitary, Hermitian, normal?</h3>
+<p><span class="math">\(U=\tfrac1{\sqrt2}\begin{pmatrix}1&amp;i\\i&amp;1\end{pmatrix}\)</span>. The columns <span class="math">\(\tfrac1{\sqrt2}(1,i)\)</span> and <span class="math">\(\tfrac1{\sqrt2}(i,1)\)</span> have inner product <span class="math">\(\tfrac12(1\cdot\bar i+i\cdot1)=\tfrac12(-i+i)=0\)</span> and norm <span class="math">\(1\)</span>, so <span class="math">\(U\)</span> is unitary (hence normal). It is not Hermitian (<span class="math">\(U^*=\tfrac1{\sqrt2}\begin{pmatrix}1&amp;-i\\-i&amp;1\end{pmatrix}\ne U\)</span>). Its trace is <span class="math">\(\sqrt2\)</span> and <span class="math">\(\det=1\)</span>, so the eigenvalues are <span class="math">\(e^{\pm i\pi/4}\)</span>, which have modulus <span class="math">\(1\)</span> as required.</p>
+<h3 id="example-5-orthogonal-3times3-with-det1-and-trace-0">Example 5: orthogonal <span class="math">\(3\times3\)</span> with <span class="math">\(\det=1\)</span> and trace <span class="math">\(0\)</span></h3>
+<p>Eigenvalues <span class="math">\(1,e^{i\theta},e^{-i\theta}\)</span> with <span class="math">\(1+2\cos\theta=0\)</span>, so <span class="math">\(\cos\theta=-\tfrac12\)</span>, <span class="math">\(\theta=\tfrac{2\pi}3\)</span>. This is a rotation by <span class="math">\(120^\circ\)</span> about an axis (for example the permutation matrix of a 3-cycle).</p>
+<h3 id="example-6-cauchy-schwarz-extremum">Example 6: Cauchy-Schwarz extremum</h3>
+<p>Maximum of <span class="math">\(2x-y+2z\)</span> on <span class="math">\(x^2+y^2+z^2=9\)</span>. With <span class="math">\(a=(2,-1,2)\)</span>, <span class="math">\(\lVert a\rVert=3\)</span> and radius <span class="math">\(3\)</span>, the maximum is <span class="math">\(3\cdot3=9\)</span>, attained at <span class="math">\(x=(2,-1,2)\)</span>.</p>
+</section><section class="note-section ns-common-traps" aria-labelledby="common-traps"><h2 id="common-traps">Common traps</h2>
+<ul>
+<li><strong>Skew-Hermitian eigenvalues are purely imaginary, and <span class="math">\(0\)</span> is allowed.</strong> A real skew-symmetric matrix of odd order always has eigenvalue <span class="math">\(0\)</span>.</li>
+<li><strong>Unitary means modulus 1, not equal to <span class="math">\(\pm1\)</span>.</strong> Orthogonal (real) matrices can have complex eigenvalues on the unit circle; <span class="math">\(\det=\pm1\)</span> only.</li>
+<li><strong>Real normal does not give a real diagonalization.</strong> The rotation <span class="math">\(\begin{pmatrix}0&amp;-1\\1&amp;0\end{pmatrix}\)</span> is normal and orthogonal but has eigenvalues <span class="math">\(\pm i\)</span>.</li>
+<li><strong>Complex symmetric is not Hermitian.</strong> <span class="math">\(\begin{pmatrix}1&amp;i\\i&amp;-1\end{pmatrix}\)</span> is not diagonalizable. The spectral theorem needs <span class="math">\(A^*=A\)</span> (or normal), not <span class="math">\(A^T=A\)</span> over <span class="math">\(\mathbb C\)</span>.</li>
+<li><strong>Adjoint matrix is the conjugate transpose only in an orthonormal basis.</strong></li>
+<li><strong><span class="math">\(S\subseteq S^{\perp\perp}\)</span> always, but <span class="math">\(S=S^{\perp\perp}\)</span> only if <span class="math">\(S\)</span> is a subspace</strong> (in finite dimension). For <span class="math">\(S\)</span> not a subspace, <span class="math">\(S^{\perp\perp}=\operatorname{span}S\)</span>.</li>
+<li><strong>Pythagoras converse.</strong> <span class="math">\(\lVert x+y\rVert^2=\lVert x\rVert^2+\lVert y\rVert^2\)</span> implies <span class="math">\(x\perp y\)</span> over <span class="math">\(\mathbb R\)</span> but not over <span class="math">\(\mathbb C\)</span> (it only gives <span class="math">\(\operatorname{Re}\langle x,y\rangle=0\)</span>).</li>
+<li><strong>Orthogonal is not the same as independent.</strong> Orthogonal non-zero vectors are independent; the reverse is false.</li>
+<li><strong>Projection formula without orthonormality.</strong> <span class="math">\(\sum\langle x,e_i\rangle e_i\)</span> needs orthonormal <span class="math">\(e_i\)</span>. For orthogonal <span class="math">\(u_i\)</span> divide by <span class="math">\(\langle u_i,u_i\rangle\)</span>.</li>
+<li><strong>Two Hermitian matrices multiply to a Hermitian matrix only if they commute.</strong></li>
+<li><strong>Trace of a projection is its rank</strong>, not <span class="math">\(1\)</span> and not the dimension of the big space.</li>
+<li><strong>Over <span class="math">\(\mathbb R\)</span></strong>, <span class="math">\(\langle Tx,x\rangle=0\)</span> for all <span class="math">\(x\)</span> does not force <span class="math">\(T=0\)</span> (rotation by <span class="math">\(90^\circ\)</span>); over <span class="math">\(\mathbb C\)</span> it does.</li>
+</ul>
+</section><section class="note-section ns-previous-year-questions" aria-labelledby="previous-year-questions"><h2 id="previous-year-questions">Previous-year questions</h2>
+<h3 id="2026-q38-gram-schmidt-projection-trace">2026, Q38 (Gram-Schmidt, projection trace)</h3>
+<p>Apply Gram-Schmidt to <span class="math">\((1,1,0),(1,0,1),(0,1,1)\)</span>, then find the trace of the projection operator onto the span of the first two vectors. Options include (A) <span class="math">\(2\)</span> (B) <span class="math">\(0\)</span> (D) <span class="math">\(1\)</span>.</p>
+<p><strong>Answer: A, <span class="math">\(2\)</span></strong> (worked key, unofficial).</p>
+<p>The first two vectors are independent, so they span a <span class="math">\(2\)</span>-dimensional subspace <span class="math">\(W\)</span>. An orthogonal projection onto <span class="math">\(W\)</span> has eigenvalues <span class="math">\(1,1,0\)</span>, so its trace is <span class="math">\(\operatorname{rank}=2\)</span>. (The full Gram-Schmidt output is <span class="math">\((1,1,0)\)</span>, <span class="math">\((\tfrac12,-\tfrac12,1)\)</span>, <span class="math">\((-\tfrac23,\tfrac23,\tfrac23)\)</span>; the trace does not depend on it.)</p>
+<h3 id="2026-q83-hermitian-with-a2i">2026, Q83 (Hermitian with <span class="math">\(A^2=I\)</span>)</h3>
+<p>Let <span class="math">\(A\)</span> be Hermitian with <span class="math">\(A^2=I\)</span>. Determine the eigenvalues, decompose the space into orthogonal subspaces, and compute the trace if the dimension is <span class="math">\(4\)</span> with equal multiplicities. Options include (A) <span class="math">\(0\)</span> and (D) <span class="math">\(-2\)</span>.</p>
+<p><strong>Answer: A, <span class="math">\(0\)</span></strong> (worked key, unofficial).</p>
+<p>Hermitian gives real eigenvalues; <span class="math">\(A^2=I\)</span> gives <span class="math">\(\lambda^2=1\)</span>, so <span class="math">\(\lambda=\pm1\)</span>. <span class="math">\(V=E_1\oplus E_{-1}\)</span> orthogonally. Equal multiplicities means <span class="math">\(2\)</span> and <span class="math">\(2\)</span>. Trace <span class="math">\(=2(1)+2(-1)=0\)</span>.</p>
+<h3 id="2025-q52-orthogonal-unit-vectors">2025, Q52 (orthogonal unit vectors)</h3>
+<p>If <span class="math">\(\alpha\)</span> and <span class="math">\(\beta\)</span> are orthogonal unit vectors, the distance between <span class="math">\(\alpha\)</span> and <span class="math">\(\beta\)</span> is (A) <span class="math">\(2\)</span> (B) <span class="math">\(\sqrt2\)</span> (C) <span class="math">\(1\)</span> (D) <span class="math">\(0\)</span>.</p>
+<p><strong>Answer: B, <span class="math">\(\sqrt2\)</span></strong> (official key). <span class="math">\(\lVert\alpha-\beta\rVert^2=\lVert\alpha\rVert^2+\lVert\beta\rVert^2-2\langle\alpha,\beta\rangle=1+1-0=2\)</span>.</p>
+<h3 id="2019-unnumbered-question-22-orthogonal-complement">2019, unnumbered question 22 (orthogonal complement)</h3>
+<p>In a finite-dimensional inner product space, <span class="math">\(S\)</span> is a non-empty subset not containing <span class="math">\(0\)</span>. Which statement about <span class="math">\(S^\perp\)</span> is true? The answer recorded for this question is option <strong>(b): <span class="math">\(S\subseteq(S^\perp)^\perp\)</span></strong>. It was derived mathematically, because the solution video does not show an answer for it.</p>
+<p><strong>Answer: <span class="math">\(S\subseteq(S^\perp)^\perp\)</span>.</strong> Every <span class="math">\(s\in S\)</span> is orthogonal to every vector of <span class="math">\(S^\perp\)</span> by the definition of <span class="math">\(S^\perp\)</span>, so <span class="math">\(s\in(S^\perp)^\perp\)</span>. Equality needs <span class="math">\(S\)</span> to be a subspace; in general <span class="math">\((S^\perp)^\perp=\operatorname{span}S\)</span>. <span class="math">\(S^\perp\)</span> is a subspace containing <span class="math">\(0\)</span> even though <span class="math">\(0\notin S\)</span>.</p>
+</section><section class="note-section ns-quick-revision" aria-labelledby="quick-revision"><h2 id="quick-revision">Quick revision</h2>
+<ul>
+<li>Cauchy-Schwarz <span class="math">\(\lvert\langle x,y\rangle\rvert\le\lVert x\rVert\lVert y\rVert\)</span>; equality iff linearly dependent.</li>
+<li>Inner product on <span class="math">\(\mathbb R^n\)</span> is <span class="math">\(x^TGy\)</span> with <span class="math">\(G\)</span> symmetric positive definite.</li>
+<li>Gram-Schmidt: subtract the projections on the earlier <span class="math">\(u_i\)</span>, each with coefficient <span class="math">\(\langle v,u_i\rangle/\langle u_i,u_i\rangle\)</span>.</li>
+<li><span class="math">\(V=W\oplus W^\perp\)</span>, <span class="math">\(W^{\perp\perp}=W\)</span>, <span class="math">\(S\subseteq S^{\perp\perp}\)</span> always.</li>
+<li>Orthogonal projection: <span class="math">\(P^2=P=P^*\)</span>, eigenvalues <span class="math">\(0,1\)</span>, <span class="math">\(\operatorname{tr}P=\operatorname{rank}P\)</span>; <span class="math">\(A(A^TA)^{-1}A^T\)</span>.</li>
+<li><span class="math">\(\ker T^*=(\operatorname{Im}T)^\perp\)</span>; <span class="math">\([T^*]=\overline{[T]}^T\)</span> only in an orthonormal basis.</li>
+<li>Hermitian: real eigenvalues. Skew-Hermitian: imaginary. Unitary: modulus <span class="math">\(1\)</span>.</li>
+<li>Real orthogonal: <span class="math">\(\det=\pm1\)</span>; <span class="math">\(3\times3\)</span> with <span class="math">\(\det1\)</span> has eigenvalues <span class="math">\(1,e^{\pm i\theta}\)</span>, trace <span class="math">\(1+2\cos\theta\)</span>.</li>
+<li>Normal <span class="math">\(\iff\)</span> unitarily diagonalizable; real symmetric <span class="math">\(\iff\)</span> orthogonally diagonalizable.</li>
+<li><span class="math">\(Ax=\lambda x\Rightarrow A^*x=\bar\lambda x\)</span> for normal <span class="math">\(A\)</span>; distinct eigenspaces are orthogonal.</li>
+<li>Complex symmetric need not be diagonalizable; real normal need not be real-diagonalizable.</li>
+<li>Hermitian with <span class="math">\(A^2=I\)</span>: eigenvalues <span class="math">\(\pm1\)</span>, <span class="math">\(A=2P-I\)</span>, trace <span class="math">\(=\dim E_1-\dim E_{-1}\)</span>.</li>
+</ul>
+</section></article></div><section class="section reader-end"><button class="read-btn" type="button" data-read-btn aria-pressed="false"><span class="box" aria-hidden="true"></span><span data-read-label>Mark as read</span></button><ul class="units end-links"><li><a class="unit-card" href="/uphesc-maths/learn/linear-algebra/inner-product-spaces/practice/"><span class="unit-top"><span class="unit-name">Practise this topic</span></span><p class="flush">15 questions with worked solutions</p></a></li><li><a class="unit-card" href="/uphesc-maths/learn/linear-algebra/quadratic-forms/"><span class="unit-top"><span class="unit-name">Next: Quadratic forms</span></span><p class="flush">High priority · 2 h</p></a></li></ul><p class="prev-link"><a href="/uphesc-maths/learn/linear-algebra/canonical-forms/">Previous: Jordan and rational canonical forms</a></p></section></div><footer class="foot"><p>Built from every paper that survives: the full 2025 and 2026 papers (140 maths questions) and half of 2019 (35, from a solution video). 2015 left only an answer key, and nothing was found for 2021. The commission has never published its booklets. Unit counts use 2025 and 2026 only, so they show a range, not a trend.</p><p>2025 answers match the official key. 2026 has no key yet, so its answers were worked out by hand and marked high, medium or low confidence, and every unsure one was solved again, blind. 2019 answers come from the video and are not checked against the official key.</p></footer></main><script type="module">var e=document.documentElement,t=()=>e.dataset.mode?e.dataset.mode===`dark`:matchMedia(`(prefers-color-scheme: dark)`).matches;document.querySelector(`[data-mode-toggle]`)?.addEventListener(`click`,()=>{let n=t()?`light`:`dark`;e.dataset.mode=n;try{localStorage.setItem(`um:mode`,n)}catch{}}),!e.dataset.mode&&t()&&(e.dataset.mode=`dark`);var n=document.querySelectorAll(`[data-old-toggle]`),r=t=>{t?e.dataset.old=`on`:delete e.dataset.old,n.forEach(e=>e.setAttribute(`aria-checked`,String(t)))};r(e.dataset.old===`on`),n.forEach(t=>t.addEventListener(`click`,()=>{let t=e.dataset.old!==`on`;r(t);try{localStorage.setItem(`um:old`,t?`on`:`off`)}catch{}}));var i=document.querySelectorAll(`[data-view]`),a=t=>{t===`bars`?e.dataset.view=`bars`:delete e.dataset.view,i.forEach(e=>e.setAttribute(`aria-pressed`,String(e.dataset.view===t)))};a(e.dataset.view===`bars`?`bars`:`heat`),i.forEach(e=>e.addEventListener(`click`,()=>{a(e.dataset.view);try{localStorage.setItem(`um:view`,e.dataset.view)}catch{}}));var o=document.createElement(`div`);o.className=`tip`,o.setAttribute(`role`,`tooltip`),o.hidden=!0,document.body.append(o);var s=null,c=(e,t)=>{let n=o.offsetWidth,r=o.offsetHeight,i=e+12,a=t+12;i+n>innerWidth-8&&(i=Math.max(8,e-n-12)),a+r>innerHeight-8&&(a=Math.max(8,t-r-12)),o.style.left=`${i}px`,o.style.top=`${a}px`},l=()=>{if(s){let e=s.getBoundingClientRect();c(e.left+e.width*.3,e.bottom-8)}},u=e=>{e!==s&&(s=e,o.replaceChildren(...[...e.querySelector(`.tip-src`).childNodes].map(e=>e.cloneNode(!0)))),o.hidden=!1},d=()=>{o.hidden=!0,s=null};document.addEventListener(`pointermove`,e=>{if(e.pointerType!==`mouse`)return;let t=e.target.closest(`[data-tip]`);t?(u(t),c(e.clientX,e.clientY)):s&&d()}),document.addEventListener(`focusin`,e=>{let t=e.target.closest(`[data-tip]`);t&&(u(t),l())}),document.addEventListener(`focusout`,()=>d()),addEventListener(`scroll`,()=>{s&&document.activeElement===s?l():s&&d()},{passive:!0}),document.addEventListener(`keydown`,e=>{e.key===`Escape`&&d()});var f=`um:done`,p={};try{p=JSON.parse(localStorage.getItem(f)||`{}`)}catch{}var m=()=>{document.querySelectorAll(`[data-progress]`).forEach(e=>{let t=[...document.querySelectorAll(`[data-group="${e.dataset.progress}"]`)],n=t.filter(e=>e.checked).length;e.querySelector(`.progress-bar span`).style.width=`${n/t.length*100}%`,e.querySelector(`[data-count]`).textContent=`${n} of ${t.length} done`})};document.querySelectorAll(`input[data-check]`).forEach(e=>{e.checked=!!p[e.dataset.check],e.addEventListener(`change`,()=>{p[e.dataset.check]=e.checked;try{localStorage.setItem(f,JSON.stringify(p))}catch{}m()})}),m();</script></body></html><script type="module" src="/uphesc-maths/_astro/index.astro_astro_type_script_index_0_lang.t7qZbIYF.js"></script>

@@ -1,0 +1,451 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Topological spaces · UPESSC maths</title><meta name="description" content="What to study for the UPESSC (formerly UPHESC) Assistant Professor maths paper, built from every paper that survives."><link rel="icon" href="/uphesc-maths/favicon.svg" type="image/svg+xml"><link rel="preload" href="/uphesc-maths/fonts/inter-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin><!-- the saved light/dark, 2019 and chart-view choices, before first paint --><script>
+    try { var m = localStorage.getItem('um:mode'); if (m) document.documentElement.dataset.mode = m; } catch (e) {}
+    try { if (localStorage.getItem('um:old') === 'on') document.documentElement.dataset.old = 'on'; } catch (e) {}
+    try { if (localStorage.getItem('um:view') === 'bars') document.documentElement.dataset.view = 'bars'; } catch (e) {}
+  </script><!-- maths: the vendored MathJax typesets \( \) and \[ \] text, loaded only on pages that have any --><script>(function(){const VENDOR = "/uphesc-maths/vendor";
+
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+      loader: { paths: { mathjax: VENDOR + '/mathjax', fonts: VENDOR + '/mathjax/fonts' } },
+      output: { font: 'mathjax-stix2', displayOverflow: 'scroll' },
+      options: { ignoreHtmlClass: 'no-math', processHtmlClass: 'math', menuOptions: { settings: { enrich: false, speech: false, braille: false } } },
+      chtml: { displayOverflow: 'scroll' },
+      // an inline formula with a piece wider than its line gets its own scrolling line, like display maths
+      startup: { pageReady: () => MathJax.startup.defaultPageReady().then(fitMath) },
+    };
+    function fitMath() {
+      for (const m of document.querySelectorAll('mjx-container:not([display="true"]):not(.mjx-wide)')) {
+        const box = m.closest('p, li, dd, blockquote, div');
+        if (!box || m.closest('td, th')) continue;
+        const right = box.getBoundingClientRect().right + 1;
+        if ([...m.getClientRects()].some((r) => r.right > right)) m.classList.add('mjx-wide');
+      }
+    }
+    let fitQueued = 0;
+    const queueFit = () => { if (window.MathJax?.startup?.document && !fitQueued) fitQueued = requestAnimationFrame(() => { fitQueued = 0; fitMath(); }); };
+    addEventListener('resize', queueFit);
+    addEventListener('click', () => setTimeout(queueFit, 50));
+    document.addEventListener('DOMContentLoaded', () => {
+      if (!document.querySelector('.math')) return;
+      const s = document.createElement('script');
+      s.async = true;
+      s.src = VENDOR + '/mathjax/tex-chtml-nofont.js';
+      document.head.appendChild(s);
+    });
+  })();</script><link rel="stylesheet" href="/uphesc-maths/_astro/Base.CkQ5KWO8.css"></head><body data-tab="learn"><nav class="appnav" aria-label="Main"><a class="appnav-brand" href="/uphesc-maths/" aria-label="UPESSC maths home">∑</a><a class="appnav-item" href="/uphesc-maths/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4 10.2 12 4l8 6.2V19a1 1 0 0 1-1 1h-4.5v-5.5h-5V20H5a1 1 0 0 1-1-1z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Plan</span></a><a class="appnav-item" href="/uphesc-maths/learn/" aria-current="page"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M12 6.5C10 5 7.5 4.5 4 4.5v13c3.5 0 6 .5 8 2 2-1.5 4.5-2 8-2v-13c-3.5 0-6 .5-8 2zM12 6.5v13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Learn</span></a><a class="appnav-item" href="/uphesc-maths/units/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4 5h7v7H4zM13 5h7v7h-7zM4 14h7v6H4zM13 14h7v6h-7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Units</span></a><a class="appnav-item" href="/uphesc-maths/papers/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M7 3h7l4 4v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zM14 3v4h4M9 12h6M9 16h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Papers</span></a><a class="appnav-item" href="/uphesc-maths/revise/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M5 12.5 9.5 17 19 7.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Revise</span></a></nav><header class="topbar"><a class="bar-back" href="/uphesc-maths/learn/topology-geometry/" aria-label="Back"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a><p class="bar-title">Unit 5</p><button class="bar-btn" type="button" data-mode-toggle aria-label="Switch light or dark"><svg class="i-moon" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path></svg><svg class="i-sun" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path></svg></button></header><main class="page"><div class="reader" data-topic="topological-spaces"><header class="page-head topic-head"><p class="kicker"><a href="/uphesc-maths/learn/topology-geometry/">Unit 5 · Topology and Differential Geometry</a></p><h1>Topological spaces</h1><ul class="meta"><li class="prio high">High priority</li><li>1 h 40 min to study</li><li>Asked 2 times</li><li class="read-flag" data-read-flag hidden>Read</li></ul><p class="pyq-line">Previous papers: 2025 Q95, 2019</p></header><div class="reader-grid"><nav class="toc" aria-label="On this page"><details class="toc-box" data-toc><summary>On this page</summary><ol><li><a href="#why-it-matters-for-the-exam">Why it matters for the exam</a></li><li><a href="#core-ideas">Core ideas</a></li><li class="sub"><a href="#topology-open-and-closed-sets">Topology, open and closed sets</a></li><li class="sub"><a href="#standard-topologies-know-all-of-these">Standard topologies (know all of these)</a></li><li class="sub"><a href="#comparing-topologies">Comparing topologies</a></li><li class="sub"><a href="#counting-topologies-on-a-small-set">Counting topologies on a small set</a></li><li class="sub"><a href="#basis-and-subbasis">Basis and subbasis</a></li><li class="sub"><a href="#neighbourhoods-closure-interior-boundary-limit-points">Neighbourhoods, closure, interior, boundary, limit points</a></li><li class="sub"><a href="#subspace-topology">Subspace topology</a></li><li class="sub"><a href="#continuity-open-and-closed-maps">Continuity, open and closed maps</a></li><li class="sub"><a href="#homeomorphism">Homeomorphism</a></li><li class="sub"><a href="#convergence">Convergence</a></li><li><a href="#formulas-and-results">Formulas and results</a></li><li><a href="#worked-examples">Worked examples</a></li><li class="sub"><a href="#example-1-which-family-is-a-topology-2025-q95-style">Example 1. Which family is a topology? (2025-Q95 style)</a></li><li class="sub"><a href="#example-2-closure-interior-boundary-and-derived-set-in-mathbb-r">Example 2. Closure, interior, boundary and derived set in <span class="math">\(\mathbb R\)</span></a></li><li class="sub"><a href="#example-3-closure-in-the-lower-limit-topology">Example 3. Closure in the lower limit topology</a></li><li class="sub"><a href="#example-4-mathbb-r_ell-is-strictly-finer-than-the-usual-topology">Example 4. <span class="math">\(\mathbb R_\ell\)</span> is strictly finer than the usual topology</a></li><li class="sub"><a href="#example-5-showing-two-spaces-are-not-homeomorphic">Example 5. Showing two spaces are not homeomorphic</a></li><li class="sub"><a href="#example-6-a-continuous-map-out-of-a-cofinite-space">Example 6. A continuous map out of a cofinite space</a></li><li><a href="#common-traps">Common traps</a></li><li><a href="#previous-year-questions">Previous-year questions</a></li><li class="sub"><a href="#2025-q95-official-key-b">2025-Q95 (official key B)</a></li><li class="sub"><a href="#2019-unnumbered-reconstructed-from-a-solution-video-option-letters-may-differ">2019 (unnumbered; reconstructed from a solution video, option letters may differ)</a></li><li><a href="#quick-revision">Quick revision</a></li></ol></details></nav><article class="prose"><section class="note-section ns-why-it-matters-for-the-exam" aria-labelledby="why-it-matters-for-the-exam"><h2 id="why-it-matters-for-the-exam">Why it matters for the exam</h2>
+<p>Topology gives 3 to 4 questions in each recent paper, and the first-topic questions are the easiest marks in the unit: “is this family a topology?”, “which statement about the discrete or cofinite topology is true?”, “which function is continuous?”. Almost every later topic (compactness, separation, quotients, manifolds) uses the definitions here, so a slip here costs marks everywhere in the unit.</p>
+</section><section class="note-section ns-core-ideas" aria-labelledby="core-ideas"><h2 id="core-ideas">Core ideas</h2>
+<h3 id="topology-open-and-closed-sets">Topology, open and closed sets</h3>
+<p>A <strong>topology</strong> on a set <span class="math">\(X\)</span> is a family <span class="math">\(\tau\)</span> of subsets (the open sets) such that</p>
+<ol>
+<li><span class="math">\(\emptyset \in \tau\)</span> and <span class="math">\(X \in \tau\)</span>;</li>
+<li>any union of members of <span class="math">\(\tau\)</span> is in <span class="math">\(\tau\)</span>;</li>
+<li>the intersection of <strong>finitely many</strong> members of <span class="math">\(\tau\)</span> is in <span class="math">\(\tau\)</span>.</li>
+</ol>
+<p>A set is <strong>closed</strong> if its complement is open. Closed sets satisfy the dual rules: <span class="math">\(\emptyset\)</span> and <span class="math">\(X\)</span> are closed, arbitrary intersections of closed sets are closed, finite unions of closed sets are closed. A set can be open, closed, both (clopen) or neither. <span class="math">\(X\)</span> and <span class="math">\(\emptyset\)</span> are always clopen.</p>
+<p>To test a family on a small set, check three things: <span class="math">\(\emptyset, X\)</span> present; closed under pairwise union; closed under pairwise intersection. The usual failure is a missing intersection or a missing union.</p>
+<h3 id="standard-topologies-know-all-of-these">Standard topologies (know all of these)</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Topology</th>
+<th>Open sets</th>
+<th>Key facts</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Discrete on <span class="math">\(X\)</span></td>
+<td>every subset</td>
+<td>finest topology; every function out of <span class="math">\(X\)</span> is continuous; every subset is clopen</td>
+</tr>
+<tr>
+<td>Indiscrete (trivial)</td>
+<td>only <span class="math">\(\emptyset, X\)</span></td>
+<td>coarsest topology; every function into <span class="math">\(X\)</span> is continuous; every sequence converges to every point</td>
+</tr>
+<tr>
+<td>Cofinite on <span class="math">\(X\)</span></td>
+<td><span class="math">\(\emptyset\)</span> and sets with finite complement</td>
+<td>for infinite <span class="math">\(X\)</span>: <span class="math">\(T_1\)</span>, not Hausdorff, compact, connected; any two nonempty open sets meet</td>
+</tr>
+<tr>
+<td>Cocountable on uncountable <span class="math">\(X\)</span></td>
+<td><span class="math">\(\emptyset\)</span> and sets with countable complement</td>
+<td><span class="math">\(T_1\)</span>, not Hausdorff, connected, Lindelöf, not separable; convergent sequences are eventually constant</td>
+</tr>
+<tr>
+<td>Usual on <span class="math">\(\mathbb R\)</span></td>
+<td>unions of open intervals <span class="math">\((a,b)\)</span></td>
+<td>metric topology from <span class="math">\(\lvert x-y\rvert\)</span></td>
+</tr>
+<tr>
+<td>Lower limit (Sorgenfrey) <span class="math">\(\mathbb R_\ell\)</span></td>
+<td>unions of <span class="math">\([a,b)\)</span></td>
+<td>strictly finer than usual; each <span class="math">\([a,b)\)</span> is clopen</td>
+</tr>
+<tr>
+<td>Sierpinski space <span class="math">\(\{0,1\}\)</span></td>
+<td><span class="math">\(\emptyset,\{1\},\{0,1\}\)</span></td>
+<td>smallest <span class="math">\(T_0\)</span> space that is not <span class="math">\(T_1\)</span></td>
+</tr>
+<tr>
+<td>Particular point <span class="math">\(p\)</span></td>
+<td><span class="math">\(\emptyset\)</span> and sets containing <span class="math">\(p\)</span></td>
+<td>compact if finite; not <span class="math">\(T_1\)</span></td>
+</tr>
+<tr>
+<td>Metric topology</td>
+<td>unions of open balls</td>
+<td>every metric space is Hausdorff</td>
+</tr>
+</tbody>
+</table></div>
+<p>For a finite set, cofinite, cocountable and discrete are the same topology.</p>
+<h3 id="comparing-topologies">Comparing topologies</h3>
+<p>If <span class="math">\(\tau_1 \subseteq \tau_2\)</span>, then <span class="math">\(\tau_2\)</span> is <strong>finer</strong> (larger) and <span class="math">\(\tau_1\)</span> is <strong>coarser</strong> (smaller). The discrete topology is the finest, the indiscrete the coarsest. The intersection of any family of topologies on <span class="math">\(X\)</span> is a topology. The union of two topologies is usually <strong>not</strong> a topology (on <span class="math">\(\{a,b,c\}\)</span>, <span class="math">\(\{\emptyset,X,\{a\}\}\cup\{\emptyset,X,\{b\}\}\)</span> lacks <span class="math">\(\{a,b\}\)</span>).</p>
+<p>A finer topology has more open sets, more closed sets, fewer convergent sequences, and is harder to be compact or connected. The identity map from a finer to a coarser topology is continuous.</p>
+<h3 id="counting-topologies-on-a-small-set">Counting topologies on a small set</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Points <span class="math">\(n\)</span></th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>All topologies on a labelled set</td>
+<td>1</td>
+<td>4</td>
+<td>29</td>
+<td>355</td>
+<td>6942</td>
+</tr>
+<tr>
+<td>Of these, <span class="math">\(T_0\)</span></td>
+<td>1</td>
+<td>3</td>
+<td>19</td>
+<td>219</td>
+<td>4231</td>
+</tr>
+<tr>
+<td>Up to homeomorphism (all)</td>
+<td>1</td>
+<td>3</td>
+<td>9</td>
+<td>33</td>
+<td>139</td>
+</tr>
+<tr>
+<td>Up to homeomorphism (<span class="math">\(T_0\)</span>)</td>
+<td>1</td>
+<td>2</td>
+<td>5</td>
+<td>16</td>
+<td>63</td>
+</tr>
+</tbody>
+</table></div>
+<p>The values for <span class="math">\(n\le 4\)</span> were confirmed by brute force; the <span class="math">\(n=5\)</span> values are the standard published counts. On <span class="math">\(\{a,b\}\)</span> the four topologies are: indiscrete, discrete, and two Sierpinski topologies (<span class="math">\(\{\emptyset,\{a\},X\}\)</span> and <span class="math">\(\{\emptyset,\{b\},X\}\)</span>). The two Sierpinski topologies are homeomorphic, which is why there are 3 up to homeomorphism.</p>
+<h3 id="basis-and-subbasis">Basis and subbasis</h3>
+<p>A <strong>basis</strong> for a topology is a collection <span class="math">\(\mathcal B\)</span> of open sets such that every open set is a union of members of <span class="math">\(\mathcal B\)</span>. A family <span class="math">\(\mathcal B\)</span> of subsets of <span class="math">\(X\)</span> is a basis for <em>some</em> topology iff</p>
+<ol>
+<li><span class="math">\(\mathcal B\)</span> covers <span class="math">\(X\)</span>, and</li>
+<li>if <span class="math">\(x\in B_1\cap B_2\)</span> with <span class="math">\(B_1,B_2\in\mathcal B\)</span>, there is <span class="math">\(B_3\in\mathcal B\)</span> with <span class="math">\(x\in B_3\subseteq B_1\cap B_2\)</span>.</li>
+</ol>
+<p>The topology generated by <span class="math">\(\mathcal B\)</span> is the set of all unions of members of <span class="math">\(\mathcal B\)</span>.</p>
+<p>A <strong>subbasis</strong> is a family whose finite intersections form a basis. The generated topology is the smallest topology containing the family. Example: the open rays <span class="math">\((a,\infty)\)</span>, <span class="math">\((-\infty,b)\)</span> form a subbasis of the usual topology on <span class="math">\(\mathbb R\)</span>.</p>
+<p><strong>Comparison lemma.</strong> Let <span class="math">\(\mathcal B,\mathcal B'\)</span> generate <span class="math">\(\tau,\tau'\)</span>. Then <span class="math">\(\tau'\)</span> is finer than <span class="math">\(\tau\)</span> iff for every <span class="math">\(x\)</span> and every <span class="math">\(B\in\mathcal B\)</span> with <span class="math">\(x\in B\)</span> there is <span class="math">\(B'\in\mathcal B'\)</span> with <span class="math">\(x\in B'\subseteq B\)</span>.</p>
+<p>Using it: <span class="math">\([x,x+\varepsilon)\subseteq(a,b)\)</span> is possible for <span class="math">\(x\in(a,b)\)</span>, so <span class="math">\(\mathbb R_\ell\)</span> is finer than the usual topology. It is strictly finer because <span class="math">\([0,1)\)</span> is open in <span class="math">\(\mathbb R_\ell\)</span>, but no open interval around <span class="math">\(0\)</span> fits inside <span class="math">\([0,1)\)</span>.</p>
+<p>A family that is <strong>not</strong> a basis: all open intervals of length exactly 1. It covers <span class="math">\(\mathbb R\)</span>, but <span class="math">\((0,1)\cap(\tfrac12,\tfrac32)=(\tfrac12,1)\)</span> contains no interval of length 1 around any of its points.</p>
+<p>Standard bases: open balls (or open boxes) in <span class="math">\(\mathbb R^n\)</span>; intervals with rational endpoints for <span class="math">\(\mathbb R\)</span> (a countable basis); <span class="math">\(\{[a,b)\}\)</span> for <span class="math">\(\mathbb R_\ell\)</span>.</p>
+<h3 id="neighbourhoods-closure-interior-boundary-limit-points">Neighbourhoods, closure, interior, boundary, limit points</h3>
+<p>Let <span class="math">\(A\subseteq X\)</span>.</p>
+<ul>
+<li><span class="math">\(\overline A\)</span> (closure) = smallest closed set containing <span class="math">\(A\)</span> = intersection of closed sets containing <span class="math">\(A\)</span>.</li>
+<li><span class="math">\(A^\circ\)</span> (interior) = largest open set inside <span class="math">\(A\)</span> = union of open sets inside <span class="math">\(A\)</span>.</li>
+<li><span class="math">\(x\)</span> is a <strong>limit point</strong> (accumulation point) of <span class="math">\(A\)</span> if every neighbourhood of <span class="math">\(x\)</span> meets <span class="math">\(A\setminus\{x\}\)</span>. The set of limit points is the <strong>derived set</strong> <span class="math">\(A'\)</span>.</li>
+<li><span class="math">\(\overline A = A\cup A'\)</span>.</li>
+<li><span class="math">\(\partial A = \overline A\setminus A^\circ=\overline A\cap\overline{X\setminus A}\)</span>.</li>
+<li><span class="math">\(A\)</span> is <strong>dense</strong> if <span class="math">\(\overline A=X\)</span>. <span class="math">\(A\)</span> is nowhere dense if <span class="math">\((\overline A)^\circ=\emptyset\)</span>.</li>
+<li><span class="math">\(x\in\overline A\)</span> iff every basic neighbourhood of <span class="math">\(x\)</span> meets <span class="math">\(A\)</span>.</li>
+</ul>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math">\(\overline{A\cup B}=\overline A\cup\overline B\)</span></td>
+<td>always true</td>
+</tr>
+<tr>
+<td><span class="math">\(\overline{A\cap B}\subseteq\overline A\cap\overline B\)</span></td>
+<td>inclusion only: <span class="math">\(A=\mathbb Q\)</span>, <span class="math">\(B=\mathbb R\setminus\mathbb Q\)</span> gives <span class="math">\(\emptyset\)</span> on the left, <span class="math">\(\mathbb R\)</span> on the right</td>
+</tr>
+<tr>
+<td><span class="math">\((A\cap B)^\circ=A^\circ\cap B^\circ\)</span></td>
+<td>always true</td>
+</tr>
+<tr>
+<td><span class="math">\(A^\circ\cup B^\circ\subseteq(A\cup B)^\circ\)</span></td>
+<td>inclusion only: <span class="math">\(A=[0,1]\)</span>, <span class="math">\(B=[1,2]\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(X\setminus\overline A=(X\setminus A)^\circ\)</span></td>
+<td>always true</td>
+</tr>
+<tr>
+<td><span class="math">\(A\)</span> closed iff <span class="math">\(A'\subseteq A\)</span> iff <span class="math">\(A=\overline A\)</span></td>
+<td>always true</td>
+</tr>
+</tbody>
+</table></div>
+<p>An isolated point of <span class="math">\(A\)</span> is a point of <span class="math">\(A\)</span> that is not a limit point of <span class="math">\(A\)</span>.</p>
+<p><strong>Closure, interior, boundary in standard spaces.</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Space, set</th>
+<th>Closure</th>
+<th>Interior</th>
+<th>Boundary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math">\(\mathbb R\)</span>, <span class="math">\(\mathbb Q\)</span></td>
+<td><span class="math">\(\mathbb R\)</span></td>
+<td><span class="math">\(\emptyset\)</span></td>
+<td><span class="math">\(\mathbb R\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(\mathbb R\)</span>, <span class="math">\((0,1]\)</span></td>
+<td><span class="math">\([0,1]\)</span></td>
+<td><span class="math">\((0,1)\)</span></td>
+<td><span class="math">\(\{0,1\}\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(\mathbb R\)</span>, <span class="math">\(S=\{1/n:n\ge1\}\)</span></td>
+<td><span class="math">\(S\cup\{0\}\)</span></td>
+<td><span class="math">\(\emptyset\)</span></td>
+<td><span class="math">\(S\cup\{0\}\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(\mathbb R_\ell\)</span>, <span class="math">\((a,b)\)</span></td>
+<td><span class="math">\([a,b)\)</span></td>
+<td><span class="math">\((a,b)\)</span></td>
+<td><span class="math">\(\{a\}\)</span></td>
+</tr>
+<tr>
+<td>discrete</td>
+<td><span class="math">\(A\)</span></td>
+<td><span class="math">\(A\)</span></td>
+<td><span class="math">\(\emptyset\)</span></td>
+</tr>
+<tr>
+<td>indiscrete, <span class="math">\(A\ne\emptyset,X\)</span></td>
+<td><span class="math">\(X\)</span></td>
+<td><span class="math">\(\emptyset\)</span></td>
+<td><span class="math">\(X\)</span></td>
+</tr>
+<tr>
+<td>cofinite on infinite <span class="math">\(X\)</span>, <span class="math">\(A\)</span> infinite</td>
+<td><span class="math">\(X\)</span></td>
+<td><span class="math">\(A\)</span> if cofinite, else <span class="math">\(\emptyset\)</span></td>
+<td><span class="math">\(X\setminus A\)</span> if <span class="math">\(A\)</span> cofinite, else <span class="math">\(X\)</span></td>
+</tr>
+</tbody>
+</table></div>
+<p>In the cofinite topology on an infinite set, every infinite subset is dense, and every point of <span class="math">\(X\)</span> is a limit point of every infinite subset.</p>
+<p><strong>Kuratowski’s closure-complement problem.</strong> Starting from one set and repeatedly applying closure and complement gives at most 14 distinct sets, and 14 is attained.</p>
+<h3 id="subspace-topology">Subspace topology</h3>
+<p>For <span class="math">\(Y\subseteq X\)</span>, the <strong>subspace topology</strong> is <span class="math">\(\tau_Y=\{U\cap Y: U\in\tau\}\)</span>. Closed sets of <span class="math">\(Y\)</span> are <span class="math">\(C\cap Y\)</span> with <span class="math">\(C\)</span> closed in <span class="math">\(X\)</span>. If <span class="math">\(\mathcal B\)</span> is a basis for <span class="math">\(X\)</span>, then <span class="math">\(\{B\cap Y\}\)</span> is a basis for <span class="math">\(Y\)</span>.</p>
+<ul>
+<li>A set open in <span class="math">\(Y\)</span> need not be open in <span class="math">\(X\)</span>. If <span class="math">\(Y\)</span> is open in <span class="math">\(X\)</span>, then open in <span class="math">\(Y\)</span> implies open in <span class="math">\(X\)</span>; if <span class="math">\(Y\)</span> is closed in <span class="math">\(X\)</span>, then closed in <span class="math">\(Y\)</span> implies closed in <span class="math">\(X\)</span>.</li>
+<li><span class="math">\((\tfrac12,1]\)</span> is open in <span class="math">\([0,1]\)</span> (equal to <span class="math">\((\tfrac12,2)\cap[0,1]\)</span>) but not open in <span class="math">\(\mathbb R\)</span>.</li>
+<li><span class="math">\(\mathbb Z\subset\mathbb R\)</span> and <span class="math">\(\{1/n\}\subset\mathbb R\)</span> are discrete. <span class="math">\(\{0\}\cup\{1/n\}\)</span> is not discrete: <span class="math">\(0\)</span> is a limit point.</li>
+<li><span class="math">\(\mathbb Q\subset\mathbb R\)</span> has no isolated points, yet is totally disconnected.</li>
+<li>A subspace of a subspace is the subspace: <span class="math">\((Z\subseteq Y\subseteq X)\)</span> gives the same topology on <span class="math">\(Z\)</span> either way.</li>
+</ul>
+<p>Hereditary properties (inherited by all subspaces): Hausdorff, <span class="math">\(T_0\)</span>, <span class="math">\(T_1\)</span>, regular, first countable, second countable, metrizable. Not hereditary: compactness, connectedness, normality, separability (in general), completeness.</p>
+<h3 id="continuity-open-and-closed-maps">Continuity, open and closed maps</h3>
+<p>For <span class="math">\(f:X\to Y\)</span> the following are equivalent (each is a definition):</p>
+<ol>
+<li><span class="math">\(f^{-1}(V)\)</span> is open for every open <span class="math">\(V\subseteq Y\)</span>.</li>
+<li><span class="math">\(f^{-1}(C)\)</span> is closed for every closed <span class="math">\(C\subseteq Y\)</span>.</li>
+<li><span class="math">\(f(\overline A)\subseteq\overline{f(A)}\)</span> for every <span class="math">\(A\subseteq X\)</span>.</li>
+<li><span class="math">\(f^{-1}(B)\)</span> is open for every basic (or subbasic) open <span class="math">\(B\)</span> of <span class="math">\(Y\)</span>.</li>
+<li>For every <span class="math">\(x\)</span> and every neighbourhood <span class="math">\(V\)</span> of <span class="math">\(f(x)\)</span> there is a neighbourhood <span class="math">\(U\)</span> of <span class="math">\(x\)</span> with <span class="math">\(f(U)\subseteq V\)</span>.</li>
+</ol>
+<p>Facts: compositions, restrictions and inclusions of continuous maps are continuous. <strong>Pasting lemma:</strong> if <span class="math">\(X=A\cup B\)</span> with <span class="math">\(A,B\)</span> both closed (or both open) and <span class="math">\(f|_A\)</span>, <span class="math">\(f|_B\)</span> continuous and agreeing on <span class="math">\(A\cap B\)</span>, then <span class="math">\(f\)</span> is continuous. (Closed sets: finitely many only.)</p>
+<p>In a first countable space (every metric space), <span class="math">\(f\)</span> is continuous iff it preserves convergent sequences. For a general topological space this fails.</p>
+<p><strong>Examples.</strong></p>
+<ul>
+<li>Every map out of a discrete space is continuous. Every map into an indiscrete space is continuous.</li>
+<li><span class="math">\(\mathrm{id}:(\mathbb R,\text{discrete})\to(\mathbb R,\text{usual})\)</span> is continuous; the reverse direction is not.</li>
+<li>A continuous map from <span class="math">\((\mathbb R,\text{cofinite})\)</span> to <span class="math">\(\mathbb R\)</span> (usual) must be constant: if <span class="math">\(f(x)\ne f(y)\)</span>, take disjoint open sets around the two values; their preimages would be disjoint nonempty open sets in the cofinite topology, which cannot exist. The same argument shows that a continuous map from a space in which any two nonempty open sets meet to a Hausdorff space is constant.</li>
+<li>A function <span class="math">\(f:\mathbb R_\ell\to\mathbb R\)</span> (usual topology on <span class="math">\(\mathbb R\)</span>) is continuous iff <span class="math">\(f\)</span> is right-continuous at every point. The indicator <span class="math">\(\chi_{[0,1)}\)</span> is continuous on <span class="math">\(\mathbb R_\ell\)</span> but not on <span class="math">\(\mathbb R\)</span>.</li>
+</ul>
+<p>A map <span class="math">\(f\)</span> is <strong>open</strong> if it sends open sets to open sets, <strong>closed</strong> if it sends closed sets to closed sets. They are independent of continuity and of each other.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Map</th>
+<th>Continuous</th>
+<th>Open</th>
+<th>Closed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Projection <span class="math">\(\pi_1:\mathbb R^2\to\mathbb R\)</span></td>
+<td>yes</td>
+<td>yes</td>
+<td><strong>no</strong> (the image of the closed hyperbola <span class="math">\(xy=1\)</span> is <span class="math">\(\mathbb R\setminus\{0\}\)</span>)</td>
+</tr>
+<tr>
+<td>Inclusion of <span class="math">\([0,1]\)</span> in <span class="math">\(\mathbb R\)</span></td>
+<td>yes</td>
+<td>no</td>
+<td>yes</td>
+</tr>
+<tr>
+<td><span class="math">\(x\mapsto x^2\)</span>, <span class="math">\(\mathbb R\to\mathbb R\)</span></td>
+<td>yes</td>
+<td>no (<span class="math">\((-1,1)\mapsto[0,1)\)</span>)</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>Constant map <span class="math">\(\mathbb R\to\mathbb R\)</span></td>
+<td>yes</td>
+<td>no</td>
+<td>yes</td>
+</tr>
+<tr>
+<td><span class="math">\(\mathrm{id}:\mathbb R\to\mathbb R_\ell\)</span> (usual to lower limit)</td>
+<td>no</td>
+<td>yes</td>
+<td>yes (usual-closed sets are <span class="math">\(\mathbb R_\ell\)</span>-closed)</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="homeomorphism">Homeomorphism</h3>
+<p><span class="math">\(f:X\to Y\)</span> is a <strong>homeomorphism</strong> if it is a bijection, continuous, with continuous inverse. Equivalent: a continuous open bijection, or a continuous closed bijection. A property preserved by homeomorphisms is a <strong>topological property</strong> (connectedness, compactness, Hausdorff, countability axioms, number of components, existence of a cut point). Boundedness and completeness are metric, not topological: <span class="math">\((0,1)\cong\mathbb R\)</span>.</p>
+<p><strong>Continuous bijections that are not homeomorphisms.</strong></p>
+<ul>
+<li><span class="math">\(f:[0,2\pi)\to S^1\)</span>, <span class="math">\(t\mapsto(\cos t,\sin t)\)</span>.</li>
+<li><span class="math">\(\mathrm{id}:(\mathbb R,\text{discrete})\to(\mathbb R,\text{usual})\)</span>.</li>
+</ul>
+<p>If <span class="math">\(X\)</span> is compact and <span class="math">\(Y\)</span> is Hausdorff, every continuous bijection <span class="math">\(X\to Y\)</span> is a homeomorphism (topic 2).</p>
+<p><strong>Proving two spaces are not homeomorphic.</strong> Find a topological property one has and the other lacks. The usual tool is removal of a point.</p>
+<ul>
+<li><span class="math">\([0,1]\not\cong(0,1)\)</span>: one is compact.</li>
+<li><span class="math">\((0,1)\not\cong[0,1)\)</span>: removing an interior point of <span class="math">\((0,1)\)</span> always disconnects it; removing <span class="math">\(0\)</span> from <span class="math">\([0,1)\)</span> leaves it connected, and removing any other point disconnects. So <span class="math">\([0,1)\)</span> has a non-cut point and <span class="math">\((0,1)\)</span> has none.</li>
+<li><span class="math">\(\mathbb R\not\cong\mathbb R^2\)</span>: removing a point disconnects <span class="math">\(\mathbb R\)</span> but not <span class="math">\(\mathbb R^2\)</span>.</li>
+<li><span class="math">\(S^1\not\cong[0,1]\)</span>: removing a point leaves <span class="math">\(S^1\)</span> connected, but removing an interior point disconnects <span class="math">\([0,1]\)</span>.</li>
+<li><span class="math">\(\mathbb R^n\not\cong\mathbb R^m\)</span> for <span class="math">\(n\ne m\)</span> (invariance of domain; point removal is not enough).</li>
+</ul>
+<p><strong>Homeomorphisms to know.</strong> <span class="math">\((a,b)\cong(0,1)\cong\mathbb R\)</span> (use <span class="math">\(\tan\)</span>). <span class="math">\(S^n\setminus\{\text{pt}\}\cong\mathbb R^n\)</span> (stereographic projection). Open disc <span class="math">\(\cong\mathbb R^2\)</span>. <span class="math">\([a,b]\cong[0,1]\)</span>. Any open convex bounded subset of <span class="math">\(\mathbb R^n\)</span> is homeomorphic to <span class="math">\(\mathbb R^n\)</span>.</p>
+<h3 id="convergence">Convergence</h3>
+<p>A sequence <span class="math">\(x_n\to x\)</span> if every neighbourhood of <span class="math">\(x\)</span> contains <span class="math">\(x_n\)</span> for all large <span class="math">\(n\)</span>. In a Hausdorff space limits are unique. In an indiscrete space every sequence converges to every point. In the cofinite topology on an infinite set, any sequence of distinct points converges to every point of <span class="math">\(X\)</span>. In a discrete space only eventually constant sequences converge.</p>
+</section><section class="note-section ns-formulas-and-results" aria-labelledby="formulas-and-results"><h2 id="formulas-and-results">Formulas and results</h2>
+<ul>
+<li>Topology axioms: <span class="math">\(\emptyset,X\)</span>; arbitrary unions; <strong>finite</strong> intersections.</li>
+<li>Discrete: <span class="math">\(2^{\lvert X\rvert}\)</span> open sets. Indiscrete: 2 open sets.</li>
+<li>Topologies on an <span class="math">\(n\)</span>-set (labelled): <span class="math">\(1,4,29,355,6942\)</span> for <span class="math">\(n=1,\dots,5\)</span>. Up to homeomorphism: <span class="math">\(1,3,9,33,139\)</span>.</li>
+<li>Basis test: covers <span class="math">\(X\)</span>, and a point in <span class="math">\(B_1\cap B_2\)</span> has a basic set inside <span class="math">\(B_1\cap B_2\)</span>.</li>
+<li><span class="math">\(\overline A=A\cup A'\)</span>; <span class="math">\(A^\circ=X\setminus\overline{X\setminus A}\)</span>; <span class="math">\(\partial A=\overline A\setminus A^\circ\)</span>.</li>
+<li><span class="math">\(\overline{A\cup B}=\overline A\cup\overline B\)</span>; <span class="math">\((A\cap B)^\circ=A^\circ\cap B^\circ\)</span>; the other two are inclusions only.</li>
+<li>Subspace: <span class="math">\(\tau_Y=\{U\cap Y\}\)</span>; closed sets are <span class="math">\(C\cap Y\)</span>.</li>
+<li><span class="math">\(f\)</span> continuous <span class="math">\(\iff\)</span> preimage of open (closed, basic) is open (closed, open) <span class="math">\(\iff f(\overline A)\subseteq\overline{f(A)}\)</span>.</li>
+<li>Pasting lemma for finite closed (or any open) covers.</li>
+<li>Homeomorphism = continuous bijection with continuous inverse. Compact to Hausdorff: continuous bijection is a homeomorphism.</li>
+<li><span class="math">\(\mathbb R_\ell\)</span>: basis <span class="math">\([a,b)\)</span>, strictly finer than usual, <span class="math">\(f:\mathbb R_\ell\to\mathbb R\)</span> is continuous iff right-continuous.</li>
+<li>Finer topology: more open sets, fewer convergent sequences.</li>
+</ul>
+</section><section class="note-section ns-worked-examples" aria-labelledby="worked-examples"><h2 id="worked-examples">Worked examples</h2>
+<h3 id="example-1-which-family-is-a-topology-2025-q95-style">Example 1. Which family is a topology? (2025-Q95 style)</h3>
+<p>On <span class="math">\(X=\{a,b,c\}\)</span> decide which of these are topologies.</p>
+<ol>
+<li><span class="math">\(\{\emptyset,X,\{a\},\{b,c\}\}\)</span></li>
+<li><span class="math">\(\{\emptyset,X,\{a,b\},\{b,c\}\}\)</span></li>
+<li><span class="math">\(\{\emptyset,X,\{a,b\},\{b,c\},\{b\}\}\)</span></li>
+<li><span class="math">\(\{\emptyset,X,\{a\},\{a,b\}\}\)</span></li>
+</ol>
+<p>Check each for pairwise unions and intersections.</p>
+<ul>
+<li>(1) <span class="math">\(\{a\}\cup\{b,c\}=X\)</span>, <span class="math">\(\{a\}\cap\{b,c\}=\emptyset\)</span>. Topology.</li>
+<li>(2) <span class="math">\(\{a,b\}\cap\{b,c\}=\{b\}\)</span> is missing. <strong>Not a topology.</strong></li>
+<li>(3) the missing <span class="math">\(\{b\}\)</span> is now present; <span class="math">\(\{b\}\cup\{a,b\}=\{a,b\}\)</span>, <span class="math">\(\{b\}\cup\{b,c\}=\{b,c\}\)</span>. Topology.</li>
+<li>(4) a chain <span class="math">\(\emptyset\subset\{a\}\subset\{a,b\}\subset X\)</span>; any chain of sets containing <span class="math">\(\emptyset,X\)</span> is a topology.</li>
+</ul>
+<h3 id="example-2-closure-interior-boundary-and-derived-set-in-mathbb-r">Example 2. Closure, interior, boundary and derived set in <span class="math">\(\mathbb R\)</span></h3>
+<p>Let <span class="math">\(A=(0,1]\cup\{2\}\cup(\mathbb Q\cap(3,4))\)</span>.</p>
+<ul>
+<li>Closure: <span class="math">\([0,1]\cup\{2\}\cup[3,4]\)</span> (rationals are dense in <span class="math">\((3,4)\)</span>).</li>
+<li>Interior: <span class="math">\((0,1)\)</span>. The point <span class="math">\(1\)</span> is not interior; <span class="math">\(2\)</span> is isolated; the rationals have empty interior.</li>
+<li>Boundary: closure minus interior <span class="math">\(=\{0,1,2\}\cup[3,4]\)</span>.</li>
+<li>Derived set: <span class="math">\([0,1]\cup[3,4]\)</span>. The point <span class="math">\(2\)</span> is isolated, so it is <strong>not</strong> a limit point.</li>
+</ul>
+<h3 id="example-3-closure-in-the-lower-limit-topology">Example 3. Closure in the lower limit topology</h3>
+<p>Find <span class="math">\(\overline{(a,b)}\)</span> in <span class="math">\(\mathbb R_\ell\)</span>. A point <span class="math">\(x\)</span> is in the closure iff every <span class="math">\([x,x+\varepsilon)\)</span> meets <span class="math">\((a,b)\)</span>.</p>
+<ul>
+<li><span class="math">\(x=a\)</span>: <span class="math">\([a,a+\varepsilon)\)</span> meets <span class="math">\((a,b)\)</span>. Yes.</li>
+<li><span class="math">\(x=b\)</span>: <span class="math">\([b,b+\varepsilon)\)</span> misses <span class="math">\((a,b)\)</span>. No.</li>
+<li><span class="math">\(x&lt;a\)</span> or <span class="math">\(x&gt;b\)</span>: small <span class="math">\(\varepsilon\)</span> misses. No.</li>
+</ul>
+<p>So <span class="math">\(\overline{(a,b)}=[a,b)\)</span>, which is also open: <span class="math">\([a,b)\)</span> is clopen in <span class="math">\(\mathbb R_\ell\)</span>, and <span class="math">\(\partial(a,b)=\{a\}\)</span>.</p>
+<h3 id="example-4-mathbb-r_ell-is-strictly-finer-than-the-usual-topology">Example 4. <span class="math">\(\mathbb R_\ell\)</span> is strictly finer than the usual topology</h3>
+<p>Use the comparison lemma. For <span class="math">\(x\in(a,b)\)</span> choose <span class="math">\(\varepsilon=b-x\)</span>; then <span class="math">\([x,x+\varepsilon)\subseteq(a,b)\)</span>, so every usual-open set is <span class="math">\(\mathbb R_\ell\)</span>-open. Conversely <span class="math">\([0,1)\)</span> is <span class="math">\(\mathbb R_\ell\)</span>-open but a usual-open set containing <span class="math">\(0\)</span> contains negative numbers, so <span class="math">\([0,1)\)</span> is not usual-open. Hence the inclusion is strict.</p>
+<h3 id="example-5-showing-two-spaces-are-not-homeomorphic">Example 5. Showing two spaces are not homeomorphic</h3>
+<p>Show <span class="math">\((0,1)\not\cong[0,1)\)</span>. Suppose <span class="math">\(h:[0,1)\to(0,1)\)</span> is a homeomorphism. Remove <span class="math">\(0\)</span>: <span class="math">\(h\)</span> restricts to a homeomorphism <span class="math">\((0,1)\to(0,1)\setminus\{h(0)\}\)</span>. The left side is connected, the right side is disconnected (it splits into <span class="math">\((0,h(0))\)</span> and <span class="math">\((h(0),1)\)</span>). Contradiction.</p>
+<h3 id="example-6-a-continuous-map-out-of-a-cofinite-space">Example 6. A continuous map out of a cofinite space</h3>
+<p>Show that every continuous <span class="math">\(f:(\mathbb R,\text{cofinite})\to(\mathbb R,\text{usual})\)</span> is constant. If <span class="math">\(f(x)\ne f(y)\)</span>, choose disjoint open intervals <span class="math">\(V\ni f(x)\)</span>, <span class="math">\(W\ni f(y)\)</span>. Then <span class="math">\(f^{-1}(V)\)</span> and <span class="math">\(f^{-1}(W)\)</span> are disjoint, nonempty (they contain <span class="math">\(x\)</span> and <span class="math">\(y\)</span>) and open in the cofinite topology. But two nonempty cofinite sets always intersect on an infinite set. Contradiction.</p>
+</section><section class="note-section ns-common-traps" aria-labelledby="common-traps"><h2 id="common-traps">Common traps</h2>
+<ul>
+<li><strong>Infinite intersections.</strong> Open sets are closed only under <em>finite</em> intersections: <span class="math">\(\bigcap_n(-\tfrac1n,\tfrac1n)=\{0\}\)</span> is not open in <span class="math">\(\mathbb R\)</span>.</li>
+<li><strong>“Not open” does not mean closed.</strong> <span class="math">\([0,1)\)</span> in <span class="math">\(\mathbb R\)</span> is neither; in <span class="math">\(\mathbb R_\ell\)</span> it is both.</li>
+<li><strong>Inclusion for closure of intersection.</strong> <span class="math">\(\overline{A\cap B}=\overline A\cap\overline B\)</span> is false; the equality holds for unions only. Dually for interiors.</li>
+<li><strong>Union of topologies.</strong> The union of two topologies is not a topology in general; the intersection always is.</li>
+<li><strong>Open in a subspace.</strong> <span class="math">\((\tfrac12,1]\)</span> is open in <span class="math">\([0,1]\)</span> but not in <span class="math">\(\mathbb R\)</span>. Examiners often ask about “open in <span class="math">\(Y\)</span>” versus “open in <span class="math">\(X\)</span>”.</li>
+<li><strong>Continuous bijection.</strong> A continuous bijection is not automatically a homeomorphism (the circle map from <span class="math">\([0,2\pi)\)</span>; the identity from discrete to usual).</li>
+<li><strong>Direction of a finer topology.</strong> The identity from a finer to a coarser topology is continuous, not the other way round. Cofinite is coarser than usual on <span class="math">\(\mathbb R\)</span>.</li>
+<li><strong>Cofinite is not Hausdorff</strong> (infinite set), yet it is <span class="math">\(T_1\)</span> and compact.</li>
+<li><strong>Discrete topology on an infinite set</strong> is Hausdorff, metrizable, not compact, not connected. It is <span class="math">\(T_1\)</span> (every point is closed).</li>
+<li><strong>Limit point versus closure point.</strong> A point of <span class="math">\(A\)</span> may fail to be a limit point of <span class="math">\(A\)</span> (isolated point). In a discrete space <span class="math">\(A'=\emptyset\)</span>.</li>
+<li><strong>Open map versus closed map.</strong> The projection <span class="math">\(\mathbb R^2\to\mathbb R\)</span> is open, not closed.</li>
+<li><strong>Basis condition.</strong> A cover by sets is not enough: the intersection condition must also hold.</li>
+</ul>
+</section><section class="note-section ns-previous-year-questions" aria-labelledby="previous-year-questions"><h2 id="previous-year-questions">Previous-year questions</h2>
+<h3 id="2025-q95-official-key-b">2025-Q95 (official key B)</h3>
+<p><em>Let <span class="math">\(X=\{a,b,c\}\)</span>. Which of the following is not a topology on <span class="math">\(X\)</span>?</em></p>
+<p>(A) <span class="math">\(\{\emptyset,X,\{a\},\{b,c\}\}\)</span> (B) <span class="math">\(\{\emptyset,X,\{a,b\},\{b,c\}\}\)</span> (C) <span class="math">\(\{\emptyset,X,\{a,b\},\{b,c\},\{b\}\}\)</span> (D) <span class="math">\(\{\emptyset,X,\{a\},\{a,b\}\}\)</span></p>
+<p><strong>Answer: B.</strong> <span class="math">\(\{a,b\}\cap\{b,c\}=\{b\}\)</span> is not in the family, so it is not closed under finite intersection. In (C) the set <span class="math">\(\{b\}\)</span> has been added, which repairs this. See Example 1.</p>
+<h3 id="2019-unnumbered-reconstructed-from-a-solution-video-option-letters-may-differ">2019 (unnumbered; reconstructed from a solution video, option letters may differ)</h3>
+<p><em>Let <span class="math">\(X\)</span> be an infinite set with the discrete topology. Which of these is true? (a) <span class="math">\(X\)</span> is connected (b) <span class="math">\(X\)</span> is compact (c) every function from <span class="math">\(X\)</span> to any topological space is continuous (d) <span class="math">\(X\)</span> is not <span class="math">\(T_1\)</span>.</em></p>
+<p><strong>Answer: (c).</strong> Every subset of <span class="math">\(X\)</span> is open, so for any <span class="math">\(f:X\to Y\)</span> the preimage of every set is open. (a) is false (a point is a nonempty proper clopen set); (b) is false (the cover by singletons has no finite subcover as <span class="math">\(X\)</span> is infinite); (d) is false (points are closed, so <span class="math">\(X\)</span> is <span class="math">\(T_1\)</span>, indeed metrizable).</p>
+</section><section class="note-section ns-quick-revision" aria-labelledby="quick-revision"><h2 id="quick-revision">Quick revision</h2>
+<ul>
+<li>Topology: <span class="math">\(\emptyset\)</span>, <span class="math">\(X\)</span>, arbitrary unions, <strong>finite</strong> intersections.</li>
+<li>Counts of topologies on <span class="math">\(1,2,3,4\)</span> points: <span class="math">\(1,4,29,355\)</span>; up to homeomorphism <span class="math">\(1,3,9,33\)</span>.</li>
+<li>Discrete: finest, every map out is continuous. Indiscrete: coarsest, every map in is continuous.</li>
+<li>Cofinite on infinite set: <span class="math">\(T_1\)</span>, not Hausdorff, compact, connected.</li>
+<li><span class="math">\(\mathbb R_\ell\)</span> (basis <span class="math">\([a,b)\)</span>) is strictly finer than the usual topology; <span class="math">\([a,b)\)</span> is clopen there.</li>
+<li><span class="math">\(\overline A=A\cup A'\)</span>; <span class="math">\(\partial A=\overline A\setminus A^\circ\)</span>; closure commutes with finite unions, interior with finite intersections.</li>
+<li>Subspace topology: open sets <span class="math">\(U\cap Y\)</span>; “open in <span class="math">\(Y\)</span>” is not “open in <span class="math">\(X\)</span>”.</li>
+<li><span class="math">\(f\)</span> continuous iff preimages of open (equivalently closed) sets are open (closed).</li>
+<li>Homeomorphism = continuous bijection with continuous inverse; <span class="math">\([0,2\pi)\to S^1\)</span> is a continuous bijection but not a homeomorphism.</li>
+<li>Non-homeomorphic by removing a point: <span class="math">\(\mathbb R\not\cong\mathbb R^2\)</span>, <span class="math">\(S^1\not\cong[0,1]\)</span>, <span class="math">\((0,1)\not\cong[0,1)\)</span>.</li>
+<li>Basis test: cover plus “inside the intersection” condition.</li>
+</ul>
+</section></article></div><section class="section reader-end"><button class="read-btn" type="button" data-read-btn aria-pressed="false"><span class="box" aria-hidden="true"></span><span data-read-label>Mark as read</span></button><ul class="units end-links"><li><a class="unit-card" href="/uphesc-maths/learn/topology-geometry/topological-spaces/practice/"><span class="unit-top"><span class="unit-name">Practise this topic</span></span><p class="flush">15 questions with worked solutions</p></a></li><li><a class="unit-card" href="/uphesc-maths/learn/topology-geometry/connectedness-and-compactness/"><span class="unit-top"><span class="unit-name">Next: Connectedness and compactness</span></span><p class="flush">High priority · 2 h</p></a></li></ul></section></div><footer class="foot"><p>Built from every paper that survives: the full 2025 and 2026 papers (140 maths questions) and half of 2019 (35, from a solution video). 2015 left only an answer key, and nothing was found for 2021. The commission has never published its booklets. Unit counts use 2025 and 2026 only, so they show a range, not a trend.</p><p>2025 answers match the official key. 2026 has no key yet, so its answers were worked out by hand and marked high, medium or low confidence, and every unsure one was solved again, blind. 2019 answers come from the video and are not checked against the official key.</p></footer></main><script type="module">var e=document.documentElement,t=()=>e.dataset.mode?e.dataset.mode===`dark`:matchMedia(`(prefers-color-scheme: dark)`).matches;document.querySelector(`[data-mode-toggle]`)?.addEventListener(`click`,()=>{let n=t()?`light`:`dark`;e.dataset.mode=n;try{localStorage.setItem(`um:mode`,n)}catch{}}),!e.dataset.mode&&t()&&(e.dataset.mode=`dark`);var n=document.querySelectorAll(`[data-old-toggle]`),r=t=>{t?e.dataset.old=`on`:delete e.dataset.old,n.forEach(e=>e.setAttribute(`aria-checked`,String(t)))};r(e.dataset.old===`on`),n.forEach(t=>t.addEventListener(`click`,()=>{let t=e.dataset.old!==`on`;r(t);try{localStorage.setItem(`um:old`,t?`on`:`off`)}catch{}}));var i=document.querySelectorAll(`[data-view]`),a=t=>{t===`bars`?e.dataset.view=`bars`:delete e.dataset.view,i.forEach(e=>e.setAttribute(`aria-pressed`,String(e.dataset.view===t)))};a(e.dataset.view===`bars`?`bars`:`heat`),i.forEach(e=>e.addEventListener(`click`,()=>{a(e.dataset.view);try{localStorage.setItem(`um:view`,e.dataset.view)}catch{}}));var o=document.createElement(`div`);o.className=`tip`,o.setAttribute(`role`,`tooltip`),o.hidden=!0,document.body.append(o);var s=null,c=(e,t)=>{let n=o.offsetWidth,r=o.offsetHeight,i=e+12,a=t+12;i+n>innerWidth-8&&(i=Math.max(8,e-n-12)),a+r>innerHeight-8&&(a=Math.max(8,t-r-12)),o.style.left=`${i}px`,o.style.top=`${a}px`},l=()=>{if(s){let e=s.getBoundingClientRect();c(e.left+e.width*.3,e.bottom-8)}},u=e=>{e!==s&&(s=e,o.replaceChildren(...[...e.querySelector(`.tip-src`).childNodes].map(e=>e.cloneNode(!0)))),o.hidden=!1},d=()=>{o.hidden=!0,s=null};document.addEventListener(`pointermove`,e=>{if(e.pointerType!==`mouse`)return;let t=e.target.closest(`[data-tip]`);t?(u(t),c(e.clientX,e.clientY)):s&&d()}),document.addEventListener(`focusin`,e=>{let t=e.target.closest(`[data-tip]`);t&&(u(t),l())}),document.addEventListener(`focusout`,()=>d()),addEventListener(`scroll`,()=>{s&&document.activeElement===s?l():s&&d()},{passive:!0}),document.addEventListener(`keydown`,e=>{e.key===`Escape`&&d()});var f=`um:done`,p={};try{p=JSON.parse(localStorage.getItem(f)||`{}`)}catch{}var m=()=>{document.querySelectorAll(`[data-progress]`).forEach(e=>{let t=[...document.querySelectorAll(`[data-group="${e.dataset.progress}"]`)],n=t.filter(e=>e.checked).length;e.querySelector(`.progress-bar span`).style.width=`${n/t.length*100}%`,e.querySelector(`[data-count]`).textContent=`${n} of ${t.length} done`})};document.querySelectorAll(`input[data-check]`).forEach(e=>{e.checked=!!p[e.dataset.check],e.addEventListener(`change`,()=>{p[e.dataset.check]=e.checked;try{localStorage.setItem(f,JSON.stringify(p))}catch{}m()})}),m();</script></body></html><script type="module" src="/uphesc-maths/_astro/index.astro_astro_type_script_index_0_lang.t7qZbIYF.js"></script>

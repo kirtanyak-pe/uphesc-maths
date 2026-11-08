@@ -1,0 +1,287 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>People, environment and ecology · UPESSC maths</title><meta name="description" content="What to study for the UPESSC (formerly UPHESC) Assistant Professor maths paper, built from every paper that survives."><link rel="icon" href="/uphesc-maths/favicon.svg" type="image/svg+xml"><link rel="preload" href="/uphesc-maths/fonts/inter-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin><!-- the saved light/dark, 2019 and chart-view choices, before first paint --><script>
+    try { var m = localStorage.getItem('um:mode'); if (m) document.documentElement.dataset.mode = m; } catch (e) {}
+    try { if (localStorage.getItem('um:old') === 'on') document.documentElement.dataset.old = 'on'; } catch (e) {}
+    try { if (localStorage.getItem('um:view') === 'bars') document.documentElement.dataset.view = 'bars'; } catch (e) {}
+  </script><!-- maths: the vendored MathJax typesets \( \) and \[ \] text, loaded only on pages that have any --><script>(function(){const VENDOR = "/uphesc-maths/vendor";
+
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+      loader: { paths: { mathjax: VENDOR + '/mathjax', fonts: VENDOR + '/mathjax/fonts' } },
+      output: { font: 'mathjax-stix2', displayOverflow: 'scroll' },
+      options: { ignoreHtmlClass: 'no-math', processHtmlClass: 'math', menuOptions: { settings: { enrich: false, speech: false, braille: false } } },
+      chtml: { displayOverflow: 'scroll' },
+      // an inline formula with a piece wider than its line gets its own scrolling line, like display maths
+      startup: { pageReady: () => MathJax.startup.defaultPageReady().then(fitMath) },
+    };
+    function fitMath() {
+      for (const m of document.querySelectorAll('mjx-container:not([display="true"]):not(.mjx-wide)')) {
+        const box = m.closest('p, li, dd, blockquote, div');
+        if (!box || m.closest('td, th')) continue;
+        const right = box.getBoundingClientRect().right + 1;
+        if ([...m.getClientRects()].some((r) => r.right > right)) m.classList.add('mjx-wide');
+      }
+    }
+    let fitQueued = 0;
+    const queueFit = () => { if (window.MathJax?.startup?.document && !fitQueued) fitQueued = requestAnimationFrame(() => { fitQueued = 0; fitMath(); }); };
+    addEventListener('resize', queueFit);
+    addEventListener('click', () => setTimeout(queueFit, 50));
+    document.addEventListener('DOMContentLoaded', () => {
+      if (!document.querySelector('.math')) return;
+      const s = document.createElement('script');
+      s.async = true;
+      s.src = VENDOR + '/mathjax/tex-chtml-nofont.js';
+      document.head.appendChild(s);
+    });
+  })();</script><link rel="stylesheet" href="/uphesc-maths/_astro/Base.CkQ5KWO8.css"></head><body data-tab="learn"><nav class="appnav" aria-label="Main"><a class="appnav-brand" href="/uphesc-maths/" aria-label="UPESSC maths home">∑</a><a class="appnav-item" href="/uphesc-maths/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4 10.2 12 4l8 6.2V19a1 1 0 0 1-1 1h-4.5v-5.5h-5V20H5a1 1 0 0 1-1-1z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Plan</span></a><a class="appnav-item" href="/uphesc-maths/learn/" aria-current="page"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M12 6.5C10 5 7.5 4.5 4 4.5v13c3.5 0 6 .5 8 2 2-1.5 4.5-2 8-2v-13c-3.5 0-6 .5-8 2zM12 6.5v13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Learn</span></a><a class="appnav-item" href="/uphesc-maths/units/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4 5h7v7H4zM13 5h7v7h-7zM4 14h7v6H4zM13 14h7v6h-7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Units</span></a><a class="appnav-item" href="/uphesc-maths/papers/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M7 3h7l4 4v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zM14 3v4h4M9 12h6M9 16h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Papers</span></a><a class="appnav-item" href="/uphesc-maths/revise/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M5 12.5 9.5 17 19 7.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Revise</span></a></nav><header class="topbar"><a class="bar-back" href="/uphesc-maths/learn/general-studies/" aria-label="Back"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a><p class="bar-title">Unit 11</p><button class="bar-btn" type="button" data-mode-toggle aria-label="Switch light or dark"><svg class="i-moon" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path></svg><svg class="i-sun" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path></svg></button></header><main class="page"><div class="reader" data-topic="environment-ecology"><header class="page-head topic-head"><p class="kicker"><a href="/uphesc-maths/learn/general-studies/">Unit 11 · General Studies (GK)</a></p><h1>People, environment and ecology</h1><ul class="meta"><li class="prio high">High priority</li><li>2 h to study</li><li>Asked 10 times</li><li class="read-flag" data-read-flag hidden>Read</li></ul><p class="pyq-line">Previous papers: 2025 Q16, 2025 Q17, 2025 Q18, 2025 Q19, 2026 Q3, 2026 Q4, 2026 Q21, 2026 Q25, 2026 Q28, 2026 Q30</p></header><div class="reader-grid"><nav class="toc" aria-label="On this page"><details class="toc-box" data-toc><summary>On this page</summary><ol><li><a href="#why-it-matters-for-the-exam">Why it matters for the exam</a></li><li><a href="#core-ideas">Core ideas</a></li><li class="sub"><a href="#ecosystem-basics">Ecosystem basics</a></li><li class="sub"><a href="#atmosphere">Atmosphere</a></li><li class="sub"><a href="#pollution">Pollution</a></li><li class="sub"><a href="#climate-change-and-ozone">Climate change and ozone</a></li><li class="sub"><a href="#international-environmental-agreements">International environmental agreements</a></li><li class="sub"><a href="#biodiversity-and-conservation">Biodiversity and conservation</a></li><li class="sub"><a href="#sustainable-development-and-equity">Sustainable development and equity</a></li><li><a href="#formulas-and-results">Formulas and results</a></li><li><a href="#worked-examples">Worked examples</a></li><li class="sub"><a href="#example-1-order-air-gases">Example 1: Order air gases</a></li><li class="sub"><a href="#example-2-energy-loss">Example 2: Energy loss</a></li><li class="sub"><a href="#example-3-read-an-aqi-value">Example 3: Read an AQI value</a></li><li class="sub"><a href="#example-4-match-indicator-to-measure">Example 4: Match indicator to measure</a></li><li class="sub"><a href="#example-5-treaty-recall-by-subject">Example 5: Treaty recall by subject</a></li><li class="sub"><a href="#example-6-urban-heat-island">Example 6: Urban heat island</a></li><li><a href="#common-traps">Common traps</a></li><li><a href="#previous-year-questions">Previous-year questions</a></li><li class="sub"><a href="#2025-q16">2025-Q16</a></li><li class="sub"><a href="#2025-q17">2025-Q17</a></li><li class="sub"><a href="#2025-q18">2025-Q18</a></li><li class="sub"><a href="#2025-q19">2025-Q19</a></li><li class="sub"><a href="#2026-q3">2026-Q3</a></li><li class="sub"><a href="#2026-q4">2026-Q4</a></li><li class="sub"><a href="#2026-q21">2026-Q21</a></li><li class="sub"><a href="#2026-q25">2026-Q25</a></li><li class="sub"><a href="#2026-q28">2026-Q28</a></li><li class="sub"><a href="#2026-q30">2026-Q30</a></li><li><a href="#quick-revision">Quick revision</a></li></ol></details></nav><article class="prose"><section class="note-section ns-why-it-matters-for-the-exam" aria-labelledby="why-it-matters-for-the-exam"><h2 id="why-it-matters-for-the-exam">Why it matters for the exam</h2>
+<p>Environment is the biggest static-knowledge block after current affairs: 4 questions in 2025 (Q16-Q19) and 6 in 2026 (Q3, Q4, Q21, Q25, Q28, Q30). The 2025 questions were definitions and conventions (phenology, Cartagena Protocol, carbon trading, composition of air). The 2026 questions moved to applied reasoning: what an urban heat island is driven by, what happens to a coastal ecosystem under tourism pressure, what intergenerational equity means. Learn the definitions, the international treaties with their years, and the cause-effect logic of pollution.</p>
+</section><section class="note-section ns-core-ideas" aria-labelledby="core-ideas"><h2 id="core-ideas">Core ideas</h2>
+<h3 id="ecosystem-basics">Ecosystem basics</h3>
+<p>An ecosystem is a community of living organisms interacting with the non-living environment.</p>
+<ul>
+<li><strong>Food chain:</strong> a linear transfer of energy (grass, grasshopper, frog, snake, hawk). <strong>Food web:</strong> interlinked chains.</li>
+<li><strong>Trophic levels:</strong> producers, primary consumers (herbivores), secondary consumers, tertiary consumers; decomposers recycle matter.</li>
+<li><strong>Energy flow:</strong> only about 10 per cent of the energy at one trophic level passes to the next (Lindeman’s 10 per cent law). Energy flows one way; nutrients cycle.</li>
+<li><strong>Ecological pyramids:</strong> of number, biomass and energy. The pyramid of energy is always upright.</li>
+<li><strong>Biogeochemical cycles:</strong> carbon, nitrogen, phosphorus, water. Converting a natural ecosystem into an urban-industrial landscape disturbs these cycles; one consistent result is less evapotranspiration (fewer plants, sealed surfaces) and so altered regional hydrology (more runoff, less infiltration).</li>
+<li><strong>Ecology</strong> is the study of the relation between organisms and environment. <strong>Phenology</strong> is the study of the <strong>timing of seasonal activities of plants and animals</strong> (flowering, leaf fall, migration) in relation to changing environmental conditions, and it is used to track climate change. <strong>Climatology</strong> studies climate; forestry deals with forests.</li>
+</ul>
+<h3 id="atmosphere">Atmosphere</h3>
+<p>Layers from the ground up: troposphere (weather, most gases), stratosphere (ozone layer), mesosphere, thermosphere, exosphere.</p>
+<p>Composition of dry air by volume:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Gas</th>
+<th>Share</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nitrogen</td>
+<td>about 78 per cent</td>
+</tr>
+<tr>
+<td>Oxygen</td>
+<td>about 21 per cent</td>
+</tr>
+<tr>
+<td>Argon</td>
+<td>about 0.93 per cent</td>
+</tr>
+<tr>
+<td>Carbon dioxide</td>
+<td>about 0.04 per cent</td>
+</tr>
+</tbody>
+</table></div>
+<p>In descending order of volume: nitrogen, oxygen, argon, carbon dioxide.</p>
+<h3 id="pollution">Pollution</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Key terms</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Air</td>
+<td>SO2, NOx, CO, ozone, particulate matter PM2.5 and PM10; smog</td>
+</tr>
+<tr>
+<td>Water</td>
+<td>BOD, COD, dissolved oxygen, eutrophication, heavy metals</td>
+</tr>
+<tr>
+<td>Soil</td>
+<td>Pesticides, plastics, industrial waste, salinisation</td>
+</tr>
+<tr>
+<td>Noise</td>
+<td>Measured in decibels</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>Biochemical Oxygen Demand (BOD)</strong> is the oxygen microbes need to break down organic matter in water. Higher BOD means more <strong>organic pollution</strong>. Dissolved oxygen moves the other way.</li>
+<li><strong>Eutrophication</strong> is the over-enrichment of water by nutrients (nitrogen and phosphorus), causing algal blooms, oxygen loss and death of aquatic life. Rapid coastal tourism typically adds nutrient and sewage load, breaks habitats with construction and stirs up sediment: the combined outcome is coastal eutrophication, habitat fragmentation and sediment disturbance, not stable food webs or oligotrophic (nutrient-poor) conditions.</li>
+<li><strong>Air Quality Index (AQI)</strong> measures the concentration of <strong>atmospheric pollutants</strong>. CPCB categories: Good (0-50), Satisfactory (51-100), Moderate (101-200), Poor (201-300), Very Poor (301-400), Severe (401-500).</li>
+<li><strong>Urban heat island:</strong> cities are warmer than their surroundings. The intensity is most strongly driven by <strong>impervious surfaces (concrete, asphalt) and reduced evapotranspiration</strong>, plus heat released from vehicles and air-conditioning. More vegetation cover and permeable soil reduce it.</li>
+</ul>
+<h3 id="climate-change-and-ozone">Climate change and ozone</h3>
+<ul>
+<li>Greenhouse gases: water vapour, carbon dioxide, methane, nitrous oxide, ozone, CFCs. They trap outgoing infrared radiation. Methane and nitrous oxide are far stronger per molecule than carbon dioxide.</li>
+<li>Ozone depletion: chlorine and bromine from CFCs and halons break down stratospheric ozone, producing the Antarctic ozone hole. The Vienna Convention (1985) and Montreal Protocol (1987) address it; the Kigali Amendment (2016) phases down HFCs.</li>
+<li><strong>Carbon footprint:</strong> total greenhouse gas emissions caused by a person, product or organisation, in carbon dioxide equivalent. <strong>Ecological footprint:</strong> the biologically productive land and sea area needed to support a population’s consumption and absorb its waste.</li>
+<li><strong>Carbon terms:</strong> a carbon sink absorbs more carbon than it emits (forests, oceans); carbon sequestration is capturing and storing carbon; <strong>carbon trading</strong> is a market-based system in which companies buy and sell emission permits or credits. One credit stands for one tonne of carbon dioxide equivalent.</li>
+</ul>
+<h3 id="international-environmental-agreements">International environmental agreements</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Agreement</th>
+<th>Year</th>
+<th>Subject</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ramsar Convention</td>
+<td>1971</td>
+<td>Wetlands</td>
+</tr>
+<tr>
+<td>World Heritage Convention</td>
+<td>1972</td>
+<td>Cultural and natural heritage sites</td>
+</tr>
+<tr>
+<td>Stockholm Conference</td>
+<td>1972</td>
+<td>First major UN conference on environment; led to UNEP</td>
+</tr>
+<tr>
+<td>CITES</td>
+<td>1973</td>
+<td>Trade in endangered species</td>
+</tr>
+<tr>
+<td>Vienna Convention</td>
+<td>1985</td>
+<td>Ozone layer</td>
+</tr>
+<tr>
+<td>Montreal Protocol</td>
+<td>1987</td>
+<td>Phase-out of ozone-depleting substances</td>
+</tr>
+<tr>
+<td>Basel Convention</td>
+<td>1989</td>
+<td>Hazardous waste movement</td>
+</tr>
+<tr>
+<td>Rio Earth Summit (UNCED)</td>
+<td>1992</td>
+<td>UNFCCC, Convention on Biological Diversity, Agenda 21</td>
+</tr>
+<tr>
+<td>Kyoto Protocol</td>
+<td>1997 (in force 2005)</td>
+<td>Binding emission targets; emissions trading, CDM, joint implementation</td>
+</tr>
+<tr>
+<td><strong>Cartagena Protocol on Biosafety</strong></td>
+<td><strong>2000</strong> (in force 2003)</td>
+<td><strong>Safe handling of living modified organisms (LMOs)</strong></td>
+</tr>
+<tr>
+<td>Stockholm Convention</td>
+<td>2001</td>
+<td>Persistent organic pollutants</td>
+</tr>
+<tr>
+<td>Nagoya Protocol</td>
+<td>2010</td>
+<td>Access and benefit sharing of genetic resources</td>
+</tr>
+<tr>
+<td>Minamata Convention</td>
+<td>2013</td>
+<td>Mercury</td>
+</tr>
+<tr>
+<td>Paris Agreement</td>
+<td>2015</td>
+<td>Keep warming well below 2 degrees C, pursue 1.5 degrees C; national contributions</td>
+</tr>
+<tr>
+<td>Kunming-Montreal Global Biodiversity Framework</td>
+<td>2022</td>
+<td>23 targets, headline: protect 30 per cent of land and sea by 2030</td>
+</tr>
+</tbody>
+</table></div>
+<p>The Cartagena Protocol is a protocol under the Convention on Biological Diversity; it is about living modified organisms (genetically modified organisms that can reproduce), not heritage sites, wetlands or ozone. In the Kunming-Montreal framework the “30 by 30” target means <strong>30 per cent</strong> of terrestrial, inland water, coastal and marine areas under effective conservation by 2030, not 20, 40 or 50.</p>
+<h3 id="biodiversity-and-conservation">Biodiversity and conservation</h3>
+<ul>
+<li>Levels of biodiversity: genetic, species, ecosystem.</li>
+<li>Biodiversity hotspot (Norman Myers): at least 1,500 endemic vascular plant species and loss of at least 70 per cent of original habitat. India has four hotspots: the Himalaya, Indo-Burma, the Western Ghats and Sri Lanka, and Sundaland (Nicobar Islands).</li>
+<li>In-situ conservation: national parks, wildlife sanctuaries, biosphere reserves, sacred groves. Ex-situ: zoos, botanical gardens, seed banks, gene banks.</li>
+<li>IUCN Red List categories: Extinct, Extinct in the Wild, Critically Endangered, Endangered, Vulnerable, Near Threatened, Least Concern.</li>
+<li>Indian laws and programmes: Wildlife (Protection) Act 1972, Water Act 1974, Forest (Conservation) Act 1980 (renamed Van (Sanrakshan Evam Samvardhan) Adhiniyam by the 2023 amendment), Air Act 1981, Environment (Protection) Act 1986, Biological Diversity Act 2002, National Green Tribunal Act 2010. Project Tiger began in 1973. The Constitution has Article 48A (State to protect the environment) and Article 51A(g) (citizen’s duty). India has announced a net-zero target for 2070, announced at COP26 (Glasgow, 2021).</li>
+</ul>
+<h3 id="sustainable-development-and-equity">Sustainable development and equity</h3>
+<p>Sustainable development, as defined in the Brundtland report Our Common Future (1987), meets the needs of the present without compromising the ability of future generations to meet their own needs. <strong>Intergenerational equity</strong> is the principle that the present generation should conserve resources so that future generations’ needs can be met. It rules out unlimited exploitation for present growth. Intra-generational equity concerns fairness within the present generation (equal distribution of benefits across nations or groups). The Sustainable Development Goals (17 goals, adopted in 2015) run to 2030.</p>
+</section><section class="note-section ns-formulas-and-results" aria-labelledby="formulas-and-results"><h2 id="formulas-and-results">Formulas and results</h2>
+<ul>
+<li>Energy transfer between trophic levels: <span class="math">\(E_{n+1} \approx 0.1\, E_n\)</span>.</li>
+<li>Air by volume: N2 &gt; O2 &gt; Ar &gt; CO2.</li>
+<li>AQI bands: 0-50, 51-100, 101-200, 201-300, 301-400, 401-500.</li>
+<li>Cartagena Protocol: living modified organisms. Ramsar: wetlands. Montreal: ozone. Basel: hazardous waste. CITES: endangered species trade.</li>
+<li>Carbon trading: market for emission permits.</li>
+<li>30 by 30: Kunming-Montreal framework.</li>
+<li>BOD: organic pollution in water. AQI: air pollutant concentration. Carbon footprint: total greenhouse gas emissions. Ecological footprint: biologically productive land demand.</li>
+</ul>
+</section><section class="note-section ns-worked-examples" aria-labelledby="worked-examples"><h2 id="worked-examples">Worked examples</h2>
+<h3 id="example-1-order-air-gases">Example 1: Order air gases</h3>
+<p>Arrange carbon dioxide, nitrogen, oxygen, argon in descending volume. Shares are about 0.04, 78, 21 and 0.93 per cent. Descending: nitrogen, oxygen, argon, carbon dioxide.</p>
+<h3 id="example-2-energy-loss">Example 2: Energy loss</h3>
+<p>A producer level stores 10,000 kJ. How much reaches tertiary consumers (third consumer level) under the 10 per cent law? Producers 10,000, primary consumers 1,000, secondary consumers 100, tertiary consumers 10 kJ.</p>
+<h3 id="example-3-read-an-aqi-value">Example 3: Read an AQI value</h3>
+<p>A city reports an AQI of 250. It lies in 201-300, so the category is Poor. A value of 90 would be Satisfactory, and 410 Severe.</p>
+<h3 id="example-4-match-indicator-to-measure">Example 4: Match indicator to measure</h3>
+<p>BOD measures organic pollution in water. AQI measures atmospheric pollutant concentration. Carbon footprint measures total greenhouse gas emissions. Ecological footprint measures the biologically productive land demand. Each indicator has one medium (water, air) or one quantity (emissions, land), and the pairs are unique.</p>
+<h3 id="example-5-treaty-recall-by-subject">Example 5: Treaty recall by subject</h3>
+<p>“Which treaty deals with living modified organisms?” Biosafety is the keyword, so Cartagena Protocol. “Which phases out ozone-depleting substances?” Montreal Protocol. “Which governs wetlands?” Ramsar. “Which governs trade in endangered species?” CITES.</p>
+<h3 id="example-6-urban-heat-island">Example 6: Urban heat island</h3>
+<p>A city replaces a wooded area with concrete. Surface evapotranspiration falls (no leaf water loss), concrete stores heat and sheds rainfall rapidly. Both effects raise local temperatures: the UHI intensity rises. The option “reduced vegetation cover and reduced evapotranspiration with impervious surfaces” is correct; “increased soil permeability” would reduce it.</p>
+</section><section class="note-section ns-common-traps" aria-labelledby="common-traps"><h2 id="common-traps">Common traps</h2>
+<ul>
+<li><strong>Cartagena versus Nagoya.</strong> Cartagena is biosafety (LMOs); Nagoya is access and benefit sharing. Both are protocols under the CBD.</li>
+<li><strong>Carbon sink versus sequestration versus trading.</strong> A sink is the reservoir, sequestration is the process, trading is the market. “Carbon space” is not a standard term.</li>
+<li><strong>Phenology versus ecology.</strong> Phenology is about timing of seasonal events.</li>
+<li><strong>30 per cent.</strong> Not 20, 40 or 50; the framework says 30.</li>
+<li><strong>Footprints.</strong> Carbon footprint counts emissions; ecological footprint counts land and sea area.</li>
+<li><strong>BOD.</strong> High BOD means polluted water, not clean water.</li>
+<li><strong>Eutrophication versus oligotrophic.</strong> Eutrophic water is nutrient-rich; oligotrophic is nutrient-poor.</li>
+<li><strong>Intergenerational and intragenerational equity.</strong> One looks forward in time, the other across nations or groups today.</li>
+<li><strong>Order of gases.</strong> Argon is third by volume and carbon dioxide is last.</li>
+</ul>
+</section><section class="note-section ns-previous-year-questions" aria-labelledby="previous-year-questions"><h2 id="previous-year-questions">Previous-year questions</h2>
+<h3 id="2025-q16">2025-Q16</h3>
+<p><strong>Q.</strong> The timing of seasonal activities of plants in relation to changes in environmental conditions is called: ecology, phenology, climatology, forestry. <strong>Answer: B, phenology.</strong></p>
+<h3 id="2025-q17">2025-Q17</h3>
+<p><strong>Q.</strong> The Cartagena Protocol is related to: heritage sites, wetlands, living modified organisms, ozone layer conservation. <strong>Answer: C, living modified organisms.</strong></p>
+<h3 id="2025-q18">2025-Q18</h3>
+<p><strong>Q.</strong> A market-based system where companies can buy and sell emission permits: carbon space, carbon sequestration, carbon sink, carbon trading. <strong>Answer: D, carbon trading.</strong></p>
+<h3 id="2025-q19">2025-Q19</h3>
+<p><strong>Q.</strong> Arrange in descending order of volume percentage: I carbon dioxide, II nitrogen, III oxygen, IV argon. <strong>Answer: C, II, III, IV, I.</strong> Nitrogen 78, oxygen 21, argon 0.93, carbon dioxide 0.04 per cent.</p>
+<h3 id="2026-q3">2026-Q3</h3>
+<p><strong>Q.</strong> Urban heat island intensity is most strongly influenced by: <strong>Answer (no official key found): B, impervious surfaces and reduced evapotranspiration.</strong></p>
+<h3 id="2026-q4">2026-Q4</h3>
+<p><strong>Q.</strong> The Global Biodiversity Framework adopted under the Kunming-Montreal agreement set which target for protected terrestrial and marine ecosystems by 2030? Options: 20, 30, 40, 50 per cent. <strong>Answer (no official key found): B, 30 per cent.</strong></p>
+<h3 id="2026-q21">2026-Q21</h3>
+<p><strong>Q.</strong> Match BOD, AQI, carbon footprint, ecological footprint with their measurement focus. <strong>Answer (no official key found): BOD with organic pollution in water, AQI with atmospheric pollutant concentration, carbon footprint with total greenhouse gas emissions, ecological footprint with biologically productive land demand (option A, a-II, b-III, c-I, d-IV).</strong></p>
+<h3 id="2026-q25">2026-Q25</h3>
+<p><strong>Q.</strong> A coastal ecosystem under rapid tourism development undergoes combined stress. The most probable integrated outcome: <strong>Answer (no official key found): C, coastal eutrophication, habitat fragmentation and sediment disturbance.</strong></p>
+<h3 id="2026-q28">2026-Q28</h3>
+<p><strong>Q.</strong> The most consistent ecological consequence of transforming a natural ecosystem into an urban-industrial landscape: <strong>Answer (no official key found): B, reduction in evapotranspiration leading to altered regional hydrology.</strong></p>
+<h3 id="2026-q30">2026-Q30</h3>
+<p><strong>Q.</strong> The principle of intergenerational equity in environmental ethics implies: <strong>Answer (no official key found): C, conservation of resources to ensure future generations’ needs.</strong></p>
+</section><section class="note-section ns-quick-revision" aria-labelledby="quick-revision"><h2 id="quick-revision">Quick revision</h2>
+<ul>
+<li>Phenology: timing of seasonal events of plants and animals.</li>
+<li>Air by volume: N2 78, O2 21, Ar 0.93, CO2 0.04 per cent.</li>
+<li>Cartagena Protocol (2000): living modified organisms.</li>
+<li>Montreal Protocol (1987): ozone; Kigali (2016): HFCs.</li>
+<li>Ramsar (1971): wetlands; CITES (1973): endangered species trade; Basel (1989): hazardous waste.</li>
+<li>Carbon trading: buying and selling emission permits; one credit is one tonne CO2e.</li>
+<li>Kunming-Montreal framework (2022): 30 per cent by 2030.</li>
+<li>Paris Agreement (2015): well below 2 degrees C, pursue 1.5 degrees C.</li>
+<li>BOD: organic pollution of water; AQI: air pollutant concentration.</li>
+<li>Urban heat island: impervious surfaces plus low evapotranspiration.</li>
+<li>Intergenerational equity: conserve for future generations; Brundtland 1987.</li>
+<li>India: four biodiversity hotspots; EPA 1986; WPA 1972; net zero 2070.</li>
+</ul>
+</section></article></div><section class="section reader-end"><button class="read-btn" type="button" data-read-btn aria-pressed="false"><span class="box" aria-hidden="true"></span><span data-read-label>Mark as read</span></button><ul class="units end-links"><li><a class="unit-card" href="/uphesc-maths/learn/general-studies/environment-ecology/practice/"><span class="unit-top"><span class="unit-name">Practise this topic</span></span><p class="flush">14 questions with worked solutions</p></a></li><li><a class="unit-card" href="/uphesc-maths/learn/general-studies/science-and-space/"><span class="unit-top"><span class="unit-name">Next: General science, space and technology</span></span><p class="flush">Medium priority · 1 h 40 min</p></a></li></ul><p class="prev-link"><a href="/uphesc-maths/learn/general-studies/ict/">Previous: Information and communication technology</a></p></section></div><footer class="foot"><p>Built from every paper that survives: the full 2025 and 2026 papers (140 maths questions) and half of 2019 (35, from a solution video). 2015 left only an answer key, and nothing was found for 2021. The commission has never published its booklets. Unit counts use 2025 and 2026 only, so they show a range, not a trend.</p><p>2025 answers match the official key. 2026 has no key yet, so its answers were worked out by hand and marked high, medium or low confidence, and every unsure one was solved again, blind. 2019 answers come from the video and are not checked against the official key.</p></footer></main><script type="module">var e=document.documentElement,t=()=>e.dataset.mode?e.dataset.mode===`dark`:matchMedia(`(prefers-color-scheme: dark)`).matches;document.querySelector(`[data-mode-toggle]`)?.addEventListener(`click`,()=>{let n=t()?`light`:`dark`;e.dataset.mode=n;try{localStorage.setItem(`um:mode`,n)}catch{}}),!e.dataset.mode&&t()&&(e.dataset.mode=`dark`);var n=document.querySelectorAll(`[data-old-toggle]`),r=t=>{t?e.dataset.old=`on`:delete e.dataset.old,n.forEach(e=>e.setAttribute(`aria-checked`,String(t)))};r(e.dataset.old===`on`),n.forEach(t=>t.addEventListener(`click`,()=>{let t=e.dataset.old!==`on`;r(t);try{localStorage.setItem(`um:old`,t?`on`:`off`)}catch{}}));var i=document.querySelectorAll(`[data-view]`),a=t=>{t===`bars`?e.dataset.view=`bars`:delete e.dataset.view,i.forEach(e=>e.setAttribute(`aria-pressed`,String(e.dataset.view===t)))};a(e.dataset.view===`bars`?`bars`:`heat`),i.forEach(e=>e.addEventListener(`click`,()=>{a(e.dataset.view);try{localStorage.setItem(`um:view`,e.dataset.view)}catch{}}));var o=document.createElement(`div`);o.className=`tip`,o.setAttribute(`role`,`tooltip`),o.hidden=!0,document.body.append(o);var s=null,c=(e,t)=>{let n=o.offsetWidth,r=o.offsetHeight,i=e+12,a=t+12;i+n>innerWidth-8&&(i=Math.max(8,e-n-12)),a+r>innerHeight-8&&(a=Math.max(8,t-r-12)),o.style.left=`${i}px`,o.style.top=`${a}px`},l=()=>{if(s){let e=s.getBoundingClientRect();c(e.left+e.width*.3,e.bottom-8)}},u=e=>{e!==s&&(s=e,o.replaceChildren(...[...e.querySelector(`.tip-src`).childNodes].map(e=>e.cloneNode(!0)))),o.hidden=!1},d=()=>{o.hidden=!0,s=null};document.addEventListener(`pointermove`,e=>{if(e.pointerType!==`mouse`)return;let t=e.target.closest(`[data-tip]`);t?(u(t),c(e.clientX,e.clientY)):s&&d()}),document.addEventListener(`focusin`,e=>{let t=e.target.closest(`[data-tip]`);t&&(u(t),l())}),document.addEventListener(`focusout`,()=>d()),addEventListener(`scroll`,()=>{s&&document.activeElement===s?l():s&&d()},{passive:!0}),document.addEventListener(`keydown`,e=>{e.key===`Escape`&&d()});var f=`um:done`,p={};try{p=JSON.parse(localStorage.getItem(f)||`{}`)}catch{}var m=()=>{document.querySelectorAll(`[data-progress]`).forEach(e=>{let t=[...document.querySelectorAll(`[data-group="${e.dataset.progress}"]`)],n=t.filter(e=>e.checked).length;e.querySelector(`.progress-bar span`).style.width=`${n/t.length*100}%`,e.querySelector(`[data-count]`).textContent=`${n} of ${t.length} done`})};document.querySelectorAll(`input[data-check]`).forEach(e=>{e.checked=!!p[e.dataset.check],e.addEventListener(`change`,()=>{p[e.dataset.check]=e.checked;try{localStorage.setItem(f,JSON.stringify(p))}catch{}m()})}),m();</script></body></html><script type="module" src="/uphesc-maths/_astro/index.astro_astro_type_script_index_0_lang.t7qZbIYF.js"></script>

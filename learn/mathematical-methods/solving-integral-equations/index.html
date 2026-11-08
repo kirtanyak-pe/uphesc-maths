@@ -1,0 +1,335 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Solving integral equations · UPESSC maths</title><meta name="description" content="What to study for the UPESSC (formerly UPHESC) Assistant Professor maths paper, built from every paper that survives."><link rel="icon" href="/uphesc-maths/favicon.svg" type="image/svg+xml"><link rel="preload" href="/uphesc-maths/fonts/inter-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin><!-- the saved light/dark, 2019 and chart-view choices, before first paint --><script>
+    try { var m = localStorage.getItem('um:mode'); if (m) document.documentElement.dataset.mode = m; } catch (e) {}
+    try { if (localStorage.getItem('um:old') === 'on') document.documentElement.dataset.old = 'on'; } catch (e) {}
+    try { if (localStorage.getItem('um:view') === 'bars') document.documentElement.dataset.view = 'bars'; } catch (e) {}
+  </script><!-- maths: the vendored MathJax typesets \( \) and \[ \] text, loaded only on pages that have any --><script>(function(){const VENDOR = "/uphesc-maths/vendor";
+
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+      loader: { paths: { mathjax: VENDOR + '/mathjax', fonts: VENDOR + '/mathjax/fonts' } },
+      output: { font: 'mathjax-stix2', displayOverflow: 'scroll' },
+      options: { ignoreHtmlClass: 'no-math', processHtmlClass: 'math', menuOptions: { settings: { enrich: false, speech: false, braille: false } } },
+      chtml: { displayOverflow: 'scroll' },
+      // an inline formula with a piece wider than its line gets its own scrolling line, like display maths
+      startup: { pageReady: () => MathJax.startup.defaultPageReady().then(fitMath) },
+    };
+    function fitMath() {
+      for (const m of document.querySelectorAll('mjx-container:not([display="true"]):not(.mjx-wide)')) {
+        const box = m.closest('p, li, dd, blockquote, div');
+        if (!box || m.closest('td, th')) continue;
+        const right = box.getBoundingClientRect().right + 1;
+        if ([...m.getClientRects()].some((r) => r.right > right)) m.classList.add('mjx-wide');
+      }
+    }
+    let fitQueued = 0;
+    const queueFit = () => { if (window.MathJax?.startup?.document && !fitQueued) fitQueued = requestAnimationFrame(() => { fitQueued = 0; fitMath(); }); };
+    addEventListener('resize', queueFit);
+    addEventListener('click', () => setTimeout(queueFit, 50));
+    document.addEventListener('DOMContentLoaded', () => {
+      if (!document.querySelector('.math')) return;
+      const s = document.createElement('script');
+      s.async = true;
+      s.src = VENDOR + '/mathjax/tex-chtml-nofont.js';
+      document.head.appendChild(s);
+    });
+  })();</script><link rel="stylesheet" href="/uphesc-maths/_astro/Base.CkQ5KWO8.css"></head><body data-tab="learn"><nav class="appnav" aria-label="Main"><a class="appnav-brand" href="/uphesc-maths/" aria-label="UPESSC maths home">∑</a><a class="appnav-item" href="/uphesc-maths/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4 10.2 12 4l8 6.2V19a1 1 0 0 1-1 1h-4.5v-5.5h-5V20H5a1 1 0 0 1-1-1z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Plan</span></a><a class="appnav-item" href="/uphesc-maths/learn/" aria-current="page"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M12 6.5C10 5 7.5 4.5 4 4.5v13c3.5 0 6 .5 8 2 2-1.5 4.5-2 8-2v-13c-3.5 0-6 .5-8 2zM12 6.5v13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Learn</span></a><a class="appnav-item" href="/uphesc-maths/units/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4 5h7v7H4zM13 5h7v7h-7zM4 14h7v6H4zM13 14h7v6h-7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Units</span></a><a class="appnav-item" href="/uphesc-maths/papers/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M7 3h7l4 4v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zM14 3v4h4M9 12h6M9 16h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Papers</span></a><a class="appnav-item" href="/uphesc-maths/revise/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M5 12.5 9.5 17 19 7.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Revise</span></a></nav><header class="topbar"><a class="bar-back" href="/uphesc-maths/learn/mathematical-methods/" aria-label="Back"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a><p class="bar-title">Unit 7</p><button class="bar-btn" type="button" data-mode-toggle aria-label="Switch light or dark"><svg class="i-moon" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path></svg><svg class="i-sun" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path></svg></button></header><main class="page"><div class="reader" data-topic="solving-integral-equations"><header class="page-head topic-head"><p class="kicker"><a href="/uphesc-maths/learn/mathematical-methods/">Unit 7 · Calculus of Variations, Integral Equations and Transforms</a></p><h1>Solving integral equations</h1><ul class="meta"><li class="prio high">High priority</li><li>3 h to study</li><li>Asked 6 times</li><li class="read-flag" data-read-flag hidden>Read</li></ul><p class="pyq-line">Previous papers: 2025 Q76, 2026 Q32, 2026 Q39, 2026 Q82, 2026 Q89, 2026 Q97</p><p class="prereq">Read first: <a href="/uphesc-maths/learn/mathematical-methods/integral-equations-basics/">Integral equations - classification, kernels, conversion</a></p></header><div class="reader-grid"><nav class="toc" aria-label="On this page"><details class="toc-box" data-toc><summary>On this page</summary><ol><li><a href="#why-it-matters-for-the-exam">Why it matters for the exam</a></li><li><a href="#core-ideas">Core ideas</a></li><li class="sub"><a href="#fredholm-equation-with-a-separable-kernel">Fredholm equation with a separable kernel</a></li><li class="sub"><a href="#fredholm-alternative">Fredholm alternative</a></li><li class="sub"><a href="#method-of-successive-substitutions-neumann-series">Method of successive substitutions (Neumann series)</a></li><li class="sub"><a href="#successive-approximations-picard-iteration">Successive approximations (Picard iteration)</a></li><li class="sub"><a href="#resolvent-kernels-worth-knowing">Resolvent kernels worth knowing</a></li><li class="sub"><a href="#fredholm-determinant-and-the-resolvent">Fredholm determinant and the resolvent</a></li><li class="sub"><a href="#symmetric-kernels-and-hilbert-schmidt-theory">Symmetric kernels and Hilbert-Schmidt theory</a></li><li class="sub"><a href="#volterra-equations-by-differentiation-and-via-the-laplace-transform">Volterra equations by differentiation, and via the Laplace transform</a></li><li class="sub"><a href="#equations-of-the-first-kind-fredholm">Equations of the first kind (Fredholm)</a></li><li><a href="#formulas-and-results">Formulas and results</a></li><li><a href="#worked-examples">Worked examples</a></li><li class="sub"><a href="#example-1-separable-kernel-of-rank-2">Example 1: separable kernel of rank 2</a></li><li class="sub"><a href="#example-2-eigenvalues-and-eigenfunctions">Example 2: eigenvalues and eigenfunctions</a></li><li class="sub"><a href="#example-3-fredholm-alternative">Example 3: Fredholm alternative</a></li><li class="sub"><a href="#example-4-resolvent-and-neumann-series-volterra">Example 4: resolvent and Neumann series (Volterra)</a></li><li class="sub"><a href="#example-5-successive-approximations">Example 5: successive approximations</a></li><li class="sub"><a href="#example-6-volterra-by-laplace-transform">Example 6: Volterra by Laplace transform</a></li><li class="sub"><a href="#example-7-hilbert-schmidt-expansion">Example 7: Hilbert-Schmidt expansion</a></li><li><a href="#common-traps">Common traps</a></li><li><a href="#previous-year-questions">Previous-year questions</a></li><li class="sub"><a href="#2025-q76-official-key-a">2025 Q76 (official key A)</a></li><li class="sub"><a href="#2026-q32-worked-key-d-unofficial">2026 Q32 (worked key D, unofficial)</a></li><li class="sub"><a href="#2026-q39-worked-key-d-unofficial">2026 Q39 (worked key D, unofficial)</a></li><li class="sub"><a href="#2026-q82-worked-key-b-unofficial-the-key-says-wording-is-vague">2026 Q82 (worked key B, unofficial; the key says wording is vague)</a></li><li class="sub"><a href="#2026-q89-worked-key-b-unofficial-the-key-marks-low-confidence">2026 Q89 (worked key B, unofficial; the key marks low confidence)</a></li><li class="sub"><a href="#2026-q97-worked-key-d-unofficial">2026 Q97 (worked key D, unofficial)</a></li><li><a href="#quick-revision">Quick revision</a></li></ol></details></nav><article class="prose"><section class="note-section ns-why-it-matters-for-the-exam" aria-labelledby="why-it-matters-for-the-exam"><h2 id="why-it-matters-for-the-exam">Why it matters for the exam</h2>
+<p>This is the highest-yield page of Unit 7. The separable-kernel method is examined directly (2025 Q76, 2026 Q39) and through its theory: the number of eigenvalues, orthogonality of eigenfunctions, the consistency (rank) condition and the Fredholm determinant (2026 Q32, Q82, Q97). Successive approximations and Volterra equations (2026 Q89) complete the syllabus line.</p>
+</section><section class="note-section ns-core-ideas" aria-labelledby="core-ideas"><h2 id="core-ideas">Core ideas</h2>
+<h3 id="fredholm-equation-with-a-separable-kernel">Fredholm equation with a separable kernel</h3>
+<p>Solve <span class="math">\(\varphi(x)=f(x)+\lambda\int_a^bK(x,t)\varphi(t)\,dt\)</span> with <span class="math">\(K(x,t)=\sum_{i=1}^na_i(x)b_i(t)\)</span>.</p>
+<p><strong>Step 1.</strong> Define the constants <span class="math">\(c_i=\int_a^bb_i(t)\varphi(t)\,dt\)</span>. Then</p>
+<p><span class="math">\(\varphi(x)=f(x)+\lambda\sum_{i=1}^nc_i\,a_i(x).\)</span></p>
+<p><strong>Step 2.</strong> Multiply by <span class="math">\(b_k(x)\)</span> and integrate over <span class="math">\([a,b]\)</span>:</p>
+<p><span class="math">\(c_k=f_k+\lambda\sum_{i=1}^nA_{ki}c_i,\qquad f_k=\int b_kf\,dx,\quad A_{ki}=\int b_ka_i\,dx .\)</span></p>
+<p>In matrix form <span class="math">\((I-\lambda A)\,\mathbf c=\mathbf f\)</span>.</p>
+<p><strong>Step 3.</strong> Solve the <span class="math">\(n\times n\)</span> system. Substitute <span class="math">\(c_i\)</span> back into <span class="math">\(\varphi\)</span>.</p>
+<p>The polynomial <span class="math">\(D(\lambda)=\det(I-\lambda A)\)</span> (degree <span class="math">\(\le n\)</span>, <span class="math">\(D(0)=1\)</span>) is the <strong>Fredholm determinant</strong> of the separable kernel. Its roots are the <strong>eigenvalues</strong> (characteristic values) <span class="math">\(\lambda\)</span>. They are the reciprocals of the non-zero eigenvalues of the matrix <span class="math">\(A\)</span>.</p>
+<p><strong>Eigenvalues and eigenfunctions</strong> (homogeneous case <span class="math">\(f=0\)</span>). Solve <span class="math">\((I-\lambda A)\mathbf c=0\)</span> for <span class="math">\(\lambda\)</span> with <span class="math">\(\det(I-\lambda A)=0\)</span>. For each such <span class="math">\(\lambda\)</span> the eigenfunction is <span class="math">\(\varphi(x)=\sum c_ia_i(x)\)</span> (up to a constant factor).</p>
+<p>Facts for a separable kernel of rank <span class="math">\(n\)</span>:</p>
+<ul>
+<li>there are at most <span class="math">\(n\)</span> eigenvalues (counted by multiplicity of roots of <span class="math">\(D\)</span>);</li>
+<li>every eigenfunction lies in <span class="math">\(\operatorname{span}\{a_1,\dots,a_n\}\)</span>;</li>
+<li>if <span class="math">\(K\)</span> is symmetric of rank <span class="math">\(n\)</span>, there are exactly <span class="math">\(n\)</span> eigenvalues counted with multiplicity, all real, and eigenfunctions of distinct eigenvalues are orthogonal.</li>
+</ul>
+<h3 id="fredholm-alternative">Fredholm alternative</h3>
+<p>For the second-kind equation with <span class="math">\(\lambda\)</span> fixed, exactly one of the following holds.</p>
+<p><strong>(a) <span class="math">\(\lambda\)</span> is not an eigenvalue</strong> (<span class="math">\(D(\lambda)\ne0\)</span>). The homogeneous equation has only the trivial solution, and the inhomogeneous equation has a <strong>unique</strong> solution for <strong>every</strong> <span class="math">\(f\)</span>.</p>
+<p><strong>(b) <span class="math">\(\lambda\)</span> is an eigenvalue</strong> (<span class="math">\(D(\lambda)=0\)</span>). The homogeneous equation has non-trivial solutions (finitely many independent ones). The inhomogeneous equation has a solution <strong>iff</strong> <span class="math">\(f\)</span> is orthogonal to every solution <span class="math">\(\psi\)</span> of the <strong>adjoint homogeneous equation</strong> <span class="math">\(\psi(x)=\lambda\int_a^bK(t,x)\psi(t)\,dt\)</span>:</p>
+<p><span class="math">\(\int_a^bf(x)\psi(x)\,dx=0 .\)</span></p>
+<p>When this holds the solution is <strong>not unique</strong>: add any eigenfunction. For a <strong>symmetric</strong> kernel the adjoint equation is the same equation, so <span class="math">\(f\)</span> must be orthogonal to the eigenfunctions of <span class="math">\(\lambda\)</span> itself.</p>
+<p>For a separable kernel the same statement is the <strong>rank condition</strong>: <span class="math">\((I-\lambda A)\mathbf c=\mathbf f\)</span> is consistent iff <span class="math">\(\operatorname{rank}(I-\lambda A)=\operatorname{rank}\,[\,I-\lambda A\mid\mathbf f\,]\)</span>. If <span class="math">\(D(\lambda)=0\)</span> and the rank condition fails, the equation has <strong>no</strong> solution.</p>
+<p>Three further facts (Fredholm’s theorems):</p>
+<ul>
+<li>the number of independent eigenfunctions of <span class="math">\(\lambda\)</span> equals the number of independent solutions of the adjoint equation;</li>
+<li>eigenvalues (of a nonzero <span class="math">\(L^2\)</span> kernel) form a set with no finite accumulation point, so they are isolated;</li>
+<li>the eigenvalue sets of <span class="math">\(K(x,t)\)</span> and <span class="math">\(\overline{K(t,x)}\)</span> coincide (conjugates).</li>
+</ul>
+<h3 id="method-of-successive-substitutions-neumann-series">Method of successive substitutions (Neumann series)</h3>
+<p>Write <span class="math">\(\varphi=f+\lambda T\varphi\)</span> with <span class="math">\((T\varphi)(x)=\int K(x,t)\varphi(t)\,dt\)</span> and substitute repeatedly:</p>
+<p><span class="math">\(\varphi=f+\lambda Tf+\lambda^2T^2f+\cdots+\lambda^nT^nf+\cdots\)</span></p>
+<p>In kernel form:</p>
+<p><span class="math">\(\varphi(x)=f(x)+\sum_{n\ge1}\lambda^n\int_a^bK_n(x,t)f(t)\,dt,\)</span></p>
+<p>with <strong>iterated kernels</strong></p>
+<p><span class="math">\(K_1=K,\qquad K_{n+1}(x,t)=\int_a^bK(x,s)K_n(s,t)\,ds .\)</span></p>
+<p>The <strong>resolvent kernel</strong> <span class="math">\(R(x,t;\lambda)=\sum_{n\ge0}\lambda^nK_{n+1}(x,t)\)</span> gives</p>
+<p><span class="math">\(\varphi(x)=f(x)+\lambda\int_a^bR(x,t;\lambda)f(t)\,dt .\)</span></p>
+<p><span class="math">\(R\)</span> satisfies <span class="math">\(R(x,t;\lambda)=K(x,t)+\lambda\int K(x,s)R(s,t;\lambda)\,ds\)</span>. Also <span class="math">\(K_{m+n}(x,t)=\int K_m(x,s)K_n(s,t)\,ds\)</span>.</p>
+<p><strong>Convergence (Fredholm).</strong> If <span class="math">\(K\)</span> is bounded, <span class="math">\(\lvert K\rvert\le M\)</span>, the series converges for</p>
+<p><span class="math">\(\lvert\lambda\rvert\,M\,(b-a)&lt;1 .\)</span></p>
+<p>For an <span class="math">\(L^2\)</span> kernel the condition is <span class="math">\(\lvert\lambda\rvert&lt;1/B\)</span> with <span class="math">\(B=\sqrt{\iint K^2\,dx\,dt}\)</span>. These are sufficient, not necessary: the true radius of convergence is the smallest <span class="math">\(\lvert\lambda_1\rvert\)</span> of the eigenvalues (the pole of the resolvent nearest <span class="math">\(0\)</span>). For <span class="math">\(K=xt\)</span> on <span class="math">\([0,1]\)</span> the <span class="math">\(L^2\)</span> bound is <span class="math">\(1/B=3\)</span> (since <span class="math">\(B^2=\iint x^2t^2=\tfrac19\)</span>), which happens to be exactly the eigenvalue; the cruder <span class="math">\(M\)</span>-bound (<span class="math">\(M=1\)</span>, <span class="math">\(b-a=1\)</span>) gives only <span class="math">\(\lvert\lambda\rvert&lt;1\)</span>.</p>
+<p><strong>Convergence (Volterra).</strong> <span class="math">\(\lvert K_n(x,t)\rvert\le M^n(x-t)^{n-1}/(n-1)!\)</span>, so the series converges for <strong>every</strong> <span class="math">\(\lambda\)</span>. A Volterra equation of the second kind (continuous kernel and <span class="math">\(f\)</span>) has a <strong>unique</strong> solution for every <span class="math">\(\lambda\)</span> and every <span class="math">\(f\)</span>. It has <strong>no eigenvalues</strong>: the homogeneous Volterra equation has only <span class="math">\(\varphi=0\)</span>.</p>
+<h3 id="successive-approximations-picard-iteration">Successive approximations (Picard iteration)</h3>
+<p>Start with <span class="math">\(\varphi_0(x)\)</span> (usually <span class="math">\(f\)</span> or <span class="math">\(0\)</span>) and iterate</p>
+<p><span class="math">\(\varphi_{n+1}(x)=f(x)+\lambda\int K(x,t)\varphi_n(t)\,dt .\)</span></p>
+<p>This produces the partial sums of the Neumann series (starting from <span class="math">\(\varphi_0=f\)</span>, <span class="math">\(\varphi_n=\sum_{k\le n}\lambda^kT^kf\)</span>). The iterates converge uniformly to the unique solution for Volterra equations always, and for Fredholm equations when <span class="math">\(\lvert\lambda\rvert\)</span> is small enough (as above). In the syllabus, “substitutions” and “approximations” are the same idea: one writes out the series, the other computes the sequence.</p>
+<h3 id="resolvent-kernels-worth-knowing">Resolvent kernels worth knowing</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Kernel on the interval</th>
+<th>Iterated kernel <span class="math">\(K_n\)</span></th>
+<th>Resolvent <span class="math">\(R(x,t;\lambda)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math">\(K=xt\)</span> on <span class="math">\([0,1]\)</span></td>
+<td><span class="math">\(3^{-(n-1)}xt\)</span></td>
+<td><span class="math">\(\dfrac{3xt}{3-\lambda}\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(K=1\)</span>, Volterra on <span class="math">\([0,x]\)</span></td>
+<td><span class="math">\(\dfrac{(x-t)^{n-1}}{(n-1)!}\)</span></td>
+<td><span class="math">\(e^{\lambda(x-t)}\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(K=x-t\)</span>, Volterra</td>
+<td><span class="math">\(\dfrac{(x-t)^{2n-1}}{(2n-1)!}\)</span></td>
+<td><span class="math">\(\dfrac{\sinh\sqrt\lambda\,(x-t)}{\sqrt\lambda}\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(K=e^{x-t}\)</span>, Volterra</td>
+<td><span class="math">\(e^{x-t}\dfrac{(x-t)^{n-1}}{(n-1)!}\)</span></td>
+<td><span class="math">\(e^{(1+\lambda)(x-t)}\)</span></td>
+</tr>
+</tbody>
+</table></div>
+<p>Check the first row: <span class="math">\(K_2=\int_0^1xs\cdot st\,ds=\frac13xt\)</span>, and so on.</p>
+<h3 id="fredholm-determinant-and-the-resolvent">Fredholm determinant and the resolvent</h3>
+<p>For an <span class="math">\(L^2\)</span> kernel the resolvent is a ratio <span class="math">\(R(x,t;\lambda)=\dfrac{D(x,t;\lambda)}{D(\lambda)}\)</span> of entire functions. <span class="math">\(D(\lambda)=\det(I-\lambda T)\)</span> is the Fredholm determinant. With <span class="math">\(A_n=\int K_n(s,s)\,ds\)</span> (traces),</p>
+<p><span class="math">\(D(\lambda)=\exp\Big(-\sum_{n\ge1}\frac{\lambda^nA_n}{n}\Big).\)</span></p>
+<p>Facts:</p>
+<ul>
+<li><span class="math">\(D(\lambda)=0\)</span> exactly at the eigenvalues.</li>
+<li>For <span class="math">\(\lambda\)</span> with <span class="math">\(D(\lambda)\ne0\)</span> the resolvent exists and the equation is uniquely solvable.</li>
+<li><span class="math">\(\varphi=\lambda T\varphi\)</span> has a non-trivial solution <strong>iff <span class="math">\(D(\lambda)=0\)</span></strong> (2026 Q97).</li>
+<li>For <span class="math">\(K=xt\)</span> on <span class="math">\([0,1]\)</span>: <span class="math">\(A_n=3^{-n}\)</span>, <span class="math">\(D(\lambda)=1-\lambda/3\)</span>.</li>
+</ul>
+<h3 id="symmetric-kernels-and-hilbert-schmidt-theory">Symmetric kernels and Hilbert-Schmidt theory</h3>
+<p>Let <span class="math">\(K\)</span> be real, symmetric and in <span class="math">\(L^2\)</span> (and not identically zero).</p>
+<ol>
+<li>All eigenvalues are real.</li>
+<li>Eigenfunctions belonging to <strong>different</strong> eigenvalues are <strong>orthogonal</strong>: <span class="math">\(\int\varphi_m\varphi_n\,dx=0\)</span>.</li>
+<li>There is at least one eigenvalue, and the eigenvalues form a countable set with no finite limit point. Each has finite multiplicity.</li>
+<li>Orthonormal eigenfunctions <span class="math">\(\{\varphi_n\}\)</span> with eigenvalues <span class="math">\(\lambda_n\)</span> (<span class="math">\(\lambda_n\to\infty\)</span> in modulus if there are infinitely many) satisfy</li>
+</ol>
+<p><span class="math">\(\sum_n\frac1{\lambda_n^2}=\iint K(x,t)^2\,dx\,dt,\qquad \sum_n\frac1{\lambda_n}=\int K(x,x)\,dx\ \ (\text{continuous, symmetric, positive semidefinite (Mercer) kernel}).\)</span></p>
+<ol start="5">
+<li><strong>Hilbert-Schmidt theorem.</strong> If <span class="math">\(g(x)=\int K(x,t)h(t)\,dt\)</span> with <span class="math">\(h\)</span> square-integrable, then <span class="math">\(g\)</span> has the absolutely and uniformly convergent expansion <span class="math">\(g=\sum_n(g,\varphi_n)\varphi_n\)</span> in the orthonormal eigenfunctions.</li>
+<li><strong>Solution by eigenfunction expansion.</strong> For <span class="math">\(\lambda\)</span> not an eigenvalue,</li>
+</ol>
+<p><span class="math">\(\varphi(x)=f(x)+\lambda\sum_n\frac{(f,\varphi_n)}{\lambda_n-\lambda}\,\varphi_n(x),\qquad(f,\varphi_n)=\int f\varphi_n\,dx .\)</span></p>
+<ol start="7">
+<li><strong>Resolvent expansion.</strong> <span class="math">\(R(x,t;\lambda)=\displaystyle\sum_n\frac{\varphi_n(x)\varphi_n(t)}{\lambda_n-\lambda}\)</span>, and <span class="math">\(K(x,t)=\sum_n\varphi_n(x)\varphi_n(t)/\lambda_n\)</span>.</li>
+<li><strong>At an eigenvalue</strong> <span class="math">\(\lambda=\lambda_m\)</span> the equation is solvable iff <span class="math">\((f,\varphi)=0\)</span> for all eigenfunctions <span class="math">\(\varphi\)</span> of <span class="math">\(\lambda_m\)</span> (Fredholm alternative).</li>
+</ol>
+<p>For the Dirichlet Green’s function <span class="math">\(\mathcal G=x_&lt;(1-x_&gt;)\)</span>: <span class="math">\(\lambda_n=n^2\pi^2\)</span>, <span class="math">\(\varphi_n=\sqrt2\sin n\pi x\)</span>. Checks: <span class="math">\(\sum1/(n\pi)^4=1/90=\iint\mathcal G^2\)</span> and <span class="math">\(\sum1/(n\pi)^2=\frac16=\int\mathcal G(x,x)\,dx\)</span>.</p>
+<h3 id="volterra-equations-by-differentiation-and-via-the-laplace-transform">Volterra equations by differentiation, and via the Laplace transform</h3>
+<p><strong>Reduction to an ODE.</strong> Differentiate a second-kind Volterra equation with a separable or polynomial-in-<span class="math">\((x-t)\)</span> kernel until the integral disappears (Leibniz rule). Initial conditions come from setting <span class="math">\(x=0\)</span>.</p>
+<p><strong>Convolution kernel and the Laplace transform.</strong> If <span class="math">\(K(x,t)=k(x-t)\)</span>, the integral is a <strong>convolution</strong> <span class="math">\(k*\varphi\)</span> and <span class="math">\(\mathscr L\{k*\varphi\}=\mathscr L\{k\}\,\mathscr L\{\varphi\}=\kappa(s)\,\Phi(s)\)</span>. Write <span class="math">\(F=\mathscr L\{f\}\)</span>.</p>
+<ul>
+<li>Second kind: <span class="math">\(\varphi=f+\lambda\,k*\varphi\)</span> gives
+<span class="math">\(\Phi(s)=\frac{F(s)}{1-\lambda\kappa(s)},\qquad\varphi=\mathscr L^{-1}\{\Phi\}.\)</span></li>
+<li>First kind: <span class="math">\(f=k*\varphi\)</span> gives <span class="math">\(\Phi(s)=F(s)/\kappa(s)\)</span> (the inverse exists only if <span class="math">\(F/\kappa\)</span> is a Laplace transform).</li>
+<li>Systems of Volterra equations and integro-differential equations: same idea, <span class="math">\(\mathscr L\{\varphi'\}=s\Phi-\varphi(0)\)</span>.</li>
+</ul>
+<p>The resolvent for a convolution kernel is itself a convolution: <span class="math">\(\mathscr L\{R\}=\dfrac{\kappa(s)}{1-\lambda\kappa(s)}\)</span>.</p>
+<p><strong>Kernel not of convolution type</strong> (2026 Q89). The Laplace transform of <span class="math">\(\int_0^xK(x,t)\varphi(t)\,dt\)</span> does not factor. Options: differentiate to an ODE (if the kernel is separable), or change variables so that the kernel becomes a function of a difference. For a <strong>Mellin-type</strong> kernel <span class="math">\(K(x,t)=h(x/t)\)</span> the substitution <span class="math">\(x=e^u\)</span>, <span class="math">\(t=e^v\)</span> turns it into a function of <span class="math">\(u-v\)</span>. The key for 2026 Q89 chooses the variable-transformation option.</p>
+<p><strong>Abel’s equation</strong> is itself a convolution equation: <span class="math">\(\varphi*x^{-\alpha}=f\)</span> and <span class="math">\(\mathscr L\{x^{-\alpha}\}=\Gamma(1-\alpha)s^{\alpha-1}\)</span>.</p>
+<h3 id="equations-of-the-first-kind-fredholm">Equations of the first kind (Fredholm)</h3>
+<p><span class="math">\(f(x)=\lambda\int_a^bK(x,t)\varphi(t)\,dt\)</span> is more delicate. For a separable kernel the right side is a combination of the <span class="math">\(a_i(x)\)</span>, so a solution exists only if <span class="math">\(f\in\operatorname{span}\{a_i\}\)</span>, and then it is <strong>not unique</strong>: add any function orthogonal to all <span class="math">\(b_i\)</span>. In general first-kind equations are ill-posed.</p>
+</section><section class="note-section ns-formulas-and-results" aria-labelledby="formulas-and-results"><h2 id="formulas-and-results">Formulas and results</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Formula</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Separable reduction</td>
+<td><span class="math">\(\varphi=f+\lambda\sum c_ia_i\)</span>, <span class="math">\(c_i=\int b_i\varphi\)</span></td>
+</tr>
+<tr>
+<td>Linear system</td>
+<td><span class="math">\((I-\lambda A)\mathbf c=\mathbf f\)</span>, <span class="math">\(A_{ki}=\int b_ka_i\)</span>, <span class="math">\(f_k=\int b_kf\)</span></td>
+</tr>
+<tr>
+<td>Eigenvalues (separable)</td>
+<td><span class="math">\(\det(I-\lambda A)=0\)</span></td>
+</tr>
+<tr>
+<td>Fredholm alternative</td>
+<td><span class="math">\(D(\lambda)\ne0\)</span>: unique solution for all <span class="math">\(f\)</span>. <span class="math">\(D(\lambda)=0\)</span>: solvable iff <span class="math">\(f\perp\)</span> solutions of adjoint homogeneous equation</td>
+</tr>
+<tr>
+<td>Rank condition</td>
+<td><span class="math">\(\operatorname{rank}(I-\lambda A)=\operatorname{rank}[I-\lambda A\mid\mathbf f]\)</span></td>
+</tr>
+<tr>
+<td>Iterated kernels</td>
+<td><span class="math">\(K_{n+1}(x,t)=\int K(x,s)K_n(s,t)\,ds\)</span></td>
+</tr>
+<tr>
+<td>Resolvent</td>
+<td><span class="math">\(R=\sum_{n\ge0}\lambda^nK_{n+1}\)</span>; <span class="math">\(\varphi=f+\lambda\int Rf\)</span></td>
+</tr>
+<tr>
+<td>Neumann series condition</td>
+<td><span class="math">\(\lvert\lambda\rvert M(b-a)&lt;1\)</span>, or <span class="math">\(\lvert\lambda\rvert B&lt;1\)</span></td>
+</tr>
+<tr>
+<td>Volterra 2nd kind</td>
+<td>unique solution for every <span class="math">\(\lambda\)</span>; no eigenvalues</td>
+</tr>
+<tr>
+<td>Picard iteration</td>
+<td><span class="math">\(\varphi_{n+1}=f+\lambda\int K\varphi_n\)</span></td>
+</tr>
+<tr>
+<td>Fredholm determinant</td>
+<td><span class="math">\(D(\lambda)=\exp\big(-\sum\lambda^nA_n/n\big)\)</span></td>
+</tr>
+<tr>
+<td>Symmetric kernel</td>
+<td>real eigenvalues, orthogonal eigenfunctions for distinct eigenvalues</td>
+</tr>
+<tr>
+<td>Rank-<span class="math">\(n\)</span> symmetric kernel</td>
+<td>exactly <span class="math">\(n\)</span> eigenvalues (with multiplicity)</td>
+</tr>
+<tr>
+<td>Expansion</td>
+<td><span class="math">\(\varphi=f+\lambda\sum\frac{(f,\varphi_n)}{\lambda_n-\lambda}\varphi_n\)</span></td>
+</tr>
+<tr>
+<td>Volterra by Laplace (2nd kind)</td>
+<td><span class="math">\(\Phi=\dfrac{F}{1-\lambda\kappa}\)</span></td>
+</tr>
+<tr>
+<td>Volterra by Laplace (1st kind)</td>
+<td><span class="math">\(\Phi=F/\kappa\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(K=xt\)</span> on <span class="math">\([0,1]\)</span></td>
+<td>eigenvalue <span class="math">\(\lambda=3\)</span>, eigenfunction <span class="math">\(x\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(K=\sin(x+t)\)</span> on <span class="math">\([0,2\pi]\)</span></td>
+<td><span class="math">\(\lambda=\pm1/\pi\)</span>, eigenfunctions <span class="math">\(\sin x\pm\cos x\)</span></td>
+</tr>
+</tbody>
+</table></div>
+</section><section class="note-section ns-worked-examples" aria-labelledby="worked-examples"><h2 id="worked-examples">Worked examples</h2>
+<h3 id="example-1-separable-kernel-of-rank-2">Example 1: separable kernel of rank 2</h3>
+<p>Solve <span class="math">\(\varphi(x)=1+\lambda\int_0^1(x+t)\varphi(t)\,dt\)</span>.</p>
+<p>Write <span class="math">\(K=x\cdot1+1\cdot t\)</span>. Put <span class="math">\(c_1=\int_0^1\varphi\,dt\)</span> and <span class="math">\(c_2=\int_0^1t\varphi\,dt\)</span>. Then <span class="math">\(\varphi=1+\lambda(c_1x+c_2)\)</span>. Integrate <span class="math">\(\varphi\)</span> and <span class="math">\(t\varphi\)</span>:</p>
+<p><span class="math">\(c_1=1+\lambda\Big(\frac{c_1}2+c_2\Big),\qquad c_2=\frac12+\lambda\Big(\frac{c_1}3+\frac{c_2}2\Big).\)</span></p>
+<p>So <span class="math">\(\Big(1-\frac\lambda2\Big)c_1-\lambda c_2=1\)</span> and <span class="math">\(-\frac\lambda3c_1+\Big(1-\frac\lambda2\Big)c_2=\frac12\)</span>. The determinant is</p>
+<p><span class="math">\(D(\lambda)=\Big(1-\frac\lambda2\Big)^2-\frac{\lambda^2}3=1-\lambda-\frac{\lambda^2}{12}.\)</span></p>
+<p>Cramer’s rule: <span class="math">\(c_1=1/D\)</span>, <span class="math">\(c_2=\big(\tfrac12+\tfrac\lambda{12}\big)/D\)</span>. Hence</p>
+<p><span class="math">\(\boxed{\varphi(x)=1+\frac{\lambda\big(x+\tfrac12+\tfrac\lambda{12}\big)}{1-\lambda-\lambda^2/12}}\qquad(\lambda\ne-6\pm4\sqrt3).\)</span></p>
+<p>The eigenvalues are the roots of <span class="math">\(\lambda^2+12\lambda-12=0\)</span>, namely <span class="math">\(\lambda=-6\pm4\sqrt3\)</span>. Numerical check at <span class="math">\(\lambda=\frac12\)</span>: <span class="math">\(\varphi(0.2)=1.77391\)</span>, and the integral equation gives the same value.</p>
+<h3 id="example-2-eigenvalues-and-eigenfunctions">Example 2: eigenvalues and eigenfunctions</h3>
+<p>Find them for <span class="math">\(\varphi(x)=\lambda\int_0^{2\pi}\sin(x+t)\varphi(t)\,dt\)</span>.</p>
+<p><span class="math">\(\sin(x+t)=\sin x\cos t+\cos x\sin t\)</span>, so <span class="math">\(\varphi=\lambda(c_1\sin x+c_2\cos x)\)</span> with <span class="math">\(c_1=\int\varphi\cos t\)</span>, <span class="math">\(c_2=\int\varphi\sin t\)</span>. Substituting: <span class="math">\(c_1=\lambda\pi c_2\)</span> and <span class="math">\(c_2=\lambda\pi c_1\)</span>. Non-trivial solutions require <span class="math">\(1-\lambda^2\pi^2=0\)</span>, so <span class="math">\(\lambda=\pm\frac1\pi\)</span>.</p>
+<ul>
+<li><span class="math">\(\lambda=\frac1\pi\)</span>: <span class="math">\(c_1=c_2\)</span>, <span class="math">\(\varphi=\sin x+\cos x\)</span>.</li>
+<li><span class="math">\(\lambda=-\frac1\pi\)</span>: <span class="math">\(c_1=-c_2\)</span>, <span class="math">\(\varphi=\sin x-\cos x\)</span>.</li>
+</ul>
+<p>These are orthogonal on <span class="math">\([0,2\pi]\)</span>: <span class="math">\(\int(\sin^2x-\cos^2x)\,dx=0\)</span>. ✓ (symmetric kernel, distinct eigenvalues). Two eigenvalues for a rank-2 kernel.</p>
+<h3 id="example-3-fredholm-alternative">Example 3: Fredholm alternative</h3>
+<p>For <span class="math">\(K=xt\)</span> on <span class="math">\([0,1]\)</span>: for which <span class="math">\(f\)</span> does <span class="math">\(\varphi=f+3\int_0^1xt\varphi(t)\,dt\)</span> have a solution?</p>
+<p>Put <span class="math">\(c=\int t\varphi\,dt\)</span>. Then <span class="math">\(\varphi=f+3cx\)</span>. Multiply by <span class="math">\(t\)</span> and integrate: <span class="math">\(c=\int tf\,dt+3c\int t^2dt=\int tf\,dt+c\)</span>. So we need <span class="math">\(\int_0^1tf(t)\,dt=0\)</span>. Here <span class="math">\(\lambda=3\)</span> is the eigenvalue (the homogeneous equation <span class="math">\(\varphi=3\int xt\varphi\)</span> has solution <span class="math">\(\varphi=x\)</span>), and the condition is <span class="math">\(f\perp x\)</span>.</p>
+<p>If it holds, <span class="math">\(c\)</span> is free and <span class="math">\(\varphi=f+3cx\)</span>. Example: <span class="math">\(f=3x-2\)</span> has <span class="math">\(\int t(3t-2)dt=0\)</span>, and <span class="math">\(\varphi=3x-2+3cx\)</span> solves the equation for every <span class="math">\(c\)</span> (checked numerically). For <span class="math">\(f=x\)</span>, <span class="math">\(\int t\cdot t\,dt=\frac13\ne0\)</span>: no solution.</p>
+<h3 id="example-4-resolvent-and-neumann-series-volterra">Example 4: resolvent and Neumann series (Volterra)</h3>
+<p>Solve <span class="math">\(\varphi(x)=1+\lambda\int_0^x(x-t)\varphi(t)\,dt\)</span> using iterated kernels.</p>
+<p><span class="math">\(K_1=x-t\)</span>, <span class="math">\(K_2=\int_t^x(x-s)(s-t)\,ds=\frac{(x-t)^3}{3!}\)</span>, and <span class="math">\(K_n=\frac{(x-t)^{2n-1}}{(2n-1)!}\)</span>. So <span class="math">\(R(x,t;\lambda)=\sum_{n\ge1}\lambda^{n-1}\frac{(x-t)^{2n-1}}{(2n-1)!}=\frac{\sinh\sqrt\lambda(x-t)}{\sqrt\lambda}\)</span>. Then</p>
+<p><span class="math">\(\varphi=1+\lambda\int_0^x\frac{\sinh\sqrt\lambda(x-t)}{\sqrt\lambda}\,dt=1+\big(\cosh\sqrt\lambda\,x-1\big)=\cosh\sqrt\lambda\,x .\)</span></p>
+<p>(Check: <span class="math">\(\varphi''=\lambda\varphi\)</span>, <span class="math">\(\varphi(0)=1\)</span>, <span class="math">\(\varphi'(0)=0\)</span>. ✓)</p>
+<h3 id="example-5-successive-approximations">Example 5: successive approximations</h3>
+<p>Solve <span class="math">\(\varphi(x)=x-\int_0^x(x-t)\varphi(t)\,dt\)</span> by Picard iteration with <span class="math">\(\varphi_0=x\)</span>.</p>
+<p><span class="math">\(\varphi_1=x-\int_0^x(x-t)t\,dt=x-\frac{x^3}6\)</span>.
+<span class="math">\(\varphi_2=x-\int_0^x(x-t)\Big(t-\frac{t^3}6\Big)dt=x-\frac{x^3}{6}+\frac{x^5}{120}\)</span>.
+The pattern is the partial sum of <span class="math">\(\sin x\)</span>, which is the exact solution (<span class="math">\(\varphi''=-\varphi\)</span>, <span class="math">\(\varphi(0)=0\)</span>, <span class="math">\(\varphi'(0)=1\)</span>).</p>
+<h3 id="example-6-volterra-by-laplace-transform">Example 6: Volterra by Laplace transform</h3>
+<p>(a) Solve <span class="math">\(\varphi(t)=t+\int_0^t(t-\tau)\varphi(\tau)\,d\tau\)</span>. Here <span class="math">\(k(t)=t\)</span>, <span class="math">\(\kappa=1/s^2\)</span>, <span class="math">\(F=1/s^2\)</span>. <span class="math">\(\Phi=\dfrac{1/s^2}{1-1/s^2}=\dfrac1{s^2-1}\)</span>, so <span class="math">\(\varphi=\sinh t\)</span>. (Check: <span class="math">\(t+(\sinh t-t)=\sinh t\)</span>. ✓)</p>
+<p>(b) Solve <span class="math">\(\sin t=\int_0^te^{t-\tau}\varphi(\tau)\,d\tau\)</span> (first kind). <span class="math">\(F=\frac1{s^2+1}\)</span>, <span class="math">\(\kappa=\frac1{s-1}\)</span>. <span class="math">\(\Phi=\frac{s-1}{s^2+1}\)</span>, so <span class="math">\(\varphi=\cos t-\sin t\)</span>. (Check: <span class="math">\(e^t\int_0^te^{-\tau}(\cos\tau-\sin\tau)d\tau=e^t\cdot e^{-t}\sin t=\sin t\)</span>. ✓)</p>
+<h3 id="example-7-hilbert-schmidt-expansion">Example 7: Hilbert-Schmidt expansion</h3>
+<p>Solve <span class="math">\(\varphi(x)=\sin\pi x+\lambda\int_0^1\mathcal G(x,t)\varphi(t)\,dt\)</span>, <span class="math">\(\mathcal G=x_&lt;(1-x_&gt;)\)</span>, <span class="math">\(\lambda\ne n^2\pi^2\)</span>.</p>
+<p>The eigenfunction <span class="math">\(\sin\pi x\)</span> with <span class="math">\(\lambda_1=\pi^2\)</span> is exactly <span class="math">\(f\)</span>. So <span class="math">\(\varphi=c\sin\pi x\)</span> with <span class="math">\(c=1+\lambda c/\pi^2\)</span>, giving <span class="math">\(c=\dfrac{\pi^2}{\pi^2-\lambda}\)</span>. The expansion formula agrees: only the <span class="math">\(n=1\)</span> term survives.</p>
+</section><section class="note-section ns-common-traps" aria-labelledby="common-traps"><h2 id="common-traps">Common traps</h2>
+<ul>
+<li><strong><span class="math">\(c_i\)</span> definition.</strong> <span class="math">\(c_i=\int b_i\varphi\)</span> uses the <span class="math">\(t\)</span>-part of the kernel. Using the <span class="math">\(x\)</span>-part (<span class="math">\(a_i\)</span>) is the commonest error. Also <span class="math">\(A_{ki}=\int b_ka_i\)</span> (not <span class="math">\(\int a_ka_i\)</span>).</li>
+<li><strong>Eigenvalue vs reciprocal.</strong> The equation <span class="math">\(\det(I-\lambda A)=0\)</span> gives <span class="math">\(\lambda=1/\mu\)</span> where <span class="math">\(\mu\)</span> is an eigenvalue of <span class="math">\(A\)</span>. If an option lists <span class="math">\(\mu\)</span>, it is the wrong one.</li>
+<li><strong>Fredholm alternative direction.</strong> If <span class="math">\(\lambda\)</span> is <strong>not</strong> an eigenvalue the solution exists for <strong>every</strong> <span class="math">\(f\)</span> and is unique. If <span class="math">\(\lambda\)</span> <strong>is</strong> an eigenvalue and <span class="math">\(f\not\perp\)</span> the adjoint solutions, <strong>no</strong> solution; if <span class="math">\(f\perp\)</span>, <strong>infinitely many</strong>. “Non-trivial solution of the inhomogeneous equation when <span class="math">\(\lambda\)</span> is an eigenvalue” is not automatic.</li>
+<li><strong>Orthogonality</strong> holds for different eigenvalues of a <strong>symmetric</strong> kernel (with weight <span class="math">\(1\)</span>). Non-symmetric kernels need the adjoint equation. Eigenfunctions of one repeated eigenvalue need not be orthogonal until chosen so.</li>
+<li><strong>Rank counts eigenvalues.</strong> A rank-2 kernel has at most 2 non-zero eigenvalues (counting multiplicity); a rank-2 symmetric kernel has exactly 2 (2026 Q32). It has infinitely many only if rank is infinite.</li>
+<li><strong>Volterra has no eigenvalues.</strong> The Neumann series converges for all <span class="math">\(\lambda\)</span>; do not look for characteristic values.</li>
+<li><strong>Neumann series radius.</strong> <span class="math">\(\lvert\lambda\rvert&lt;1/(M(b-a))\)</span> is sufficient. Failing it does not mean the equation has no solution.</li>
+<li><strong>Laplace on Volterra needs a convolution kernel</strong> <span class="math">\(k(x-t)\)</span>. <span class="math">\(K=xt\)</span> or <span class="math">\(K=x/t\)</span> is not one (2026 Q89).</li>
+<li><strong>First-kind Volterra</strong> needs <span class="math">\(f(0)=0\)</span>; a Laplace solution may not exist as a function if <span class="math">\(F/\kappa\)</span> does not decay.</li>
+<li><strong>Do not confuse the Fredholm determinant</strong> <span class="math">\(D(\lambda)=\det(I-\lambda A)\)</span> with <span class="math">\(\det A\)</span>.</li>
+</ul>
+</section><section class="note-section ns-previous-year-questions" aria-labelledby="previous-year-questions"><h2 id="previous-year-questions">Previous-year questions</h2>
+<h3 id="2025-q76-official-key-a">2025 Q76 (official key A)</h3>
+<p><strong>Question.</strong> The solution of the Fredholm integral equation <span class="math">\(\varphi(x)=1+\lambda\int_0^1xt\,\varphi(t)\,dt\)</span> is (the options were printed in a form that does not survive the scan).</p>
+<p><strong>Answer.</strong> A, which is <span class="math">\(\varphi(x)=1+\dfrac{3\lambda}{2(3-\lambda)}\,x\)</span>.</p>
+<p><strong>Solution.</strong> Put <span class="math">\(c=\int_0^1t\varphi\,dt\)</span>. Then <span class="math">\(\varphi=1+\lambda cx\)</span> and <span class="math">\(c=\frac12+\frac{\lambda c}{3}\)</span>, so <span class="math">\(c=\dfrac{3}{2(3-\lambda)}\)</span>. Hence <span class="math">\(\varphi=1+\dfrac{3\lambda x}{2(3-\lambda)}\)</span>, valid for <span class="math">\(\lambda\ne3\)</span>.</p>
+<h3 id="2026-q32-worked-key-d-unofficial">2026 Q32 (worked key D, unofficial)</h3>
+<p><strong>Question (restated).</strong> For a symmetric degenerate kernel of rank 2, what is the maximum number of non-zero eigenvalues, and what is true of the eigenfunctions of distinct eigenvalues?</p>
+<p><strong>Answer.</strong> D: at most 2 eigenvalues, and the eigenfunctions are orthogonal.</p>
+<p><strong>Solution.</strong> A degenerate kernel <span class="math">\(\sum_{i=1}^2a_i(x)b_i(t)\)</span> reduces to a <span class="math">\(2\times2\)</span> system, whose determinant is a polynomial of degree <span class="math">\(\le2\)</span>: at most 2 eigenvalues. For a symmetric kernel, eigenfunctions of distinct eigenvalues are orthogonal.</p>
+<h3 id="2026-q39-worked-key-d-unofficial">2026 Q39 (worked key D, unofficial)</h3>
+<p><strong>Question (restated).</strong> For <span class="math">\(y(x)=1+\lambda\int_0^1xt\,y(t)\,dt\)</span>, find the non-zero value of <span class="math">\(\lambda\)</span> at which the consistency condition fails (the characteristic value).</p>
+<p><strong>Answer.</strong> D, <span class="math">\(\lambda=3\)</span>.</p>
+<p><strong>Solution.</strong> With <span class="math">\(c=\int ty\,dt\)</span>, <span class="math">\(y=1+\lambda cx\)</span> and <span class="math">\(c=\frac12+\frac{\lambda c}{3}\)</span>, so <span class="math">\(c\big(1-\frac\lambda3\big)=\frac12\)</span>. This has no solution when <span class="math">\(\lambda=3\)</span> (left side zero, right side <span class="math">\(\frac12\)</span>). So <span class="math">\(\lambda=3\)</span> is the characteristic value and the equation is unsolvable there.</p>
+<h3 id="2026-q82-worked-key-b-unofficial-the-key-says-wording-is-vague">2026 Q82 (worked key B, unofficial; the key says wording is vague)</h3>
+<p><strong>Question (restated).</strong> A degenerate kernel leads to a singular linear system <span class="math">\(A\mathbf c=\mathbf b\)</span>. What is the condition for the integral equation to have a solution?</p>
+<p><strong>Answer.</strong> B: the <strong>rank condition</strong>, <span class="math">\(\operatorname{rank}A=\operatorname{rank}[A\mid\mathbf b]\)</span> (consistency).</p>
+<p><strong>Solution.</strong> When the system matrix <span class="math">\(I-\lambda A\)</span> is singular (<span class="math">\(D(\lambda)=0\)</span>), a solution exists iff the augmented matrix has the same rank, equivalently <span class="math">\(f\)</span> is orthogonal to the adjoint homogeneous solutions (Fredholm alternative). The solution is then not unique.</p>
+<h3 id="2026-q89-worked-key-b-unofficial-the-key-marks-low-confidence">2026 Q89 (worked key B, unofficial; the key marks low confidence)</h3>
+<p><strong>Question (restated).</strong> A Volterra equation has a kernel that is <strong>not</strong> of convolution type. How can the Laplace transform be applied?</p>
+<p><strong>Answer.</strong> B: after a suitable change of variable that turns the kernel into convolution form.</p>
+<p><strong>Solution.</strong> The Laplace transform turns a convolution into a product only for <span class="math">\(k(x-t)\)</span>. For a kernel like <span class="math">\(h(x/t)\)</span> the substitution <span class="math">\(x=e^u\)</span>, <span class="math">\(t=e^v\)</span> gives a convolution in <span class="math">\(u,v\)</span>. Direct transformation, ignoring the kernel, or converting to a PDE are not valid methods. The key rates this as a best guess because the question is poorly posed.</p>
+<h3 id="2026-q97-worked-key-d-unofficial">2026 Q97 (worked key D, unofficial)</h3>
+<p><strong>Question (restated).</strong> <span class="math">\(y(x)=\lambda\int G(x,t)\,y(t)\,dt\)</span>. What is the condition on <span class="math">\(\lambda\)</span> for a non-trivial solution?</p>
+<p><strong>Answer.</strong> D: the Fredholm determinant <span class="math">\(D(\lambda)=0\)</span>, i.e. <span class="math">\(\lambda\)</span> is an eigenvalue.</p>
+<p><strong>Solution.</strong> The homogeneous equation <span class="math">\(y=\lambda Ty\)</span> has a non-trivial solution iff <span class="math">\(I-\lambda T\)</span> is not invertible, iff <span class="math">\(D(\lambda)=\det(I-\lambda T)=0\)</span>. The question text is OCR-uncertain in the key, but the answer is the standard theorem.</p>
+</section><section class="note-section ns-quick-revision" aria-labelledby="quick-revision"><h2 id="quick-revision">Quick revision</h2>
+<ul>
+<li>Separable kernel: set <span class="math">\(c_i=\int b_i\varphi\)</span>, get <span class="math">\((I-\lambda A)\mathbf c=\mathbf f\)</span> with <span class="math">\(A_{ki}=\int b_ka_i\)</span>.</li>
+<li>Eigenvalues of a separable kernel: roots of <span class="math">\(\det(I-\lambda A)=0\)</span>; eigenfunction <span class="math">\(\sum c_ia_i\)</span>.</li>
+<li>Rank-<span class="math">\(n\)</span> kernel: at most <span class="math">\(n\)</span> eigenvalues; symmetric rank <span class="math">\(n\)</span>: exactly <span class="math">\(n\)</span>.</li>
+<li>Fredholm alternative: <span class="math">\(\lambda\)</span> not an eigenvalue: unique solution for every <span class="math">\(f\)</span>.</li>
+<li><span class="math">\(\lambda\)</span> an eigenvalue: solvable iff <span class="math">\(f\perp\)</span> adjoint eigenfunctions; then infinitely many solutions.</li>
+<li>Singular system solvable iff <span class="math">\(\operatorname{rank}A=\operatorname{rank}[A\mid b]\)</span>.</li>
+<li>Neumann series: <span class="math">\(\varphi=f+\sum\lambda^n\int K_nf\)</span>; resolvent <span class="math">\(R=\sum\lambda^nK_{n+1}\)</span>.</li>
+<li>Volterra 2nd kind: unique solution for all <span class="math">\(\lambda\)</span>; no eigenvalues.</li>
+<li>Convolution Volterra: <span class="math">\(\Phi=F/(1-\lambda\kappa)\)</span> (2nd kind), <span class="math">\(\Phi=F/\kappa\)</span> (1st kind).</li>
+<li>Symmetric kernels: real eigenvalues; orthogonal eigenfunctions; Hilbert-Schmidt expansion.</li>
+<li><span class="math">\(\varphi=\lambda T\varphi\)</span> non-trivial iff <span class="math">\(D(\lambda)=0\)</span>.</li>
+<li><span class="math">\(K=xt\)</span> on <span class="math">\([0,1]\)</span>: <span class="math">\(\lambda=3\)</span>. <span class="math">\(\varphi=1+\lambda\int xt\varphi\)</span> gives <span class="math">\(\varphi=1+\frac{3\lambda x}{2(3-\lambda)}\)</span>.</li>
+</ul>
+</section></article></div><section class="section reader-end"><button class="read-btn" type="button" data-read-btn aria-pressed="false"><span class="box" aria-hidden="true"></span><span data-read-label>Mark as read</span></button><ul class="units end-links"><li><a class="unit-card" href="/uphesc-maths/learn/mathematical-methods/solving-integral-equations/practice/"><span class="unit-top"><span class="unit-name">Practise this topic</span></span><p class="flush">13 questions with worked solutions</p></a></li><li><a class="unit-card" href="/uphesc-maths/learn/mathematical-methods/laplace-transforms/"><span class="unit-top"><span class="unit-name">Next: Laplace transforms</span></span><p class="flush">High priority · 2 h 30 min</p></a></li></ul><p class="prev-link"><a href="/uphesc-maths/learn/mathematical-methods/integral-equations-basics/">Previous: Integral equations - classification, kernels, conversion</a></p></section></div><footer class="foot"><p>Built from every paper that survives: the full 2025 and 2026 papers (140 maths questions) and half of 2019 (35, from a solution video). 2015 left only an answer key, and nothing was found for 2021. The commission has never published its booklets. Unit counts use 2025 and 2026 only, so they show a range, not a trend.</p><p>2025 answers match the official key. 2026 has no key yet, so its answers were worked out by hand and marked high, medium or low confidence, and every unsure one was solved again, blind. 2019 answers come from the video and are not checked against the official key.</p></footer></main><script type="module">var e=document.documentElement,t=()=>e.dataset.mode?e.dataset.mode===`dark`:matchMedia(`(prefers-color-scheme: dark)`).matches;document.querySelector(`[data-mode-toggle]`)?.addEventListener(`click`,()=>{let n=t()?`light`:`dark`;e.dataset.mode=n;try{localStorage.setItem(`um:mode`,n)}catch{}}),!e.dataset.mode&&t()&&(e.dataset.mode=`dark`);var n=document.querySelectorAll(`[data-old-toggle]`),r=t=>{t?e.dataset.old=`on`:delete e.dataset.old,n.forEach(e=>e.setAttribute(`aria-checked`,String(t)))};r(e.dataset.old===`on`),n.forEach(t=>t.addEventListener(`click`,()=>{let t=e.dataset.old!==`on`;r(t);try{localStorage.setItem(`um:old`,t?`on`:`off`)}catch{}}));var i=document.querySelectorAll(`[data-view]`),a=t=>{t===`bars`?e.dataset.view=`bars`:delete e.dataset.view,i.forEach(e=>e.setAttribute(`aria-pressed`,String(e.dataset.view===t)))};a(e.dataset.view===`bars`?`bars`:`heat`),i.forEach(e=>e.addEventListener(`click`,()=>{a(e.dataset.view);try{localStorage.setItem(`um:view`,e.dataset.view)}catch{}}));var o=document.createElement(`div`);o.className=`tip`,o.setAttribute(`role`,`tooltip`),o.hidden=!0,document.body.append(o);var s=null,c=(e,t)=>{let n=o.offsetWidth,r=o.offsetHeight,i=e+12,a=t+12;i+n>innerWidth-8&&(i=Math.max(8,e-n-12)),a+r>innerHeight-8&&(a=Math.max(8,t-r-12)),o.style.left=`${i}px`,o.style.top=`${a}px`},l=()=>{if(s){let e=s.getBoundingClientRect();c(e.left+e.width*.3,e.bottom-8)}},u=e=>{e!==s&&(s=e,o.replaceChildren(...[...e.querySelector(`.tip-src`).childNodes].map(e=>e.cloneNode(!0)))),o.hidden=!1},d=()=>{o.hidden=!0,s=null};document.addEventListener(`pointermove`,e=>{if(e.pointerType!==`mouse`)return;let t=e.target.closest(`[data-tip]`);t?(u(t),c(e.clientX,e.clientY)):s&&d()}),document.addEventListener(`focusin`,e=>{let t=e.target.closest(`[data-tip]`);t&&(u(t),l())}),document.addEventListener(`focusout`,()=>d()),addEventListener(`scroll`,()=>{s&&document.activeElement===s?l():s&&d()},{passive:!0}),document.addEventListener(`keydown`,e=>{e.key===`Escape`&&d()});var f=`um:done`,p={};try{p=JSON.parse(localStorage.getItem(f)||`{}`)}catch{}var m=()=>{document.querySelectorAll(`[data-progress]`).forEach(e=>{let t=[...document.querySelectorAll(`[data-group="${e.dataset.progress}"]`)],n=t.filter(e=>e.checked).length;e.querySelector(`.progress-bar span`).style.width=`${n/t.length*100}%`,e.querySelector(`[data-count]`).textContent=`${n} of ${t.length} done`})};document.querySelectorAll(`input[data-check]`).forEach(e=>{e.checked=!!p[e.dataset.check],e.addEventListener(`change`,()=>{p[e.dataset.check]=e.checked;try{localStorage.setItem(f,JSON.stringify(p))}catch{}m()})}),m();</script></body></html><script type="module" src="/uphesc-maths/_astro/index.astro_astro_type_script_index_0_lang.t7qZbIYF.js"></script>

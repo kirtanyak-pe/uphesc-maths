@@ -1,0 +1,321 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Sturm-Liouville problems · UPESSC maths</title><meta name="description" content="What to study for the UPESSC (formerly UPHESC) Assistant Professor maths paper, built from every paper that survives."><link rel="icon" href="/uphesc-maths/favicon.svg" type="image/svg+xml"><link rel="preload" href="/uphesc-maths/fonts/inter-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin><!-- the saved light/dark, 2019 and chart-view choices, before first paint --><script>
+    try { var m = localStorage.getItem('um:mode'); if (m) document.documentElement.dataset.mode = m; } catch (e) {}
+    try { if (localStorage.getItem('um:old') === 'on') document.documentElement.dataset.old = 'on'; } catch (e) {}
+    try { if (localStorage.getItem('um:view') === 'bars') document.documentElement.dataset.view = 'bars'; } catch (e) {}
+  </script><!-- maths: the vendored MathJax typesets \( \) and \[ \] text, loaded only on pages that have any --><script>(function(){const VENDOR = "/uphesc-maths/vendor";
+
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+      loader: { paths: { mathjax: VENDOR + '/mathjax', fonts: VENDOR + '/mathjax/fonts' } },
+      output: { font: 'mathjax-stix2', displayOverflow: 'scroll' },
+      options: { ignoreHtmlClass: 'no-math', processHtmlClass: 'math', menuOptions: { settings: { enrich: false, speech: false, braille: false } } },
+      chtml: { displayOverflow: 'scroll' },
+      // an inline formula with a piece wider than its line gets its own scrolling line, like display maths
+      startup: { pageReady: () => MathJax.startup.defaultPageReady().then(fitMath) },
+    };
+    function fitMath() {
+      for (const m of document.querySelectorAll('mjx-container:not([display="true"]):not(.mjx-wide)')) {
+        const box = m.closest('p, li, dd, blockquote, div');
+        if (!box || m.closest('td, th')) continue;
+        const right = box.getBoundingClientRect().right + 1;
+        if ([...m.getClientRects()].some((r) => r.right > right)) m.classList.add('mjx-wide');
+      }
+    }
+    let fitQueued = 0;
+    const queueFit = () => { if (window.MathJax?.startup?.document && !fitQueued) fitQueued = requestAnimationFrame(() => { fitQueued = 0; fitMath(); }); };
+    addEventListener('resize', queueFit);
+    addEventListener('click', () => setTimeout(queueFit, 50));
+    document.addEventListener('DOMContentLoaded', () => {
+      if (!document.querySelector('.math')) return;
+      const s = document.createElement('script');
+      s.async = true;
+      s.src = VENDOR + '/mathjax/tex-chtml-nofont.js';
+      document.head.appendChild(s);
+    });
+  })();</script><link rel="stylesheet" href="/uphesc-maths/_astro/Base.CkQ5KWO8.css"></head><body data-tab="learn"><nav class="appnav" aria-label="Main"><a class="appnav-brand" href="/uphesc-maths/" aria-label="UPESSC maths home">∑</a><a class="appnav-item" href="/uphesc-maths/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4 10.2 12 4l8 6.2V19a1 1 0 0 1-1 1h-4.5v-5.5h-5V20H5a1 1 0 0 1-1-1z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Plan</span></a><a class="appnav-item" href="/uphesc-maths/learn/" aria-current="page"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M12 6.5C10 5 7.5 4.5 4 4.5v13c3.5 0 6 .5 8 2 2-1.5 4.5-2 8-2v-13c-3.5 0-6 .5-8 2zM12 6.5v13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Learn</span></a><a class="appnav-item" href="/uphesc-maths/units/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4 5h7v7H4zM13 5h7v7h-7zM4 14h7v6H4zM13 14h7v6h-7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Units</span></a><a class="appnav-item" href="/uphesc-maths/papers/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M7 3h7l4 4v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zM14 3v4h4M9 12h6M9 16h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Papers</span></a><a class="appnav-item" href="/uphesc-maths/revise/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M5 12.5 9.5 17 19 7.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Revise</span></a></nav><header class="topbar"><a class="bar-back" href="/uphesc-maths/learn/differential-equations/" aria-label="Back"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a><p class="bar-title">Unit 6</p><button class="bar-btn" type="button" data-mode-toggle aria-label="Switch light or dark"><svg class="i-moon" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path></svg><svg class="i-sun" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path></svg></button></header><main class="page"><div class="reader" data-topic="sturm-liouville"><header class="page-head topic-head"><p class="kicker"><a href="/uphesc-maths/learn/differential-equations/">Unit 6 · Differential Equations</a></p><h1>Sturm-Liouville problems</h1><ul class="meta"><li class="prio medium">Medium priority</li><li>2 h to study</li><li>Asked once</li><li class="read-flag" data-read-flag hidden>Read</li></ul><p class="pyq-line">Previous papers: 2026 Q57</p><p class="prereq">Read first: <a href="/uphesc-maths/learn/differential-equations/linear-odes/">Linear ODEs</a></p></header><div class="reader-grid"><nav class="toc" aria-label="On this page"><details class="toc-box" data-toc><summary>On this page</summary><ol><li><a href="#why-it-matters-for-the-exam">Why it matters for the exam</a></li><li><a href="#core-ideas">Core ideas</a></li><li class="sub"><a href="#boundary-value-problems">Boundary value problems</a></li><li class="sub"><a href="#the-sturm-liouville-form">The Sturm-Liouville form</a></li><li class="sub"><a href="#properties-of-a-regular-sl-problem-separated-boundary-conditions">Properties of a regular SL problem (separated boundary conditions)</a></li><li class="sub"><a href="#standard-eigenvalue-problems-ylambda-y0-on-0l">Standard eigenvalue problems <span class="math">\(y''+\lambda y=0\)</span> on <span class="math">\([0,L]\)</span></a></li><li class="sub"><a href="#sturm-separation-and-comparison-theorems">Sturm separation and comparison theorems</a></li><li class="sub"><a href="#greens-function-for-a-bvp">Green’s function for a BVP</a></li><li><a href="#formulas-and-results">Formulas and results</a></li><li><a href="#worked-examples">Worked examples</a></li><li class="sub"><a href="#example-1-mixed-boundary-conditions">Example 1: mixed boundary conditions</a></li><li class="sub"><a href="#example-2-reducing-to-sl-form-and-finding-the-weight">Example 2: reducing to SL form and finding the weight</a></li><li class="sub"><a href="#example-3-euler-type-eigenvalue-problem">Example 3: Euler-type eigenvalue problem</a></li><li class="sub"><a href="#example-4-robin-condition">Example 4: Robin condition</a></li><li class="sub"><a href="#example-5-shifted-equation">Example 5: shifted equation</a></li><li class="sub"><a href="#example-6-greens-functions">Example 6: Green’s functions</a></li><li><a href="#common-traps">Common traps</a></li><li><a href="#previous-year-questions">Previous-year questions</a></li><li class="sub"><a href="#2026-q57">2026 Q57</a></li><li><a href="#quick-revision">Quick revision</a></li></ol></details></nav><article class="prose"><section class="note-section ns-why-it-matters-for-the-exam" aria-labelledby="why-it-matters-for-the-exam"><h2 id="why-it-matters-for-the-exam">Why it matters for the exam</h2>
+<p>Only one question so far (2026 Q57: eigenvalues of <span class="math">\(y''+\lambda y=0\)</span>, <span class="math">\(y(0)=y(\pi)=0\)</span>), but the same machinery sits behind the separation-of-variables questions in the PDE topics and behind Green’s function questions in the integral-equations unit. Likely forms: the eigenvalues for a given boundary condition, which property holds for a Sturm-Liouville problem (real eigenvalues, orthogonality with weight), conversion to Sturm-Liouville form, zeros of solutions (Sturm theorems) and Green’s functions.</p>
+</section><section class="note-section ns-core-ideas" aria-labelledby="core-ideas"><h2 id="core-ideas">Core ideas</h2>
+<h3 id="boundary-value-problems">Boundary value problems</h3>
+<p>A boundary value problem (BVP) prescribes conditions at <strong>two points</strong>. Unlike an initial value problem, it may have no solution, one, or infinitely many, even for linear equations.</p>
+<ul>
+<li><span class="math">\(y''+y=0\)</span>, <span class="math">\(y(0)=0\)</span>, <span class="math">\(y(\pi)=1\)</span>: <strong>no</strong> solution (<span class="math">\(y=A\cos x+B\sin x\)</span>, <span class="math">\(y(0)=0\)</span> forces <span class="math">\(A=0\)</span>, then <span class="math">\(y(\pi)=0\)</span>).</li>
+<li><span class="math">\(y''+y=0\)</span>, <span class="math">\(y(0)=0\)</span>, <span class="math">\(y(\pi)=0\)</span>: <strong>infinitely many</strong> (<span class="math">\(y=B\sin x\)</span>).</li>
+<li><span class="math">\(y''+y=0\)</span>, <span class="math">\(y(0)=0\)</span>, <span class="math">\(y(\pi/2)=1\)</span>: unique, <span class="math">\(y=\sin x\)</span>.</li>
+</ul>
+<p>Common boundary conditions at <span class="math">\(x=a\)</span> (and similarly at <span class="math">\(b\)</span>): Dirichlet <span class="math">\(y=0\)</span>; Neumann <span class="math">\(y'=0\)</span>; Robin <span class="math">\(\alpha y+\beta y'=0\)</span>; periodic <span class="math">\(y(a)=y(b)\)</span>, <span class="math">\(y'(a)=y'(b)\)</span>.</p>
+<p><strong>Fredholm alternative for BVPs.</strong> For <span class="math">\(L[y]=f\)</span> with homogeneous self-adjoint boundary conditions: if the homogeneous problem <span class="math">\(L[y]=0\)</span> has only <span class="math">\(y=0\)</span>, then <span class="math">\(L[y]=f\)</span> has a unique solution for every <span class="math">\(f\)</span>. If it has a non-trivial solution <span class="math">\(\phi\)</span>, then <span class="math">\(L[y]=f\)</span> has a solution only if <span class="math">\(\int f\phi\,dx=0\)</span> (and then it has infinitely many).</p>
+<p>Example: <span class="math">\(y''+y=1\)</span>, <span class="math">\(y(0)=y(\pi)=0\)</span>. Here <span class="math">\(\phi=\sin x\)</span> and <span class="math">\(\int_0^\pi\sin x\,dx=2\ne0\)</span>, so there is <strong>no</strong> solution.</p>
+<h3 id="the-sturm-liouville-form">The Sturm-Liouville form</h3>
+<p>The Sturm-Liouville (SL) equation is
+<span class="math">\(\big(p(x)y'\big)'+q(x)y+\lambda\,w(x)y=0,\qquad a\le x\le b,\)</span>
+with boundary conditions
+<span class="math">\(\alpha_1y(a)+\alpha_2y'(a)=0,\qquad \beta_1y(b)+\beta_2y'(b)=0\)</span>
+(real constants, <span class="math">\((\alpha_1,\alpha_2)\ne(0,0)\)</span>, <span class="math">\((\beta_1,\beta_2)\ne(0,0)\)</span>).</p>
+<p>It is <strong>regular</strong> if <span class="math">\(p,p',q,w\)</span> are continuous on the closed interval <span class="math">\([a,b]\)</span> and <span class="math">\(p&gt;0\)</span>, <span class="math">\(w&gt;0\)</span> on <span class="math">\([a,b]\)</span>. It is <strong>singular</strong> if <span class="math">\(p\)</span> or <span class="math">\(w\)</span> vanishes at an endpoint, or the interval is infinite (Legendre, Bessel, Hermite and Laguerre problems are singular). The function <span class="math">\(w\)</span> is the <strong>weight function</strong>.</p>
+<p><strong>Converting to SL form.</strong> Given <span class="math">\(a_0(x)y''+a_1(x)y'+\big(a_2(x)+\lambda a_3(x)\big)y=0\)</span>, multiply by <span class="math">\(\dfrac{1}{a_0}\exp\left(\int\frac{a_1}{a_0}dx\right)\)</span>:
+<span class="math">\(p=\exp\!\left(\int\frac{a_1}{a_0}dx\right),\quad q=p\,\frac{a_2}{a_0},\quad w=p\,\frac{a_3}{a_0}.\)</span></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Equation</th>
+<th><span class="math">\(p\)</span></th>
+<th>weight <span class="math">\(w\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math">\(y''+\lambda y=0\)</span></td>
+<td><span class="math">\(1\)</span></td>
+<td><span class="math">\(1\)</span></td>
+</tr>
+<tr>
+<td>Legendre <span class="math">\((1-x^2)y''-2xy'+\lambda y=0\)</span></td>
+<td><span class="math">\(1-x^2\)</span></td>
+<td><span class="math">\(1\)</span></td>
+</tr>
+<tr>
+<td>Bessel <span class="math">\(xy''+y'+\left(\lambda x-\frac{\nu^2}{x}\right)y=0\)</span></td>
+<td><span class="math">\(x\)</span></td>
+<td><span class="math">\(x\)</span></td>
+</tr>
+<tr>
+<td>Hermite <span class="math">\(y''-2xy'+\lambda y=0\)</span></td>
+<td><span class="math">\(e^{-x^2}\)</span></td>
+<td><span class="math">\(e^{-x^2}\)</span></td>
+</tr>
+<tr>
+<td>Laguerre <span class="math">\(xy''+(1-x)y'+\lambda y=0\)</span></td>
+<td><span class="math">\(xe^{-x}\)</span></td>
+<td><span class="math">\(e^{-x}\)</span></td>
+</tr>
+<tr>
+<td>Chebyshev <span class="math">\((1-x^2)y''-xy'+\lambda y=0\)</span></td>
+<td><span class="math">\(\sqrt{1-x^2}\)</span></td>
+<td><span class="math">\(\dfrac{1}{\sqrt{1-x^2}}\)</span></td>
+</tr>
+<tr>
+<td>Euler <span class="math">\(x^2y''+xy'+\lambda y=0\)</span></td>
+<td><span class="math">\(x\)</span></td>
+<td><span class="math">\(\dfrac1x\)</span></td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="properties-of-a-regular-sl-problem-separated-boundary-conditions">Properties of a regular SL problem (separated boundary conditions)</h3>
+<ol>
+<li><strong>Eigenvalues are real.</strong></li>
+<li><strong>Eigenfunctions for different eigenvalues are orthogonal with respect to the weight:</strong> <span class="math">\(\displaystyle\int_a^b w(x)\,\phi_m(x)\phi_n(x)\,dx=0\)</span> for <span class="math">\(\lambda_m\ne\lambda_n\)</span>.</li>
+<li>Each eigenvalue is <strong>simple</strong>: its eigenspace is one-dimensional.</li>
+<li>The eigenvalues form a countable increasing sequence <span class="math">\(\lambda_1&lt;\lambda_2&lt;\cdots\to+\infty\)</span>, bounded below.</li>
+<li><strong>Oscillation:</strong> the eigenfunction <span class="math">\(\phi_n\)</span> has exactly <span class="math">\(n-1\)</span> zeros in <span class="math">\((a,b)\)</span>.</li>
+<li><strong>Completeness:</strong> <span class="math">\(\{\phi_n\}\)</span> is a complete orthogonal set in <span class="math">\(L^2_w[a,b]\)</span>; <span class="math">\(f=\sum c_n\phi_n\)</span> with <span class="math">\(c_n=\dfrac{\int w f\phi_n}{\int w\phi_n^2}\)</span>, converging in mean for <span class="math">\(f\in L^2_w\)</span>, and pointwise (to the average at a jump) for piecewise smooth <span class="math">\(f\)</span>.</li>
+</ol>
+<p><strong>Why real and orthogonal (Lagrange identity).</strong> For <span class="math">\(Lu=(pu')'+qu\)</span> and <span class="math">\(u,v\)</span> satisfying the separated boundary conditions,
+<span class="math">\(\int_a^b(vLu-uLv)\,dx=\Big[p(vu'-uv')\Big]_a^b=0.\)</span>
+If <span class="math">\(L\phi_m=-\lambda_mw\phi_m\)</span> and <span class="math">\(L\phi_n=-\lambda_nw\phi_n\)</span>, then <span class="math">\((\lambda_n-\lambda_m)\int w\phi_m\phi_n=0\)</span>. Taking <span class="math">\(\phi_n=\bar\phi_m\)</span> gives <span class="math">\((\lambda-\bar\lambda)\int w\lvert\phi\rvert^2=0\)</span>, so <span class="math">\(\lambda\)</span> is real.</p>
+<p><strong>Sign of eigenvalues (Rayleigh quotient).</strong> Multiplying by <span class="math">\(y\)</span> and integrating,
+<span class="math">\(\lambda=\frac{-\big[p\,yy'\big]_a^b+\int_a^b\left(p\,y'^2-q\,y^2\right)dx}{\int_a^bw\,y^2\,dx}.\)</span>
+With Dirichlet (or Neumann) boundary terms vanishing and <span class="math">\(q\le0\)</span>, all eigenvalues are <span class="math">\(\ge0\)</span>; for Dirichlet conditions with <span class="math">\(q\le0\)</span> they are positive.</p>
+<p><strong>Periodic conditions</strong> (for example <span class="math">\(y(-L)=y(L)\)</span>, <span class="math">\(y'(-L)=y'(L)\)</span>) are self-adjoint, so eigenvalues are real and eigenfunctions of different eigenvalues are orthogonal, but eigenvalues need <strong>not be simple</strong>: the periodic problem for <span class="math">\(y''+\lambda y=0\)</span> has two eigenfunctions <span class="math">\(\cos\)</span> and <span class="math">\(\sin\)</span> for each <span class="math">\(\lambda=(n\pi/L)^2\)</span>, <span class="math">\(n\ge1\)</span>.</p>
+<h3 id="standard-eigenvalue-problems-ylambda-y0-on-0l">Standard eigenvalue problems <span class="math">\(y''+\lambda y=0\)</span> on <span class="math">\([0,L]\)</span></h3>
+<p>Method: split into <span class="math">\(\lambda&lt;0\)</span>, <span class="math">\(\lambda=0\)</span>, <span class="math">\(\lambda&gt;0\)</span>. For <span class="math">\(\lambda=\mu^2&gt;0\)</span>, <span class="math">\(y=A\cos\mu x+B\sin\mu x\)</span>.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Boundary conditions</th>
+<th>Eigenvalues <span class="math">\(\lambda_n\)</span></th>
+<th>Eigenfunctions</th>
+<th>Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math">\(y(0)=0\)</span>, <span class="math">\(y(L)=0\)</span></td>
+<td><span class="math">\(\left(\dfrac{n\pi}{L}\right)^2\)</span></td>
+<td><span class="math">\(\sin\dfrac{n\pi x}{L}\)</span></td>
+<td><span class="math">\(n=1,2,\dots\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(y'(0)=0\)</span>, <span class="math">\(y'(L)=0\)</span></td>
+<td><span class="math">\(\left(\dfrac{n\pi}{L}\right)^2\)</span></td>
+<td><span class="math">\(\cos\dfrac{n\pi x}{L}\)</span></td>
+<td><span class="math">\(n=0,1,2,\dots\)</span> (<span class="math">\(\lambda=0\)</span> allowed, <span class="math">\(\phi=1\)</span>)</td>
+</tr>
+<tr>
+<td><span class="math">\(y(0)=0\)</span>, <span class="math">\(y'(L)=0\)</span></td>
+<td><span class="math">\(\left(\dfrac{(2n-1)\pi}{2L}\right)^2\)</span></td>
+<td><span class="math">\(\sin\dfrac{(2n-1)\pi x}{2L}\)</span></td>
+<td><span class="math">\(n=1,2,\dots\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(y'(0)=0\)</span>, <span class="math">\(y(L)=0\)</span></td>
+<td><span class="math">\(\left(\dfrac{(2n-1)\pi}{2L}\right)^2\)</span></td>
+<td><span class="math">\(\cos\dfrac{(2n-1)\pi x}{2L}\)</span></td>
+<td><span class="math">\(n=1,2,\dots\)</span></td>
+</tr>
+<tr>
+<td>periodic on <span class="math">\([-L,L]\)</span></td>
+<td><span class="math">\(\left(\dfrac{n\pi}{L}\right)^2\)</span></td>
+<td><span class="math">\(\cos\dfrac{n\pi x}{L}\)</span>, <span class="math">\(\sin\dfrac{n\pi x}{L}\)</span></td>
+<td><span class="math">\(n=0,1,\dots\)</span> (two functions for <span class="math">\(n\ge1\)</span>)</td>
+</tr>
+</tbody>
+</table></div>
+<p>With <span class="math">\(L=\pi\)</span> and <span class="math">\(y(0)=y(\pi)=0\)</span>: <span class="math">\(\lambda_n=n^2\)</span>, <span class="math">\(\phi_n=\sin nx\)</span> (this is the 2026 question). For Dirichlet conditions <span class="math">\(\lambda=0\)</span> gives <span class="math">\(y=Ax+B=0\)</span> and <span class="math">\(\lambda&lt;0\)</span> gives <span class="math">\(\sinh\)</span>, <span class="math">\(\cosh\)</span> combinations that cannot vanish at two points, so there are no eigenvalues <span class="math">\(\le0\)</span>. Orthogonality integrals: <span class="math">\(\displaystyle\int_0^L\sin\frac{m\pi x}{L}\sin\frac{n\pi x}{L}dx=\frac L2\,\delta_{mn}\)</span>, and <span class="math">\(\int_0^L\cos^2\frac{n\pi x}{L}dx=\frac L2\)</span> for <span class="math">\(n\ge1\)</span>, <span class="math">\(=L\)</span> for <span class="math">\(n=0\)</span>.</p>
+<p><strong>Robin conditions</strong> give transcendental equations. For <span class="math">\(y(0)=0\)</span>, <span class="math">\(y(L)\cdot h+y'(L)=0\)</span> with <span class="math">\(h&gt;0\)</span>, the eigenvalues are <span class="math">\(\mu_n^2\)</span> where <span class="math">\(\tan\mu L=-\mu/h\)</span>; there is no <span class="math">\(\lambda\le0\)</span>. Eigenvalues must then be found numerically.</p>
+<h3 id="sturm-separation-and-comparison-theorems">Sturm separation and comparison theorems</h3>
+<p>These concern zeros of solutions of <span class="math">\(y''+q(x)y=0\)</span> with <span class="math">\(q\)</span> continuous. (Any <span class="math">\(y''+py'+qy=0\)</span> becomes this form via <span class="math">\(y=u\,e^{-\frac12\int p}\)</span>; the zeros of <span class="math">\(y\)</span> and <span class="math">\(u\)</span> coincide.)</p>
+<p><strong>Basic facts.</strong> Zeros of a non-trivial solution are <strong>simple</strong> (if <span class="math">\(y(x_0)=y'(x_0)=0\)</span> then <span class="math">\(y\equiv0\)</span>) and <strong>isolated</strong>, so there are finitely many in any closed bounded interval.</p>
+<p><strong>Sturm separation theorem.</strong> If <span class="math">\(y_1,y_2\)</span> are linearly independent solutions of <span class="math">\(y''+p(x)y'+q(x)y=0\)</span>, their zeros <strong>interlace</strong>: between two consecutive zeros of one lies exactly one zero of the other. Example: <span class="math">\(\sin x\)</span> and <span class="math">\(\cos x\)</span>.</p>
+<p><strong>Sturm comparison theorem.</strong> Let <span class="math">\(y''+q_1(x)y=0\)</span> and <span class="math">\(z''+q_2(x)z=0\)</span> with <span class="math">\(q_2(x)&gt;q_1(x)\)</span> on an interval. If <span class="math">\(y\)</span> is a non-trivial solution of the first with consecutive zeros <span class="math">\(a&lt;b\)</span>, then every solution <span class="math">\(z\)</span> of the second has at least one zero in the open interval <span class="math">\((a,b)\)</span>. (With only <span class="math">\(q_2\ge q_1\)</span>, <span class="math">\(z\)</span> has a zero in <span class="math">\([a,b]\)</span>, inside <span class="math">\((a,b)\)</span> unless <span class="math">\(q_1\equiv q_2\)</span> on <span class="math">\([a,b]\)</span> and <span class="math">\(z\)</span> is a multiple of <span class="math">\(y\)</span>.)</p>
+<p>Larger <span class="math">\(q\)</span> means faster oscillation.</p>
+<p><strong>Consequences.</strong></p>
+<ul>
+<li>If <span class="math">\(q\ge m^2&gt;0\)</span> on an interval, consecutive zeros of any solution are at most <span class="math">\(\pi/m\)</span> apart (compare with <span class="math">\(\sin m(x-x_0)\)</span>).</li>
+<li>If <span class="math">\(q\le M^2\)</span> on an interval, consecutive zeros are at least <span class="math">\(\pi/M\)</span> apart.</li>
+<li>If <span class="math">\(q\le0\)</span> on an interval, a non-trivial solution has at most one zero there.</li>
+<li><strong>Bessel zeros.</strong> For <span class="math">\(x^2y''+xy'+(x^2-\nu^2)y=0\)</span>, <span class="math">\(u=\sqrt x\,y\)</span> satisfies <span class="math">\(u''+\left(1+\dfrac{1/4-\nu^2}{x^2}\right)u=0\)</span>. If <span class="math">\(\nu&lt;\frac12\)</span> then <span class="math">\(q&gt;1\)</span> and zeros of <span class="math">\(J_\nu\)</span> are spaced <strong>less than <span class="math">\(\pi\)</span></strong> apart; if <span class="math">\(\nu&gt;\frac12\)</span>, spacing is <strong>more than <span class="math">\(\pi\)</span></strong>; if <span class="math">\(\nu=\frac12\)</span>, <span class="math">\(J_{1/2}\propto\sin x/\sqrt x\)</span> and spacing is exactly <span class="math">\(\pi\)</span>.</li>
+</ul>
+<h3 id="greens-function-for-a-bvp">Green’s function for a BVP</h3>
+<p>Consider <span class="math">\(Ly=(p\,y')'+q\,y=f(x)\)</span> on <span class="math">\([a,b]\)</span> with homogeneous separated boundary conditions, and assume the homogeneous problem has only the trivial solution. Let <span class="math">\(u_1\)</span> solve <span class="math">\(Lu=0\)</span> and satisfy the condition at <span class="math">\(a\)</span>; let <span class="math">\(u_2\)</span> solve <span class="math">\(Lu=0\)</span> and satisfy the condition at <span class="math">\(b\)</span>. Their Wronskian <span class="math">\(W=u_1u_2'-u_1'u_2\)</span> satisfies <span class="math">\(pW=\text{constant}\)</span>. Then
+<span class="math">\(y(x)=\int_a^bG(x,\xi)f(\xi)\,d\xi,\qquad G(x,\xi)=\begin{cases}\dfrac{u_1(x)u_2(\xi)}{p(\xi)W(\xi)},&amp;x\le\xi\\\dfrac{u_1(\xi)u_2(x)}{p(\xi)W(\xi)},&amp;x\ge\xi.\end{cases}\)</span></p>
+<p><strong>Defining properties</strong> of <span class="math">\(G(x,\xi)\)</span> as a function of <span class="math">\(x\)</span>:</p>
+<ol>
+<li><span class="math">\(LG=0\)</span> for <span class="math">\(x\ne\xi\)</span>.</li>
+<li><span class="math">\(G\)</span> satisfies both boundary conditions.</li>
+<li><span class="math">\(G\)</span> is <strong>continuous</strong> at <span class="math">\(x=\xi\)</span>.</li>
+<li><span class="math">\(\dfrac{\partial G}{\partial x}\)</span> has a <strong>jump</strong> at <span class="math">\(x=\xi\)</span>: <span class="math">\(\ \partial_xG(\xi^+,\xi)-\partial_xG(\xi^-,\xi)=\dfrac{1}{p(\xi)}\)</span>.</li>
+<li><span class="math">\(G\)</span> is <strong>symmetric</strong>: <span class="math">\(G(x,\xi)=G(\xi,x)\)</span> (for self-adjoint problems).</li>
+</ol>
+<p>The eigenvalue problem <span class="math">\(Ly=-\lambda y\)</span> becomes the Fredholm equation <span class="math">\(y=-\lambda\int G\,y\)</span>, and the eigenvalues of the SL problem are the reciprocals (up to sign) of the characteristic values of the symmetric kernel <span class="math">\(G\)</span>.</p>
+<p>If the homogeneous problem has a non-trivial solution (as for <span class="math">\(y''+y=0\)</span> on <span class="math">\([0,\pi]\)</span> with Dirichlet conditions), <span class="math">\(u_1\)</span> and <span class="math">\(u_2\)</span> are dependent, <span class="math">\(W=0\)</span>, and no Green’s function exists.</p>
+</section><section class="note-section ns-formulas-and-results" aria-labelledby="formulas-and-results"><h2 id="formulas-and-results">Formulas and results</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SL equation</td>
+<td><span class="math">\((py')'+qy+\lambda wy=0\)</span></td>
+</tr>
+<tr>
+<td>Conversion</td>
+<td><span class="math">\(p=\exp\int\frac{a_1}{a_0}\)</span>, <span class="math">\(\ w=p\frac{a_3}{a_0}\)</span></td>
+</tr>
+<tr>
+<td>Orthogonality</td>
+<td><span class="math">\(\int_a^bw\phi_m\phi_n\,dx=0\)</span>, <span class="math">\(m\ne n\)</span></td>
+</tr>
+<tr>
+<td>Expansion coefficient</td>
+<td><span class="math">\(c_n=\int w f\phi_n\big/\int w\phi_n^2\)</span></td>
+</tr>
+<tr>
+<td>Dirichlet on <span class="math">\([0,L]\)</span></td>
+<td><span class="math">\(\lambda_n=(n\pi/L)^2\)</span>, <span class="math">\(\sin(n\pi x/L)\)</span>, <span class="math">\(n\ge1\)</span></td>
+</tr>
+<tr>
+<td>Neumann on <span class="math">\([0,L]\)</span></td>
+<td><span class="math">\(\lambda_n=(n\pi/L)^2\)</span>, <span class="math">\(\cos(n\pi x/L)\)</span>, <span class="math">\(n\ge0\)</span></td>
+</tr>
+<tr>
+<td>Mixed on <span class="math">\([0,L]\)</span></td>
+<td><span class="math">\(\lambda_n=((2n-1)\pi/2L)^2\)</span></td>
+</tr>
+<tr>
+<td>Lagrange identity</td>
+<td><span class="math">\(\int(vLu-uLv)=[p(vu'-uv')]_a^b\)</span></td>
+</tr>
+<tr>
+<td>Rayleigh quotient</td>
+<td><span class="math">\(\lambda=\dfrac{-[pyy']+\int(py'^2-qy^2)}{\int wy^2}\)</span></td>
+</tr>
+<tr>
+<td>Sturm separation</td>
+<td>independent solutions have interlacing zeros</td>
+</tr>
+<tr>
+<td>Sturm comparison</td>
+<td><span class="math">\(q_2&gt;q_1\)</span> implies <span class="math">\(z\)</span> has a zero between consecutive zeros of <span class="math">\(y\)</span></td>
+</tr>
+<tr>
+<td>Green’s function</td>
+<td><span class="math">\(G=\frac{u_1(x_&lt;)u_2(x_&gt;)}{pW}\)</span>, jump of <span class="math">\(G_x\)</span> equals <span class="math">\(1/p\)</span></td>
+</tr>
+<tr>
+<td>Fredholm alternative</td>
+<td>non-trivial homogeneous solution <span class="math">\(\phi\)</span> requires <span class="math">\(\int f\phi=0\)</span></td>
+</tr>
+</tbody>
+</table></div>
+</section><section class="note-section ns-worked-examples" aria-labelledby="worked-examples"><h2 id="worked-examples">Worked examples</h2>
+<h3 id="example-1-mixed-boundary-conditions">Example 1: mixed boundary conditions</h3>
+<p><span class="math">\(y''+\lambda y=0\)</span>, <span class="math">\(y(0)=0\)</span>, <span class="math">\(y'(L)=0\)</span>.</p>
+<ul>
+<li><span class="math">\(\lambda=0\)</span>: <span class="math">\(y=Ax+B\)</span>, <span class="math">\(y(0)=0\Rightarrow B=0\)</span>, <span class="math">\(y'(L)=A=0\)</span>. Only <span class="math">\(y=0\)</span>.</li>
+<li><span class="math">\(\lambda=-\mu^2&lt;0\)</span>: <span class="math">\(y=A\sinh\mu x\)</span> (from <span class="math">\(y(0)=0\)</span>), <span class="math">\(y'(L)=A\mu\cosh\mu L=0\Rightarrow A=0\)</span>.</li>
+<li><span class="math">\(\lambda=\mu^2&gt;0\)</span>: <span class="math">\(y=B\sin\mu x\)</span>, <span class="math">\(y'(L)=B\mu\cos\mu L=0\Rightarrow\cos\mu L=0\Rightarrow\mu L=\frac{(2n-1)\pi}{2}\)</span>.</li>
+</ul>
+<p><span class="math">\(\lambda_n=\left(\frac{(2n-1)\pi}{2L}\right)^2,\qquad\phi_n=\sin\frac{(2n-1)\pi x}{2L},\quad n=1,2,\dots\)</span></p>
+<h3 id="example-2-reducing-to-sl-form-and-finding-the-weight">Example 2: reducing to SL form and finding the weight</h3>
+<p>(a) <span class="math">\(x^2y''+3xy'+\lambda y=0\)</span> on <span class="math">\([1,2]\)</span>. <span class="math">\(a_0=x^2\)</span>, <span class="math">\(a_1=3x\)</span>: <span class="math">\(p=\exp\int\frac3x=x^3\)</span>. <span class="math">\(w=p\cdot\frac{1}{x^2}=x\)</span>. SL form: <span class="math">\((x^3y')'+\lambda\,x\,y=0\)</span>; orthogonality weight <span class="math">\(x\)</span>.</p>
+<p>(b) Hermite <span class="math">\(y''-2xy'+\lambda y=0\)</span>: <span class="math">\(p=e^{-\int2x}=e^{-x^2}\)</span>, <span class="math">\(w=e^{-x^2}\)</span>, so <span class="math">\((e^{-x^2}y')'+\lambda e^{-x^2}y=0\)</span>.</p>
+<h3 id="example-3-euler-type-eigenvalue-problem">Example 3: Euler-type eigenvalue problem</h3>
+<p><span class="math">\(x^2y''+xy'+\lambda y=0\)</span>, <span class="math">\(y(1)=y(e^{\pi})=0\)</span>.</p>
+<p>Put <span class="math">\(t=\ln x\in[0,\pi]\)</span>: <span class="math">\(y_{tt}+\lambda y=0\)</span>, <span class="math">\(y(0)=y(\pi)=0\)</span>. So <span class="math">\(\lambda_n=n^2\)</span>, <span class="math">\(\phi_n=\sin(n\ln x)\)</span>. SL form: <span class="math">\((xy')'+\frac{\lambda}{x}y=0\)</span>, weight <span class="math">\(1/x\)</span>:
+<span class="math">\(\int_1^{e^\pi}\sin(m\ln x)\sin(n\ln x)\frac{dx}{x}=0\ (m\ne n).\)</span>
+If the interval were <span class="math">\([1,e]\)</span> the eigenvalues would be <span class="math">\((n\pi)^2\)</span>.</p>
+<h3 id="example-4-robin-condition">Example 4: Robin condition</h3>
+<p><span class="math">\(y''+\lambda y=0\)</span>, <span class="math">\(y(0)=0\)</span>, <span class="math">\(y(1)+y'(1)=0\)</span>.</p>
+<ul>
+<li><span class="math">\(\lambda=0\)</span>: <span class="math">\(y=Ax\)</span>, <span class="math">\(y(1)+y'(1)=2A=0\)</span>. No eigenvalue.</li>
+<li><span class="math">\(\lambda=-\mu^2\)</span>: <span class="math">\(y=\sinh\mu x\)</span>, <span class="math">\(y(1)+y'(1)=\sinh\mu+\mu\cosh\mu&gt;0\)</span>. None.</li>
+<li><span class="math">\(\lambda=\mu^2&gt;0\)</span>: <span class="math">\(y=\sin\mu x\)</span> and <span class="math">\(\sin\mu+\mu\cos\mu=0\)</span>, i.e. <span class="math">\(\tan\mu=-\mu\)</span>. The first positive roots are <span class="math">\(\mu_1\approx2.0288\)</span>, <span class="math">\(\mu_2\approx4.9132\)</span>, so <span class="math">\(\lambda_1\approx4.116\)</span>, <span class="math">\(\lambda_2\approx24.14\)</span>.</li>
+</ul>
+<h3 id="example-5-shifted-equation">Example 5: shifted equation</h3>
+<p><span class="math">\(y''+2y'+(1+\lambda)y=0\)</span>, <span class="math">\(y(0)=y(\pi)=0\)</span>.</p>
+<p>Put <span class="math">\(y=e^{-x}u\)</span>: <span class="math">\(y''+2y'+y=e^{-x}u''\)</span>, so <span class="math">\(u''+\lambda u=0\)</span>, <span class="math">\(u(0)=u(\pi)=0\)</span>. Hence <span class="math">\(\lambda_n=n^2\)</span> and <span class="math">\(\phi_n=e^{-x}\sin nx\)</span>. SL form: <span class="math">\(p=e^{2x}\)</span>, <span class="math">\(w=e^{2x}\)</span>, i.e. <span class="math">\((e^{2x}y')'+(1+\lambda)e^{2x}y=0\)</span>. Orthogonality: <span class="math">\(\int_0^\pi e^{2x}\phi_m\phi_n\,dx=\int_0^\pi\sin mx\sin nx\,dx=0\)</span>.</p>
+<h3 id="example-6-greens-functions">Example 6: Green’s functions</h3>
+<p>(a) <span class="math">\(y''=f\)</span>, <span class="math">\(y(0)=y(1)=0\)</span>. <span class="math">\(p=1\)</span>, <span class="math">\(u_1=x\)</span>, <span class="math">\(u_2=x-1\)</span>, <span class="math">\(W=x\cdot1-1\cdot(x-1)=1\)</span>:
+<span class="math">\(G(x,\xi)=\begin{cases}\xi(x-1),&amp;\xi\le x\\x(\xi-1),&amp;x\le\xi\end{cases}=-x_&lt;(1-x_&gt;).\)</span>
+Check: for <span class="math">\(f=1\)</span>, <span class="math">\(y=\int_0^1G\,d\xi=\frac{x(x-1)}{2}\)</span>, which satisfies <span class="math">\(y''=1\)</span> and the boundary conditions. The derivative of <span class="math">\(G\)</span> jumps from <span class="math">\(\xi-1\)</span> to <span class="math">\(\xi\)</span>, a jump of <span class="math">\(1=1/p\)</span>. Also <span class="math">\(G\left(\tfrac12,\tfrac14\right)=-\tfrac18\)</span>.</p>
+<p>(b) <span class="math">\(y''+y=f\)</span> on <span class="math">\([0,\pi/2]\)</span>, <span class="math">\(y(0)=y(\pi/2)=0\)</span>. <span class="math">\(u_1=\sin x\)</span>, <span class="math">\(u_2=\cos x\)</span>, <span class="math">\(W=-1\)</span>: <span class="math">\(G(x,\xi)=-\sin x_&lt;\cos x_&gt;\)</span>. For <span class="math">\(f=1\)</span>: <span class="math">\(y=1-\cos x-\sin x\)</span>.</p>
+</section><section class="note-section ns-common-traps" aria-labelledby="common-traps"><h2 id="common-traps">Common traps</h2>
+<ul>
+<li><strong>Eigenvalue index and range.</strong> Dirichlet: <span class="math">\(n\ge1\)</span> (<span class="math">\(\lambda=0\)</span> gives only <span class="math">\(y=0\)</span>). Neumann: <span class="math">\(\lambda=0\)</span> <strong>is</strong> an eigenvalue.</li>
+<li><strong>Mixed boundary conditions give odd multiples.</strong> <span class="math">\(\left(\frac{(2n-1)\pi}{2L}\right)^2\)</span>, not <span class="math">\(\left(\frac{n\pi}{L}\right)^2\)</span>.</li>
+<li><strong>Interval length.</strong> <span class="math">\([0,L]\)</span> gives <span class="math">\((n\pi/L)^2\)</span>; <span class="math">\([0,\pi]\)</span> gives <span class="math">\(n^2\)</span>; <span class="math">\([0,2]\)</span> gives <span class="math">\(n^2\pi^2/4\)</span>. Euler equation with <span class="math">\(x\in[1,e]\)</span> gives <span class="math">\((n\pi)^2\)</span>, not <span class="math">\(n^2\)</span>.</li>
+<li><strong>Weight function.</strong> Orthogonality is <span class="math">\(\int w\phi_m\phi_n\)</span>, not <span class="math">\(\int\phi_m\phi_n\)</span>, unless <span class="math">\(w=1\)</span>. Get <span class="math">\(w\)</span> from the conversion formula <span class="math">\(w=p\,a_3/a_0\)</span>.</li>
+<li><strong>Simplicity fails for periodic conditions.</strong> Each <span class="math">\(\lambda=(n\pi/L)^2\)</span> has two eigenfunctions.</li>
+<li><strong>Orthogonality needs self-adjoint conditions.</strong> For arbitrary mixed boundary conditions the Lagrange boundary term need not vanish.</li>
+<li><strong>Reality, not positivity.</strong> Self-adjointness gives real eigenvalues; positivity needs the Rayleigh-quotient argument and a sign condition on <span class="math">\(q\)</span>.</li>
+<li><strong>Oscillation count.</strong> <span class="math">\(\phi_n\)</span> has <span class="math">\(n-1\)</span> interior zeros, not <span class="math">\(n\)</span>.</li>
+<li><strong>Sturm separation versus comparison.</strong> Separation is for two solutions of the same equation (exactly one zero between consecutive zeros); comparison is for different <span class="math">\(q\)</span> (at least one zero).</li>
+<li><strong>Green’s function jump.</strong> <span class="math">\(G\)</span> is continuous but <span class="math">\(G_x\)</span> is <strong>not</strong>; its jump is <span class="math">\(1/p(\xi)\)</span> (the sign convention follows from <span class="math">\((py')'=f\)</span>).</li>
+<li><strong>No Green’s function</strong> when the homogeneous BVP has a non-trivial solution; there the Fredholm alternative applies.</li>
+<li><strong>Eigenfunction normalisation.</strong> <span class="math">\(\int_0^\pi\sin^2nx\,dx=\pi/2\)</span>, so the orthonormal functions are <span class="math">\(\sqrt{2/\pi}\,\sin nx\)</span>.</li>
+</ul>
+</section><section class="note-section ns-previous-year-questions" aria-labelledby="previous-year-questions"><h2 id="previous-year-questions">Previous-year questions</h2>
+<h3 id="2026-q57">2026 Q57</h3>
+<p><strong>Question (restated).</strong> The eigenvalues of the boundary value problem <span class="math">\(y''+\lambda y=0\)</span>, <span class="math">\(y(0)=y(\pi)=0\)</span> are given by: (A) <span class="math">\(n\)</span> (B) <span class="math">\(\pi n\)</span> (C) <span class="math">\(n^2\)</span> (D) <span class="math">\(2n\)</span> (with <span class="math">\(n=1,2,3,\dots\)</span>).</p>
+<p><strong>Answer: C (<span class="math">\(\lambda_n=n^2\)</span>), worked key (unofficial; the mathematics agrees).</strong></p>
+<p>For <span class="math">\(\lambda\le0\)</span> only <span class="math">\(y=0\)</span> satisfies both conditions. For <span class="math">\(\lambda=\mu^2&gt;0\)</span>, <span class="math">\(y=B\sin\mu x\)</span> and <span class="math">\(y(\pi)=0\)</span> requires <span class="math">\(\sin\mu\pi=0\)</span>, so <span class="math">\(\mu=n\)</span>. Hence <span class="math">\(\lambda_n=n^2\)</span> with eigenfunctions <span class="math">\(\sin nx\)</span>. See the table above with <span class="math">\(L=\pi\)</span>.</p>
+</section><section class="note-section ns-quick-revision" aria-labelledby="quick-revision"><h2 id="quick-revision">Quick revision</h2>
+<ul>
+<li>BVPs can have no, one or infinitely many solutions; <span class="math">\(y''+y=1\)</span>, <span class="math">\(y(0)=y(\pi)=0\)</span> has none.</li>
+<li>SL equation <span class="math">\((py')'+qy+\lambda wy=0\)</span>, <span class="math">\(p&gt;0\)</span>, <span class="math">\(w&gt;0\)</span> regular on <span class="math">\([a,b]\)</span>.</li>
+<li>Conversion: <span class="math">\(p=e^{\int a_1/a_0}\)</span>, <span class="math">\(w=p\,a_3/a_0\)</span>.</li>
+<li>Eigenvalues real, simple, increasing to <span class="math">\(\infty\)</span>; eigenfunctions orthogonal with weight <span class="math">\(w\)</span>; <span class="math">\(\phi_n\)</span> has <span class="math">\(n-1\)</span> interior zeros.</li>
+<li>Dirichlet on <span class="math">\([0,L]\)</span>: <span class="math">\((n\pi/L)^2\)</span>, <span class="math">\(\sin\)</span>, <span class="math">\(n\ge1\)</span>. Neumann: same values, <span class="math">\(\cos\)</span>, <span class="math">\(n\ge0\)</span>.</li>
+<li>Mixed conditions: <span class="math">\(\left((2n-1)\pi/2L\right)^2\)</span>.</li>
+<li><span class="math">\(y''+\lambda y=0\)</span>, <span class="math">\(y(0)=y(\pi)=0\)</span>: <span class="math">\(\lambda=n^2\)</span>.</li>
+<li>Robin gives <span class="math">\(\tan\mu L=-\mu/h\)</span>-type equations (no closed form).</li>
+<li>Periodic conditions: eigenvalues not simple (two eigenfunctions each).</li>
+<li>Sturm separation: independent solutions interlace. Comparison: larger <span class="math">\(q\)</span> oscillates faster.</li>
+<li><span class="math">\(q\ge m^2\)</span> implies zeros at most <span class="math">\(\pi/m\)</span> apart; <span class="math">\(q\le0\)</span> implies at most one zero.</li>
+<li>Green’s function: <span class="math">\(G=u_1(x_&lt;)u_2(x_&gt;)/(pW)\)</span>; continuous, symmetric, <span class="math">\(G_x\)</span> jumps by <span class="math">\(1/p\)</span>.</li>
+</ul>
+</section></article></div><section class="section reader-end"><button class="read-btn" type="button" data-read-btn aria-pressed="false"><span class="box" aria-hidden="true"></span><span data-read-label>Mark as read</span></button><ul class="units end-links"><li><a class="unit-card" href="/uphesc-maths/learn/differential-equations/sturm-liouville/practice/"><span class="unit-top"><span class="unit-name">Practise this topic</span></span><p class="flush">15 questions with worked solutions</p></a></li><li><a class="unit-card" href="/uphesc-maths/learn/differential-equations/first-order-pdes/"><span class="unit-top"><span class="unit-name">Next: First-order partial differential equations</span></span><p class="flush">High priority · 2 h</p></a></li></ul><p class="prev-link"><a href="/uphesc-maths/learn/differential-equations/linear-odes/">Previous: Linear ODEs</a></p></section></div><footer class="foot"><p>Built from every paper that survives: the full 2025 and 2026 papers (140 maths questions) and half of 2019 (35, from a solution video). 2015 left only an answer key, and nothing was found for 2021. The commission has never published its booklets. Unit counts use 2025 and 2026 only, so they show a range, not a trend.</p><p>2025 answers match the official key. 2026 has no key yet, so its answers were worked out by hand and marked high, medium or low confidence, and every unsure one was solved again, blind. 2019 answers come from the video and are not checked against the official key.</p></footer></main><script type="module">var e=document.documentElement,t=()=>e.dataset.mode?e.dataset.mode===`dark`:matchMedia(`(prefers-color-scheme: dark)`).matches;document.querySelector(`[data-mode-toggle]`)?.addEventListener(`click`,()=>{let n=t()?`light`:`dark`;e.dataset.mode=n;try{localStorage.setItem(`um:mode`,n)}catch{}}),!e.dataset.mode&&t()&&(e.dataset.mode=`dark`);var n=document.querySelectorAll(`[data-old-toggle]`),r=t=>{t?e.dataset.old=`on`:delete e.dataset.old,n.forEach(e=>e.setAttribute(`aria-checked`,String(t)))};r(e.dataset.old===`on`),n.forEach(t=>t.addEventListener(`click`,()=>{let t=e.dataset.old!==`on`;r(t);try{localStorage.setItem(`um:old`,t?`on`:`off`)}catch{}}));var i=document.querySelectorAll(`[data-view]`),a=t=>{t===`bars`?e.dataset.view=`bars`:delete e.dataset.view,i.forEach(e=>e.setAttribute(`aria-pressed`,String(e.dataset.view===t)))};a(e.dataset.view===`bars`?`bars`:`heat`),i.forEach(e=>e.addEventListener(`click`,()=>{a(e.dataset.view);try{localStorage.setItem(`um:view`,e.dataset.view)}catch{}}));var o=document.createElement(`div`);o.className=`tip`,o.setAttribute(`role`,`tooltip`),o.hidden=!0,document.body.append(o);var s=null,c=(e,t)=>{let n=o.offsetWidth,r=o.offsetHeight,i=e+12,a=t+12;i+n>innerWidth-8&&(i=Math.max(8,e-n-12)),a+r>innerHeight-8&&(a=Math.max(8,t-r-12)),o.style.left=`${i}px`,o.style.top=`${a}px`},l=()=>{if(s){let e=s.getBoundingClientRect();c(e.left+e.width*.3,e.bottom-8)}},u=e=>{e!==s&&(s=e,o.replaceChildren(...[...e.querySelector(`.tip-src`).childNodes].map(e=>e.cloneNode(!0)))),o.hidden=!1},d=()=>{o.hidden=!0,s=null};document.addEventListener(`pointermove`,e=>{if(e.pointerType!==`mouse`)return;let t=e.target.closest(`[data-tip]`);t?(u(t),c(e.clientX,e.clientY)):s&&d()}),document.addEventListener(`focusin`,e=>{let t=e.target.closest(`[data-tip]`);t&&(u(t),l())}),document.addEventListener(`focusout`,()=>d()),addEventListener(`scroll`,()=>{s&&document.activeElement===s?l():s&&d()},{passive:!0}),document.addEventListener(`keydown`,e=>{e.key===`Escape`&&d()});var f=`um:done`,p={};try{p=JSON.parse(localStorage.getItem(f)||`{}`)}catch{}var m=()=>{document.querySelectorAll(`[data-progress]`).forEach(e=>{let t=[...document.querySelectorAll(`[data-group="${e.dataset.progress}"]`)],n=t.filter(e=>e.checked).length;e.querySelector(`.progress-bar span`).style.width=`${n/t.length*100}%`,e.querySelector(`[data-count]`).textContent=`${n} of ${t.length} done`})};document.querySelectorAll(`input[data-check]`).forEach(e=>{e.checked=!!p[e.dataset.check],e.addEventListener(`change`,()=>{p[e.dataset.check]=e.checked;try{localStorage.setItem(f,JSON.stringify(p))}catch{}m()})}),m();</script></body></html><script type="module" src="/uphesc-maths/_astro/index.astro_astro_type_script_index_0_lang.t7qZbIYF.js"></script>

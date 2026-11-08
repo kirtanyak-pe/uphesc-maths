@@ -1,0 +1,264 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Multivariable calculus · UPESSC maths</title><meta name="description" content="What to study for the UPESSC (formerly UPHESC) Assistant Professor maths paper, built from every paper that survives."><link rel="icon" href="/uphesc-maths/favicon.svg" type="image/svg+xml"><link rel="preload" href="/uphesc-maths/fonts/inter-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin><!-- the saved light/dark, 2019 and chart-view choices, before first paint --><script>
+    try { var m = localStorage.getItem('um:mode'); if (m) document.documentElement.dataset.mode = m; } catch (e) {}
+    try { if (localStorage.getItem('um:old') === 'on') document.documentElement.dataset.old = 'on'; } catch (e) {}
+    try { if (localStorage.getItem('um:view') === 'bars') document.documentElement.dataset.view = 'bars'; } catch (e) {}
+  </script><!-- maths: the vendored MathJax typesets \( \) and \[ \] text, loaded only on pages that have any --><script>(function(){const VENDOR = "/uphesc-maths/vendor";
+
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+      loader: { paths: { mathjax: VENDOR + '/mathjax', fonts: VENDOR + '/mathjax/fonts' } },
+      output: { font: 'mathjax-stix2', displayOverflow: 'scroll' },
+      options: { ignoreHtmlClass: 'no-math', processHtmlClass: 'math', menuOptions: { settings: { enrich: false, speech: false, braille: false } } },
+      chtml: { displayOverflow: 'scroll' },
+      // an inline formula with a piece wider than its line gets its own scrolling line, like display maths
+      startup: { pageReady: () => MathJax.startup.defaultPageReady().then(fitMath) },
+    };
+    function fitMath() {
+      for (const m of document.querySelectorAll('mjx-container:not([display="true"]):not(.mjx-wide)')) {
+        const box = m.closest('p, li, dd, blockquote, div');
+        if (!box || m.closest('td, th')) continue;
+        const right = box.getBoundingClientRect().right + 1;
+        if ([...m.getClientRects()].some((r) => r.right > right)) m.classList.add('mjx-wide');
+      }
+    }
+    let fitQueued = 0;
+    const queueFit = () => { if (window.MathJax?.startup?.document && !fitQueued) fitQueued = requestAnimationFrame(() => { fitQueued = 0; fitMath(); }); };
+    addEventListener('resize', queueFit);
+    addEventListener('click', () => setTimeout(queueFit, 50));
+    document.addEventListener('DOMContentLoaded', () => {
+      if (!document.querySelector('.math')) return;
+      const s = document.createElement('script');
+      s.async = true;
+      s.src = VENDOR + '/mathjax/tex-chtml-nofont.js';
+      document.head.appendChild(s);
+    });
+  })();</script><link rel="stylesheet" href="/uphesc-maths/_astro/Base.CkQ5KWO8.css"></head><body data-tab="learn"><nav class="appnav" aria-label="Main"><a class="appnav-brand" href="/uphesc-maths/" aria-label="UPESSC maths home">∑</a><a class="appnav-item" href="/uphesc-maths/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4 10.2 12 4l8 6.2V19a1 1 0 0 1-1 1h-4.5v-5.5h-5V20H5a1 1 0 0 1-1-1z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Plan</span></a><a class="appnav-item" href="/uphesc-maths/learn/" aria-current="page"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M12 6.5C10 5 7.5 4.5 4 4.5v13c3.5 0 6 .5 8 2 2-1.5 4.5-2 8-2v-13c-3.5 0-6 .5-8 2zM12 6.5v13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Learn</span></a><a class="appnav-item" href="/uphesc-maths/units/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4 5h7v7H4zM13 5h7v7h-7zM4 14h7v6H4zM13 14h7v6h-7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Units</span></a><a class="appnav-item" href="/uphesc-maths/papers/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M7 3h7l4 4v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zM14 3v4h4M9 12h6M9 16h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Papers</span></a><a class="appnav-item" href="/uphesc-maths/revise/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M5 12.5 9.5 17 19 7.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Revise</span></a></nav><header class="topbar"><a class="bar-back" href="/uphesc-maths/learn/analysis/" aria-label="Back"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a><p class="bar-title">Unit 3</p><button class="bar-btn" type="button" data-mode-toggle aria-label="Switch light or dark"><svg class="i-moon" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path></svg><svg class="i-sun" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path></svg></button></header><main class="page"><div class="reader" data-topic="multivariable-calculus"><header class="page-head topic-head"><p class="kicker"><a href="/uphesc-maths/learn/analysis/">Unit 3 · Real and Functional Analysis</a></p><h1>Multivariable calculus</h1><ul class="meta"><li class="prio high">High priority</li><li>2 h to study</li><li>Asked 3 times</li><li class="read-flag" data-read-flag hidden>Read</li></ul><p class="pyq-line">Previous papers: 2025 Q40, 2025 Q43, 2025 Q79</p></header><div class="reader-grid"><nav class="toc" aria-label="On this page"><details class="toc-box" data-toc><summary>On this page</summary><ol><li><a href="#why-it-matters-for-the-exam">Why it matters for the exam</a></li><li><a href="#core-ideas">Core ideas</a></li><li class="sub"><a href="#limits-and-continuity-in-mathbbr2">Limits and continuity in <span class="math">\(\mathbb{R}^2\)</span></a></li><li class="sub"><a href="#partial-and-directional-derivatives">Partial and directional derivatives</a></li><li class="sub"><a href="#differentiability-total-derivative">Differentiability (total derivative)</a></li><li class="sub"><a href="#mixed-partial-derivatives">Mixed partial derivatives</a></li><li class="sub"><a href="#chain-rule-jacobians-homogeneous-functions">Chain rule, Jacobians, homogeneous functions</a></li><li class="sub"><a href="#inverse-and-implicit-function-theorems">Inverse and implicit function theorems</a></li><li class="sub"><a href="#taylors-theorem-and-hessian">Taylor’s theorem and Hessian</a></li><li class="sub"><a href="#maxima-and-minima-unconstrained">Maxima and minima (unconstrained)</a></li><li class="sub"><a href="#lagrange-multipliers">Lagrange multipliers</a></li><li><a href="#formulas-and-results">Formulas and results</a></li><li><a href="#worked-examples">Worked examples</a></li><li class="sub"><a href="#example-1-continuity-and-differentiability-at-the-origin">Example 1: continuity and differentiability at the origin</a></li><li class="sub"><a href="#example-2-path-test">Example 2: path test</a></li><li class="sub"><a href="#example-3-classifying-critical-points">Example 3: classifying critical points</a></li><li class="sub"><a href="#example-4-the-2025-maximum">Example 4: the 2025 maximum</a></li><li class="sub"><a href="#example-5-lagrange-multipliers">Example 5: Lagrange multipliers</a></li><li class="sub"><a href="#example-6-implicit-differentiation-and-jacobian">Example 6: implicit differentiation and Jacobian</a></li><li class="sub"><a href="#example-7-a-one-variable-extremum-2025-style">Example 7: a one-variable extremum (2025 style)</a></li><li><a href="#common-traps">Common traps</a></li><li><a href="#previous-year-questions">Previous-year questions</a></li><li class="sub"><a href="#2025-q40">2025, Q40</a></li><li class="sub"><a href="#2025-q43">2025, Q43</a></li><li class="sub"><a href="#2025-q79">2025, Q79</a></li><li><a href="#quick-revision">Quick revision</a></li></ol></details></nav><article class="prose"><section class="note-section ns-why-it-matters-for-the-exam" aria-labelledby="why-it-matters-for-the-exam"><h2 id="why-it-matters-for-the-exam">Why it matters for the exam</h2>
+<p>Three of the nine Unit 3 questions in 2025 came from here: continuity and differentiability of <span class="math">\(\frac{xy}{\sqrt{x^2+y^2}}\)</span> at the origin, the maximum of <span class="math">\(\sin x\sin y\sin(x+y)\)</span>, and the maximum distance between two curves. The recurring skills are the path test for limits, the hierarchy “partials exist / differentiable / <span class="math">\(C^1\)</span>”, and finding and classifying critical points. Questions are short, and the options usually differ by one word (“continuous”, “differentiable”, “partial derivatives exist”).</p>
+</section><section class="note-section ns-core-ideas" aria-labelledby="core-ideas"><h2 id="core-ideas">Core ideas</h2>
+<h3 id="limits-and-continuity-in-mathbbr2">Limits and continuity in <span class="math">\(\mathbb{R}^2\)</span></h3>
+<p><span class="math">\(\lim_{(x,y)\to(a,b)}f(x,y)=L\)</span> means: for every <span class="math">\(\varepsilon&gt;0\)</span> there is <span class="math">\(\delta&gt;0\)</span> with <span class="math">\(\lvert f(x,y)-L\rvert&lt;\varepsilon\)</span> whenever <span class="math">\(0&lt;\sqrt{(x-a)^2+(y-b)^2}&lt;\delta\)</span>. The value must be the same along <strong>every</strong> approach.</p>
+<p><strong>Disproving a limit (path test).</strong> If two paths give different limits, or one path gives no limit, the limit does not exist. Paths to try: <span class="math">\(y=mx\)</span>, <span class="math">\(x=0\)</span>, <span class="math">\(y=0\)</span>, <span class="math">\(y=x^2\)</span>, <span class="math">\(x=y^2\)</span>.</p>
+<p><strong>Proving a limit.</strong> Use the squeeze theorem or polar coordinates: put <span class="math">\(x=r\cos\theta,\ y=r\sin\theta\)</span> and show <span class="math">\(\lvert f-L\rvert\le g(r)\to0\)</span> with <span class="math">\(g\)</span> independent of <span class="math">\(\theta\)</span>. Agreeing along all straight lines proves nothing.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Function at <span class="math">\((0,0)\)</span></th>
+<th>Limit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math">\(\dfrac{xy}{x^2+y^2}\)</span></td>
+<td>Does not exist (<span class="math">\(\frac m{1+m^2}\)</span> along <span class="math">\(y=mx\)</span>)</td>
+</tr>
+<tr>
+<td><span class="math">\(\dfrac{x^2y}{x^2+y^2}\)</span></td>
+<td><span class="math">\(0\)</span> (<span class="math">\(\lvert f\rvert\le\frac r2\)</span>)</td>
+</tr>
+<tr>
+<td><span class="math">\(\dfrac{xy}{\sqrt{x^2+y^2}}\)</span></td>
+<td><span class="math">\(0\)</span> (<span class="math">\(\lvert f\rvert\le\frac r2\)</span>)</td>
+</tr>
+<tr>
+<td><span class="math">\(\dfrac{x^2y}{x^4+y^2}\)</span></td>
+<td>Does not exist: <span class="math">\(0\)</span> along every line, <span class="math">\(\frac12\)</span> along <span class="math">\(y=x^2\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(\dfrac{xy^2}{x^2+y^4}\)</span></td>
+<td>Does not exist: <span class="math">\(0\)</span> along lines, <span class="math">\(\frac12\)</span> along <span class="math">\(x=y^2\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(\dfrac{x^2y^2}{x^2+y^2}\)</span></td>
+<td><span class="math">\(0\)</span></td>
+</tr>
+</tbody>
+</table></div>
+<p>A function is <strong>continuous</strong> at a point if the limit exists and equals the value. Iterated limits <span class="math">\(\lim_x\lim_y f\)</span> and <span class="math">\(\lim_y\lim_x f\)</span> can both exist and differ, or exist while the double limit does not; the double limit existing does not guarantee the iterated limits exist.</p>
+<h3 id="partial-and-directional-derivatives">Partial and directional derivatives</h3>
+<p><span class="math">\(f_x(a,b)=\lim_{h\to0}\frac{f(a+h,b)-f(a,b)}h\)</span>, and similarly <span class="math">\(f_y\)</span>. The <strong>directional derivative</strong> in the direction of a unit vector <span class="math">\(u\)</span> is
+<span class="math">\(D_uf(a)=\lim_{t\to0}\frac{f(a+tu)-f(a)}t.\)</span>
+It always equals <span class="math">\(\nabla f(a)\cdot u\)</span> <strong>when <span class="math">\(f\)</span> is differentiable at <span class="math">\(a\)</span></strong>, and then the maximum rate of increase is <span class="math">\(\lVert\nabla f\rVert\)</span> in the direction of <span class="math">\(\nabla f\)</span>.</p>
+<p>Partial derivatives at a point are limits along the two axes only. So all partial derivatives (even all directional derivatives) can exist at a point where <span class="math">\(f\)</span> is not continuous. Example: <span class="math">\(f(x,y)=\frac{xy}{x^2+y^2}\)</span>, <span class="math">\(f(0,0)=0\)</span>, has <span class="math">\(f_x(0,0)=f_y(0,0)=0\)</span> but is discontinuous at <span class="math">\(0\)</span>. Another: <span class="math">\(f=\frac{x^2y}{x^4+y^2}\)</span>, <span class="math">\(f(0,0)=0\)</span>, has a directional derivative at <span class="math">\(0\)</span> in every direction (equal to <span class="math">\(\frac{\cos^2\theta}{\sin\theta}\)</span> in the direction <span class="math">\((\cos\theta,\sin\theta)\)</span> if <span class="math">\(\sin\theta\ne0\)</span>, and <span class="math">\(0\)</span> otherwise), yet it is discontinuous at <span class="math">\(0\)</span> because of the path <span class="math">\(y=x^2\)</span>.</p>
+<h3 id="differentiability-total-derivative">Differentiability (total derivative)</h3>
+<p><span class="math">\(f:\mathbb{R}^2\to\mathbb{R}\)</span> is <strong>differentiable</strong> at <span class="math">\(a=(a_1,a_2)\)</span> if there are numbers <span class="math">\(A,B\)</span> with
+<span class="math">\(\lim_{(h,k)\to(0,0)}\frac{f(a_1+h,a_2+k)-f(a_1,a_2)-Ah-Bk}{\sqrt{h^2+k^2}}=0.\)</span>
+Then necessarily <span class="math">\(A=f_x(a)\)</span>, <span class="math">\(B=f_y(a)\)</span>. In practice: compute <span class="math">\(f_x(0,0)\)</span> and <span class="math">\(f_y(0,0)\)</span> from the definition, then test whether <span class="math">\(\frac{f(h,k)-f(0,0)-f_xh-f_yk}{\sqrt{h^2+k^2}}\to0\)</span>. If it fails along any path, <span class="math">\(f\)</span> is not differentiable.</p>
+<p><strong>Hierarchy</strong> (arrows are the only valid implications):
+<span class="math">\(C^1\ \Rightarrow\ \text{differentiable}\ \Rightarrow\ \text{continuous, and all directional derivatives exist}.\)</span>
+Also: differentiable <span class="math">\(\Rightarrow\)</span> <span class="math">\(f_x,f_y\)</span> exist. Having <span class="math">\(f_x,f_y\)</span> continuous in a neighbourhood of <span class="math">\(a\)</span> (i.e. <span class="math">\(C^1\)</span>) is sufficient for differentiability but not necessary (<span class="math">\(x^2\sin(1/x)\)</span> in one variable). Existence of <span class="math">\(f_x,f_y\)</span> alone gives neither continuity nor differentiability.</p>
+<p>Standard checks at the origin (the 2025 PYQ is the first row).</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th><span class="math">\(f\)</span> (<span class="math">\(f(0,0)=0\)</span>)</th>
+<th>Continuous</th>
+<th><span class="math">\(f_x,f_y\)</span> at <span class="math">\(0\)</span></th>
+<th>Differentiable</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math">\(\dfrac{xy}{\sqrt{x^2+y^2}}\)</span></td>
+<td>Yes</td>
+<td><span class="math">\(0,0\)</span></td>
+<td>No (<span class="math">\(\frac{f}{r}=\frac12\)</span> along <span class="math">\(y=x\)</span>)</td>
+</tr>
+<tr>
+<td><span class="math">\(\dfrac{x^2y}{x^2+y^2}\)</span></td>
+<td>Yes</td>
+<td><span class="math">\(0,0\)</span></td>
+<td>No (<span class="math">\(\frac fr=\frac1{2\sqrt2}\)</span> along <span class="math">\(y=x\)</span>)</td>
+</tr>
+<tr>
+<td><span class="math">\(\dfrac{xy}{x^2+y^2}\)</span></td>
+<td>No</td>
+<td><span class="math">\(0,0\)</span></td>
+<td>No</td>
+</tr>
+<tr>
+<td><span class="math">\(\sqrt{\lvert xy\rvert}\)</span></td>
+<td>Yes</td>
+<td><span class="math">\(0,0\)</span></td>
+<td>No</td>
+</tr>
+<tr>
+<td><span class="math">\(\dfrac{x^3y}{x^2+y^2}\)</span></td>
+<td>Yes</td>
+<td><span class="math">\(0,0\)</span></td>
+<td>Yes (<span class="math">\(\lvert f\rvert\le r^2\)</span>)</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="mixed-partial-derivatives">Mixed partial derivatives</h3>
+<p><strong>Schwarz-Clairaut theorem.</strong> If <span class="math">\(f_x,f_y,f_{xy}\)</span> exist near <span class="math">\(a\)</span> and <span class="math">\(f_{xy}\)</span> is continuous at <span class="math">\(a\)</span>, then <span class="math">\(f_{yx}(a)\)</span> exists and <span class="math">\(f_{yx}(a)=f_{xy}(a)\)</span>. In particular if <span class="math">\(f\in C^2\)</span> then <span class="math">\(f_{xy}=f_{yx}\)</span>.</p>
+<p>Counterexample: <span class="math">\(f(x,y)=\frac{xy(x^2-y^2)}{x^2+y^2}\)</span>, <span class="math">\(f(0,0)=0\)</span>. Here <span class="math">\(f_x(0,y)=-y\)</span> and <span class="math">\(f_y(x,0)=x\)</span>, so <span class="math">\(\partial_y(f_x)(0,0)=-1\)</span> but <span class="math">\(\partial_x(f_y)(0,0)=+1\)</span>. The mixed partials are not continuous at <span class="math">\(0\)</span>.</p>
+<h3 id="chain-rule-jacobians-homogeneous-functions">Chain rule, Jacobians, homogeneous functions</h3>
+<p>If <span class="math">\(z=f(u,v)\)</span> with <span class="math">\(u=u(x,y)\)</span>, <span class="math">\(v=v(x,y)\)</span> differentiable and <span class="math">\(f\)</span> differentiable, then <span class="math">\(z_x=f_uu_x+f_vv_x\)</span>. In matrix form the derivative of a composite is the product of Jacobian matrices.</p>
+<p>The <strong>Jacobian</strong> of <span class="math">\((u,v)\)</span> with respect to <span class="math">\((x,y)\)</span> is <span class="math">\(J=\frac{\partial(u,v)}{\partial(x,y)}=\det\begin{pmatrix}u_x&amp;u_y\\v_x&amp;v_y\end{pmatrix}\)</span>.</p>
+<ul>
+<li><span class="math">\(\frac{\partial(u,v)}{\partial(x,y)}\cdot\frac{\partial(x,y)}{\partial(u,v)}=1\)</span> and <span class="math">\(\frac{\partial(u,v)}{\partial(r,s)}=\frac{\partial(u,v)}{\partial(x,y)}\frac{\partial(x,y)}{\partial(r,s)}\)</span>.</li>
+<li>If <span class="math">\(u,v\)</span> are functionally dependent (<span class="math">\(u=\phi(v)\)</span> or <span class="math">\(F(u,v)=0\)</span>), then <span class="math">\(J=0\)</span>.</li>
+<li>Polar: <span class="math">\(\frac{\partial(x,y)}{\partial(r,\theta)}=r\)</span>. Cylindrical: <span class="math">\(r\)</span>. Spherical <span class="math">\((\rho,\varphi,\theta)\)</span>: <span class="math">\(\rho^2\sin\varphi\)</span>. Change of variables in a double integral: <span class="math">\(dx\,dy=\lvert J\rvert\,du\,dv\)</span>.</li>
+<li><strong>Euler’s theorem.</strong> If <span class="math">\(f\)</span> is homogeneous of degree <span class="math">\(n\)</span> and differentiable, <span class="math">\(xf_x+yf_y=nf\)</span>. If twice differentiable: <span class="math">\(x^2f_{xx}+2xyf_{xy}+y^2f_{yy}=n(n-1)f\)</span>.</li>
+</ul>
+<h3 id="inverse-and-implicit-function-theorems">Inverse and implicit function theorems</h3>
+<p><strong>Inverse function theorem.</strong> If <span class="math">\(F:\mathbb{R}^n\to\mathbb{R}^n\)</span> is <span class="math">\(C^1\)</span> and <span class="math">\(\det DF(a)\ne0\)</span>, then <span class="math">\(F\)</span> is a <span class="math">\(C^1\)</span> diffeomorphism of a neighbourhood of <span class="math">\(a\)</span> onto a neighbourhood of <span class="math">\(F(a)\)</span>.</p>
+<p><strong>Implicit function theorem.</strong> Let <span class="math">\(F(x,y)\)</span> be <span class="math">\(C^1\)</span> near <span class="math">\((a,b)\)</span> with <span class="math">\(F(a,b)=0\)</span> and <span class="math">\(F_y(a,b)\ne0\)</span>. Then there is a unique <span class="math">\(C^1\)</span> function <span class="math">\(y=g(x)\)</span> near <span class="math">\(a\)</span> with <span class="math">\(g(a)=b\)</span> and <span class="math">\(F(x,g(x))=0\)</span>, and
+<span class="math">\(g'(x)=-\frac{F_x}{F_y}.\)</span>
+General version: <span class="math">\(F:\mathbb{R}^{n+m}\to\mathbb{R}^m\)</span> is <span class="math">\(C^1\)</span>, and the <span class="math">\(m\times m\)</span> matrix <span class="math">\(\partial F/\partial y\)</span> is invertible at <span class="math">\((a,b)\)</span>; then <span class="math">\(y=g(x)\)</span> locally.</p>
+<h3 id="taylors-theorem-and-hessian">Taylor’s theorem and Hessian</h3>
+<p>If <span class="math">\(f\)</span> is <span class="math">\(C^2\)</span> near <span class="math">\(a\)</span>,
+<span class="math">\(f(a+h)=f(a)+\nabla f(a)\cdot h+\tfrac12h^TH(a)h+o(\lVert h\rVert^2),\)</span>
+where <span class="math">\(H=\begin{pmatrix}f_{xx}&amp;f_{xy}\\f_{xy}&amp;f_{yy}\end{pmatrix}\)</span>. In two variables the second-order term is <span class="math">\(\frac12(f_{xx}h^2+2f_{xy}hk+f_{yy}k^2)\)</span>.</p>
+<h3 id="maxima-and-minima-unconstrained">Maxima and minima (unconstrained)</h3>
+<p>A <strong>critical point</strong> has <span class="math">\(\nabla f=0\)</span>. At a local extremum of a differentiable function, <span class="math">\(\nabla f=0\)</span>; the converse is false.</p>
+<p><strong>Second derivative test (two variables).</strong> At a critical point with <span class="math">\(r=f_{xx}\)</span>, <span class="math">\(s=f_{xy}\)</span>, <span class="math">\(t=f_{yy}\)</span> and <span class="math">\(D=rt-s^2\)</span>:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Condition</th>
+<th>Conclusion</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math">\(D&gt;0\)</span>, <span class="math">\(r&gt;0\)</span></td>
+<td>Local minimum</td>
+</tr>
+<tr>
+<td><span class="math">\(D&gt;0\)</span>, <span class="math">\(r&lt;0\)</span></td>
+<td>Local maximum</td>
+</tr>
+<tr>
+<td><span class="math">\(D&lt;0\)</span></td>
+<td>Saddle point</td>
+</tr>
+<tr>
+<td><span class="math">\(D=0\)</span></td>
+<td>Test fails: examine directly</td>
+</tr>
+</tbody>
+</table></div>
+<p>In <span class="math">\(n\)</span> variables: <span class="math">\(H\)</span> positive definite gives a local minimum, negative definite a local maximum, indefinite a saddle; semidefinite is inconclusive. Examples with <span class="math">\(D=0\)</span>: <span class="math">\(x^4+y^4\)</span> (minimum), <span class="math">\(-x^4-y^4\)</span> (maximum), <span class="math">\(x^3+y^3\)</span> (neither).</p>
+<p>On a closed bounded region a continuous function attains its absolute maximum and minimum: compare the values at interior critical points with the extreme values on the boundary.</p>
+<h3 id="lagrange-multipliers">Lagrange multipliers</h3>
+<p>To extremise <span class="math">\(f\)</span> subject to <span class="math">\(g(x)=0\)</span> (with <span class="math">\(\nabla g\ne0\)</span>): solve <span class="math">\(\nabla f=\lambda\nabla g\)</span> together with <span class="math">\(g=0\)</span>. For several constraints, <span class="math">\(\nabla f=\sum\lambda_i\nabla g_i\)</span>. The candidates are compared (the constraint set must be compact, or the nature of the point checked) to decide max or min. Equivalent: critical points of <span class="math">\(L=f-\lambda g\)</span>.</p>
+</section><section class="note-section ns-formulas-and-results" aria-labelledby="formulas-and-results"><h2 id="formulas-and-results">Formulas and results</h2>
+<ul>
+<li>Path test: different values on two paths means no limit. Polar: <span class="math">\(\lvert f-L\rvert\le g(r)\to0\)</span>.</li>
+<li><span class="math">\(D_uf=\nabla f\cdot u\)</span> if <span class="math">\(f\)</span> is differentiable; max rate <span class="math">\(=\lVert\nabla f\rVert\)</span>.</li>
+<li><span class="math">\(C^1\Rightarrow\)</span> differentiable <span class="math">\(\Rightarrow\)</span> continuous and <span class="math">\(f_x,f_y\)</span> exist. Reverse implications fail.</li>
+<li>Differentiable at <span class="math">\(0\)</span>: <span class="math">\(\frac{f(h,k)-f_xh-f_yk}{\sqrt{h^2+k^2}}\to0\)</span>.</li>
+<li>Schwarz: <span class="math">\(f_{xy}=f_{yx}\)</span> if one mixed partial is continuous at the point (or <span class="math">\(f\in C^2\)</span>).</li>
+<li><span class="math">\(\frac{\partial(u,v)}{\partial(x,y)}\frac{\partial(x,y)}{\partial(u,v)}=1\)</span>; polar <span class="math">\(J=r\)</span>; spherical <span class="math">\(\rho^2\sin\varphi\)</span>.</li>
+<li>Euler: <span class="math">\(xf_x+yf_y=nf\)</span>; <span class="math">\(x^2f_{xx}+2xyf_{xy}+y^2f_{yy}=n(n-1)f\)</span>.</li>
+<li>Implicit: <span class="math">\(\frac{dy}{dx}=-\frac{F_x}{F_y}\)</span> if <span class="math">\(F_y\ne0\)</span>.</li>
+<li>Hessian test: <span class="math">\(D=rt-s^2\)</span>; <span class="math">\(D&gt;0\)</span> with <span class="math">\(r&gt;0\)</span> is a minimum, <span class="math">\(r&lt;0\)</span> a maximum; <span class="math">\(D&lt;0\)</span> saddle.</li>
+<li>Lagrange: <span class="math">\(\nabla f=\lambda\nabla g\)</span>, <span class="math">\(g=0\)</span>.</li>
+<li><span class="math">\(\max\sin x\sin y\sin(x+y)=\frac{3\sqrt3}8\)</span> at <span class="math">\(x=y=\frac\pi3\)</span>.</li>
+</ul>
+</section><section class="note-section ns-worked-examples" aria-labelledby="worked-examples"><h2 id="worked-examples">Worked examples</h2>
+<h3 id="example-1-continuity-and-differentiability-at-the-origin">Example 1: continuity and differentiability at the origin</h3>
+<p>Let <span class="math">\(f(x,y)=\frac{x^2y}{x^2+y^2}\)</span>, <span class="math">\(f(0,0)=0\)</span>.</p>
+<ul>
+<li>Continuity: <span class="math">\(\lvert f\rvert=\frac{x^2}{x^2+y^2}\lvert y\rvert\le\lvert y\rvert\to0\)</span>. Continuous.</li>
+<li>Partials: <span class="math">\(f(h,0)=0\)</span>, <span class="math">\(f(0,k)=0\)</span>, so <span class="math">\(f_x(0,0)=f_y(0,0)=0\)</span>.</li>
+<li>Differentiable? Need <span class="math">\(\frac{f(h,k)}{\sqrt{h^2+k^2}}\to0\)</span>. Along <span class="math">\(k=h\)</span>: <span class="math">\(\frac{h^3/(2h^2)}{\sqrt2\lvert h\rvert}=\frac{1}{2\sqrt2}\ne0\)</span>. Not differentiable.</li>
+</ul>
+<h3 id="example-2-path-test">Example 2: path test</h3>
+<p>Show <span class="math">\(\lim_{(x,y)\to(0,0)}\frac{xy^2}{x^2+y^4}\)</span> does not exist.</p>
+<p>Along <span class="math">\(y=mx\)</span>: <span class="math">\(\frac{m^2x^3}{x^2+m^4x^4}=\frac{m^2x}{1+m^4x^2}\to0\)</span>. Along <span class="math">\(x=y^2\)</span>: <span class="math">\(\frac{y^4}{y^4+y^4}=\frac12\)</span>. Two different values, so no limit.</p>
+<h3 id="example-3-classifying-critical-points">Example 3: classifying critical points</h3>
+<p><span class="math">\(f(x,y)=x^3+y^3-3xy\)</span>. <span class="math">\(f_x=3x^2-3y=0\)</span> and <span class="math">\(f_y=3y^2-3x=0\)</span> give <span class="math">\(y=x^2\)</span>, <span class="math">\(x=y^2\)</span>, so <span class="math">\(x^4=x\)</span>: <span class="math">\(x=0\)</span> or <span class="math">\(x=1\)</span>. Critical points: <span class="math">\((0,0)\)</span> and <span class="math">\((1,1)\)</span>. <span class="math">\(r=6x\)</span>, <span class="math">\(s=-3\)</span>, <span class="math">\(t=6y\)</span>.</p>
+<ul>
+<li>At <span class="math">\((0,0)\)</span>: <span class="math">\(D=0\cdot0-9=-9&lt;0\)</span>, saddle point.</li>
+<li>At <span class="math">\((1,1)\)</span>: <span class="math">\(D=36-9=27&gt;0\)</span>, <span class="math">\(r=6&gt;0\)</span>, local minimum with <span class="math">\(f(1,1)=-1\)</span>.</li>
+</ul>
+<h3 id="example-4-the-2025-maximum">Example 4: the 2025 maximum</h3>
+<p>Maximise <span class="math">\(f=\sin x\sin y\sin(x+y)\)</span> on <span class="math">\((0,\pi)^2\)</span>. <span class="math">\(f_x=\sin y\,\sin(2x+y)\)</span> and <span class="math">\(f_y=\sin x\,\sin(x+2y)\)</span>. With <span class="math">\(\sin x,\sin y\ne0\)</span> we need <span class="math">\(\sin(2x+y)=0\)</span> and <span class="math">\(\sin(x+2y)=0\)</span>; inside the square the possibilities are <span class="math">\(2x+y=\pi=x+2y\)</span>, giving <span class="math">\(x=y=\frac\pi3\)</span>, and <span class="math">\(2x+y=2\pi=x+2y\)</span>, giving <span class="math">\(x=y=\frac{2\pi}3\)</span> (the mixed cases lie on the boundary or outside). The second point has <span class="math">\(f=\frac34\sin\frac{4\pi}3=-\frac{3\sqrt3}8\)</span>, the minimum. At <span class="math">\(x=y=\frac\pi3\)</span>
+<span class="math">\(f=\left(\frac{\sqrt3}2\right)^3=\frac{3\sqrt3}8.\)</span>
+Hessian: <span class="math">\(r=t=-\sqrt3\)</span>, <span class="math">\(s=-\frac{\sqrt3}2\)</span>, <span class="math">\(D=3-\frac34&gt;0\)</span> and <span class="math">\(r&lt;0\)</span>, so it is a local maximum. On the boundary <span class="math">\(f=0\)</span>, so it is the absolute maximum on the closed square.</p>
+<h3 id="example-5-lagrange-multipliers">Example 5: Lagrange multipliers</h3>
+<p>Maximise <span class="math">\(xyz\)</span> subject to <span class="math">\(x+y+z=6\)</span> with <span class="math">\(x,y,z&gt;0\)</span>. <span class="math">\(\nabla f=(yz,xz,xy)=\lambda(1,1,1)\)</span>, so <span class="math">\(yz=xz=xy\)</span>, giving <span class="math">\(x=y=z=2\)</span> and <span class="math">\(f=8\)</span>. This is the maximum since <span class="math">\(xyz\to0\)</span> on the boundary of the simplex (or by AM-GM: <span class="math">\(xyz\le\left(\frac{x+y+z}3\right)^3=8\)</span>).</p>
+<h3 id="example-6-implicit-differentiation-and-jacobian">Example 6: implicit differentiation and Jacobian</h3>
+<p>(a) For <span class="math">\(x^2+xy+y^2=3\)</span> at <span class="math">\((1,1)\)</span>: <span class="math">\(F_x=2x+y=3\)</span>, <span class="math">\(F_y=x+2y=3\)</span>, so <span class="math">\(\frac{dy}{dx}=-\frac{3}{3}=-1\)</span>.</p>
+<p>(b) For <span class="math">\(u=x+y\)</span>, <span class="math">\(v=xy\)</span>: <span class="math">\(\frac{\partial(u,v)}{\partial(x,y)}=\det\begin{pmatrix}1&amp;1\\y&amp;x\end{pmatrix}=x-y\)</span>. It vanishes on <span class="math">\(x=y\)</span>, where the map <span class="math">\((x,y)\mapsto(u,v)\)</span> folds.</p>
+<h3 id="example-7-a-one-variable-extremum-2025-style">Example 7: a one-variable extremum (2025 style)</h3>
+<p>The distance between <span class="math">\(y=x\)</span> and <span class="math">\(y=x^2\)</span> at the same <span class="math">\(x\in[0,1]\)</span> is <span class="math">\(d(x)=x-x^2\)</span>. <span class="math">\(d'(x)=1-2x=0\)</span> at <span class="math">\(x=\frac12\)</span>, <span class="math">\(d(\frac12)=\frac14\)</span>, and <span class="math">\(d(0)=d(1)=0\)</span>. Maximum distance <span class="math">\(\frac14\)</span>.</p>
+</section><section class="note-section ns-common-traps" aria-labelledby="common-traps"><h2 id="common-traps">Common traps</h2>
+<ul>
+<li><strong>Lines are not enough.</strong> A limit that is the same along all lines <span class="math">\(y=mx\)</span> can still fail (<span class="math">\(\frac{x^2y}{x^4+y^2}\)</span> along <span class="math">\(y=x^2\)</span>).</li>
+<li><strong>Partials exist is weak.</strong> Existence of <span class="math">\(f_x,f_y\)</span> does not give continuity (<span class="math">\(\frac{xy}{x^2+y^2}\)</span>) or differentiability (<span class="math">\(\frac{xy}{\sqrt{x^2+y^2}}\)</span>).</li>
+<li><strong>Continuous plus partials still not enough.</strong> <span class="math">\(\frac{xy}{\sqrt{x^2+y^2}}\)</span> is continuous with partials <span class="math">\(0\)</span> but not differentiable.</li>
+<li><strong>Directional derivatives for non-differentiable <span class="math">\(f\)</span>.</strong> The formula <span class="math">\(\nabla f\cdot u\)</span> may fail; compute from the limit definition.</li>
+<li><strong><span class="math">\(C^1\)</span> is sufficient, not necessary.</strong></li>
+<li><strong>Mixed partials.</strong> They can differ at a point where they are not continuous. Check which order is meant.</li>
+<li><strong><span class="math">\(D=0\)</span> means no conclusion</strong>, not saddle.</li>
+<li><strong>Boundary.</strong> On a closed region the absolute extremum may be on the boundary. In the Lagrange method also check that <span class="math">\(\nabla g\ne0\)</span>.</li>
+<li><strong>Jacobian order.</strong> <span class="math">\(\frac{\partial(u,v)}{\partial(x,y)}\)</span> changes sign if <span class="math">\(u,v\)</span> are swapped; <span class="math">\(\frac{\partial(y,x)}{\partial(\cdot)}\)</span> is the negative.</li>
+<li><strong>Euler’s theorem factor.</strong> The right side is <span class="math">\(nf\)</span>, not <span class="math">\(f\)</span> or <span class="math">\(n\)</span>.</li>
+</ul>
+</section><section class="note-section ns-previous-year-questions" aria-labelledby="previous-year-questions"><h2 id="previous-year-questions">Previous-year questions</h2>
+<h3 id="2025-q40">2025, Q40</h3>
+<p>The function <span class="math">\(f(x,y)=\dfrac{xy}{\sqrt{x^2+y^2}}\)</span> for <span class="math">\((x,y)\ne(0,0)\)</span>, <span class="math">\(f(0,0)=0\)</span>, is: (A) not continuous at <span class="math">\((0,0)\)</span>; (B) differentiable at <span class="math">\((0,0)\)</span>; (C) such that <span class="math">\(f_x(0,0)\)</span> and <span class="math">\(f_y(0,0)\)</span> do not exist; (D) continuous but not differentiable at <span class="math">\((0,0)\)</span>. <strong>Answer: D</strong> (official key).</p>
+<p>Solution: <span class="math">\(\lvert f\rvert\le\frac r2\to0\)</span>, so continuous. <span class="math">\(f(h,0)=f(0,k)=0\)</span> gives <span class="math">\(f_x=f_y=0\)</span>. Along <span class="math">\(k=h\)</span>, <span class="math">\(\frac{f(h,h)}{\sqrt{2}\lvert h\rvert}=\frac12\ne0\)</span>, so the differentiability limit fails.</p>
+<h3 id="2025-q43">2025, Q43</h3>
+<p>The maximum value of <span class="math">\(\sin x\sin y\sin(x+y)\)</span> is attained at (A) <span class="math">\((\frac\pi4,\frac\pi4)\)</span>; (B) <span class="math">\((\frac\pi3,\frac\pi3)\)</span>; (C) <span class="math">\((\frac{2\pi}3,\frac{2\pi}3)\)</span>; (D) <span class="math">\((\frac{3\pi}4,\frac{3\pi}4)\)</span>. <strong>Answer: B</strong> (official key).</p>
+<p>Solution: critical point <span class="math">\(2x+y=\pi\)</span>, <span class="math">\(x+2y=\pi\)</span> gives <span class="math">\(x=y=\frac\pi3\)</span>, maximum value <span class="math">\(\frac{3\sqrt3}8\)</span> (Example 4). Check the others: at <span class="math">\((\frac\pi4,\frac\pi4)\)</span> the value is <span class="math">\(\frac12&lt;\frac{3\sqrt3}8\approx0.65\)</span>; at <span class="math">\((\frac{2\pi}3,\frac{2\pi}3)\)</span> it is <span class="math">\(\frac34\sin\frac{4\pi}3&lt;0\)</span>; at <span class="math">\((\frac{3\pi}4,\frac{3\pi}4)\)</span> it is <span class="math">\(\frac12\sin\frac{3\pi}2=-\frac12\)</span>.</p>
+<h3 id="2025-q79">2025, Q79</h3>
+<p>The maximum distance between the curves <span class="math">\(y=x\)</span> and <span class="math">\(y=x^2\)</span> on <span class="math">\([0,1]\)</span> is (A) <span class="math">\(1\)</span>; (B) <span class="math">\(\frac12\)</span>; (C) <span class="math">\(\frac14\)</span>; (D) <span class="math">\(\frac16\)</span>. <strong>Answer: C</strong> (official key).</p>
+<p>Solution: the vertical gap is <span class="math">\(x-x^2\)</span>, maximised at <span class="math">\(x=\frac12\)</span> with value <span class="math">\(\frac14\)</span> (Example 7).</p>
+</section><section class="note-section ns-quick-revision" aria-labelledby="quick-revision"><h2 id="quick-revision">Quick revision</h2>
+<ul>
+<li>Limit: same value along all paths; one pair of different paths kills it; polar squeeze proves it.</li>
+<li><span class="math">\(\frac{x^2y}{x^4+y^2}\)</span>: <span class="math">\(0\)</span> on lines, <span class="math">\(\frac12\)</span> on <span class="math">\(y=x^2\)</span>, so no limit.</li>
+<li><span class="math">\(C^1\Rightarrow\)</span> differentiable <span class="math">\(\Rightarrow\)</span> continuous and directional derivatives exist; no reverse arrow.</li>
+<li><span class="math">\(\frac{xy}{\sqrt{x^2+y^2}}\)</span> at <span class="math">\(0\)</span>: continuous, partials <span class="math">\(0\)</span>, not differentiable.</li>
+<li><span class="math">\(D_uf=\nabla f\cdot u\)</span> only when <span class="math">\(f\)</span> is differentiable; max rate <span class="math">\(\lVert\nabla f\rVert\)</span>.</li>
+<li>Schwarz: <span class="math">\(f_{xy}=f_{yx}\)</span> if a mixed partial is continuous; counterexample <span class="math">\(\frac{xy(x^2-y^2)}{x^2+y^2}\)</span> gives <span class="math">\(\mp1\)</span>.</li>
+<li>Implicit: <span class="math">\(y'=-\frac{F_x}{F_y}\)</span>; polar Jacobian <span class="math">\(r\)</span>; Euler <span class="math">\(xf_x+yf_y=nf\)</span>.</li>
+<li>Hessian: <span class="math">\(D=rt-s^2\)</span>; <span class="math">\(D&gt;0,r&gt;0\)</span> min; <span class="math">\(D&gt;0,r&lt;0\)</span> max; <span class="math">\(D&lt;0\)</span> saddle; <span class="math">\(D=0\)</span> inconclusive.</li>
+<li>Lagrange: <span class="math">\(\nabla f=\lambda\nabla g\)</span> with <span class="math">\(g=0\)</span>.</li>
+<li><span class="math">\(\max\sin x\sin y\sin(x+y)=\frac{3\sqrt3}8\)</span> at <span class="math">\((\frac\pi3,\frac\pi3)\)</span>.</li>
+</ul>
+</section></article></div><section class="section reader-end"><button class="read-btn" type="button" data-read-btn aria-pressed="false"><span class="box" aria-hidden="true"></span><span data-read-label>Mark as read</span></button><ul class="units end-links"><li><a class="unit-card" href="/uphesc-maths/learn/analysis/multivariable-calculus/practice/"><span class="unit-top"><span class="unit-name">Practise this topic</span></span><p class="flush">14 questions with worked solutions</p></a></li><li><a class="unit-card" href="/uphesc-maths/learn/analysis/lebesgue-measure-and-integral/"><span class="unit-top"><span class="unit-name">Next: Lebesgue measure and integral</span></span><p class="flush">High priority · 2 h</p></a></li></ul><p class="prev-link"><a href="/uphesc-maths/learn/analysis/bounded-variation-and-fourier-series/">Previous: Bounded variation and Fourier series</a></p></section></div><footer class="foot"><p>Built from every paper that survives: the full 2025 and 2026 papers (140 maths questions) and half of 2019 (35, from a solution video). 2015 left only an answer key, and nothing was found for 2021. The commission has never published its booklets. Unit counts use 2025 and 2026 only, so they show a range, not a trend.</p><p>2025 answers match the official key. 2026 has no key yet, so its answers were worked out by hand and marked high, medium or low confidence, and every unsure one was solved again, blind. 2019 answers come from the video and are not checked against the official key.</p></footer></main><script type="module">var e=document.documentElement,t=()=>e.dataset.mode?e.dataset.mode===`dark`:matchMedia(`(prefers-color-scheme: dark)`).matches;document.querySelector(`[data-mode-toggle]`)?.addEventListener(`click`,()=>{let n=t()?`light`:`dark`;e.dataset.mode=n;try{localStorage.setItem(`um:mode`,n)}catch{}}),!e.dataset.mode&&t()&&(e.dataset.mode=`dark`);var n=document.querySelectorAll(`[data-old-toggle]`),r=t=>{t?e.dataset.old=`on`:delete e.dataset.old,n.forEach(e=>e.setAttribute(`aria-checked`,String(t)))};r(e.dataset.old===`on`),n.forEach(t=>t.addEventListener(`click`,()=>{let t=e.dataset.old!==`on`;r(t);try{localStorage.setItem(`um:old`,t?`on`:`off`)}catch{}}));var i=document.querySelectorAll(`[data-view]`),a=t=>{t===`bars`?e.dataset.view=`bars`:delete e.dataset.view,i.forEach(e=>e.setAttribute(`aria-pressed`,String(e.dataset.view===t)))};a(e.dataset.view===`bars`?`bars`:`heat`),i.forEach(e=>e.addEventListener(`click`,()=>{a(e.dataset.view);try{localStorage.setItem(`um:view`,e.dataset.view)}catch{}}));var o=document.createElement(`div`);o.className=`tip`,o.setAttribute(`role`,`tooltip`),o.hidden=!0,document.body.append(o);var s=null,c=(e,t)=>{let n=o.offsetWidth,r=o.offsetHeight,i=e+12,a=t+12;i+n>innerWidth-8&&(i=Math.max(8,e-n-12)),a+r>innerHeight-8&&(a=Math.max(8,t-r-12)),o.style.left=`${i}px`,o.style.top=`${a}px`},l=()=>{if(s){let e=s.getBoundingClientRect();c(e.left+e.width*.3,e.bottom-8)}},u=e=>{e!==s&&(s=e,o.replaceChildren(...[...e.querySelector(`.tip-src`).childNodes].map(e=>e.cloneNode(!0)))),o.hidden=!1},d=()=>{o.hidden=!0,s=null};document.addEventListener(`pointermove`,e=>{if(e.pointerType!==`mouse`)return;let t=e.target.closest(`[data-tip]`);t?(u(t),c(e.clientX,e.clientY)):s&&d()}),document.addEventListener(`focusin`,e=>{let t=e.target.closest(`[data-tip]`);t&&(u(t),l())}),document.addEventListener(`focusout`,()=>d()),addEventListener(`scroll`,()=>{s&&document.activeElement===s?l():s&&d()},{passive:!0}),document.addEventListener(`keydown`,e=>{e.key===`Escape`&&d()});var f=`um:done`,p={};try{p=JSON.parse(localStorage.getItem(f)||`{}`)}catch{}var m=()=>{document.querySelectorAll(`[data-progress]`).forEach(e=>{let t=[...document.querySelectorAll(`[data-group="${e.dataset.progress}"]`)],n=t.filter(e=>e.checked).length;e.querySelector(`.progress-bar span`).style.width=`${n/t.length*100}%`,e.querySelector(`[data-count]`).textContent=`${n} of ${t.length} done`})};document.querySelectorAll(`input[data-check]`).forEach(e=>{e.checked=!!p[e.dataset.check],e.addEventListener(`change`,()=>{p[e.dataset.check]=e.checked;try{localStorage.setItem(f,JSON.stringify(p))}catch{}m()})}),m();</script></body></html><script type="module" src="/uphesc-maths/_astro/index.astro_astro_type_script_index_0_lang.t7qZbIYF.js"></script>

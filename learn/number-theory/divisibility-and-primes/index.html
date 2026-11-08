@@ -1,0 +1,277 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Divisibility, gcd, primes and special numbers · UPESSC maths</title><meta name="description" content="What to study for the UPESSC (formerly UPHESC) Assistant Professor maths paper, built from every paper that survives."><link rel="icon" href="/uphesc-maths/favicon.svg" type="image/svg+xml"><link rel="preload" href="/uphesc-maths/fonts/inter-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin><!-- the saved light/dark, 2019 and chart-view choices, before first paint --><script>
+    try { var m = localStorage.getItem('um:mode'); if (m) document.documentElement.dataset.mode = m; } catch (e) {}
+    try { if (localStorage.getItem('um:old') === 'on') document.documentElement.dataset.old = 'on'; } catch (e) {}
+    try { if (localStorage.getItem('um:view') === 'bars') document.documentElement.dataset.view = 'bars'; } catch (e) {}
+  </script><!-- maths: the vendored MathJax typesets \( \) and \[ \] text, loaded only on pages that have any --><script>(function(){const VENDOR = "/uphesc-maths/vendor";
+
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+      loader: { paths: { mathjax: VENDOR + '/mathjax', fonts: VENDOR + '/mathjax/fonts' } },
+      output: { font: 'mathjax-stix2', displayOverflow: 'scroll' },
+      options: { ignoreHtmlClass: 'no-math', processHtmlClass: 'math', menuOptions: { settings: { enrich: false, speech: false, braille: false } } },
+      chtml: { displayOverflow: 'scroll' },
+      // an inline formula with a piece wider than its line gets its own scrolling line, like display maths
+      startup: { pageReady: () => MathJax.startup.defaultPageReady().then(fitMath) },
+    };
+    function fitMath() {
+      for (const m of document.querySelectorAll('mjx-container:not([display="true"]):not(.mjx-wide)')) {
+        const box = m.closest('p, li, dd, blockquote, div');
+        if (!box || m.closest('td, th')) continue;
+        const right = box.getBoundingClientRect().right + 1;
+        if ([...m.getClientRects()].some((r) => r.right > right)) m.classList.add('mjx-wide');
+      }
+    }
+    let fitQueued = 0;
+    const queueFit = () => { if (window.MathJax?.startup?.document && !fitQueued) fitQueued = requestAnimationFrame(() => { fitQueued = 0; fitMath(); }); };
+    addEventListener('resize', queueFit);
+    addEventListener('click', () => setTimeout(queueFit, 50));
+    document.addEventListener('DOMContentLoaded', () => {
+      if (!document.querySelector('.math')) return;
+      const s = document.createElement('script');
+      s.async = true;
+      s.src = VENDOR + '/mathjax/tex-chtml-nofont.js';
+      document.head.appendChild(s);
+    });
+  })();</script><link rel="stylesheet" href="/uphesc-maths/_astro/Base.CkQ5KWO8.css"></head><body data-tab="learn"><nav class="appnav" aria-label="Main"><a class="appnav-brand" href="/uphesc-maths/" aria-label="UPESSC maths home">∑</a><a class="appnav-item" href="/uphesc-maths/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4 10.2 12 4l8 6.2V19a1 1 0 0 1-1 1h-4.5v-5.5h-5V20H5a1 1 0 0 1-1-1z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Plan</span></a><a class="appnav-item" href="/uphesc-maths/learn/" aria-current="page"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M12 6.5C10 5 7.5 4.5 4 4.5v13c3.5 0 6 .5 8 2 2-1.5 4.5-2 8-2v-13c-3.5 0-6 .5-8 2zM12 6.5v13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Learn</span></a><a class="appnav-item" href="/uphesc-maths/units/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4 5h7v7H4zM13 5h7v7h-7zM4 14h7v6H4zM13 14h7v6h-7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Units</span></a><a class="appnav-item" href="/uphesc-maths/papers/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M7 3h7l4 4v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zM14 3v4h4M9 12h6M9 16h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Papers</span></a><a class="appnav-item" href="/uphesc-maths/revise/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M5 12.5 9.5 17 19 7.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Revise</span></a></nav><header class="topbar"><a class="bar-back" href="/uphesc-maths/learn/number-theory/" aria-label="Back"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a><p class="bar-title">Unit 10</p><button class="bar-btn" type="button" data-mode-toggle aria-label="Switch light or dark"><svg class="i-moon" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path></svg><svg class="i-sun" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path></svg></button></header><main class="page"><div class="reader" data-topic="divisibility-and-primes"><header class="page-head topic-head"><p class="kicker"><a href="/uphesc-maths/learn/number-theory/">Unit 10 · Vedic Mathematics and Number Theory</a></p><h1>Divisibility, gcd, primes and special numbers</h1><ul class="meta"><li class="prio medium">Medium priority</li><li>1 h 30 min to study</li><li>Asked once</li><li class="read-flag" data-read-flag hidden>Read</li></ul><p class="pyq-line">Previous papers: 2025 Q88</p></header><div class="reader-grid"><nav class="toc" aria-label="On this page"><details class="toc-box" data-toc><summary>On this page</summary><ol><li><a href="#why-it-matters-for-the-exam">Why it matters for the exam</a></li><li><a href="#core-ideas">Core ideas</a></li><li class="sub"><a href="#divisibility">Divisibility</a></li><li class="sub"><a href="#division-algorithm">Division algorithm</a></li><li class="sub"><a href="#gcd-and-lcm">gcd and lcm</a></li><li class="sub"><a href="#euclidean-algorithm">Euclidean algorithm</a></li><li class="sub"><a href="#linear-diophantine-equation-ax--by--c">Linear Diophantine equation <span class="math">\(ax + by = c\)</span></a></li><li class="sub"><a href="#primes-and-the-fundamental-theorem-of-arithmetic">Primes and the fundamental theorem of arithmetic</a></li><li class="sub"><a href="#infinitely-many-primes">Infinitely many primes</a></li><li class="sub"><a href="#prime-counting-function">Prime counting function</a></li><li class="sub"><a href="#perfect-numbers">Perfect numbers</a></li><li class="sub"><a href="#mersenne-numbers">Mersenne numbers</a></li><li class="sub"><a href="#fermat-numbers">Fermat numbers</a></li><li class="sub"><a href="#legendres-formula-and-trailing-zeros-of-n">Legendre’s formula and trailing zeros of <span class="math">\(n!\)</span></a></li><li><a href="#formulas-and-results">Formulas and results</a></li><li><a href="#worked-examples">Worked examples</a></li><li class="sub"><a href="#example-1-gcd-and-bezout">Example 1: gcd and Bezout</a></li><li class="sub"><a href="#example-2-non-negative-solutions-of-a-diophantine-equation">Example 2: non-negative solutions of a Diophantine equation</a></li><li class="sub"><a href="#example-3-positive-solutions">Example 3: positive solutions</a></li><li class="sub"><a href="#example-4-trailing-zeros">Example 4: trailing zeros</a></li><li class="sub"><a href="#example-5-perfect-number-check">Example 5: perfect number check</a></li><li class="sub"><a href="#example-6-a-divisibility-argument">Example 6: a divisibility argument</a></li><li><a href="#common-traps">Common traps</a></li><li><a href="#previous-year-questions">Previous-year questions</a></li><li><a href="#quick-revision">Quick revision</a></li></ol></details></nav><article class="prose"><section class="note-section ns-why-it-matters-for-the-exam" aria-labelledby="why-it-matters-for-the-exam"><h2 id="why-it-matters-for-the-exam">Why it matters for the exam</h2>
+<p>Unit 10 carries 5 to 7 questions a paper (2025: 5, of which 3 are number theory proper and 2 are Indian-mathematics history; 2026: 7, all number theory). This topic is the base for all of them. Direct questions are rare (2025 Q88 on twin primes is the only one), but the ideas appear inside other questions: prime factorisations, gcd and lcm, trailing zeros of <span class="math">\(n!\)</span>, perfect and Mersenne numbers, and statements such as “there are infinitely many primes”. Expect one-line statement questions and short numeric ones.</p>
+</section><section class="note-section ns-core-ideas" aria-labelledby="core-ideas"><h2 id="core-ideas">Core ideas</h2>
+<h3 id="divisibility">Divisibility</h3>
+<p>For integers <span class="math">\(a, b\)</span> with <span class="math">\(a \ne 0\)</span>, we write <span class="math">\(a \mid b\)</span> if <span class="math">\(b = ak\)</span> for some integer <span class="math">\(k\)</span>.</p>
+<ul>
+<li>Every nonzero <span class="math">\(a\)</span> divides <span class="math">\(0\)</span>. <span class="math">\(1\)</span> and <span class="math">\(-1\)</span> divide everything. <span class="math">\(0 \nmid b\)</span> unless <span class="math">\(b = 0\)</span>.</li>
+<li>Transitive: <span class="math">\(a \mid b\)</span> and <span class="math">\(b \mid c\)</span> give <span class="math">\(a \mid c\)</span>.</li>
+<li>Linear: <span class="math">\(a \mid b\)</span> and <span class="math">\(a \mid c\)</span> give <span class="math">\(a \mid (bx + cy)\)</span> for all integers <span class="math">\(x, y\)</span>.</li>
+<li>If <span class="math">\(a \mid b\)</span> and <span class="math">\(b \ne 0\)</span> then <span class="math">\(\lvert a\rvert \le \lvert b\rvert\)</span>.</li>
+<li>If <span class="math">\(a \mid b\)</span> and <span class="math">\(b \mid a\)</span> then <span class="math">\(a = \pm b\)</span>.</li>
+</ul>
+<h3 id="division-algorithm">Division algorithm</h3>
+<p>For integers <span class="math">\(a\)</span> and <span class="math">\(b &gt; 0\)</span> there are unique integers <span class="math">\(q, r\)</span> with
+<span class="math">\(a = bq + r, \qquad 0 \le r &lt; b.\)</span>
+Uniqueness is what makes remainders well defined. For negative <span class="math">\(a\)</span> the remainder is still taken in <span class="math">\([0, b)\)</span>: <span class="math">\(-17 = 5\cdot(-4) + 3\)</span>.</p>
+<h3 id="gcd-and-lcm">gcd and lcm</h3>
+<p><span class="math">\(\gcd(a,b)\)</span> is the largest positive integer dividing both. <span class="math">\(\operatorname{lcm}(a,b)\)</span> is the smallest positive common multiple. <span class="math">\(a, b\)</span> are coprime (relatively prime) if <span class="math">\(\gcd(a,b) = 1\)</span>.</p>
+<p>Key facts:</p>
+<ul>
+<li><span class="math">\(\gcd(a,b)\cdot\operatorname{lcm}(a,b) = \lvert ab\rvert\)</span> (for two numbers only; false for three).</li>
+<li><span class="math">\(\gcd(a,b) = \gcd(b, r)\)</span> where <span class="math">\(a = bq + r\)</span>. This is the engine of the Euclidean algorithm.</li>
+<li><span class="math">\(\gcd(ka, kb) = k\gcd(a,b)\)</span> for <span class="math">\(k&gt;0\)</span>. If <span class="math">\(d = \gcd(a,b)\)</span> then <span class="math">\(\gcd(a/d, b/d) = 1\)</span>.</li>
+<li><strong>Bezout’s identity.</strong> <span class="math">\(\gcd(a,b)\)</span> is the smallest positive integer of the form <span class="math">\(ax + by\)</span>. Hence <span class="math">\(a, b\)</span> are coprime iff <span class="math">\(ax + by = 1\)</span> has an integer solution. The set of all values <span class="math">\(ax+by\)</span> is exactly the set of multiples of <span class="math">\(\gcd(a,b)\)</span>.</li>
+<li><strong>Euclid’s lemma.</strong> If <span class="math">\(a \mid bc\)</span> and <span class="math">\(\gcd(a,b) = 1\)</span>, then <span class="math">\(a \mid c\)</span>. In particular, if <span class="math">\(p\)</span> is prime and <span class="math">\(p \mid ab\)</span>, then <span class="math">\(p \mid a\)</span> or <span class="math">\(p \mid b\)</span>.</li>
+<li>If <span class="math">\(a \mid c\)</span>, <span class="math">\(b \mid c\)</span> and <span class="math">\(\gcd(a,b) = 1\)</span> then <span class="math">\(ab \mid c\)</span>.</li>
+<li><span class="math">\(\gcd(2^a - 1, 2^b - 1) = 2^{\gcd(a,b)} - 1\)</span>. Consecutive Fibonacci numbers are coprime. <span class="math">\(\gcd(n, n+1) = 1\)</span> and <span class="math">\(\gcd(2n+1, n) = 1\)</span>.</li>
+</ul>
+<p>Through prime factorisations <span class="math">\(a = \prod p_i^{\alpha_i}\)</span>, <span class="math">\(b = \prod p_i^{\beta_i}\)</span>:
+<span class="math">\(\gcd(a,b) = \prod p_i^{\min(\alpha_i,\beta_i)}, \qquad \operatorname{lcm}(a,b) = \prod p_i^{\max(\alpha_i,\beta_i)}.\)</span></p>
+<h3 id="euclidean-algorithm">Euclidean algorithm</h3>
+<p>Repeat division with remainder until the remainder is <span class="math">\(0\)</span>. The last nonzero remainder is the gcd.</p>
+<p>For <span class="math">\(1071\)</span> and <span class="math">\(462\)</span>:
+<span class="math">\(1071 = 2\cdot 462 + 147,\quad 462 = 3\cdot 147 + 21,\quad 147 = 7\cdot 21 + 0.\)</span>
+So <span class="math">\(\gcd = 21\)</span>. Back-substituting gives Bezout coefficients: <span class="math">\(21 = 462 - 3\cdot147 = 462 - 3(1071 - 2\cdot 462) = 7\cdot 462 - 3\cdot 1071\)</span>.</p>
+<p>The algorithm is slowest on consecutive Fibonacci numbers (Lamé): the number of steps is at most about <span class="math">\(5\)</span> times the number of decimal digits of the smaller number.</p>
+<h3 id="linear-diophantine-equation-ax--by--c">Linear Diophantine equation <span class="math">\(ax + by = c\)</span></h3>
+<ul>
+<li>Solvable in integers <strong>iff</strong> <span class="math">\(\gcd(a,b) \mid c\)</span>.</li>
+<li>If <span class="math">\((x_0, y_0)\)</span> is one solution and <span class="math">\(d = \gcd(a,b)\)</span>, all solutions are
+<span class="math">\(x = x_0 + \frac{b}{d}\,t, \qquad y = y_0 - \frac{a}{d}\,t, \qquad t \in \mathbb Z.\)</span></li>
+<li>To find <span class="math">\((x_0,y_0)\)</span>: run the Euclidean algorithm for <span class="math">\(a,b\)</span>, get <span class="math">\(ax' + by' = d\)</span>, then multiply by <span class="math">\(c/d\)</span>.</li>
+<li>Positive or non-negative solutions: substitute the general solution into <span class="math">\(x &gt; 0\)</span>, <span class="math">\(y &gt; 0\)</span> and count the integers <span class="math">\(t\)</span>.</li>
+<li>Frobenius (postage stamp) result: if <span class="math">\(\gcd(a,b) = 1\)</span> the largest <span class="math">\(n\)</span> not expressible as <span class="math">\(ax + by\)</span> with <span class="math">\(x, y \ge 0\)</span> is <span class="math">\(ab - a - b\)</span>.</li>
+<li>For <span class="math">\(ax + by + cz = d\)</span>, solvable iff <span class="math">\(\gcd(a,b,c) \mid d\)</span>.</li>
+</ul>
+<h3 id="primes-and-the-fundamental-theorem-of-arithmetic">Primes and the fundamental theorem of arithmetic</h3>
+<p>A prime is an integer <span class="math">\(p &gt; 1\)</span> whose only positive divisors are <span class="math">\(1\)</span> and <span class="math">\(p\)</span>. <strong><span class="math">\(1\)</span> is not prime.</strong> <span class="math">\(2\)</span> is the only even prime.</p>
+<p><strong>Fundamental theorem of arithmetic (FTA).</strong> Every integer <span class="math">\(n &gt; 1\)</span> can be written as a product of primes, and this factorisation is unique apart from the order of the factors. Equivalently, <span class="math">\(n = p_1^{a_1}\cdots p_k^{a_k}\)</span> with <span class="math">\(p_1 &lt; \dots &lt; p_k\)</span> is unique (canonical form).</p>
+<p>Proof idea. Existence: induct on <span class="math">\(n\)</span> (if <span class="math">\(n\)</span> is composite, split it). Uniqueness: if <span class="math">\(p_1\cdots p_r = q_1\cdots q_s\)</span>, then <span class="math">\(p_1 \mid q_1\cdots q_s\)</span>, so by Euclid’s lemma <span class="math">\(p_1 \mid q_j\)</span> for some <span class="math">\(j\)</span>, hence <span class="math">\(p_1 = q_j\)</span>. Cancel and repeat. So uniqueness rests on Euclid’s lemma, which rests on Bezout.</p>
+<p>Consequences:</p>
+<ul>
+<li>gcd and lcm from exponents (above), and the divisor formulas of the next topic.</li>
+<li>A positive integer is a perfect square iff every exponent in its factorisation is even.</li>
+<li><span class="math">\(\sqrt 2\)</span> is irrational: <span class="math">\(a^2 = 2b^2\)</span> gives odd exponent of <span class="math">\(2\)</span> on the right and even on the left.</li>
+<li>Unique factorisation can fail in other rings. In <span class="math">\(\mathbb Z[\sqrt{-5}]\)</span>: <span class="math">\(6 = 2\cdot 3 = (1+\sqrt{-5})(1-\sqrt{-5})\)</span>.</li>
+</ul>
+<p><strong>A composite <span class="math">\(n\)</span> has a prime factor <span class="math">\(\le \sqrt n\)</span>.</strong> This is why the Sieve of Eratosthenes only needs primes up to <span class="math">\(\sqrt n\)</span>, and why to test whether <span class="math">\(n\)</span> is prime you only divide by primes up to <span class="math">\(\sqrt n\)</span>.</p>
+<h3 id="infinitely-many-primes">Infinitely many primes</h3>
+<p><strong>Euclid.</strong> If <span class="math">\(p_1,\dots,p_k\)</span> were all the primes, then <span class="math">\(N = p_1\cdots p_k + 1\)</span> has a prime factor, which cannot be any <span class="math">\(p_i\)</span> (it would divide <span class="math">\(1\)</span>). Contradiction. Note: <span class="math">\(N\)</span> itself need not be prime (<span class="math">\(2\cdot3\cdot5\cdot7\cdot11\cdot13 + 1 = 30031 = 59\cdot 509\)</span>).</p>
+<p>Other facts to know at statement level:</p>
+<ul>
+<li>Infinitely many primes of the form <span class="math">\(4k+3\)</span> and of the form <span class="math">\(6k+5\)</span> (elementary proofs). The same for <span class="math">\(4k+1\)</span> is also true.</li>
+<li><strong>Dirichlet’s theorem.</strong> If <span class="math">\(\gcd(a,m) = 1\)</span>, there are infinitely many primes <span class="math">\(\equiv a \pmod m\)</span>.</li>
+<li><span class="math">\(\sum 1/p\)</span> over all primes diverges (Euler).</li>
+<li>Arbitrarily large gaps between primes: <span class="math">\(n!+2, n!+3, \dots, n!+n\)</span> are <span class="math">\(n-1\)</span> consecutive composites.</li>
+<li><strong>Bertrand’s postulate</strong> (Chebyshev): for every <span class="math">\(n \ge 1\)</span> there is a prime <span class="math">\(p\)</span> with <span class="math">\(n &lt; p \le 2n\)</span>.</li>
+<li>Twin primes are pairs <span class="math">\((p, p+2)\)</span>. That there are infinitely many is <strong>unproved</strong>. Goldbach (every even number <span class="math">\(&gt; 2\)</span> is a sum of two primes) is <strong>unproved</strong>.</li>
+<li>No nonconstant polynomial takes only prime values. Euler’s <span class="math">\(n^2 + n + 41\)</span> is prime for <span class="math">\(n = 0,\dots,39\)</span> but <span class="math">\(40^2+40+41 = 41^2\)</span>.</li>
+</ul>
+<h3 id="prime-counting-function">Prime counting function</h3>
+<p><span class="math">\(\pi(x)\)</span> is the number of primes <span class="math">\(\le x\)</span>. Values: <span class="math">\(\pi(10) = 4\)</span>, <span class="math">\(\pi(100) = 25\)</span>, <span class="math">\(\pi(1000) = 168\)</span>.</p>
+<p><strong>Prime number theorem (PNT).</strong> <span class="math">\(\displaystyle \lim_{x\to\infty}\frac{\pi(x)}{x/\ln x} = 1\)</span>, written <span class="math">\(\pi(x) \sim x/\ln x\)</span>. Proved independently by Hadamard and de la Vallee Poussin (1896). Chebyshev earlier proved bounds of the form <span class="math">\(c_1 x/\ln x \le \pi(x) \le c_2 x/\ln x\)</span>. The <span class="math">\(n\)</span>-th prime satisfies <span class="math">\(p_n \sim n\ln n\)</span>.</p>
+<h3 id="perfect-numbers">Perfect numbers</h3>
+<p><span class="math">\(n\)</span> is <strong>perfect</strong> if <span class="math">\(\sigma(n) = 2n\)</span>, that is, <span class="math">\(n\)</span> equals the sum of its proper divisors. The first four: <span class="math">\(6, 28, 496, 8128\)</span> (the fifth is <span class="math">\(33550336\)</span>). <span class="math">\(n\)</span> is abundant if <span class="math">\(\sigma(n) &gt; 2n\)</span> and deficient if <span class="math">\(\sigma(n) &lt; 2n\)</span>.</p>
+<p><strong>Euclid-Euler theorem.</strong> An even number is perfect iff it has the form
+<span class="math">\(n = 2^{p-1}(2^p - 1) \quad\text{with } 2^p - 1 \text{ prime}.\)</span>
+Euclid proved that such <span class="math">\(n\)</span> are perfect. Euler proved that every even perfect number is of this form. Whether an odd perfect number exists is <strong>open</strong>.</p>
+<p>Proof of the easy direction: with <span class="math">\(M = 2^p - 1\)</span> prime, <span class="math">\(\sigma(2^{p-1}M) = \sigma(2^{p-1})\sigma(M) = (2^p - 1)(M+1) = (2^p-1)2^p = 2n\)</span>.</p>
+<p>Every even perfect number is a triangular number and ends in <span class="math">\(6\)</span> or <span class="math">\(28\)</span>.</p>
+<h3 id="mersenne-numbers">Mersenne numbers</h3>
+<p><span class="math">\(M_n = 2^n - 1\)</span>.</p>
+<ul>
+<li>If <span class="math">\(M_n\)</span> is prime then <span class="math">\(n\)</span> is prime (because <span class="math">\(2^{ab}-1\)</span> is divisible by <span class="math">\(2^a - 1\)</span>). <strong>The converse is false</strong>: <span class="math">\(M_{11} = 2047 = 23\cdot 89\)</span>.</li>
+<li><span class="math">\(M_p\)</span> is prime for <span class="math">\(p = 2, 3, 5, 7, 13, 17, 19, 31, 61, 89, 107, 127\)</span> (and others, larger). Known Mersenne primes number only about fifty; it is unknown whether there are infinitely many.</li>
+<li><strong>Lucas-Lehmer test</strong> for odd prime <span class="math">\(p\)</span>: put <span class="math">\(s_0 = 4\)</span>, <span class="math">\(s_{k+1} = s_k^2 - 2 \pmod{M_p}\)</span>. Then <span class="math">\(M_p\)</span> is prime iff <span class="math">\(s_{p-2} \equiv 0 \pmod{M_p}\)</span>.</li>
+<li>Any prime divisor <span class="math">\(q\)</span> of <span class="math">\(M_p\)</span> (<span class="math">\(p\)</span> an odd prime) has the form <span class="math">\(q = 2kp + 1\)</span> and <span class="math">\(q \equiv \pm 1 \pmod 8\)</span>.</li>
+</ul>
+<p>Mersenne primes and even perfect numbers are in one-to-one correspondence.</p>
+<h3 id="fermat-numbers">Fermat numbers</h3>
+<p><span class="math">\(F_n = 2^{2^n} + 1\)</span>.</p>
+<ul>
+<li><span class="math">\(F_0, \dots, F_4 = 3, 5, 17, 257, 65537\)</span> are prime. Fermat conjectured all are prime. Euler showed <span class="math">\(F_5 = 2^{32}+1 = 641\cdot 6700417\)</span>. No other Fermat primes are known.</li>
+<li>If <span class="math">\(2^m + 1\)</span> is prime then <span class="math">\(m\)</span> is a power of <span class="math">\(2\)</span>. (Compare: <span class="math">\(2^n - 1\)</span> prime forces <span class="math">\(n\)</span> prime.)</li>
+<li>Recurrence: <span class="math">\(F_n = F_0F_1\cdots F_{n-1} + 2\)</span>.</li>
+<li><strong>Distinct Fermat numbers are coprime</strong> (<span class="math">\(\gcd(F_m, F_n) = 1\)</span>, <span class="math">\(m \ne n\)</span>). This gives another proof that there are infinitely many primes.</li>
+<li><strong>Gauss-Wantzel.</strong> A regular <span class="math">\(n\)</span>-gon is constructible by ruler and compass iff <span class="math">\(n = 2^k p_1\cdots p_r\)</span> with the <span class="math">\(p_i\)</span> distinct Fermat primes. So the 17-gon is constructible; the 7-gon is not.</li>
+</ul>
+<h3 id="legendres-formula-and-trailing-zeros-of-n">Legendre’s formula and trailing zeros of <span class="math">\(n!\)</span></h3>
+<p>The exponent of a prime <span class="math">\(p\)</span> in <span class="math">\(n!\)</span> is
+<span class="math">\(v_p(n!) = \sum_{k\ge 1}\left\lfloor \frac{n}{p^k}\right\rfloor = \frac{n - s_p(n)}{p-1},\)</span>
+where <span class="math">\(s_p(n)\)</span> is the digit sum of <span class="math">\(n\)</span> in base <span class="math">\(p\)</span>. The sum is finite: terms vanish once <span class="math">\(p^k &gt; n\)</span>.</p>
+<p>Trailing zeros of <span class="math">\(n!\)</span> in base <span class="math">\(10\)</span>: the number of <span class="math">\(10\)</span>’s is <span class="math">\(\min(v_2, v_5) = v_5(n!)\)</span>, since there are always more factors of <span class="math">\(2\)</span>. So
+<span class="math">\(Z(n) = \left\lfloor \frac n5\right\rfloor + \left\lfloor \frac n{25}\right\rfloor + \left\lfloor \frac n{125}\right\rfloor + \cdots\)</span></p>
+<p>For a base <span class="math">\(b\)</span>, factor <span class="math">\(b\)</span> into primes and take the minimum of <span class="math">\(\lfloor v_{p}(n!)/e_p\rfloor\)</span> over <span class="math">\(p^{e_p}\,\|\, b\)</span>.</p>
+<p><span class="math">\(Z(n)\)</span> jumps by <span class="math">\(1\)</span> at most multiples of <span class="math">\(5\)</span>, by <span class="math">\(2\)</span> at multiples of <span class="math">\(25\)</span> and by <span class="math">\(3\)</span> at multiples of <span class="math">\(125\)</span>. So some values are skipped: <span class="math">\(Z(24) = 4\)</span> and <span class="math">\(Z(25) = 6\)</span>, so <strong>no <span class="math">\(n\)</span> has <span class="math">\(n!\)</span> ending in exactly <span class="math">\(5\)</span> zeros</strong>. Any value that is attained is attained by exactly <span class="math">\(5\)</span> consecutive <span class="math">\(n\)</span>.</p>
+<p>Related: the product of <span class="math">\(k\)</span> consecutive integers is divisible by <span class="math">\(k!\)</span>, because <span class="math">\(\binom{n}{k}\)</span> is an integer.</p>
+</section><section class="note-section ns-formulas-and-results" aria-labelledby="formulas-and-results"><h2 id="formulas-and-results">Formulas and results</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Division algorithm</td>
+<td><span class="math">\(a = bq + r\)</span>, <span class="math">\(0 \le r &lt; b\)</span>, unique</td>
+</tr>
+<tr>
+<td>gcd by Euclid</td>
+<td><span class="math">\(\gcd(a,b) = \gcd(b, a \bmod b)\)</span></td>
+</tr>
+<tr>
+<td>gcd and lcm</td>
+<td><span class="math">\(\gcd(a,b)\operatorname{lcm}(a,b) = \lvert ab\rvert\)</span></td>
+</tr>
+<tr>
+<td>Bezout</td>
+<td><span class="math">\(\gcd(a,b) = ax + by\)</span> for some integers <span class="math">\(x,y\)</span></td>
+</tr>
+<tr>
+<td>Euclid’s lemma</td>
+<td><span class="math">\(p \mid ab \Rightarrow p \mid a\)</span> or <span class="math">\(p \mid b\)</span> (<span class="math">\(p\)</span> prime)</td>
+</tr>
+<tr>
+<td>Diophantine <span class="math">\(ax+by=c\)</span></td>
+<td>solvable iff <span class="math">\(\gcd(a,b) \mid c\)</span>; solutions <span class="math">\(x_0 + \tfrac bd t\)</span>, <span class="math">\(y_0 - \tfrac ad t\)</span></td>
+</tr>
+<tr>
+<td>Frobenius number</td>
+<td><span class="math">\(ab - a - b\)</span> for coprime <span class="math">\(a, b\)</span></td>
+</tr>
+<tr>
+<td>FTA</td>
+<td><span class="math">\(n = p_1^{a_1}\cdots p_k^{a_k}\)</span>, unique</td>
+</tr>
+<tr>
+<td>Composite test</td>
+<td>composite <span class="math">\(n\)</span> has a prime factor <span class="math">\(\le \sqrt n\)</span></td>
+</tr>
+<tr>
+<td>PNT</td>
+<td><span class="math">\(\pi(x) \sim x/\ln x\)</span></td>
+</tr>
+<tr>
+<td>Values</td>
+<td><span class="math">\(\pi(10)=4\)</span>, <span class="math">\(\pi(100)=25\)</span>, <span class="math">\(\pi(1000)=168\)</span></td>
+</tr>
+<tr>
+<td>Perfect numbers (even)</td>
+<td><span class="math">\(2^{p-1}(2^p-1)\)</span>, <span class="math">\(2^p-1\)</span> prime</td>
+</tr>
+<tr>
+<td>Mersenne</td>
+<td><span class="math">\(M_n\)</span> prime <span class="math">\(\Rightarrow\)</span> <span class="math">\(n\)</span> prime (not conversely)</td>
+</tr>
+<tr>
+<td>Fermat</td>
+<td><span class="math">\(F_n = 2^{2^n}+1\)</span>; <span class="math">\(F_5 = 641\cdot 6700417\)</span>; pairwise coprime</td>
+</tr>
+<tr>
+<td>Legendre</td>
+<td><span class="math">\(v_p(n!) = \sum \lfloor n/p^k\rfloor\)</span></td>
+</tr>
+<tr>
+<td>Trailing zeros</td>
+<td><span class="math">\(Z(n) = \sum \lfloor n/5^k\rfloor\)</span></td>
+</tr>
+<tr>
+<td>Mersenne gcd</td>
+<td><span class="math">\(\gcd(2^a-1,2^b-1) = 2^{\gcd(a,b)}-1\)</span></td>
+</tr>
+</tbody>
+</table></div>
+</section><section class="note-section ns-worked-examples" aria-labelledby="worked-examples"><h2 id="worked-examples">Worked examples</h2>
+<h3 id="example-1-gcd-and-bezout">Example 1: gcd and Bezout</h3>
+<p>Find <span class="math">\(\gcd(252, 198)\)</span> and integers <span class="math">\(x, y\)</span> with <span class="math">\(252x + 198y = \gcd\)</span>.</p>
+<p><span class="math">\(252 = 1\cdot198 + 54\)</span>, <span class="math">\(198 = 3\cdot 54 + 36\)</span>, <span class="math">\(54 = 1\cdot 36 + 18\)</span>, <span class="math">\(36 = 2\cdot 18\)</span>. So <span class="math">\(\gcd = 18\)</span>.</p>
+<p>Back-substitute: <span class="math">\(18 = 54 - 36 = 54 - (198 - 3\cdot 54) = 4\cdot 54 - 198 = 4(252 - 198) - 198 = 4\cdot 252 - 5\cdot 198\)</span>.</p>
+<p>So <span class="math">\((x, y) = (4, -5)\)</span>, and <span class="math">\(\operatorname{lcm} = 252\cdot198/18 = 2772\)</span>.</p>
+<h3 id="example-2-non-negative-solutions-of-a-diophantine-equation">Example 2: non-negative solutions of a Diophantine equation</h3>
+<p>Solve <span class="math">\(172x + 20y = 1000\)</span> in non-negative integers.</p>
+<p><span class="math">\(\gcd(172, 20) = 4\)</span> and <span class="math">\(4 \mid 1000\)</span>, so divide by <span class="math">\(4\)</span>: <span class="math">\(43x + 5y = 250\)</span>. A particular solution is <span class="math">\((0, 50)\)</span>. The general solution is <span class="math">\(x = 5t\)</span>, <span class="math">\(y = 50 - 43t\)</span>. For <span class="math">\(x \ge 0\)</span> and <span class="math">\(y \ge 0\)</span>: <span class="math">\(t \ge 0\)</span> and <span class="math">\(t \le 50/43\)</span>, so <span class="math">\(t = 0, 1\)</span>.</p>
+<p>Solutions: <span class="math">\((0, 50)\)</span> and <span class="math">\((5, 7)\)</span>. There are exactly <span class="math">\(2\)</span>.</p>
+<h3 id="example-3-positive-solutions">Example 3: positive solutions</h3>
+<p>How many positive integer solutions has <span class="math">\(7x + 11y = 200\)</span>?</p>
+<p><span class="math">\(7\cdot 5 + 11\cdot 15 = 35 + 165 = 200\)</span>. General: <span class="math">\(x = 5 + 11t\)</span>, <span class="math">\(y = 15 - 7t\)</span>. Need <span class="math">\(x&gt;0\)</span>: <span class="math">\(t \ge 0\)</span> (since <span class="math">\(t=-1\)</span> gives <span class="math">\(x=-6\)</span>). Need <span class="math">\(y&gt;0\)</span>: <span class="math">\(t \le 2\)</span>. So <span class="math">\(t = 0, 1, 2\)</span> giving <span class="math">\((5,15), (16,8), (27,1)\)</span>: <strong>3 solutions</strong>.</p>
+<h3 id="example-4-trailing-zeros">Example 4: trailing zeros</h3>
+<p>Find the number of zeros at the end of <span class="math">\(150!\)</span> and of <span class="math">\(1000!\)</span>, and the exponent of <span class="math">\(2\)</span> in <span class="math">\(100!\)</span>.</p>
+<p><span class="math">\(Z(150) = 30 + 6 + 1 = 37\)</span>. <span class="math">\(Z(1000) = 200 + 40 + 8 + 1 = 249\)</span>.
+<span class="math">\(v_2(100!) = 50 + 25 + 12 + 6 + 3 + 1 = 97\)</span>. Check with <span class="math">\((100 - s_2(100))/1\)</span>: <span class="math">\(100 = 1100100_2\)</span> has digit sum <span class="math">\(3\)</span>, so <span class="math">\(97\)</span>.</p>
+<h3 id="example-5-perfect-number-check">Example 5: perfect number check</h3>
+<p>Is <span class="math">\(8128\)</span> perfect? <span class="math">\(8128 = 2^6(2^7 - 1)\)</span> and <span class="math">\(2^7 - 1 = 127\)</span> is prime, so it is perfect by Euclid’s theorem. Direct check: <span class="math">\(\sigma(8128) = (2^7 - 1)(127 + 1) = 127\cdot128 = 16256 = 2\cdot 8128\)</span>.</p>
+<p>Is <span class="math">\(2^{11}-1\)</span> prime? No: <span class="math">\(2047 = 23\cdot 89\)</span>, even though <span class="math">\(11\)</span> is prime. So <span class="math">\(2^{10}(2^{11}-1)\)</span> is <strong>not</strong> perfect.</p>
+<h3 id="example-6-a-divisibility-argument">Example 6: a divisibility argument</h3>
+<p>Show that <span class="math">\(n^2 + n\)</span> is always even, and that <span class="math">\(\gcd(n, n+1) = 1\)</span>.</p>
+<p><span class="math">\(n^2+n = n(n+1)\)</span> is a product of two consecutive integers, one of which is even. If <span class="math">\(d \mid n\)</span> and <span class="math">\(d \mid n+1\)</span> then <span class="math">\(d \mid (n+1) - n = 1\)</span>, so <span class="math">\(d = 1\)</span>.</p>
+</section><section class="note-section ns-common-traps" aria-labelledby="common-traps"><h2 id="common-traps">Common traps</h2>
+<ul>
+<li><strong><span class="math">\(1\)</span> is not prime.</strong> FTA is for <span class="math">\(n &gt; 1\)</span>. Questions that count primes or “prime numbers up to <span class="math">\(N\)</span>” must exclude <span class="math">\(1\)</span>.</li>
+<li><strong><span class="math">\(p \mid ab \Rightarrow p \mid a\)</span> or <span class="math">\(p \mid b\)</span> needs <span class="math">\(p\)</span> prime.</strong> For composite <span class="math">\(6 \mid 2\cdot3\)</span> but <span class="math">\(6\nmid 2\)</span> and <span class="math">\(6 \nmid 3\)</span>. Options that drop “prime” are false.</li>
+<li><strong><span class="math">\(\gcd\cdot\operatorname{lcm} = \)</span> product holds for two numbers only.</strong> It fails for three: <span class="math">\(\gcd(2,2,2)\operatorname{lcm}(2,2,2) = 4 \ne 8\)</span>.</li>
+<li><strong><span class="math">\(M_p\)</span> is not always prime for prime <span class="math">\(p\)</span></strong> (<span class="math">\(M_{11} = 2047 = 23\cdot 89\)</span>). Only the converse direction (“<span class="math">\(M_n\)</span> prime implies <span class="math">\(n\)</span> prime”) is true.</li>
+<li><strong><span class="math">\(F_n\)</span> is not always prime</strong> (<span class="math">\(F_5 = 641\cdot6700417\)</span>). Fermat’s conjecture is false.</li>
+<li><strong>Euclid’s number <span class="math">\(p_1\cdots p_k + 1\)</span> need not be prime</strong>; it only has a new prime factor.</li>
+<li><strong>Odd perfect numbers:</strong> do not say they do not exist; it is an open problem. Only the even ones are classified.</li>
+<li><strong>Twin prime and Goldbach statements are unproved.</strong> Options saying “proved” are wrong.</li>
+<li><strong>Diophantine equation without a solution:</strong> <span class="math">\(6x + 9y = 100\)</span> has none since <span class="math">\(3 \nmid 100\)</span>. Always check <span class="math">\(\gcd \mid c\)</span> first.</li>
+<li><strong>Trailing zeros count <span class="math">\(5\)</span>s only</strong>, but remember higher powers <span class="math">\(25, 125\)</span>. <span class="math">\(Z(100) = 24\)</span>, not <span class="math">\(20\)</span>.</li>
+<li><strong>Pairwise versus overall coprime:</strong> <span class="math">\(\gcd(6, 10, 15) = 1\)</span>, yet every pair has gcd <span class="math">\(&gt;1\)</span>.</li>
+</ul>
+</section><section class="note-section ns-previous-year-questions" aria-labelledby="previous-year-questions"><h2 id="previous-year-questions">Previous-year questions</h2>
+<p><strong>2025 Q88.</strong> The number of twin prime pairs between <span class="math">\(51\)</span> and <span class="math">\(100\)</span> is: (A) 1 (B) 2 (C) 3 (D) 5. <strong>Answer: B</strong> (official key).</p>
+<p>Solution: the primes in <span class="math">\(51\)</span> to <span class="math">\(100\)</span> are <span class="math">\(53, 59, 61, 67, 71, 73, 79, 83, 89, 97\)</span>. Pairs differing by <span class="math">\(2\)</span>: <span class="math">\((59, 61)\)</span> and <span class="math">\((71, 73)\)</span>. Check the others: <span class="math">\(53\)</span> and <span class="math">\(55\)</span> (no), <span class="math">\(67\)</span> and <span class="math">\(69\)</span> (no), <span class="math">\(79\)</span> and <span class="math">\(81\)</span> (no), <span class="math">\(83\)</span> and <span class="math">\(85\)</span> (no), <span class="math">\(89\)</span> and <span class="math">\(91 = 7\cdot13\)</span> (no), <span class="math">\(97\)</span> and <span class="math">\(99\)</span> (no). So there are <span class="math">\(2\)</span> pairs.</p>
+<p>Related items from other topics of this unit (divisor counts, <span class="math">\(\sigma(180)\)</span>, <span class="math">\(\mu(n)\)</span>) are in the arithmetical-functions notes.</p>
+</section><section class="note-section ns-quick-revision" aria-labelledby="quick-revision"><h2 id="quick-revision">Quick revision</h2>
+<ul>
+<li><span class="math">\(a = bq + r\)</span> with <span class="math">\(0 \le r &lt; b\)</span>, <span class="math">\(q, r\)</span> unique.</li>
+<li><span class="math">\(\gcd(a,b)\operatorname{lcm}(a,b) = ab\)</span> for two numbers; gcd uses minimum exponents, lcm maximum.</li>
+<li>Bezout: <span class="math">\(\gcd(a,b) = ax+by\)</span>; <span class="math">\(ax + by = c\)</span> solvable iff <span class="math">\(\gcd \mid c\)</span>; solutions step by <span class="math">\(b/d\)</span> and <span class="math">\(a/d\)</span>.</li>
+<li>Frobenius number of coprime <span class="math">\(a, b\)</span> is <span class="math">\(ab - a - b\)</span>.</li>
+<li>FTA: unique prime factorisation for <span class="math">\(n &gt; 1\)</span>; <span class="math">\(1\)</span> is not prime; <span class="math">\(2\)</span> is the only even prime.</li>
+<li>Composite <span class="math">\(n\)</span> has a prime factor <span class="math">\(\le \sqrt n\)</span>.</li>
+<li>Euclid: infinitely many primes; <span class="math">\(\pi(x) \sim x/\ln x\)</span>; <span class="math">\(\pi(100) = 25\)</span>.</li>
+<li>Even perfect numbers are exactly <span class="math">\(2^{p-1}(2^p-1)\)</span> with <span class="math">\(2^p-1\)</span> prime; odd ones are an open problem.</li>
+<li><span class="math">\(M_n\)</span> prime <span class="math">\(\Rightarrow\)</span> <span class="math">\(n\)</span> prime, not conversely (<span class="math">\(2047 = 23\cdot 89\)</span>).</li>
+<li><span class="math">\(F_0\)</span> to <span class="math">\(F_4\)</span> are prime, <span class="math">\(F_5 = 641\cdot 6700417\)</span>; Fermat numbers are pairwise coprime.</li>
+<li><span class="math">\(v_p(n!) = \sum\lfloor n/p^k\rfloor\)</span>; zeros of <span class="math">\(100!\)</span> are <span class="math">\(24\)</span>, of <span class="math">\(1000!\)</span> are <span class="math">\(249\)</span>.</li>
+<li>No <span class="math">\(n\)</span> gives exactly <span class="math">\(5\)</span> trailing zeros of <span class="math">\(n!\)</span> (<span class="math">\(Z(24) = 4\)</span>, <span class="math">\(Z(25) = 6\)</span>).</li>
+</ul>
+</section></article></div><section class="section reader-end"><button class="read-btn" type="button" data-read-btn aria-pressed="false"><span class="box" aria-hidden="true"></span><span data-read-label>Mark as read</span></button><ul class="units end-links"><li><a class="unit-card" href="/uphesc-maths/learn/number-theory/divisibility-and-primes/practice/"><span class="unit-top"><span class="unit-name">Practise this topic</span></span><p class="flush">14 questions with worked solutions</p></a></li><li><a class="unit-card" href="/uphesc-maths/learn/number-theory/arithmetical-functions/"><span class="unit-top"><span class="unit-name">Next: Arithmetical functions and Mobius inversion</span></span><p class="flush">High priority · 1 h 40 min</p></a></li></ul><p class="prev-link"><a href="/uphesc-maths/learn/number-theory/vedic-mathematics/">Previous: Vedic Mathematics</a></p></section></div><footer class="foot"><p>Built from every paper that survives: the full 2025 and 2026 papers (140 maths questions) and half of 2019 (35, from a solution video). 2015 left only an answer key, and nothing was found for 2021. The commission has never published its booklets. Unit counts use 2025 and 2026 only, so they show a range, not a trend.</p><p>2025 answers match the official key. 2026 has no key yet, so its answers were worked out by hand and marked high, medium or low confidence, and every unsure one was solved again, blind. 2019 answers come from the video and are not checked against the official key.</p></footer></main><script type="module">var e=document.documentElement,t=()=>e.dataset.mode?e.dataset.mode===`dark`:matchMedia(`(prefers-color-scheme: dark)`).matches;document.querySelector(`[data-mode-toggle]`)?.addEventListener(`click`,()=>{let n=t()?`light`:`dark`;e.dataset.mode=n;try{localStorage.setItem(`um:mode`,n)}catch{}}),!e.dataset.mode&&t()&&(e.dataset.mode=`dark`);var n=document.querySelectorAll(`[data-old-toggle]`),r=t=>{t?e.dataset.old=`on`:delete e.dataset.old,n.forEach(e=>e.setAttribute(`aria-checked`,String(t)))};r(e.dataset.old===`on`),n.forEach(t=>t.addEventListener(`click`,()=>{let t=e.dataset.old!==`on`;r(t);try{localStorage.setItem(`um:old`,t?`on`:`off`)}catch{}}));var i=document.querySelectorAll(`[data-view]`),a=t=>{t===`bars`?e.dataset.view=`bars`:delete e.dataset.view,i.forEach(e=>e.setAttribute(`aria-pressed`,String(e.dataset.view===t)))};a(e.dataset.view===`bars`?`bars`:`heat`),i.forEach(e=>e.addEventListener(`click`,()=>{a(e.dataset.view);try{localStorage.setItem(`um:view`,e.dataset.view)}catch{}}));var o=document.createElement(`div`);o.className=`tip`,o.setAttribute(`role`,`tooltip`),o.hidden=!0,document.body.append(o);var s=null,c=(e,t)=>{let n=o.offsetWidth,r=o.offsetHeight,i=e+12,a=t+12;i+n>innerWidth-8&&(i=Math.max(8,e-n-12)),a+r>innerHeight-8&&(a=Math.max(8,t-r-12)),o.style.left=`${i}px`,o.style.top=`${a}px`},l=()=>{if(s){let e=s.getBoundingClientRect();c(e.left+e.width*.3,e.bottom-8)}},u=e=>{e!==s&&(s=e,o.replaceChildren(...[...e.querySelector(`.tip-src`).childNodes].map(e=>e.cloneNode(!0)))),o.hidden=!1},d=()=>{o.hidden=!0,s=null};document.addEventListener(`pointermove`,e=>{if(e.pointerType!==`mouse`)return;let t=e.target.closest(`[data-tip]`);t?(u(t),c(e.clientX,e.clientY)):s&&d()}),document.addEventListener(`focusin`,e=>{let t=e.target.closest(`[data-tip]`);t&&(u(t),l())}),document.addEventListener(`focusout`,()=>d()),addEventListener(`scroll`,()=>{s&&document.activeElement===s?l():s&&d()},{passive:!0}),document.addEventListener(`keydown`,e=>{e.key===`Escape`&&d()});var f=`um:done`,p={};try{p=JSON.parse(localStorage.getItem(f)||`{}`)}catch{}var m=()=>{document.querySelectorAll(`[data-progress]`).forEach(e=>{let t=[...document.querySelectorAll(`[data-group="${e.dataset.progress}"]`)],n=t.filter(e=>e.checked).length;e.querySelector(`.progress-bar span`).style.width=`${n/t.length*100}%`,e.querySelector(`[data-count]`).textContent=`${n} of ${t.length} done`})};document.querySelectorAll(`input[data-check]`).forEach(e=>{e.checked=!!p[e.dataset.check],e.addEventListener(`change`,()=>{p[e.dataset.check]=e.checked;try{localStorage.setItem(f,JSON.stringify(p))}catch{}m()})}),m();</script></body></html><script type="module" src="/uphesc-maths/_astro/index.astro_astro_type_script_index_0_lang.t7qZbIYF.js"></script>

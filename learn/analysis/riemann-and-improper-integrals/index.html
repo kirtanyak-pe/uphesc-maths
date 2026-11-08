@@ -1,0 +1,282 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Riemann and improper integrals · UPESSC maths</title><meta name="description" content="What to study for the UPESSC (formerly UPHESC) Assistant Professor maths paper, built from every paper that survives."><link rel="icon" href="/uphesc-maths/favicon.svg" type="image/svg+xml"><link rel="preload" href="/uphesc-maths/fonts/inter-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin><!-- the saved light/dark, 2019 and chart-view choices, before first paint --><script>
+    try { var m = localStorage.getItem('um:mode'); if (m) document.documentElement.dataset.mode = m; } catch (e) {}
+    try { if (localStorage.getItem('um:old') === 'on') document.documentElement.dataset.old = 'on'; } catch (e) {}
+    try { if (localStorage.getItem('um:view') === 'bars') document.documentElement.dataset.view = 'bars'; } catch (e) {}
+  </script><!-- maths: the vendored MathJax typesets \( \) and \[ \] text, loaded only on pages that have any --><script>(function(){const VENDOR = "/uphesc-maths/vendor";
+
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+      loader: { paths: { mathjax: VENDOR + '/mathjax', fonts: VENDOR + '/mathjax/fonts' } },
+      output: { font: 'mathjax-stix2', displayOverflow: 'scroll' },
+      options: { ignoreHtmlClass: 'no-math', processHtmlClass: 'math', menuOptions: { settings: { enrich: false, speech: false, braille: false } } },
+      chtml: { displayOverflow: 'scroll' },
+      // an inline formula with a piece wider than its line gets its own scrolling line, like display maths
+      startup: { pageReady: () => MathJax.startup.defaultPageReady().then(fitMath) },
+    };
+    function fitMath() {
+      for (const m of document.querySelectorAll('mjx-container:not([display="true"]):not(.mjx-wide)')) {
+        const box = m.closest('p, li, dd, blockquote, div');
+        if (!box || m.closest('td, th')) continue;
+        const right = box.getBoundingClientRect().right + 1;
+        if ([...m.getClientRects()].some((r) => r.right > right)) m.classList.add('mjx-wide');
+      }
+    }
+    let fitQueued = 0;
+    const queueFit = () => { if (window.MathJax?.startup?.document && !fitQueued) fitQueued = requestAnimationFrame(() => { fitQueued = 0; fitMath(); }); };
+    addEventListener('resize', queueFit);
+    addEventListener('click', () => setTimeout(queueFit, 50));
+    document.addEventListener('DOMContentLoaded', () => {
+      if (!document.querySelector('.math')) return;
+      const s = document.createElement('script');
+      s.async = true;
+      s.src = VENDOR + '/mathjax/tex-chtml-nofont.js';
+      document.head.appendChild(s);
+    });
+  })();</script><link rel="stylesheet" href="/uphesc-maths/_astro/Base.CkQ5KWO8.css"></head><body data-tab="learn"><nav class="appnav" aria-label="Main"><a class="appnav-brand" href="/uphesc-maths/" aria-label="UPESSC maths home">∑</a><a class="appnav-item" href="/uphesc-maths/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4 10.2 12 4l8 6.2V19a1 1 0 0 1-1 1h-4.5v-5.5h-5V20H5a1 1 0 0 1-1-1z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Plan</span></a><a class="appnav-item" href="/uphesc-maths/learn/" aria-current="page"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M12 6.5C10 5 7.5 4.5 4 4.5v13c3.5 0 6 .5 8 2 2-1.5 4.5-2 8-2v-13c-3.5 0-6 .5-8 2zM12 6.5v13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Learn</span></a><a class="appnav-item" href="/uphesc-maths/units/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4 5h7v7H4zM13 5h7v7h-7zM4 14h7v6H4zM13 14h7v6h-7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Units</span></a><a class="appnav-item" href="/uphesc-maths/papers/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M7 3h7l4 4v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zM14 3v4h4M9 12h6M9 16h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Papers</span></a><a class="appnav-item" href="/uphesc-maths/revise/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M5 12.5 9.5 17 19 7.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Revise</span></a></nav><header class="topbar"><a class="bar-back" href="/uphesc-maths/learn/analysis/" aria-label="Back"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a><p class="bar-title">Unit 3</p><button class="bar-btn" type="button" data-mode-toggle aria-label="Switch light or dark"><svg class="i-moon" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path></svg><svg class="i-sun" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path></svg></button></header><main class="page"><div class="reader" data-topic="riemann-and-improper-integrals"><header class="page-head topic-head"><p class="kicker"><a href="/uphesc-maths/learn/analysis/">Unit 3 · Real and Functional Analysis</a></p><h1>Riemann and improper integrals</h1><ul class="meta"><li class="prio high">High priority</li><li>2 h to study</li><li>Asked 2 times</li><li class="read-flag" data-read-flag hidden>Read</li></ul><p class="pyq-line">Previous papers: 2025 Q42, 2025 Q44</p><p class="prereq">Read first: <a href="/uphesc-maths/learn/analysis/sequences-and-series-of-functions/">Sequences and series of functions</a></p></header><div class="reader-grid"><nav class="toc" aria-label="On this page"><details class="toc-box" data-toc><summary>On this page</summary><ol><li><a href="#why-it-matters-for-the-exam">Why it matters for the exam</a></li><li><a href="#core-ideas">Core ideas</a></li><li class="sub"><a href="#riemann-darboux-integral">Riemann (Darboux) integral</a></li><li class="sub"><a href="#which-functions-are-integrable">Which functions are integrable</a></li><li class="sub"><a href="#properties">Properties</a></li><li class="sub"><a href="#fundamental-theorem-of-calculus">Fundamental theorem of calculus</a></li><li class="sub"><a href="#evaluating-limits-by-riemann-sums">Evaluating limits by Riemann sums</a></li><li class="sub"><a href="#improper-integrals">Improper integrals</a></li><li class="sub"><a href="#gamma-and-beta-functions">Gamma and Beta functions</a></li><li class="sub"><a href="#series-of-constants-convergence-tests">Series of constants (convergence tests)</a></li><li><a href="#formulas-and-results">Formulas and results</a></li><li><a href="#worked-examples">Worked examples</a></li><li class="sub"><a href="#example-1-limit-as-a-riemann-sum">Example 1: limit as a Riemann sum</a></li><li class="sub"><a href="#example-2-a-type-ii-improper-integral">Example 2: a Type II improper integral</a></li><li class="sub"><a href="#example-3-beta-function">Example 3: Beta function</a></li><li class="sub"><a href="#example-4-gamma-form">Example 4: Gamma form</a></li><li class="sub"><a href="#example-5-conditional-convergence">Example 5: conditional convergence</a></li><li class="sub"><a href="#example-6-raabes-test">Example 6: Raabe’s test</a></li><li><a href="#common-traps">Common traps</a></li><li><a href="#previous-year-questions">Previous-year questions</a></li><li class="sub"><a href="#2025-q42">2025, Q42</a></li><li class="sub"><a href="#2025-q44">2025, Q44</a></li><li><a href="#quick-revision">Quick revision</a></li></ol></details></nav><article class="prose"><section class="note-section ns-why-it-matters-for-the-exam" aria-labelledby="why-it-matters-for-the-exam"><h2 id="why-it-matters-for-the-exam">Why it matters for the exam</h2>
+<p>Direct questions on the Riemann integral are rare, but its ideas appear everywhere: which functions are Riemann integrable (the 2019 paper asked about the indicator of the rationals), convergence tests for series and integrals (2025 asked two such questions), and Beta and Gamma evaluations that are standard in Unit 3 and Unit 7. The 2025 questions were ordering-of-implications and assertion-reason items on series of constants, so this note includes the series tests too.</p>
+</section><section class="note-section ns-core-ideas" aria-labelledby="core-ideas"><h2 id="core-ideas">Core ideas</h2>
+<h3 id="riemann-darboux-integral">Riemann (Darboux) integral</h3>
+<p>Let <span class="math">\(f:[a,b]\to\mathbb{R}\)</span> be <strong>bounded</strong> and let <span class="math">\(P=\{a=x_0&lt;x_1&lt;\dots&lt;x_n=b\}\)</span> be a partition. With <span class="math">\(m_i=\inf_{[x_{i-1},x_i]}f\)</span> and <span class="math">\(M_i=\sup_{[x_{i-1},x_i]}f\)</span>,
+<span class="math">\(L(P,f)=\sum m_i\Delta x_i,\qquad U(P,f)=\sum M_i\Delta x_i.\)</span></p>
+<ul>
+<li>Refining a partition raises <span class="math">\(L\)</span> and lowers <span class="math">\(U\)</span>. Every lower sum is at most every upper sum.</li>
+<li>Lower integral <span class="math">\(\underline{\int}f=\sup_P L(P,f)\)</span>, upper integral <span class="math">\(\overline{\int}f=\inf_P U(P,f)\)</span>, and <span class="math">\(\underline\int\le\overline\int\)</span>.</li>
+<li><span class="math">\(f\)</span> is <strong>Riemann integrable</strong> iff <span class="math">\(\underline\int f=\overline\int f\)</span>; this common value is <span class="math">\(\int_a^bf\)</span>.</li>
+<li><strong>Riemann’s criterion.</strong> <span class="math">\(f\)</span> is integrable iff for every <span class="math">\(\varepsilon&gt;0\)</span> there is a partition <span class="math">\(P\)</span> with <span class="math">\(U(P,f)-L(P,f)&lt;\varepsilon\)</span>.</li>
+<li><strong>Riemann sums.</strong> <span class="math">\(f\)</span> is integrable with integral <span class="math">\(I\)</span> iff <span class="math">\(\sum f(t_i)\Delta x_i\to I\)</span> as the mesh <span class="math">\(\to0\)</span>, for every choice of tags <span class="math">\(t_i\in[x_{i-1},x_i]\)</span>.</li>
+</ul>
+<h3 id="which-functions-are-integrable">Which functions are integrable</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Integrable?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Continuous on <span class="math">\([a,b]\)</span></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Monotone on <span class="math">\([a,b]\)</span></td>
+<td>Yes (even with infinitely many jumps)</td>
+</tr>
+<tr>
+<td>Bounded, finitely many discontinuities</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Bounded, countably many discontinuities</td>
+<td>Yes (Thomae’s function: <span class="math">\(\frac1q\)</span> at <span class="math">\(\frac pq\)</span> in lowest terms, <span class="math">\(0\)</span> at irrationals, integral <span class="math">\(0\)</span>)</td>
+</tr>
+<tr>
+<td>Bounded variation</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Dirichlet function (<span class="math">\(1\)</span> on <span class="math">\(\mathbb{Q}\)</span>, <span class="math">\(0\)</span> on irrationals)</td>
+<td><strong>No</strong>: every <span class="math">\(L=0\)</span>, every <span class="math">\(U=1\)</span></td>
+</tr>
+<tr>
+<td>Unbounded</td>
+<td>No (not Riemann integrable by definition)</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Lebesgue’s criterion.</strong> A bounded <span class="math">\(f:[a,b]\to\mathbb{R}\)</span> is Riemann integrable iff the set of its discontinuities has Lebesgue measure zero. This explains the table: countable sets have measure zero; the Dirichlet function is discontinuous everywhere, a set of measure <span class="math">\(b-a&gt;0\)</span>. (The Dirichlet function is Lebesgue integrable with integral <span class="math">\(0\)</span>, because <span class="math">\(\mathbb{Q}\)</span> has measure <span class="math">\(0\)</span>.)</p>
+<p>Closure properties: sums, scalar multiples, products, <span class="math">\(\lvert f\rvert\)</span> and <span class="math">\(f^2\)</span> of integrable functions are integrable; <span class="math">\(g\circ f\)</span> is integrable if <span class="math">\(f\)</span> is integrable and <span class="math">\(g\)</span> is continuous. The converse of <span class="math">\(\lvert f\rvert\)</span> fails: <span class="math">\(f=1\)</span> on <span class="math">\(\mathbb{Q}\)</span>, <span class="math">\(-1\)</span> elsewhere has <span class="math">\(\lvert f\rvert=1\)</span> integrable but <span class="math">\(f\)</span> not. Likewise <span class="math">\(f^2\)</span> integrable does not give <span class="math">\(f\)</span> integrable.</p>
+<h3 id="properties">Properties</h3>
+<ul>
+<li>Linearity, additivity <span class="math">\(\int_a^b=\int_a^c+\int_c^b\)</span>, monotonicity, <span class="math">\(\bigl\lvert\int f\bigr\rvert\le\int\lvert f\rvert\)</span>.</li>
+<li><strong>First mean value theorem.</strong> If <span class="math">\(f\)</span> is continuous and <span class="math">\(g\ge0\)</span> integrable, then <span class="math">\(\int_a^bfg=f(\xi)\int_a^bg\)</span> for some <span class="math">\(\xi\in[a,b]\)</span>. With <span class="math">\(g=1\)</span>: <span class="math">\(\int_a^bf=f(\xi)(b-a)\)</span>.</li>
+<li><strong>Bonnet’s (second) mean value theorem.</strong> If <span class="math">\(g\)</span> is monotone decreasing and <span class="math">\(\ge0\)</span>, then <span class="math">\(\int_a^bfg=g(a)\int_a^\xi f\)</span> for some <span class="math">\(\xi\in[a,b]\)</span>.</li>
+<li><span class="math">\(F(x)=\int_a^xf\)</span> is continuous (indeed Lipschitz) for every integrable <span class="math">\(f\)</span>.</li>
+</ul>
+<h3 id="fundamental-theorem-of-calculus">Fundamental theorem of calculus</h3>
+<ol>
+<li><strong>FTC I.</strong> If <span class="math">\(f\)</span> is integrable and continuous at <span class="math">\(x_0\)</span>, then <span class="math">\(F(x)=\int_a^xf\)</span> is differentiable at <span class="math">\(x_0\)</span> with <span class="math">\(F'(x_0)=f(x_0)\)</span>. At a jump of <span class="math">\(f\)</span>, <span class="math">\(F\)</span> is continuous but has a corner. Example: <span class="math">\(f=\mathbf 1_{[1/2,1]}\)</span> gives <span class="math">\(F(x)=\max(0,x-\frac12)\)</span>, not differentiable at <span class="math">\(\frac12\)</span>.</li>
+<li><strong>FTC II.</strong> If <span class="math">\(f\)</span> is integrable and <span class="math">\(G'=f\)</span> on <span class="math">\([a,b]\)</span>, then <span class="math">\(\int_a^bf=G(b)-G(a)\)</span>. Integrability of <span class="math">\(f\)</span> is a hypothesis, not a consequence: a function that is differentiable everywhere may have a derivative that is not Riemann integrable (for example <span class="math">\(x^2\sin(1/x^2)\)</span> has an unbounded derivative).</li>
+</ol>
+<h3 id="evaluating-limits-by-riemann-sums">Evaluating limits by Riemann sums</h3>
+<p>If <span class="math">\(f\)</span> is continuous on <span class="math">\([0,1]\)</span>,
+<span class="math">\(\lim_{n\to\infty}\frac1n\sum_{k=1}^nf\!\left(\frac kn\right)=\int_0^1f.\)</span>
+Rewrite the sum as <span class="math">\(\frac1n\sum f(k/n)\)</span>. Products turn into sums by taking logs. Examples: <span class="math">\(\sum_{k=1}^n\frac{n}{n^2+k^2}=\frac1n\sum\frac{1}{1+(k/n)^2}\to\int_0^1\frac{dx}{1+x^2}=\frac\pi4\)</span>; and <span class="math">\(\bigl(\frac{n!}{n^n}\bigr)^{1/n}\to e^{\int_0^1\ln x\,dx}=\frac1e\)</span>.</p>
+<h3 id="improper-integrals">Improper integrals</h3>
+<p><strong>Type I (infinite interval).</strong> <span class="math">\(\int_a^\infty f=\lim_{R\to\infty}\int_a^Rf\)</span> if the limit exists (finite). <span class="math">\(\int_{-\infty}^\infty f\)</span> converges iff both <span class="math">\(\int_{-\infty}^c f\)</span> and <span class="math">\(\int_c^\infty f\)</span> converge separately.</p>
+<p><strong>Type II (unbounded integrand at an end point <span class="math">\(c\)</span>).</strong> If <span class="math">\(f\)</span> is unbounded near <span class="math">\(b\)</span>, <span class="math">\(\int_a^bf=\lim_{\varepsilon\to0^+}\int_a^{b-\varepsilon}f\)</span>. If the singularity is inside, split at it and require both pieces to converge.</p>
+<p><strong>Standard comparison integrals.</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Integral</th>
+<th>Converges iff</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math">\(\int_1^\infty x^{-p}\,dx\)</span></td>
+<td><span class="math">\(p&gt;1\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(\int_0^1x^{-p}\,dx\)</span></td>
+<td><span class="math">\(p&lt;1\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(\int_0^\infty x^{-p}\,dx\)</span></td>
+<td>never</td>
+</tr>
+<tr>
+<td><span class="math">\(\int_2^\infty\frac{dx}{x(\ln x)^p}\)</span></td>
+<td><span class="math">\(p&gt;1\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(\int_0^\infty e^{-ax}dx\)</span></td>
+<td><span class="math">\(a&gt;0\)</span></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Tests (for <span class="math">\(f,g\ge0\)</span>).</strong></p>
+<ul>
+<li><strong>Comparison.</strong> <span class="math">\(0\le f\le g\)</span>: <span class="math">\(\int g\)</span> converges <span class="math">\(\Rightarrow\int f\)</span> converges; <span class="math">\(\int f\)</span> diverges <span class="math">\(\Rightarrow\int g\)</span> diverges.</li>
+<li><strong>Limit comparison.</strong> <span class="math">\(\lim f/g=\ell\in(0,\infty)\)</span>: both converge or both diverge. At infinity compare with <span class="math">\(x^{-p}\)</span>; at a singularity <span class="math">\(x=0\)</span> compare with <span class="math">\(x^{-p}\)</span> too.</li>
+<li><strong><span class="math">\(\mu\)</span>-test.</strong> If <span class="math">\(\lim_{x\to\infty}x^\mu f(x)=\ell\)</span> finite, then <span class="math">\(\int^\infty f\)</span> converges if <span class="math">\(\mu&gt;1\)</span>, and if <span class="math">\(\ell\ne0\)</span> and <span class="math">\(\mu\le1\)</span> it diverges. Near a finite singularity <span class="math">\(b\)</span>: <span class="math">\(\lim(b-x)^\mu f(x)\)</span> finite with <span class="math">\(\mu&lt;1\)</span> gives convergence.</li>
+<li><strong>Absolute convergence</strong> <span class="math">\(\Rightarrow\)</span> convergence. The converse fails.</li>
+<li><strong>Dirichlet test.</strong> If <span class="math">\(F(x)=\int_a^xf\)</span> is bounded and <span class="math">\(g\)</span> is monotone with <span class="math">\(g\to0\)</span> as <span class="math">\(x\to\infty\)</span>, then <span class="math">\(\int_a^\infty fg\)</span> converges.</li>
+<li><strong>Abel test.</strong> If <span class="math">\(\int_a^\infty f\)</span> converges and <span class="math">\(g\)</span> is monotone and bounded, then <span class="math">\(\int_a^\infty fg\)</span> converges.</li>
+</ul>
+<p>Key examples.</p>
+<ul>
+<li><span class="math">\(\int_0^\infty\frac{\sin x}{x}dx=\frac\pi2\)</span> converges <strong>conditionally</strong> (Dirichlet test with <span class="math">\(f=\sin x\)</span>, <span class="math">\(g=1/x\)</span>) but <span class="math">\(\int_1^\infty\frac{\lvert\sin x\rvert}{x}dx\)</span> diverges (it grows like <span class="math">\(\frac2\pi\ln R\)</span>).</li>
+<li><span class="math">\(\int_0^\infty\sin(x^2)\,dx\)</span> converges (substitute <span class="math">\(t=x^2\)</span> to get <span class="math">\(\frac12\int_0^\infty\frac{\sin t}{\sqrt t}dt\)</span> and use the Dirichlet test), even though the integrand does not tend to <span class="math">\(0\)</span>.</li>
+<li><span class="math">\(\int_0^1\ln x\,dx=-1\)</span>, and <span class="math">\(\int_0^1x^{-1/2}\ln x\,dx=-4\)</span>.</li>
+<li>Convergence of <span class="math">\(\int_a^\infty f\)</span> does not imply <span class="math">\(f\to0\)</span> (a thin tall spike train), but if <span class="math">\(f\)</span> is uniformly continuous or monotone, it does.</li>
+</ul>
+<p><strong>Cauchy principal value.</strong> <span class="math">\(\mathrm{PV}\int_{-1}^1\frac{dx}{x}=0\)</span> and <span class="math">\(\mathrm{PV}\int_{-\infty}^\infty x\,dx=0\)</span> although both improper integrals diverge. The PV may exist when the integral does not.</p>
+<h3 id="gamma-and-beta-functions">Gamma and Beta functions</h3>
+<p><span class="math">\(\Gamma(n)=\int_0^\infty x^{n-1}e^{-x}dx\ (n&gt;0),\qquad B(m,n)=\int_0^1x^{m-1}(1-x)^{n-1}dx\ (m,n&gt;0).\)</span></p>
+<p>Both converge exactly for the stated parameter ranges (Gamma: Type II at <span class="math">\(0\)</span> needs <span class="math">\(n&gt;0\)</span>; Type I at infinity is always fine because of <span class="math">\(e^{-x}\)</span>; Beta: Type II at both ends needs <span class="math">\(m&gt;0\)</span> and <span class="math">\(n&gt;0\)</span>).</p>
+<p>Properties:</p>
+<ul>
+<li><span class="math">\(\Gamma(n+1)=n\,\Gamma(n)\)</span>, <span class="math">\(\Gamma(1)=1\)</span>, so <span class="math">\(\Gamma(n+1)=n!\)</span> for integers; <span class="math">\(\Gamma(\tfrac12)=\sqrt\pi\)</span>, <span class="math">\(\Gamma(\tfrac32)=\frac{\sqrt\pi}{2}\)</span>, <span class="math">\(\Gamma(\tfrac52)=\frac{3\sqrt\pi}{4}\)</span>.</li>
+<li><span class="math">\(\Gamma\)</span> has no value at <span class="math">\(0,-1,-2,\dots\)</span> (poles). For negative non-integers use <span class="math">\(\Gamma(n)=\Gamma(n+1)/n\)</span>.</li>
+<li><strong>Reflection.</strong> <span class="math">\(\Gamma(n)\Gamma(1-n)=\dfrac{\pi}{\sin n\pi}\)</span>, <span class="math">\(0&lt;n&lt;1\)</span>.</li>
+<li><strong>Duplication (Legendre).</strong> <span class="math">\(\Gamma(n)\,\Gamma(n+\tfrac12)=2^{1-2n}\sqrt\pi\,\Gamma(2n)\)</span>.</li>
+<li><span class="math">\(B(m,n)=B(n,m)=\dfrac{\Gamma(m)\Gamma(n)}{\Gamma(m+n)}\)</span>.</li>
+<li><span class="math">\(B(m,n)=2\int_0^{\pi/2}\sin^{2m-1}\theta\cos^{2n-1}\theta\,d\theta=\int_0^\infty\frac{x^{m-1}}{(1+x)^{m+n}}dx\)</span>.</li>
+<li>Consequence: <span class="math">\(\displaystyle\int_0^{\pi/2}\sin^p\theta\cos^q\theta\,d\theta=\frac12B\!\left(\frac{p+1}2,\frac{q+1}2\right)\)</span>.</li>
+<li>Gaussian: <span class="math">\(\int_0^\infty e^{-x^2}dx=\frac{\sqrt\pi}2\)</span>; and <span class="math">\(\int_0^\infty x^ae^{-x^b}dx=\frac1b\Gamma\!\left(\frac{a+1}b\right)\)</span>.</li>
+</ul>
+<h3 id="series-of-constants-convergence-tests">Series of constants (convergence tests)</h3>
+<p>Let <span class="math">\(s_N=\sum_{n\le N}a_n\)</span>. The series converges iff <span class="math">\((s_N)\)</span> converges.</p>
+<p><strong>Chain of implications.</strong> <span class="math">\((s_N)\)</span> convergent <span class="math">\(\iff\sum a_n\)</span> convergent <span class="math">\(\Rightarrow a_n\to0\Rightarrow(a_n)\)</span> convergent <span class="math">\(\Rightarrow(a_n)\)</span> Cauchy (in <span class="math">\(\mathbb{R}\)</span>). None of the one-way arrows reverses: <span class="math">\(a_n=\frac1n\to0\)</span> but <span class="math">\(\sum\frac1n\)</span> diverges.</p>
+<p>Tests for <span class="math">\(a_n\ge0\)</span>:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Statement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math">\(n\)</span>th term (divergence)</td>
+<td><span class="math">\(a_n\not\to0\Rightarrow\sum a_n\)</span> diverges. Silent if <span class="math">\(a_n\to0\)</span></td>
+</tr>
+<tr>
+<td>Comparison, limit comparison</td>
+<td>as for integrals</td>
+</tr>
+<tr>
+<td><span class="math">\(p\)</span>-series</td>
+<td><span class="math">\(\sum n^{-p}\)</span> converges iff <span class="math">\(p&gt;1\)</span>; <span class="math">\(\sum\frac{1}{n(\ln n)^p}\)</span> converges iff <span class="math">\(p&gt;1\)</span></td>
+</tr>
+<tr>
+<td>Cauchy condensation</td>
+<td><span class="math">\(a_n\downarrow\)</span>: <span class="math">\(\sum a_n\)</span> and <span class="math">\(\sum2^ka_{2^k}\)</span> behave alike</td>
+</tr>
+<tr>
+<td>Ratio (D’Alembert)</td>
+<td><span class="math">\(\lim\frac{a_{n+1}}{a_n}=\rho\)</span>: converges if <span class="math">\(\rho&lt;1\)</span>, diverges if <span class="math">\(\rho&gt;1\)</span>, silent if <span class="math">\(\rho=1\)</span></td>
+</tr>
+<tr>
+<td>Root (Cauchy)</td>
+<td><span class="math">\(\limsup a_n^{1/n}=\rho\)</span>: converges if <span class="math">\(&lt;1\)</span>, diverges if <span class="math">\(&gt;1\)</span></td>
+</tr>
+<tr>
+<td>Raabe</td>
+<td><span class="math">\(\lim n\bigl(\frac{a_n}{a_{n+1}}-1\bigr)=\ell\)</span>: converges if <span class="math">\(\ell&gt;1\)</span>, diverges if <span class="math">\(\ell&lt;1\)</span>, silent if <span class="math">\(\ell=1\)</span></td>
+</tr>
+<tr>
+<td>Integral</td>
+<td><span class="math">\(f\ge0\)</span> decreasing: <span class="math">\(\sum f(n)\)</span> and <span class="math">\(\int^\infty f\)</span> behave alike</td>
+</tr>
+</tbody>
+</table></div>
+<p>The root test is stronger than the ratio test: whenever the ratio test decides, the root test decides the same way.</p>
+<p>General series: <strong>Leibniz</strong> (<span class="math">\(a_n\downarrow0\Rightarrow\sum(-1)^na_n\)</span> converges), <strong>Dirichlet</strong> (bounded partial sums of <span class="math">\(b_n\)</span>, monotone <span class="math">\(a_n\to0\)</span>), <strong>Abel</strong> (<span class="math">\(\sum b_n\)</span> convergent, <span class="math">\(a_n\)</span> monotone bounded). Absolutely convergent series can be rearranged freely and multiplied (Cauchy product); a conditionally convergent series can be rearranged to any sum (Riemann), and Mertens’ theorem allows the Cauchy product if one factor converges absolutely.</p>
+</section><section class="note-section ns-formulas-and-results" aria-labelledby="formulas-and-results"><h2 id="formulas-and-results">Formulas and results</h2>
+<ul>
+<li><span class="math">\(L(P,f)\le U(P,f)\)</span>; integrable iff <span class="math">\(\forall\varepsilon\ \exists P:\ U-L&lt;\varepsilon\)</span>.</li>
+<li>Bounded <span class="math">\(f\)</span> is Riemann integrable iff its discontinuity set has measure zero.</li>
+<li><span class="math">\(\lim\frac1n\sum f(k/n)=\int_0^1f\)</span>; <span class="math">\(\lim\sum_{k=1}^n\frac{n}{n^2+k^2}=\frac\pi4\)</span>; <span class="math">\(\lim\frac{(n!)^{1/n}}{n}=\frac1e\)</span>.</li>
+<li><span class="math">\(\int_1^\infty x^{-p}\)</span> converges iff <span class="math">\(p&gt;1\)</span>; <span class="math">\(\int_0^1x^{-p}\)</span> iff <span class="math">\(p&lt;1\)</span>; <span class="math">\(\int_0^\infty x^{-p}\)</span> never.</li>
+<li><span class="math">\(\int_0^\infty\frac{\sin x}x=\frac\pi2\)</span> (conditional); <span class="math">\(\int_0^\infty\frac{dx}{1+x^2}=\frac\pi2\)</span>; <span class="math">\(\int_0^\infty\frac{x^{p-1}}{1+x}dx=\frac\pi{\sin p\pi}\)</span>, <span class="math">\(0&lt;p&lt;1\)</span>.</li>
+<li><span class="math">\(\Gamma(n+1)=n\Gamma(n)\)</span>; <span class="math">\(\Gamma(\frac12)=\sqrt\pi\)</span>; <span class="math">\(\Gamma(n)\Gamma(1-n)=\pi/\sin n\pi\)</span>.</li>
+<li><span class="math">\(B(m,n)=\frac{\Gamma(m)\Gamma(n)}{\Gamma(m+n)}\)</span>; <span class="math">\(\int_0^{\pi/2}\sin^p\cos^q=\frac12B(\frac{p+1}2,\frac{q+1}2)\)</span>.</li>
+<li><span class="math">\(\int_0^\infty x^ae^{-x^b}dx=\frac1b\Gamma(\frac{a+1}b)\)</span>.</li>
+<li>Series: ratio, root, Raabe; Leibniz; <span class="math">\(p\)</span>-series; <span class="math">\(\sum\frac1{n(\ln n)^p}\)</span> converges iff <span class="math">\(p&gt;1\)</span>.</li>
+</ul>
+</section><section class="note-section ns-worked-examples" aria-labelledby="worked-examples"><h2 id="worked-examples">Worked examples</h2>
+<h3 id="example-1-limit-as-a-riemann-sum">Example 1: limit as a Riemann sum</h3>
+<p>Find <span class="math">\(\displaystyle\lim_{n\to\infty}\sum_{k=1}^n\frac{n}{n^2+k^2}\)</span>.</p>
+<p>Write the term as <span class="math">\(\frac1n\cdot\frac{1}{1+(k/n)^2}\)</span>. This is a Riemann sum of <span class="math">\(f(x)=\frac{1}{1+x^2}\)</span> on <span class="math">\([0,1]\)</span>. The limit is <span class="math">\(\int_0^1\frac{dx}{1+x^2}=\arctan1=\frac\pi4\)</span>.</p>
+<h3 id="example-2-a-type-ii-improper-integral">Example 2: a Type II improper integral</h3>
+<p>Evaluate <span class="math">\(\int_0^1\frac{\ln x}{\sqrt x}dx\)</span>.</p>
+<p>Put <span class="math">\(x=t^2\)</span>, <span class="math">\(dx=2t\,dt\)</span>: the integral is <span class="math">\(\int_0^1\frac{2\ln t}{t}\,2t\,dt=4\int_0^1\ln t\,dt\)</span>. Since <span class="math">\(\int_0^1\ln t\,dt=\lim_{\varepsilon\to0}[t\ln t-t]_\varepsilon^1=-1\)</span>, the answer is <span class="math">\(-4\)</span>. It converges because <span class="math">\(\sqrt x\ln x\to0\)</span> at <span class="math">\(0\)</span> (compare <span class="math">\(x^{-1/2+\delta}\)</span>).</p>
+<h3 id="example-3-beta-function">Example 3: Beta function</h3>
+<p>Evaluate <span class="math">\(\displaystyle\int_0^{\pi/2}\sin^6\theta\cos^4\theta\,d\theta\)</span>.</p>
+<p>With <span class="math">\(p=6\)</span>, <span class="math">\(q=4\)</span>: <span class="math">\(\frac12B\left(\frac72,\frac52\right)=\frac12\frac{\Gamma(7/2)\Gamma(5/2)}{\Gamma(6)}\)</span>. Now <span class="math">\(\Gamma(\frac72)=\frac{15\sqrt\pi}8\)</span>, <span class="math">\(\Gamma(\frac52)=\frac{3\sqrt\pi}4\)</span>, <span class="math">\(\Gamma(6)=120\)</span>. So the value is <span class="math">\(\frac12\cdot\frac{45\pi/32}{120}=\frac{3\pi}{512}\)</span>.</p>
+<h3 id="example-4-gamma-form">Example 4: Gamma form</h3>
+<p>Evaluate <span class="math">\(\int_0^\infty x^4e^{-x^2}dx\)</span>.</p>
+<p>With <span class="math">\(a=4\)</span>, <span class="math">\(b=2\)</span>: <span class="math">\(\frac12\Gamma\left(\frac52\right)=\frac12\cdot\frac{3\sqrt\pi}{4}=\frac{3\sqrt\pi}{8}\)</span>.</p>
+<h3 id="example-5-conditional-convergence">Example 5: conditional convergence</h3>
+<p>Does <span class="math">\(\int_0^\infty\frac{\sin x}{x}dx\)</span> converge absolutely?</p>
+<p>At <span class="math">\(0\)</span> the integrand tends to <span class="math">\(1\)</span>, so there is no singularity. At infinity, <span class="math">\(F(x)=\int_0^x\sin t\,dt=1-\cos x\)</span> is bounded and <span class="math">\(\frac1x\downarrow0\)</span>, so the Dirichlet test gives convergence. For absolute convergence use <span class="math">\(\lvert\sin x\rvert\ge\sin^2x=\frac{1-\cos2x}{2}\)</span>: then <span class="math">\(\int_1^R\frac{\lvert\sin x\rvert}{x}\ge\frac12\ln R-\frac12\int_1^R\frac{\cos2x}{x}dx\to\infty\)</span>. So it converges conditionally but not absolutely.</p>
+<h3 id="example-6-raabes-test">Example 6: Raabe’s test</h3>
+<p>Test <span class="math">\(\sum_{n\ge1}\frac{\binom{2n}{n}}{4^n}\)</span>. The terms are <span class="math">\(c_n=\frac{1\cdot3\cdots(2n-1)}{2\cdot4\cdots2n}\)</span>. Then <span class="math">\(\frac{c_n}{c_{n+1}}=\frac{2n+2}{2n+1}\)</span>, so the ratio test gives <span class="math">\(\rho=1\)</span> and is silent. Raabe: <span class="math">\(n\left(\frac{2n+2}{2n+1}-1\right)=\frac{n}{2n+1}\to\frac12&lt;1\)</span>. The series diverges. (Indeed <span class="math">\(c_n\sim\frac1{\sqrt{\pi n}}\)</span>.)</p>
+</section><section class="note-section ns-common-traps" aria-labelledby="common-traps"><h2 id="common-traps">Common traps</h2>
+<ul>
+<li><strong><span class="math">\(\int_0^\infty x^{-p}dx\)</span> never converges</strong>: it needs <span class="math">\(p&lt;1\)</span> at <span class="math">\(0\)</span> and <span class="math">\(p&gt;1\)</span> at infinity. Questions offering “<span class="math">\(p&gt;1\)</span>” or “<span class="math">\(p&lt;1\)</span>” as the answer are traps.</li>
+<li><strong>Ratio test with limit <span class="math">\(1\)</span></strong> decides nothing; use Raabe, comparison, or the integral test.</li>
+<li><strong><span class="math">\(a_n\to0\)</span> is necessary, not sufficient.</strong> The <span class="math">\(n\)</span>th-term test only proves divergence.</li>
+<li><strong><span class="math">\(\lvert f\rvert\)</span> integrable does not give <span class="math">\(f\)</span> integrable.</strong> The converse (integrable <span class="math">\(\Rightarrow\)</span> <span class="math">\(\lvert f\rvert\)</span> integrable) is true.</li>
+<li><strong>Integrable needs boundedness.</strong> An unbounded <span class="math">\(f\)</span> is not Riemann integrable; the improper integral is a different notion.</li>
+<li><strong>FTC II needs <span class="math">\(f\)</span> integrable.</strong> A derivative that exists everywhere need not be integrable.</li>
+<li><strong>Principal value is not the integral.</strong> <span class="math">\(\int_{-1}^1\frac{dx}x\)</span> diverges although the PV is <span class="math">\(0\)</span>.</li>
+<li><strong>Beta/Gamma ranges.</strong> <span class="math">\(B(m,n)\)</span> needs <span class="math">\(m,n&gt;0\)</span>, and <span class="math">\(\Gamma(0)\)</span> is undefined. Check the exponents <span class="math">\(2m-1\)</span> and <span class="math">\(2n-1\)</span> when converting a trigonometric integral.</li>
+<li><strong>Dirichlet function.</strong> Not Riemann integrable, but Lebesgue integrable with integral <span class="math">\(0\)</span> (do not confuse the two).</li>
+<li><strong>Comparison needs <span class="math">\(f\ge0\)</span>.</strong> For signed integrands use absolute convergence or Dirichlet/Abel.</li>
+</ul>
+</section><section class="note-section ns-previous-year-questions" aria-labelledby="previous-year-questions"><h2 id="previous-year-questions">Previous-year questions</h2>
+<h3 id="2025-q42">2025, Q42</h3>
+<p>Arrange the following in a sequence so that each statement implies the next: I. <span class="math">\(\{a_n\}\)</span> is a Cauchy sequence; II. <span class="math">\(\{a_1+\dots+a_n\}\)</span> is convergent; III. <span class="math">\(\sum a_n\)</span> is convergent; IV. <span class="math">\(\lim a_n=0\)</span>. Options: (A) I, II, IV, III; (B) I, IV, III, II; (C) II, III, IV, I; (D) I, III, II, IV. <strong>Answer: C</strong> (official key).</p>
+<p>Solution: II and III say the same thing. A convergent series has <span class="math">\(a_n\to0\)</span> (IV). A sequence that tends to <span class="math">\(0\)</span> converges, hence is Cauchy (I). The reverse implications fail (harmonic series).</p>
+<h3 id="2025-q44">2025, Q44</h3>
+<p>Assertion (A): the series <span class="math">\(\sum u_n\)</span> with <span class="math">\(u_n=\frac{3^n}{2^n+3^n}\)</span> is divergent. Reason (R): <span class="math">\(\lim u_n\ne0\)</span>. <strong>Answer: A</strong> (both true, R explains A; official key).</p>
+<p>Solution: <span class="math">\(u_n=\frac{1}{1+(2/3)^n}\to1\ne0\)</span>, so the <span class="math">\(n\)</span>th-term test shows divergence. R is exactly the reason.</p>
+</section><section class="note-section ns-quick-revision" aria-labelledby="quick-revision"><h2 id="quick-revision">Quick revision</h2>
+<ul>
+<li>Riemann integrable iff <span class="math">\(\forall\varepsilon\ \exists P\)</span> with <span class="math">\(U-L&lt;\varepsilon\)</span>; bounded is part of the definition.</li>
+<li>Bounded <span class="math">\(f\)</span> is Riemann integrable iff its discontinuity set has measure zero (Lebesgue).</li>
+<li>Continuous, monotone, countably-discontinuous bounded, BV: all integrable. Dirichlet function: not.</li>
+<li><span class="math">\(\lvert f\rvert\)</span> integrable does not imply <span class="math">\(f\)</span> integrable; <span class="math">\(f\)</span> integrable implies <span class="math">\(\lvert f\rvert\)</span> and <span class="math">\(f^2\)</span> integrable.</li>
+<li>FTC I: derivative of <span class="math">\(\int_a^xf\)</span> is <span class="math">\(f\)</span> at points of continuity; FTC II needs <span class="math">\(G'=f\)</span> with <span class="math">\(f\)</span> integrable.</li>
+<li><span class="math">\(\int_1^\infty x^{-p}\)</span>: <span class="math">\(p&gt;1\)</span>; <span class="math">\(\int_0^1x^{-p}\)</span>: <span class="math">\(p&lt;1\)</span>; <span class="math">\(\int_0^\infty x^{-p}\)</span>: never.</li>
+<li><span class="math">\(\int_0^\infty\frac{\sin x}x=\frac\pi2\)</span>, conditional only.</li>
+<li><span class="math">\(B(m,n)=\frac{\Gamma(m)\Gamma(n)}{\Gamma(m+n)}\)</span>; <span class="math">\(\Gamma(\frac12)=\sqrt\pi\)</span>; <span class="math">\(\Gamma(n)\Gamma(1-n)=\frac\pi{\sin n\pi}\)</span>.</li>
+<li><span class="math">\(\int_0^{\pi/2}\sin^p\cos^q=\frac12B(\frac{p+1}2,\frac{q+1}2)\)</span>.</li>
+<li>Ratio test silent at <span class="math">\(1\)</span>: use Raabe. <span class="math">\(\sum\frac1{n(\ln n)^p}\)</span> converges iff <span class="math">\(p&gt;1\)</span>.</li>
+<li>Series chain: partial sums converge <span class="math">\(\iff\)</span> series converges <span class="math">\(\Rightarrow a_n\to0\Rightarrow\)</span> Cauchy.</li>
+</ul>
+</section></article></div><section class="section reader-end"><button class="read-btn" type="button" data-read-btn aria-pressed="false"><span class="box" aria-hidden="true"></span><span data-read-label>Mark as read</span></button><ul class="units end-links"><li><a class="unit-card" href="/uphesc-maths/learn/analysis/riemann-and-improper-integrals/practice/"><span class="unit-top"><span class="unit-name">Practise this topic</span></span><p class="flush">14 questions with worked solutions</p></a></li><li><a class="unit-card" href="/uphesc-maths/learn/analysis/bounded-variation-and-fourier-series/"><span class="unit-top"><span class="unit-name">Next: Bounded variation and Fourier series</span></span><p class="flush">High priority · 2 h</p></a></li></ul><p class="prev-link"><a href="/uphesc-maths/learn/analysis/sequences-and-series-of-functions/">Previous: Sequences and series of functions</a></p></section></div><footer class="foot"><p>Built from every paper that survives: the full 2025 and 2026 papers (140 maths questions) and half of 2019 (35, from a solution video). 2015 left only an answer key, and nothing was found for 2021. The commission has never published its booklets. Unit counts use 2025 and 2026 only, so they show a range, not a trend.</p><p>2025 answers match the official key. 2026 has no key yet, so its answers were worked out by hand and marked high, medium or low confidence, and every unsure one was solved again, blind. 2019 answers come from the video and are not checked against the official key.</p></footer></main><script type="module">var e=document.documentElement,t=()=>e.dataset.mode?e.dataset.mode===`dark`:matchMedia(`(prefers-color-scheme: dark)`).matches;document.querySelector(`[data-mode-toggle]`)?.addEventListener(`click`,()=>{let n=t()?`light`:`dark`;e.dataset.mode=n;try{localStorage.setItem(`um:mode`,n)}catch{}}),!e.dataset.mode&&t()&&(e.dataset.mode=`dark`);var n=document.querySelectorAll(`[data-old-toggle]`),r=t=>{t?e.dataset.old=`on`:delete e.dataset.old,n.forEach(e=>e.setAttribute(`aria-checked`,String(t)))};r(e.dataset.old===`on`),n.forEach(t=>t.addEventListener(`click`,()=>{let t=e.dataset.old!==`on`;r(t);try{localStorage.setItem(`um:old`,t?`on`:`off`)}catch{}}));var i=document.querySelectorAll(`[data-view]`),a=t=>{t===`bars`?e.dataset.view=`bars`:delete e.dataset.view,i.forEach(e=>e.setAttribute(`aria-pressed`,String(e.dataset.view===t)))};a(e.dataset.view===`bars`?`bars`:`heat`),i.forEach(e=>e.addEventListener(`click`,()=>{a(e.dataset.view);try{localStorage.setItem(`um:view`,e.dataset.view)}catch{}}));var o=document.createElement(`div`);o.className=`tip`,o.setAttribute(`role`,`tooltip`),o.hidden=!0,document.body.append(o);var s=null,c=(e,t)=>{let n=o.offsetWidth,r=o.offsetHeight,i=e+12,a=t+12;i+n>innerWidth-8&&(i=Math.max(8,e-n-12)),a+r>innerHeight-8&&(a=Math.max(8,t-r-12)),o.style.left=`${i}px`,o.style.top=`${a}px`},l=()=>{if(s){let e=s.getBoundingClientRect();c(e.left+e.width*.3,e.bottom-8)}},u=e=>{e!==s&&(s=e,o.replaceChildren(...[...e.querySelector(`.tip-src`).childNodes].map(e=>e.cloneNode(!0)))),o.hidden=!1},d=()=>{o.hidden=!0,s=null};document.addEventListener(`pointermove`,e=>{if(e.pointerType!==`mouse`)return;let t=e.target.closest(`[data-tip]`);t?(u(t),c(e.clientX,e.clientY)):s&&d()}),document.addEventListener(`focusin`,e=>{let t=e.target.closest(`[data-tip]`);t&&(u(t),l())}),document.addEventListener(`focusout`,()=>d()),addEventListener(`scroll`,()=>{s&&document.activeElement===s?l():s&&d()},{passive:!0}),document.addEventListener(`keydown`,e=>{e.key===`Escape`&&d()});var f=`um:done`,p={};try{p=JSON.parse(localStorage.getItem(f)||`{}`)}catch{}var m=()=>{document.querySelectorAll(`[data-progress]`).forEach(e=>{let t=[...document.querySelectorAll(`[data-group="${e.dataset.progress}"]`)],n=t.filter(e=>e.checked).length;e.querySelector(`.progress-bar span`).style.width=`${n/t.length*100}%`,e.querySelector(`[data-count]`).textContent=`${n} of ${t.length} done`})};document.querySelectorAll(`input[data-check]`).forEach(e=>{e.checked=!!p[e.dataset.check],e.addEventListener(`change`,()=>{p[e.dataset.check]=e.checked;try{localStorage.setItem(f,JSON.stringify(p))}catch{}m()})}),m();</script></body></html><script type="module" src="/uphesc-maths/_astro/index.astro_astro_type_script_index_0_lang.t7qZbIYF.js"></script>

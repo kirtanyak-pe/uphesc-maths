@@ -1,0 +1,320 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Quadratic forms · UPESSC maths</title><meta name="description" content="What to study for the UPESSC (formerly UPHESC) Assistant Professor maths paper, built from every paper that survives."><link rel="icon" href="/uphesc-maths/favicon.svg" type="image/svg+xml"><link rel="preload" href="/uphesc-maths/fonts/inter-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin><!-- the saved light/dark, 2019 and chart-view choices, before first paint --><script>
+    try { var m = localStorage.getItem('um:mode'); if (m) document.documentElement.dataset.mode = m; } catch (e) {}
+    try { if (localStorage.getItem('um:old') === 'on') document.documentElement.dataset.old = 'on'; } catch (e) {}
+    try { if (localStorage.getItem('um:view') === 'bars') document.documentElement.dataset.view = 'bars'; } catch (e) {}
+  </script><!-- maths: the vendored MathJax typesets \( \) and \[ \] text, loaded only on pages that have any --><script>(function(){const VENDOR = "/uphesc-maths/vendor";
+
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+      loader: { paths: { mathjax: VENDOR + '/mathjax', fonts: VENDOR + '/mathjax/fonts' } },
+      output: { font: 'mathjax-stix2', displayOverflow: 'scroll' },
+      options: { ignoreHtmlClass: 'no-math', processHtmlClass: 'math', menuOptions: { settings: { enrich: false, speech: false, braille: false } } },
+      chtml: { displayOverflow: 'scroll' },
+      // an inline formula with a piece wider than its line gets its own scrolling line, like display maths
+      startup: { pageReady: () => MathJax.startup.defaultPageReady().then(fitMath) },
+    };
+    function fitMath() {
+      for (const m of document.querySelectorAll('mjx-container:not([display="true"]):not(.mjx-wide)')) {
+        const box = m.closest('p, li, dd, blockquote, div');
+        if (!box || m.closest('td, th')) continue;
+        const right = box.getBoundingClientRect().right + 1;
+        if ([...m.getClientRects()].some((r) => r.right > right)) m.classList.add('mjx-wide');
+      }
+    }
+    let fitQueued = 0;
+    const queueFit = () => { if (window.MathJax?.startup?.document && !fitQueued) fitQueued = requestAnimationFrame(() => { fitQueued = 0; fitMath(); }); };
+    addEventListener('resize', queueFit);
+    addEventListener('click', () => setTimeout(queueFit, 50));
+    document.addEventListener('DOMContentLoaded', () => {
+      if (!document.querySelector('.math')) return;
+      const s = document.createElement('script');
+      s.async = true;
+      s.src = VENDOR + '/mathjax/tex-chtml-nofont.js';
+      document.head.appendChild(s);
+    });
+  })();</script><link rel="stylesheet" href="/uphesc-maths/_astro/Base.CkQ5KWO8.css"></head><body data-tab="learn"><nav class="appnav" aria-label="Main"><a class="appnav-brand" href="/uphesc-maths/" aria-label="UPESSC maths home">∑</a><a class="appnav-item" href="/uphesc-maths/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4 10.2 12 4l8 6.2V19a1 1 0 0 1-1 1h-4.5v-5.5h-5V20H5a1 1 0 0 1-1-1z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Plan</span></a><a class="appnav-item" href="/uphesc-maths/learn/" aria-current="page"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M12 6.5C10 5 7.5 4.5 4 4.5v13c3.5 0 6 .5 8 2 2-1.5 4.5-2 8-2v-13c-3.5 0-6 .5-8 2zM12 6.5v13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Learn</span></a><a class="appnav-item" href="/uphesc-maths/units/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4 5h7v7H4zM13 5h7v7h-7zM4 14h7v6H4zM13 14h7v6h-7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Units</span></a><a class="appnav-item" href="/uphesc-maths/papers/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M7 3h7l4 4v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zM14 3v4h4M9 12h6M9 16h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Papers</span></a><a class="appnav-item" href="/uphesc-maths/revise/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M5 12.5 9.5 17 19 7.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Revise</span></a></nav><header class="topbar"><a class="bar-back" href="/uphesc-maths/learn/linear-algebra/" aria-label="Back"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a><p class="bar-title">Unit 2</p><button class="bar-btn" type="button" data-mode-toggle aria-label="Switch light or dark"><svg class="i-moon" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path></svg><svg class="i-sun" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path></svg></button></header><main class="page"><div class="reader" data-topic="quadratic-forms"><header class="page-head topic-head"><p class="kicker"><a href="/uphesc-maths/learn/linear-algebra/">Unit 2 · Linear Algebra</a></p><h1>Quadratic forms</h1><ul class="meta"><li class="prio high">High priority</li><li>2 h to study</li><li>Asked 2 times</li><li class="read-flag" data-read-flag hidden>Read</li></ul><p class="pyq-line">Previous papers: 2026 Q84, 2026 Q87</p><p class="prereq">Read first: <a href="/uphesc-maths/learn/linear-algebra/vector-spaces/">Vector spaces, subspaces and dimension</a>, <a href="/uphesc-maths/learn/linear-algebra/inner-product-spaces/">Inner product spaces, adjoint, special matrices and spectral theorem</a></p></header><div class="reader-grid"><nav class="toc" aria-label="On this page"><details class="toc-box" data-toc><summary>On this page</summary><ol><li><a href="#why-it-matters-for-the-exam">Why it matters for the exam</a></li><li><a href="#core-ideas">Core ideas</a></li><li class="sub"><a href="#matrix-of-a-quadratic-form">Matrix of a quadratic form</a></li><li class="sub"><a href="#congruence">Congruence</a></li><li class="sub"><a href="#reducing-to-a-sum-of-squares">Reducing to a sum of squares</a></li><li class="sub"><a href="#rank-index-signature-canonical-form">Rank, index, signature, canonical form</a></li><li class="sub"><a href="#definiteness">Definiteness</a></li><li class="sub"><a href="#conics">Conics</a></li><li class="sub"><a href="#quadrics">Quadrics</a></li><li><a href="#formulas-and-results">Formulas and results</a></li><li><a href="#worked-examples">Worked examples</a></li><li class="sub"><a href="#example-1-lagrange-reduction">Example 1: Lagrange reduction</a></li><li class="sub"><a href="#example-2-no-square-terms">Example 2: no square terms</a></li><li class="sub"><a href="#example-3-definiteness-with-a-parameter">Example 3: definiteness with a parameter</a></li><li class="sub"><a href="#example-4-classify-conics">Example 4: classify conics</a></li><li class="sub"><a href="#example-5-classify-a-quadric">Example 5: classify a quadric</a></li><li class="sub"><a href="#example-6-maximum-of-a-form-on-the-unit-circle">Example 6: maximum of a form on the unit circle</a></li><li><a href="#common-traps">Common traps</a></li><li><a href="#previous-year-questions">Previous-year questions</a></li><li class="sub"><a href="#2026-q84-rank-and-index-of-a-form">2026, Q84 (rank and index of a form)</a></li><li class="sub"><a href="#2026-q87-symmetric-matrix-and-signature">2026, Q87 (symmetric matrix and signature)</a></li><li><a href="#quick-revision">Quick revision</a></li></ol></details></nav><article class="prose"><section class="note-section ns-why-it-matters-for-the-exam" aria-labelledby="why-it-matters-for-the-exam"><h2 id="why-it-matters-for-the-exam">Why it matters for the exam</h2>
+<p>Quadratic forms were asked twice in 2026 (Q84 rank and index, Q87 signature of a symmetric matrix) and the topic is named in the syllabus. The questions are short calculations: write the matrix of a form, reduce to a sum of squares, read off rank, index and signature, or test definiteness. Conics and quadrics classification belongs here too and is a standard application.</p>
+</section><section class="note-section ns-core-ideas" aria-labelledby="core-ideas"><h2 id="core-ideas">Core ideas</h2>
+<h3 id="matrix-of-a-quadratic-form">Matrix of a quadratic form</h3>
+<p>A quadratic form on <span class="math">\(\mathbb R^n\)</span> is <span class="math">\(Q(x)=\sum_{i,j}a_{ij}x_ix_j=x^TAx\)</span>. The matrix <span class="math">\(A\)</span> can be chosen <strong>symmetric</strong> and then it is unique:</p>
+<ul>
+<li><span class="math">\(a_{ii}\)</span> is the coefficient of <span class="math">\(x_i^2\)</span>;</li>
+<li><span class="math">\(a_{ij}=a_{ji}\)</span> is <strong>half</strong> the coefficient of <span class="math">\(x_ix_j\)</span> (<span class="math">\(i\ne j\)</span>).</li>
+</ul>
+<p>Example: <span class="math">\(Q=2x^2+6xy-4y^2\)</span> has <span class="math">\(A=\begin{pmatrix}2&amp;3\\3&amp;-4\end{pmatrix}\)</span> (the <span class="math">\(3\)</span>, not <span class="math">\(6\)</span>).</p>
+<p>Over <span class="math">\(\mathbb C\)</span> the same applies to <span class="math">\(x^TAx\)</span> (complex symmetric <span class="math">\(A\)</span>), and a Hermitian form is <span class="math">\(x^*Ax\)</span> with <span class="math">\(A\)</span> Hermitian; everything below also holds for Hermitian forms.</p>
+<h3 id="congruence">Congruence</h3>
+<p><span class="math">\(A\)</span> and <span class="math">\(B\)</span> are <strong>congruent</strong> if <span class="math">\(B=P^TAP\)</span> for some invertible <span class="math">\(P\)</span> (the substitution <span class="math">\(x=Py\)</span> turns <span class="math">\(x^TAx\)</span> into <span class="math">\(y^TBy\)</span>). Congruence is an equivalence relation. It preserves: symmetry, <strong>rank</strong>, the <strong>signature</strong> and index (Sylvester), definiteness. It does <strong>not</strong> preserve eigenvalues, trace or determinant (the determinant is multiplied by <span class="math">\((\det P)^2\)</span>, so its sign is preserved).</p>
+<p>Similarity (<span class="math">\(P^{-1}AP\)</span>) and congruence (<span class="math">\(P^TAP\)</span>) coincide when <span class="math">\(P\)</span> is orthogonal (<span class="math">\(P^T=P^{-1}\)</span>). That is why orthogonal diagonalization gives a reduction of a form with the eigenvalues as coefficients.</p>
+<h3 id="reducing-to-a-sum-of-squares">Reducing to a sum of squares</h3>
+<p>There are three standard methods. All give <span class="math">\(Q=\sum d_iy_i^2\)</span> with the same number of positive and negative <span class="math">\(d_i\)</span>.</p>
+<ol>
+<li><strong>Orthogonal diagonalization</strong> (principal axes). Find orthonormal eigenvectors <span class="math">\(q_i\)</span> of <span class="math">\(A\)</span> with eigenvalues <span class="math">\(\lambda_i\)</span>; with <span class="math">\(x=Qy\)</span>, <span class="math">\(Q(x)=\sum\lambda_iy_i^2\)</span>. Metric information (lengths, angles) is kept.</li>
+<li><strong>Lagrange’s completing the square.</strong> If some <span class="math">\(a_{ii}\ne0\)</span>, collect all terms with <span class="math">\(x_i\)</span> and complete the square, then repeat on the remaining variables. If every <span class="math">\(a_{ii}=0\)</span> but some <span class="math">\(a_{ij}\ne0\)</span>, first substitute <span class="math">\(x_i=u+v\)</span>, <span class="math">\(x_j=u-v\)</span>, which creates squares.</li>
+<li><strong>Symmetric elimination (congruence).</strong> Apply a row operation, then the same column operation, until the matrix is diagonal.</li>
+</ol>
+<h3 id="rank-index-signature-canonical-form">Rank, index, signature, canonical form</h3>
+<p>Let <span class="math">\(A\)</span> be real symmetric with <span class="math">\(p\)</span> positive and <span class="math">\(q\)</span> negative diagonal entries after diagonalization, and <span class="math">\(r=p+q\)</span>.</p>
+<ul>
+<li><strong>Rank</strong> <span class="math">\(r=\operatorname{rank}A\)</span> (number of non-zero squares).</li>
+<li><strong>Index</strong> <span class="math">\(p\)</span> = number of positive squares.</li>
+<li><strong>Signature</strong> <span class="math">\(s=p-q=2p-r\)</span>.</li>
+<li>The normal form over <span class="math">\(\mathbb R\)</span> is <span class="math">\(y_1^2+\dots+y_p^2-y_{p+1}^2-\dots-y_r^2\)</span>.</li>
+<li>Over <span class="math">\(\mathbb C\)</span> the normal form is <span class="math">\(z_1^2+\dots+z_r^2\)</span>, so rank is the only invariant.</li>
+</ul>
+<p>Conventions vary: most Indian texts (and the 2026 key) define index as the number of positive squares, and a few call <span class="math">\(q\)</span> the index, or write signature as the pair <span class="math">\((p,q)\)</span>. Read the options: if they are pairs, the pair <span class="math">\((p,q)\)</span> or (rank, index) is meant.</p>
+<p>Counting: the congruence classes of real symmetric <span class="math">\(n\times n\)</span> matrices are given by <span class="math">\((p,q)\)</span> with <span class="math">\(p+q\le n\)</span>, which is <span class="math">\(\tfrac{(n+1)(n+2)}2\)</span> classes (for <span class="math">\(n=3\)</span>: <span class="math">\(10\)</span>). The non-degenerate ones (<span class="math">\(r=n\)</span>) give <span class="math">\(n+1\)</span> classes. Over <span class="math">\(\mathbb C\)</span> there are <span class="math">\(n+1\)</span> classes (ranks <span class="math">\(0,\dots,n\)</span>).</p>
+<p><strong>Eigenvalue reading.</strong> <span class="math">\(p\)</span> = number of positive eigenvalues of <span class="math">\(A\)</span>, <span class="math">\(q\)</span> = number of negative eigenvalues, <span class="math">\(n-r\)</span> = multiplicity of eigenvalue <span class="math">\(0\)</span> (all with multiplicity). Example: <span class="math">\(Q=(x+y+z)^2\)</span> has matrix of all ones, eigenvalues <span class="math">\(3,0,0\)</span>, so <span class="math">\(r=1,p=1,q=0\)</span>.</p>
+<p><strong>Sylvester’s law of inertia.</strong> For a real quadratic form, <span class="math">\(p\)</span> and <span class="math">\(q\)</span> do not depend on the diagonalizing substitution. (The individual coefficients <span class="math">\(d_i\)</span> do: scaling <span class="math">\(y_i\)</span> changes them.) Equivalent statement: congruent symmetric matrices have the same <span class="math">\((p,q)\)</span>, and conversely real symmetric matrices with the same <span class="math">\((p,q)\)</span> are congruent.</p>
+<p><strong>Jacobi’s rule.</strong> If all leading principal minors <span class="math">\(\Delta_1,\dots,\Delta_n\)</span> of <span class="math">\(A\)</span> are non-zero, then <span class="math">\(q\)</span> equals the number of sign changes in the sequence <span class="math">\(1,\Delta_1,\Delta_2,\dots,\Delta_n\)</span>.</p>
+<h3 id="definiteness">Definiteness</h3>
+<p>For real symmetric <span class="math">\(A\)</span> and <span class="math">\(Q(x)=x^TAx\)</span>:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Condition</th>
+<th>Eigenvalues</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Positive definite (PD)</td>
+<td><span class="math">\(Q(x)&gt;0\)</span> for all <span class="math">\(x\ne0\)</span></td>
+<td>all <span class="math">\(&gt;0\)</span></td>
+</tr>
+<tr>
+<td>Positive semidefinite (PSD)</td>
+<td><span class="math">\(Q(x)\ge0\)</span> for all <span class="math">\(x\)</span></td>
+<td>all <span class="math">\(\ge0\)</span></td>
+</tr>
+<tr>
+<td>Negative definite (ND)</td>
+<td><span class="math">\(Q(x)&lt;0\)</span> for all <span class="math">\(x\ne0\)</span></td>
+<td>all <span class="math">\(&lt;0\)</span></td>
+</tr>
+<tr>
+<td>Negative semidefinite</td>
+<td><span class="math">\(Q(x)\le0\)</span> for all <span class="math">\(x\)</span></td>
+<td>all <span class="math">\(\le0\)</span></td>
+</tr>
+<tr>
+<td>Indefinite</td>
+<td>takes both signs</td>
+<td>both signs occur</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Tests for PD</strong> (any one is equivalent to the others):</p>
+<ul>
+<li>all eigenvalues are positive;</li>
+<li><strong>Sylvester’s criterion:</strong> all leading principal minors are positive, <span class="math">\(\Delta_k&gt;0\)</span> for <span class="math">\(k=1,\dots,n\)</span>;</li>
+<li>all pivots in Gaussian elimination (without row exchanges) are positive;</li>
+<li><span class="math">\(A=B^TB\)</span> for an invertible <span class="math">\(B\)</span> (Cholesky: <span class="math">\(A=LL^T\)</span>, <span class="math">\(L\)</span> lower triangular with positive diagonal);</li>
+<li><span class="math">\(p=n\)</span>.</li>
+</ul>
+<p><strong>ND:</strong> <span class="math">\((-1)^k\Delta_k&gt;0\)</span> for all <span class="math">\(k\)</span> (signs alternate, starting negative).</p>
+<p><strong>PSD</strong> needs <strong>all</strong> principal minors (every choice of rows <span class="math">\(=\)</span> columns, not only the leading ones) to be <span class="math">\(\ge0\)</span>. Leading minors <span class="math">\(\ge0\)</span> are not enough: <span class="math">\(\begin{pmatrix}0&amp;0\\0&amp;-1\end{pmatrix}\)</span> has <span class="math">\(\Delta_1=\Delta_2=0\)</span> but is negative semidefinite. Equivalent: <span class="math">\(A=B^TB\)</span> for some <span class="math">\(B\)</span>.</p>
+<p>Consequences for PD matrices: <span class="math">\(a_{ii}&gt;0\)</span>; <span class="math">\(a_{ij}^2&lt;a_{ii}a_{jj}\)</span>; <span class="math">\(\det A&gt;0\)</span>; <span class="math">\(A^{-1}\)</span> and <span class="math">\(A^k\)</span> are PD; <span class="math">\(C^TAC\)</span> is PD for invertible <span class="math">\(C\)</span>; sums of PD matrices are PD. A strictly diagonally dominant symmetric matrix with positive diagonal is PD. A necessary condition only: positive diagonal entries (not sufficient), <span class="math">\(\det&gt;0\)</span> (not sufficient).</p>
+<p><strong>Rayleigh quotient.</strong> For real symmetric <span class="math">\(A\)</span> with eigenvalues <span class="math">\(\lambda_{\min}\le\dots\le\lambda_{\max}\)</span>, on <span class="math">\(\lVert x\rVert=1\)</span> the form <span class="math">\(x^TAx\)</span> ranges over <span class="math">\([\lambda_{\min},\lambda_{\max}]\)</span>. The extremes are attained at the corresponding unit eigenvectors.</p>
+<p><strong>Simultaneous diagonalization.</strong> If <span class="math">\(B\)</span> is PD and <span class="math">\(A\)</span> is symmetric, there is an invertible <span class="math">\(P\)</span> with <span class="math">\(P^TBP=I\)</span> and <span class="math">\(P^TAP\)</span> diagonal (solve <span class="math">\(\det(A-\lambda B)=0\)</span>). Two arbitrary forms cannot always be diagonalized together.</p>
+<h3 id="conics">Conics</h3>
+<p>For <span class="math">\(S:\ ax^2+2hxy+by^2+2gx+2fy+c=0\)</span> put</p>
+<p><span class="math">\(\delta=ab-h^2,\qquad\Delta=\det\begin{pmatrix}a&amp;h&amp;g\\h&amp;b&amp;f\\g&amp;f&amp;c\end{pmatrix}.\)</span></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th><span class="math">\(\Delta\)</span></th>
+<th><span class="math">\(\delta\)</span></th>
+<th>Conic</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math">\(\ne0\)</span></td>
+<td><span class="math">\(&gt;0\)</span></td>
+<td>ellipse: real if <span class="math">\((a+b)\Delta&lt;0\)</span>, imaginary (no real points) if <span class="math">\((a+b)\Delta&gt;0\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(\ne0\)</span></td>
+<td><span class="math">\(=0\)</span></td>
+<td>parabola</td>
+</tr>
+<tr>
+<td><span class="math">\(\ne0\)</span></td>
+<td><span class="math">\(&lt;0\)</span></td>
+<td>hyperbola (rectangular iff <span class="math">\(a+b=0\)</span>)</td>
+</tr>
+<tr>
+<td><span class="math">\(=0\)</span></td>
+<td><span class="math">\(&gt;0\)</span></td>
+<td>a single point (two imaginary lines)</td>
+</tr>
+<tr>
+<td><span class="math">\(=0\)</span></td>
+<td><span class="math">\(&lt;0\)</span></td>
+<td>pair of distinct intersecting lines</td>
+</tr>
+<tr>
+<td><span class="math">\(=0\)</span></td>
+<td><span class="math">\(=0\)</span></td>
+<td>pair of parallel (or coincident, or imaginary) lines</td>
+</tr>
+</tbody>
+</table></div>
+<p>The sign test is <span class="math">\(\delta\)</span> = product of the eigenvalues of the form’s matrix: same sign means elliptic, opposite signs hyperbolic, one zero parabolic. To remove the <span class="math">\(xy\)</span> term rotate by <span class="math">\(\theta\)</span> with <span class="math">\(\tan2\theta=\dfrac{2h}{a-b}\)</span> (<span class="math">\(\theta=\pi/4\)</span> if <span class="math">\(a=b\)</span>). For a central conic (<span class="math">\(\delta\ne0\)</span>) the centre solves <span class="math">\(ax+hy+g=0\)</span>, <span class="math">\(hx+by+f=0\)</span>.</p>
+<h3 id="quadrics">Quadrics</h3>
+<p>For <span class="math">\(x^TAx+2b^Tx+c=0\)</span> in <span class="math">\(\mathbb R^3\)</span>, diagonalize <span class="math">\(A\)</span> orthogonally and translate.</p>
+<p><strong>If <span class="math">\(A\)</span> is invertible</strong>, the centre is <span class="math">\(x_0=-A^{-1}b\)</span> and the equation becomes <span class="math">\(\lambda_1u^2+\lambda_2v^2+\lambda_3w^2=d\)</span> with <span class="math">\(d=b^TA^{-1}b-c\)</span>. If <span class="math">\(d\ne0\)</span> multiply by <span class="math">\(\operatorname{sign}d\)</span> so <span class="math">\(d&gt;0\)</span> (this may swap <span class="math">\(p\)</span> and <span class="math">\(q\)</span>), then use the signs <span class="math">\((p,q)\)</span> of the eigenvalues:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th><span class="math">\((p,q)\)</span> of <span class="math">\(A\)</span> (after <span class="math">\(d&gt;0\)</span>)</th>
+<th>Surface</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math">\((3,0)\)</span></td>
+<td>ellipsoid</td>
+</tr>
+<tr>
+<td><span class="math">\((2,1)\)</span></td>
+<td>hyperboloid of one sheet</td>
+</tr>
+<tr>
+<td><span class="math">\((1,2)\)</span></td>
+<td>hyperboloid of two sheets</td>
+</tr>
+<tr>
+<td><span class="math">\((0,3)\)</span></td>
+<td>imaginary ellipsoid</td>
+</tr>
+</tbody>
+</table></div>
+<p>If <span class="math">\(d=0\)</span>: signs <span class="math">\((3,0)\)</span> or <span class="math">\((0,3)\)</span> give a single point; mixed signs give a real cone.</p>
+<p><strong>If <span class="math">\(\operatorname{rank}A=2\)</span></strong> (one zero eigenvalue): with a linear term along the null direction, <span class="math">\(\lambda_1u^2+\lambda_2v^2=2cw\)</span> is a paraboloid, elliptic if <span class="math">\(\lambda_1\lambda_2&gt;0\)</span>, hyperbolic if <span class="math">\(\lambda_1\lambda_2&lt;0\)</span> (here <span class="math">\(\operatorname{rank}\bar A=4\)</span> for the <span class="math">\(4\times4\)</span> bordered matrix). Without it, <span class="math">\(\lambda_1u^2+\lambda_2v^2=d\)</span> is a cylinder: elliptic (same signs), hyperbolic (opposite signs, <span class="math">\(d\ne0\)</span>); with <span class="math">\(d=0\)</span> a line or a pair of intersecting planes.</p>
+<p><strong>If <span class="math">\(\operatorname{rank}A=1\)</span>:</strong> <span class="math">\(\lambda u^2=2cv\)</span> is a parabolic cylinder; <span class="math">\(\lambda u^2=d\)</span> is a pair of parallel planes (or coincident, or imaginary).</p>
+</section><section class="note-section ns-formulas-and-results" aria-labelledby="formulas-and-results"><h2 id="formulas-and-results">Formulas and results</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Matrix of <span class="math">\(Q\)</span></td>
+<td><span class="math">\(a_{ii}\)</span> = coefficient of <span class="math">\(x_i^2\)</span>; <span class="math">\(a_{ij}\)</span> = half the coefficient of <span class="math">\(x_ix_j\)</span></td>
+</tr>
+<tr>
+<td>Congruence</td>
+<td><span class="math">\(B=P^TAP\)</span>, <span class="math">\(P\)</span> invertible; preserves rank, <span class="math">\((p,q)\)</span>, definiteness</td>
+</tr>
+<tr>
+<td>Rank, index, signature</td>
+<td><span class="math">\(r=p+q\)</span>, index <span class="math">\(p\)</span>, signature <span class="math">\(p-q=2p-r\)</span></td>
+</tr>
+<tr>
+<td>Sylvester</td>
+<td><span class="math">\((p,q)\)</span> independent of the diagonalization</td>
+</tr>
+<tr>
+<td>Real classes of <span class="math">\(n\times n\)</span></td>
+<td><span class="math">\(\tfrac{(n+1)(n+2)}2\)</span>; complex: <span class="math">\(n+1\)</span></td>
+</tr>
+<tr>
+<td>PD</td>
+<td>all eigenvalues <span class="math">\(&gt;0\)</span>; <span class="math">\(\Delta_k&gt;0\)</span> for all <span class="math">\(k\)</span>; <span class="math">\(A=B^TB\)</span></td>
+</tr>
+<tr>
+<td>ND</td>
+<td><span class="math">\((-1)^k\Delta_k&gt;0\)</span></td>
+</tr>
+<tr>
+<td>PSD</td>
+<td>all principal minors <span class="math">\(\ge0\)</span> (not only leading)</td>
+</tr>
+<tr>
+<td>Jacobi</td>
+<td><span class="math">\(q\)</span> = sign changes in <span class="math">\(1,\Delta_1,\dots,\Delta_n\)</span></td>
+</tr>
+<tr>
+<td>Rayleigh</td>
+<td><span class="math">\(\lambda_{\min}\le x^TAx\le\lambda_{\max}\)</span> on <span class="math">\(\lVert x\rVert=1\)</span></td>
+</tr>
+<tr>
+<td>Conic invariants</td>
+<td><span class="math">\(\delta=ab-h^2\)</span>, <span class="math">\(\Delta=\det\begin{pmatrix}a&amp;h&amp;g\\h&amp;b&amp;f\\g&amp;f&amp;c\end{pmatrix}\)</span></td>
+</tr>
+<tr>
+<td>Rotation angle</td>
+<td><span class="math">\(\tan2\theta=\dfrac{2h}{a-b}\)</span></td>
+</tr>
+<tr>
+<td>Quadric with <span class="math">\(A\)</span> invertible</td>
+<td><span class="math">\(Q(x-x_0)=d\)</span>, <span class="math">\(x_0=-A^{-1}b\)</span>, <span class="math">\(d=b^TA^{-1}b-c\)</span></td>
+</tr>
+</tbody>
+</table></div>
+</section><section class="note-section ns-worked-examples" aria-labelledby="worked-examples"><h2 id="worked-examples">Worked examples</h2>
+<h3 id="example-1-lagrange-reduction">Example 1: Lagrange reduction</h3>
+<p>Reduce <span class="math">\(Q=x_1^2+2x_2^2-7x_3^2-4x_1x_2+8x_1x_3\)</span> and find rank, index, signature.</p>
+<p>Collect <span class="math">\(x_1\)</span>: <span class="math">\(x_1^2-4x_1x_2+8x_1x_3=(x_1-2x_2+4x_3)^2-4x_2^2-16x_3^2+16x_2x_3\)</span>. So
+<span class="math">\(Q=(x_1-2x_2+4x_3)^2-2x_2^2+16x_2x_3-23x_3^2\)</span>. Then <span class="math">\(-2x_2^2+16x_2x_3=-2(x_2-4x_3)^2+32x_3^2\)</span>, giving</p>
+<p><span class="math">\(Q=y_1^2-2y_2^2+9y_3^2,\quad y_1=x_1-2x_2+4x_3,\ y_2=x_2-4x_3,\ y_3=x_3.\)</span></p>
+<p>Rank <span class="math">\(3\)</span>, index <span class="math">\(p=2\)</span>, <span class="math">\(q=1\)</span>, signature <span class="math">\(1\)</span>. (Identity checked at random integer points, and the congruence reduction of the matrix gives <span class="math">\((2,1)\)</span>.)</p>
+<h3 id="example-2-no-square-terms">Example 2: no square terms</h3>
+<p><span class="math">\(Q=2(xy+yz+zx)\)</span>. Put <span class="math">\(x=u+v\)</span>, <span class="math">\(y=u-v\)</span>: <span class="math">\(xy=u^2-v^2\)</span> and <span class="math">\(z(x+y)=2uz\)</span>, so <span class="math">\(Q=2u^2-2v^2+4uz=2(u+z)^2-2z^2-2v^2\)</span>. Hence <span class="math">\(p=1\)</span>, <span class="math">\(q=2\)</span>, rank <span class="math">\(3\)</span>, signature <span class="math">\(-1\)</span>. Check with eigenvalues: the matrix <span class="math">\(J-I\)</span> has eigenvalues <span class="math">\(2,-1,-1\)</span>.</p>
+<h3 id="example-3-definiteness-with-a-parameter">Example 3: definiteness with a parameter</h3>
+<p>For which <span class="math">\(k\)</span> is <span class="math">\(A=\begin{pmatrix}2&amp;-1&amp;0\\-1&amp;2&amp;-1\\0&amp;-1&amp;k\end{pmatrix}\)</span> positive definite?</p>
+<p><span class="math">\(\Delta_1=2\)</span>, <span class="math">\(\Delta_2=4-1=3\)</span>, <span class="math">\(\Delta_3=\det A=3k-2\)</span> (checked at several values of <span class="math">\(k\)</span>). All positive iff <span class="math">\(k&gt;\tfrac23\)</span>. At <span class="math">\(k=\tfrac23\)</span> the determinant is <span class="math">\(0\)</span> and <span class="math">\(A\)</span> is positive semidefinite (inertia <span class="math">\((2,0)\)</span> with one zero). For <span class="math">\(k&lt;\tfrac23\)</span> it is indefinite with <span class="math">\(p=2,q=1\)</span> (when <span class="math">\(\Delta_3&lt;0\)</span>).</p>
+<h3 id="example-4-classify-conics">Example 4: classify conics</h3>
+<p>(a) <span class="math">\(5x^2-6xy+5y^2-8=0\)</span>: <span class="math">\(a=5,h=-3,b=5,c=-8\)</span>. <span class="math">\(\delta=25-9=16&gt;0\)</span>, <span class="math">\(\Delta=-8\cdot16=-128\)</span>, <span class="math">\((a+b)\Delta&lt;0\)</span>, real ellipse. Eigenvalues of <span class="math">\(\begin{pmatrix}5&amp;-3\\-3&amp;5\end{pmatrix}\)</span> are <span class="math">\(8,2\)</span>, so in rotated coordinates <span class="math">\(8u^2+2v^2=8\)</span>, i.e. <span class="math">\(u^2+v^2/4=1\)</span> with semi-axes <span class="math">\(1\)</span> and <span class="math">\(2\)</span>.</p>
+<p>(b) <span class="math">\(x^2-2xy+y^2-4x-4y=0\)</span>: <span class="math">\(\delta=1-1=0\)</span>, <span class="math">\(\Delta=-16\ne0\)</span>, parabola.</p>
+<p>(c) <span class="math">\(x^2+2xy+y^2=4\)</span>: <span class="math">\(\delta=0\)</span>, <span class="math">\(\Delta=0\)</span>, so a pair of parallel lines: <span class="math">\((x+y)^2=4\)</span> gives <span class="math">\(x+y=\pm2\)</span>.</p>
+<p>(d) <span class="math">\(2x^2+xy+2y^2+5=0\)</span>: <span class="math">\(\delta=\tfrac{15}4&gt;0\)</span>, <span class="math">\(\Delta=\tfrac{75}4&gt;0\)</span>, <span class="math">\((a+b)\Delta&gt;0\)</span>: imaginary ellipse (the form is positive definite and the right side is negative, so no real point).</p>
+<h3 id="example-5-classify-a-quadric">Example 5: classify a quadric</h3>
+<p><span class="math">\(x^2+y^2-z^2-2x+2y-2z+2=0\)</span>. Complete squares: <span class="math">\((x-1)^2+(y+1)^2-(z+1)^2+1=0\)</span>, i.e. <span class="math">\((x-1)^2+(y+1)^2-(z+1)^2=-1\)</span>. Here <span class="math">\(A=\operatorname{diag}(1,1,-1)\)</span>, <span class="math">\(d=-1&lt;0\)</span>. Multiply by <span class="math">\(-1\)</span>: <span class="math">\(-(x-1)^2-(y+1)^2+(z+1)^2=1\)</span>, signs <span class="math">\((1,2)\)</span>: <strong>hyperboloid of two sheets</strong>, centre <span class="math">\((1,-1,-1)\)</span>.</p>
+<h3 id="example-6-maximum-of-a-form-on-the-unit-circle">Example 6: maximum of a form on the unit circle</h3>
+<p>Maximum and minimum of <span class="math">\(x^2+4xy+y^2\)</span> on <span class="math">\(x^2+y^2=1\)</span>. Matrix <span class="math">\(\begin{pmatrix}1&amp;2\\2&amp;1\end{pmatrix}\)</span> has eigenvalues <span class="math">\(3,-1\)</span> (eigenvectors <span class="math">\((1,1)\)</span>, <span class="math">\((1,-1)\)</span>). By the Rayleigh bound the range is <span class="math">\([-1,3]\)</span>. Maximum <span class="math">\(3\)</span> at <span class="math">\(\pm\tfrac1{\sqrt2}(1,1)\)</span> (numerically confirmed by scanning the circle), minimum <span class="math">\(-1\)</span>.</p>
+</section><section class="note-section ns-common-traps" aria-labelledby="common-traps"><h2 id="common-traps">Common traps</h2>
+<ul>
+<li><strong>Off-diagonal entries are half the coefficient.</strong> <span class="math">\(6xy\)</span> gives <span class="math">\(a_{12}=3\)</span>.</li>
+<li><strong>Congruence is not similarity.</strong> Eigenvalues change under congruence; only the <strong>signs</strong> (and the zero count) are invariant. Orthogonal <span class="math">\(P\)</span> is the one case where both hold.</li>
+<li><strong>Sylvester’s law is about the counts <span class="math">\(p,q\)</span>, not the coefficients.</strong> Different reductions give different coefficients but the same numbers of positive and negative terms.</li>
+<li><strong>Convention of “index”.</strong> Index <span class="math">\(=p\)</span> (positive squares) in most exam keys; signature <span class="math">\(=p-q\)</span>. If options are pairs, check which pair is asked: (rank, index), <span class="math">\((p,q)\)</span> or (rank, signature).</li>
+<li><strong>Leading minors <span class="math">\(\ge0\)</span> do not give PSD.</strong> PSD needs all principal minors <span class="math">\(\ge0\)</span>. For PD, leading minors <span class="math">\(&gt;0\)</span> suffice.</li>
+<li><strong>Positive diagonal does not give PD.</strong> <span class="math">\(\begin{pmatrix}1&amp;2\\2&amp;1\end{pmatrix}\)</span> has positive diagonal and is indefinite (<span class="math">\(\det=-3\)</span>).</li>
+<li><strong><span class="math">\(\det A&gt;0\)</span> does not give PD.</strong> <span class="math">\(-I_2\)</span> has <span class="math">\(\det=1\)</span> but is negative definite.</li>
+<li><strong>ND test.</strong> The signs of <span class="math">\(\Delta_k\)</span> alternate <span class="math">\(-,+,-,\dots\)</span>; “all minors negative” is wrong.</li>
+<li><strong>Conic with <span class="math">\(\Delta=0\)</span> is degenerate</strong>, whatever <span class="math">\(\delta\)</span> says. Check <span class="math">\(\Delta\)</span> first.</li>
+<li><strong>Real vs imaginary ellipse.</strong> <span class="math">\(\delta&gt;0\)</span> and <span class="math">\(\Delta\ne0\)</span> does not guarantee a real ellipse; check the sign of <span class="math">\((a+b)\Delta\)</span>.</li>
+<li><strong>Quadric with <span class="math">\(d&lt;0\)</span>.</strong> Flip the sign of the whole equation before counting positive and negative eigenvalues (hyperboloid of one sheet versus two sheets swap).</li>
+<li><strong>Rank of the form</strong> is the rank of the symmetric matrix, not the number of variables appearing.</li>
+</ul>
+</section><section class="note-section ns-previous-year-questions" aria-labelledby="previous-year-questions"><h2 id="previous-year-questions">Previous-year questions</h2>
+<h3 id="2026-q84-rank-and-index-of-a-form">2026, Q84 (rank and index of a form)</h3>
+<p>For <span class="math">\(Q=x^2+y^2+z^2+2xy+2yz+2zx\)</span>, express it in matrix form, diagonalize by an orthogonal transformation, and give (rank, index). Options: (A) <span class="math">\((1,0)\)</span> (B) <span class="math">\((1,1)\)</span> (C) <span class="math">\((2,1)\)</span> (D) <span class="math">\((3,0)\)</span>.</p>
+<p><strong>Answer: B, <span class="math">\((1,1)\)</span></strong> (worked key, unofficial; flagged as medium confidence).</p>
+<p><span class="math">\(Q=(x+y+z)^2\)</span>. The matrix is the all-ones matrix with eigenvalues <span class="math">\(3,0,0\)</span>, so <span class="math">\(Q=3u^2\)</span> in suitable orthonormal coordinates. Rank <span class="math">\(1\)</span>; number of positive squares <span class="math">\(1\)</span>. With index <span class="math">\(=p\)</span> the answer is <span class="math">\((1,1)\)</span>. If a paper counted negative squares as the index it would be <span class="math">\((1,0)\)</span>, option A; the key uses the positive count.</p>
+<h3 id="2026-q87-symmetric-matrix-and-signature">2026, Q87 (symmetric matrix and signature)</h3>
+<p><span class="math">\(A\)</span> is a <span class="math">\(3\times3\)</span> real symmetric matrix with characteristic polynomial <span class="math">\((x-1)^2(x-3)\)</span>. Decide whether <span class="math">\(A\)</span> is diagonalizable, then give the signature of the associated quadratic form. Options are pairs such as <span class="math">\((2,1)\)</span>, <span class="math">\((1,2)\)</span>, <span class="math">\((3,0)\)</span>, <span class="math">\((0,3)\)</span> (the printed order is not fully legible).</p>
+<p><strong>Answer: C, <span class="math">\((3,0)\)</span></strong> (worked key, unofficial). The matrix is real symmetric, hence orthogonally diagonalizable with eigenvalues <span class="math">\(1,1,3\)</span>. All are positive, so the form is positive definite with <span class="math">\(p=3\)</span>, <span class="math">\(q=0\)</span>: signature pair <span class="math">\((3,0)\)</span>.</p>
+</section><section class="note-section ns-quick-revision" aria-labelledby="quick-revision"><h2 id="quick-revision">Quick revision</h2>
+<ul>
+<li>Matrix of <span class="math">\(Q\)</span>: squares on the diagonal, cross-term coefficient halved off the diagonal.</li>
+<li>Congruence <span class="math">\(B=P^TAP\)</span> keeps rank, <span class="math">\((p,q)\)</span> and definiteness; eigenvalues are not kept.</li>
+<li>Rank <span class="math">\(=p+q\)</span>; index <span class="math">\(=p\)</span>; signature <span class="math">\(=p-q\)</span>.</li>
+<li>Sylvester: <span class="math">\(p\)</span> and <span class="math">\(q\)</span> are invariants of the form.</li>
+<li><span class="math">\(p\)</span>, <span class="math">\(q\)</span> = numbers of positive and negative eigenvalues of the symmetric matrix.</li>
+<li>Real classes of <span class="math">\(n\times n\)</span> forms: <span class="math">\(\tfrac{(n+1)(n+2)}2\)</span>; over <span class="math">\(\mathbb C\)</span>: <span class="math">\(n+1\)</span>.</li>
+<li>PD <span class="math">\(\iff\)</span> all eigenvalues <span class="math">\(&gt;0\)</span> <span class="math">\(\iff\)</span> all leading minors <span class="math">\(&gt;0\)</span> <span class="math">\(\iff\)</span> <span class="math">\(A=B^TB\)</span>, <span class="math">\(B\)</span> invertible.</li>
+<li>ND <span class="math">\(\iff\)</span> <span class="math">\((-1)^k\Delta_k&gt;0\)</span>; PSD needs all principal minors <span class="math">\(\ge0\)</span>.</li>
+<li>Jacobi: <span class="math">\(q\)</span> = sign changes in <span class="math">\(1,\Delta_1,\dots,\Delta_n\)</span> (all <span class="math">\(\Delta_k\ne0\)</span>).</li>
+<li>Conic: <span class="math">\(\delta=ab-h^2\)</span> and <span class="math">\(\Delta\)</span>; <span class="math">\(\Delta=0\)</span> degenerate; <span class="math">\(\delta&gt;0\)</span> ellipse, <span class="math">\(=0\)</span> parabola, <span class="math">\(&lt;0\)</span> hyperbola.</li>
+<li>Quadric with <span class="math">\(A\)</span> invertible: <span class="math">\((3,0)\)</span> ellipsoid, <span class="math">\((2,1)\)</span> one sheet, <span class="math">\((1,2)\)</span> two sheets after making <span class="math">\(d&gt;0\)</span>.</li>
+<li>Rayleigh: <span class="math">\(\lambda_{\min}\le x^TAx\le\lambda_{\max}\)</span> on the unit sphere.</li>
+</ul>
+</section></article></div><section class="section reader-end"><button class="read-btn" type="button" data-read-btn aria-pressed="false"><span class="box" aria-hidden="true"></span><span data-read-label>Mark as read</span></button><ul class="units end-links"><li><a class="unit-card" href="/uphesc-maths/learn/linear-algebra/quadratic-forms/practice/"><span class="unit-top"><span class="unit-name">Practise this topic</span></span><p class="flush">15 questions with worked solutions</p></a></li><li><a class="unit-card" href="/uphesc-maths/learn/linear-algebra/formulas/"><span class="unit-top"><span class="unit-name">Unit 2 formula sheet</span></span><p class="flush">Last topic of the unit. Revise every formula in one place.</p></a></li></ul><p class="prev-link"><a href="/uphesc-maths/learn/linear-algebra/inner-product-spaces/">Previous: Inner product spaces, adjoint, special matrices and spectral theorem</a></p></section></div><footer class="foot"><p>Built from every paper that survives: the full 2025 and 2026 papers (140 maths questions) and half of 2019 (35, from a solution video). 2015 left only an answer key, and nothing was found for 2021. The commission has never published its booklets. Unit counts use 2025 and 2026 only, so they show a range, not a trend.</p><p>2025 answers match the official key. 2026 has no key yet, so its answers were worked out by hand and marked high, medium or low confidence, and every unsure one was solved again, blind. 2019 answers come from the video and are not checked against the official key.</p></footer></main><script type="module">var e=document.documentElement,t=()=>e.dataset.mode?e.dataset.mode===`dark`:matchMedia(`(prefers-color-scheme: dark)`).matches;document.querySelector(`[data-mode-toggle]`)?.addEventListener(`click`,()=>{let n=t()?`light`:`dark`;e.dataset.mode=n;try{localStorage.setItem(`um:mode`,n)}catch{}}),!e.dataset.mode&&t()&&(e.dataset.mode=`dark`);var n=document.querySelectorAll(`[data-old-toggle]`),r=t=>{t?e.dataset.old=`on`:delete e.dataset.old,n.forEach(e=>e.setAttribute(`aria-checked`,String(t)))};r(e.dataset.old===`on`),n.forEach(t=>t.addEventListener(`click`,()=>{let t=e.dataset.old!==`on`;r(t);try{localStorage.setItem(`um:old`,t?`on`:`off`)}catch{}}));var i=document.querySelectorAll(`[data-view]`),a=t=>{t===`bars`?e.dataset.view=`bars`:delete e.dataset.view,i.forEach(e=>e.setAttribute(`aria-pressed`,String(e.dataset.view===t)))};a(e.dataset.view===`bars`?`bars`:`heat`),i.forEach(e=>e.addEventListener(`click`,()=>{a(e.dataset.view);try{localStorage.setItem(`um:view`,e.dataset.view)}catch{}}));var o=document.createElement(`div`);o.className=`tip`,o.setAttribute(`role`,`tooltip`),o.hidden=!0,document.body.append(o);var s=null,c=(e,t)=>{let n=o.offsetWidth,r=o.offsetHeight,i=e+12,a=t+12;i+n>innerWidth-8&&(i=Math.max(8,e-n-12)),a+r>innerHeight-8&&(a=Math.max(8,t-r-12)),o.style.left=`${i}px`,o.style.top=`${a}px`},l=()=>{if(s){let e=s.getBoundingClientRect();c(e.left+e.width*.3,e.bottom-8)}},u=e=>{e!==s&&(s=e,o.replaceChildren(...[...e.querySelector(`.tip-src`).childNodes].map(e=>e.cloneNode(!0)))),o.hidden=!1},d=()=>{o.hidden=!0,s=null};document.addEventListener(`pointermove`,e=>{if(e.pointerType!==`mouse`)return;let t=e.target.closest(`[data-tip]`);t?(u(t),c(e.clientX,e.clientY)):s&&d()}),document.addEventListener(`focusin`,e=>{let t=e.target.closest(`[data-tip]`);t&&(u(t),l())}),document.addEventListener(`focusout`,()=>d()),addEventListener(`scroll`,()=>{s&&document.activeElement===s?l():s&&d()},{passive:!0}),document.addEventListener(`keydown`,e=>{e.key===`Escape`&&d()});var f=`um:done`,p={};try{p=JSON.parse(localStorage.getItem(f)||`{}`)}catch{}var m=()=>{document.querySelectorAll(`[data-progress]`).forEach(e=>{let t=[...document.querySelectorAll(`[data-group="${e.dataset.progress}"]`)],n=t.filter(e=>e.checked).length;e.querySelector(`.progress-bar span`).style.width=`${n/t.length*100}%`,e.querySelector(`[data-count]`).textContent=`${n} of ${t.length} done`})};document.querySelectorAll(`input[data-check]`).forEach(e=>{e.checked=!!p[e.dataset.check],e.addEventListener(`change`,()=>{p[e.dataset.check]=e.checked;try{localStorage.setItem(f,JSON.stringify(p))}catch{}m()})}),m();</script></body></html><script type="module" src="/uphesc-maths/_astro/index.astro_astro_type_script_index_0_lang.t7qZbIYF.js"></script>

@@ -1,0 +1,288 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Separation of variables for the heat, wave and Laplace equations · UPESSC maths</title><meta name="description" content="What to study for the UPESSC (formerly UPHESC) Assistant Professor maths paper, built from every paper that survives."><link rel="icon" href="/uphesc-maths/favicon.svg" type="image/svg+xml"><link rel="preload" href="/uphesc-maths/fonts/inter-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin><!-- the saved light/dark, 2019 and chart-view choices, before first paint --><script>
+    try { var m = localStorage.getItem('um:mode'); if (m) document.documentElement.dataset.mode = m; } catch (e) {}
+    try { if (localStorage.getItem('um:old') === 'on') document.documentElement.dataset.old = 'on'; } catch (e) {}
+    try { if (localStorage.getItem('um:view') === 'bars') document.documentElement.dataset.view = 'bars'; } catch (e) {}
+  </script><!-- maths: the vendored MathJax typesets \( \) and \[ \] text, loaded only on pages that have any --><script>(function(){const VENDOR = "/uphesc-maths/vendor";
+
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+      loader: { paths: { mathjax: VENDOR + '/mathjax', fonts: VENDOR + '/mathjax/fonts' } },
+      output: { font: 'mathjax-stix2', displayOverflow: 'scroll' },
+      options: { ignoreHtmlClass: 'no-math', processHtmlClass: 'math', menuOptions: { settings: { enrich: false, speech: false, braille: false } } },
+      chtml: { displayOverflow: 'scroll' },
+      // an inline formula with a piece wider than its line gets its own scrolling line, like display maths
+      startup: { pageReady: () => MathJax.startup.defaultPageReady().then(fitMath) },
+    };
+    function fitMath() {
+      for (const m of document.querySelectorAll('mjx-container:not([display="true"]):not(.mjx-wide)')) {
+        const box = m.closest('p, li, dd, blockquote, div');
+        if (!box || m.closest('td, th')) continue;
+        const right = box.getBoundingClientRect().right + 1;
+        if ([...m.getClientRects()].some((r) => r.right > right)) m.classList.add('mjx-wide');
+      }
+    }
+    let fitQueued = 0;
+    const queueFit = () => { if (window.MathJax?.startup?.document && !fitQueued) fitQueued = requestAnimationFrame(() => { fitQueued = 0; fitMath(); }); };
+    addEventListener('resize', queueFit);
+    addEventListener('click', () => setTimeout(queueFit, 50));
+    document.addEventListener('DOMContentLoaded', () => {
+      if (!document.querySelector('.math')) return;
+      const s = document.createElement('script');
+      s.async = true;
+      s.src = VENDOR + '/mathjax/tex-chtml-nofont.js';
+      document.head.appendChild(s);
+    });
+  })();</script><link rel="stylesheet" href="/uphesc-maths/_astro/Base.CkQ5KWO8.css"></head><body data-tab="learn"><nav class="appnav" aria-label="Main"><a class="appnav-brand" href="/uphesc-maths/" aria-label="UPESSC maths home">∑</a><a class="appnav-item" href="/uphesc-maths/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4 10.2 12 4l8 6.2V19a1 1 0 0 1-1 1h-4.5v-5.5h-5V20H5a1 1 0 0 1-1-1z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Plan</span></a><a class="appnav-item" href="/uphesc-maths/learn/" aria-current="page"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M12 6.5C10 5 7.5 4.5 4 4.5v13c3.5 0 6 .5 8 2 2-1.5 4.5-2 8-2v-13c-3.5 0-6 .5-8 2zM12 6.5v13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Learn</span></a><a class="appnav-item" href="/uphesc-maths/units/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4 5h7v7H4zM13 5h7v7h-7zM4 14h7v6H4zM13 14h7v6h-7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Units</span></a><a class="appnav-item" href="/uphesc-maths/papers/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M7 3h7l4 4v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zM14 3v4h4M9 12h6M9 16h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Papers</span></a><a class="appnav-item" href="/uphesc-maths/revise/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M5 12.5 9.5 17 19 7.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Revise</span></a></nav><header class="topbar"><a class="bar-back" href="/uphesc-maths/learn/differential-equations/" aria-label="Back"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a><p class="bar-title">Unit 6</p><button class="bar-btn" type="button" data-mode-toggle aria-label="Switch light or dark"><svg class="i-moon" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path></svg><svg class="i-sun" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path></svg></button></header><main class="page"><div class="reader" data-topic="separation-of-variables"><header class="page-head topic-head"><p class="kicker"><a href="/uphesc-maths/learn/differential-equations/">Unit 6 · Differential Equations</a></p><h1>Separation of variables for the heat, wave and Laplace equations</h1><ul class="meta"><li class="prio medium">Medium priority</li><li>2 h 30 min to study</li><li>Not asked yet</li><li class="read-flag" data-read-flag hidden>Read</li></ul><p class="prereq">Read first: <a href="/uphesc-maths/learn/differential-equations/higher-order-linear-pdes/">Higher-order linear PDEs with constant coefficients, classification and canonical forms</a></p></header><div class="reader-grid"><nav class="toc" aria-label="On this page"><details class="toc-box" data-toc><summary>On this page</summary><ol><li><a href="#why-it-matters-for-the-exam">Why it matters for the exam</a></li><li><a href="#core-ideas">Core ideas</a></li><li class="sub"><a href="#the-method">The method</a></li><li class="sub"><a href="#eigenvalue-problems-xlambda-x0-on-0l">Eigenvalue problems <span class="math">\(X''+\lambda X=0\)</span> on <span class="math">\([0,L]\)</span></a></li><li class="sub"><a href="#fourier-coefficients-the-tool-for-the-last-step">Fourier coefficients (the tool for the last step)</a></li><li class="sub"><a href="#the-heat-equation-u_tku_xx-0xl-k0">The heat equation <span class="math">\(u_t=k\,u_{xx}\)</span>, <span class="math">\(0&lt;x&lt;L\)</span>, <span class="math">\(k&gt;0\)</span></a></li><li class="sub"><a href="#the-wave-equation-u_ttc2u_xx-vibrating-string">The wave equation <span class="math">\(u_{tt}=c^2u_{xx}\)</span> (vibrating string)</a></li><li class="sub"><a href="#laplaces-equation-u_xxu_yy0">Laplace’s equation <span class="math">\(u_{xx}+u_{yy}=0\)</span></a></li><li class="sub"><a href="#typical-boundary-conditions">Typical boundary conditions</a></li><li><a href="#formulas-and-results">Formulas and results</a></li><li><a href="#worked-examples">Worked examples</a></li><li class="sub"><a href="#example-1-heat-equation-with-a-parabolic-initial-profile">Example 1: heat equation with a parabolic initial profile</a></li><li class="sub"><a href="#example-2-insulated-bar">Example 2: insulated bar</a></li><li class="sub"><a href="#example-3-plucked-string">Example 3: plucked string</a></li><li class="sub"><a href="#example-4-dalembert">Example 4: d’Alembert</a></li><li class="sub"><a href="#example-5-laplace-on-a-rectangle">Example 5: Laplace on a rectangle</a></li><li class="sub"><a href="#example-6-laplace-on-a-disc">Example 6: Laplace on a disc</a></li><li><a href="#common-traps">Common traps</a></li><li><a href="#previous-year-questions">Previous-year questions</a></li><li><a href="#quick-revision">Quick revision</a></li></ol></details></nav><article class="prose"><section class="note-section ns-why-it-matters-for-the-exam" aria-labelledby="why-it-matters-for-the-exam"><h2 id="why-it-matters-for-the-exam">Why it matters for the exam</h2>
+<p>No question of this exact kind appears yet in the 2019 (partial), 2025 or 2026 papers, but the syllabus names it (“separation of variables (Laplace, heat, wave)”) and it is the natural next question after classification. Expect a solution form, a Fourier coefficient, an eigenvalue, a value of <span class="math">\(u\)</span> at a point, or a d’Alembert solution. It also supports the 2025-Q59 match (heat, wave and Laplace equations as parabolic, hyperbolic and elliptic).</p>
+</section><section class="note-section ns-core-ideas" aria-labelledby="core-ideas"><h2 id="core-ideas">Core ideas</h2>
+<h3 id="the-method">The method</h3>
+<p>To solve a linear homogeneous PDE with homogeneous boundary conditions:</p>
+<ol>
+<li>Assume <span class="math">\(u(x,t)=X(x)T(t)\)</span> (or <span class="math">\(X(x)Y(y)\)</span>, or <span class="math">\(R(r)\Theta(\theta)\)</span>).</li>
+<li>Substitute and divide so each side depends on one variable only. Each side equals a constant (the separation constant, written <span class="math">\(-\lambda\)</span>).</li>
+<li>The boundary conditions on <span class="math">\(X\)</span> give an <strong>eigenvalue problem</strong>; only certain <span class="math">\(\lambda_n\)</span> give non-zero <span class="math">\(X_n\)</span>.</li>
+<li>Solve the other equation for each <span class="math">\(\lambda_n\)</span>.</li>
+<li>Superpose: <span class="math">\(u=\sum c_n X_n T_n\)</span>.</li>
+<li>Fit the remaining (initial or boundary) condition. Orthogonality of the <span class="math">\(X_n\)</span> gives the coefficients: these are Fourier coefficients.</li>
+</ol>
+<h3 id="eigenvalue-problems-xlambda-x0-on-0l">Eigenvalue problems <span class="math">\(X''+\lambda X=0\)</span> on <span class="math">\([0,L]\)</span></h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Boundary conditions</th>
+<th>Eigenvalues <span class="math">\(\lambda_n\)</span></th>
+<th>Eigenfunctions <span class="math">\(X_n\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math">\(X(0)=0,\ X(L)=0\)</span></td>
+<td><span class="math">\(\left(\dfrac{n\pi}{L}\right)^2,\ n=1,2,\dots\)</span></td>
+<td><span class="math">\(\sin\dfrac{n\pi x}{L}\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(X'(0)=0,\ X'(L)=0\)</span></td>
+<td><span class="math">\(\left(\dfrac{n\pi}{L}\right)^2,\ n=0,1,2,\dots\)</span></td>
+<td><span class="math">\(\cos\dfrac{n\pi x}{L}\)</span> (<span class="math">\(n=0\)</span>: constant)</td>
+</tr>
+<tr>
+<td><span class="math">\(X(0)=0,\ X'(L)=0\)</span></td>
+<td><span class="math">\(\left(\dfrac{(2n-1)\pi}{2L}\right)^2,\ n=1,2,\dots\)</span></td>
+<td><span class="math">\(\sin\dfrac{(2n-1)\pi x}{2L}\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(X'(0)=0,\ X(L)=0\)</span></td>
+<td><span class="math">\(\left(\dfrac{(2n-1)\pi}{2L}\right)^2,\ n=1,2,\dots\)</span></td>
+<td><span class="math">\(\cos\dfrac{(2n-1)\pi x}{2L}\)</span></td>
+</tr>
+<tr>
+<td>periodic on <span class="math">\([-\pi,\pi]\)</span></td>
+<td><span class="math">\(n^2,\ n=0,1,2,\dots\)</span></td>
+<td><span class="math">\(1,\ \cos nx,\ \sin nx\)</span></td>
+</tr>
+</tbody>
+</table></div>
+<p>Why only <span class="math">\(\lambda&gt;0\)</span> works for <span class="math">\(X(0)=X(L)=0\)</span>: for <span class="math">\(\lambda&lt;0\)</span>, <span class="math">\(X=Ae^{\mu x}+Be^{-\mu x}\)</span> and both conditions force <span class="math">\(A=B=0\)</span>; for <span class="math">\(\lambda=0\)</span>, <span class="math">\(X=A+Bx\)</span> and again <span class="math">\(A=B=0\)</span>; for <span class="math">\(\lambda=\omega^2&gt;0\)</span>, <span class="math">\(X=A\cos\omega x+B\sin\omega x\)</span>, <span class="math">\(X(0)=0\)</span> gives <span class="math">\(A=0\)</span> and <span class="math">\(X(L)=0\)</span> gives <span class="math">\(\sin\omega L=0\)</span>.</p>
+<h3 id="fourier-coefficients-the-tool-for-the-last-step">Fourier coefficients (the tool for the last step)</h3>
+<p>Orthogonality on <span class="math">\([0,L]\)</span>: <span class="math">\(\displaystyle\int_0^L\sin\frac{m\pi x}{L}\sin\frac{n\pi x}{L}dx=\begin{cases}L/2&amp;m=n\\0&amp;m\ne n\end{cases}\)</span>, and the same for cosines (<span class="math">\(n\ge1\)</span>).</p>
+<ul>
+<li>Half-range <strong>sine</strong> series: <span class="math">\(f(x)=\sum_{n\ge1}b_n\sin\dfrac{n\pi x}{L}\)</span>, <span class="math">\(\ b_n=\dfrac2L\displaystyle\int_0^Lf(x)\sin\frac{n\pi x}{L}dx\)</span>.</li>
+<li>Half-range <strong>cosine</strong> series: <span class="math">\(f(x)=\dfrac{a_0}{2}+\sum_{n\ge1}a_n\cos\dfrac{n\pi x}{L}\)</span>, <span class="math">\(\ a_n=\dfrac2L\displaystyle\int_0^Lf(x)\cos\frac{n\pi x}{L}dx\)</span> (including <span class="math">\(n=0\)</span>). <span class="math">\(\dfrac{a_0}2\)</span> is the mean value of <span class="math">\(f\)</span>.</li>
+<li>Full series on <span class="math">\((-\pi,\pi)\)</span>: <span class="math">\(f=\dfrac{a_0}{2}+\sum(a_n\cos n\theta+b_n\sin n\theta)\)</span> with <span class="math">\(a_n=\dfrac1\pi\displaystyle\int_{-\pi}^{\pi}f\cos n\theta\,d\theta\)</span> and <span class="math">\(b_n=\dfrac1\pi\displaystyle\int_{-\pi}^{\pi}f\sin n\theta\,d\theta\)</span>.</li>
+<li>Convergence: if <span class="math">\(f\)</span> is piecewise smooth, the series converges to <span class="math">\(f\)</span> at points of continuity and to the average of the left and right limits at a jump.</li>
+</ul>
+<p>Standard sine coefficients on <span class="math">\((0,L)\)</span> (needed constantly):</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th><span class="math">\(f(x)\)</span></th>
+<th><span class="math">\(b_n\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math">\(1\)</span></td>
+<td><span class="math">\(\dfrac{2(1-(-1)^n)}{n\pi}\)</span>, i.e. <span class="math">\(\dfrac{4}{n\pi}\)</span> for odd <span class="math">\(n\)</span>, <span class="math">\(0\)</span> for even <span class="math">\(n\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(x\)</span></td>
+<td><span class="math">\(\dfrac{2L(-1)^{n+1}}{n\pi}\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(x(L-x)\)</span></td>
+<td><span class="math">\(\dfrac{4L^2(1-(-1)^n)}{n^3\pi^3}\)</span>, i.e. <span class="math">\(\dfrac{8L^2}{n^3\pi^3}\)</span> for odd <span class="math">\(n\)</span>, <span class="math">\(0\)</span> for even <span class="math">\(n\)</span></td>
+</tr>
+<tr>
+<td>triangle: <span class="math">\(\dfrac{2hx}{L}\)</span> for <span class="math">\(x\le\dfrac L2\)</span>, <span class="math">\(\dfrac{2h(L-x)}{L}\)</span> for <span class="math">\(x\ge\dfrac L2\)</span></td>
+<td><span class="math">\(\dfrac{8h}{n^2\pi^2}\sin\dfrac{n\pi}{2}\)</span></td>
+</tr>
+</tbody>
+</table></div>
+<p>Standard cosine coefficient: for <span class="math">\(f(x)=x\)</span> on <span class="math">\((0,L)\)</span>, <span class="math">\(a_0=L\)</span> and <span class="math">\(a_n=\dfrac{2L((-1)^n-1)}{n^2\pi^2}\)</span> (so <span class="math">\(-\dfrac{4L}{n^2\pi^2}\)</span> for odd <span class="math">\(n\)</span>, <span class="math">\(0\)</span> for even <span class="math">\(n\ge2\)</span>).</p>
+<h3 id="the-heat-equation-u_tku_xx-0xl-k0">The heat equation <span class="math">\(u_t=k\,u_{xx}\)</span>, <span class="math">\(0&lt;x&lt;L\)</span>, <span class="math">\(k&gt;0\)</span></h3>
+<p>Separation: <span class="math">\(\dfrac{T'}{kT}=\dfrac{X''}{X}=-\lambda\)</span>. Then <span class="math">\(T=e^{-\lambda kt}\)</span>: only <span class="math">\(\lambda&gt;0\)</span> gives solutions that do not blow up. Each mode decays at rate <span class="math">\(k\lambda_n\)</span>.</p>
+<p><strong>Ends at zero temperature:</strong> <span class="math">\(u(0,t)=u(L,t)=0,\ u(x,0)=f(x)\)</span>:
+<span class="math">\(u(x,t)=\sum_{n=1}^\infty b_n\,e^{-k n^2\pi^2t/L^2}\sin\frac{n\pi x}{L},\qquad b_n=\frac2L\int_0^Lf(x)\sin\frac{n\pi x}{L}dx.\)</span>
+As <span class="math">\(t\to\infty\)</span>, <span class="math">\(u\to0\)</span> and the <span class="math">\(n=1\)</span> term dominates.</p>
+<p><strong>Insulated ends:</strong> <span class="math">\(u_x(0,t)=u_x(L,t)=0\)</span>:
+<span class="math">\(u=\frac{a_0}{2}+\sum_{n=1}^\infty a_n\,e^{-kn^2\pi^2t/L^2}\cos\frac{n\pi x}{L},\qquad a_n=\frac2L\int_0^Lf\cos\frac{n\pi x}{L}dx.\)</span>
+As <span class="math">\(t\to\infty\)</span>, <span class="math">\(u\to\dfrac{a_0}{2}=\dfrac1L\int_0^Lf\)</span> (the mean initial temperature, conservation of heat).</p>
+<p><strong>Mixed ends</strong> <span class="math">\(u(0,t)=0,\ u_x(L,t)=0\)</span>: <span class="math">\(u=\sum b_ne^{-k\lambda_nt}\sin\dfrac{(2n-1)\pi x}{2L}\)</span>, <span class="math">\(\lambda_n=\left(\dfrac{(2n-1)\pi}{2L}\right)^2\)</span>.</p>
+<p><strong>Non-zero constant end temperatures</strong> <span class="math">\(u(0,t)=T_1,\ u(L,t)=T_2\)</span>: the BCs are not homogeneous, so subtract the steady state
+<span class="math">\(u_s(x)=T_1+\frac{T_2-T_1}{L}x,\qquad u=u_s+v,\)</span>
+where <span class="math">\(v\)</span> satisfies the heat equation with zero ends and initial value <span class="math">\(f-u_s\)</span>. As <span class="math">\(t\to\infty\)</span>, <span class="math">\(u\to u_s\)</span>.</p>
+<p>(Infinite rod: Fourier transform in <span class="math">\(x\)</span> gives <span class="math">\(u=\dfrac{1}{\sqrt{4\pi kt}}\displaystyle\int f(\xi)e^{-(x-\xi)^2/(4kt)}d\xi\)</span>. This is not separation of variables on an interval, but it is the third standard solution of the heat equation.)</p>
+<h3 id="the-wave-equation-u_ttc2u_xx-vibrating-string">The wave equation <span class="math">\(u_{tt}=c^2u_{xx}\)</span> (vibrating string)</h3>
+<p>Here <span class="math">\(c=\sqrt{T/\rho}\)</span> (tension over linear density). Separation gives <span class="math">\(T''=-\lambda c^2T\)</span>, so <span class="math">\(T\)</span> oscillates when <span class="math">\(\lambda&gt;0\)</span>.</p>
+<p><strong>Fixed ends:</strong> <span class="math">\(u(0,t)=u(L,t)=0,\ u(x,0)=f(x),\ u_t(x,0)=g(x)\)</span>:
+<span class="math">\(u=\sum_{n\ge1}\Big(a_n\cos\frac{n\pi ct}{L}+b_n\sin\frac{n\pi ct}{L}\Big)\sin\frac{n\pi x}{L},\)</span>
+<span class="math">\(a_n=\frac2L\int_0^Lf\sin\frac{n\pi x}{L}dx,\qquad b_n=\frac{2}{n\pi c}\int_0^Lg\sin\frac{n\pi x}{L}dx.\)</span>
+The <span class="math">\(b_n\)</span> formula comes from <span class="math">\(u_t(x,0)=\sum b_n\dfrac{n\pi c}{L}\sin\dfrac{n\pi x}{L}=g\)</span>.</p>
+<ul>
+<li>Angular frequencies <span class="math">\(\omega_n=\dfrac{n\pi c}{L}\)</span>; frequencies <span class="math">\(\dfrac{nc}{2L}\)</span>; fundamental frequency <span class="math">\(\dfrac{c}{2L}\)</span>; period of the motion <span class="math">\(\dfrac{2L}{c}\)</span>.</li>
+<li>The <span class="math">\(n\)</span>th harmonic has <span class="math">\(n-1\)</span> interior nodes.</li>
+<li>Plucked string (triangle of height <span class="math">\(h\)</span> at the midpoint, released from rest): <span class="math">\(g=0\)</span>, <span class="math">\(b_n=0\)</span>,
+<span class="math">\(u=\frac{8h}{\pi^2}\sum_{n\ge1}\frac{\sin(n\pi/2)}{n^2}\cos\frac{n\pi ct}{L}\sin\frac{n\pi x}{L}\)</span>
+(only odd <span class="math">\(n\)</span> appear).</li>
+<li>Free (Neumann) ends <span class="math">\(u_x=0\)</span> at <span class="math">\(x=0,L\)</span> give cosine modes instead.</li>
+</ul>
+<p><strong>d’Alembert’s solution</strong> (infinite string, <span class="math">\(-\infty&lt;x&lt;\infty\)</span>): the general solution is <span class="math">\(u=F(x-ct)+G(x+ct)\)</span> (waves moving right and left at speed <span class="math">\(c\)</span>). Imposing <span class="math">\(u(x,0)=f,\ u_t(x,0)=g\)</span>:
+<span class="math">\(u(x,t)=\frac12\big[f(x+ct)+f(x-ct)\big]+\frac1{2c}\int_{x-ct}^{x+ct}g(s)\,ds.\)</span></p>
+<ul>
+<li><span class="math">\(u(x,t)\)</span> depends only on <span class="math">\(f\)</span> at the two points <span class="math">\(x\pm ct\)</span> and <span class="math">\(g\)</span> on the interval <span class="math">\([x-ct,\,x+ct]\)</span> (domain of dependence). A disturbance at <span class="math">\(x_0\)</span> at <span class="math">\(t=0\)</span> influences the region <span class="math">\(\lvert x-x_0\rvert\le ct\)</span>.</li>
+<li>For a finite string with fixed ends, apply d’Alembert’s formula to the odd <span class="math">\(2L\)</span>-periodic extensions of <span class="math">\(f\)</span> and <span class="math">\(g\)</span>. A pulse reflected at a fixed end changes sign.</li>
+<li>If <span class="math">\(g=0\)</span>, the solution is half of the initial shape travelling right plus half travelling left.</li>
+</ul>
+<h3 id="laplaces-equation-u_xxu_yy0">Laplace’s equation <span class="math">\(u_{xx}+u_{yy}=0\)</span></h3>
+<p><strong>Rectangle</strong> <span class="math">\(0&lt;x&lt;a,\ 0&lt;y&lt;b\)</span>. Take <span class="math">\(u(0,y)=u(a,y)=0,\ u(x,0)=0,\ u(x,b)=f(x)\)</span>. Separation <span class="math">\(u=X(x)Y(y)\)</span>: <span class="math">\(X''+\lambda X=0\)</span> gives <span class="math">\(X_n=\sin\dfrac{n\pi x}{a}\)</span>, <span class="math">\(\lambda_n=\left(\dfrac{n\pi}{a}\right)^2\)</span>, and <span class="math">\(Y''-\lambda Y=0\)</span> with <span class="math">\(Y(0)=0\)</span> gives <span class="math">\(Y_n=\sinh\dfrac{n\pi y}{a}\)</span> (hyperbolic, not trigonometric, in the direction without homogeneous conditions on both sides):
+<span class="math">\(u(x,y)=\sum_{n\ge1}B_n\sin\frac{n\pi x}{a}\,\frac{\sinh(n\pi y/a)}{\sinh(n\pi b/a)},\qquad B_n=\frac2a\int_0^af(x)\sin\frac{n\pi x}{a}dx.\)</span>
+(Equivalently <span class="math">\(u=\sum A_n\sin\dfrac{n\pi x}a\sinh\dfrac{n\pi y}a\)</span> with <span class="math">\(A_n\sinh\dfrac{n\pi b}{a}=B_n\)</span>.)</p>
+<ul>
+<li>Data on the bottom side <span class="math">\(u(x,0)=f(x)\)</span> instead (others zero): replace <span class="math">\(\sinh(n\pi y/a)/\sinh(n\pi b/a)\)</span> by <span class="math">\(\sinh(n\pi(b-y)/a)/\sinh(n\pi b/a)\)</span>.</li>
+<li>Data on several sides: solve one problem per side and add (linearity).</li>
+<li>Semi-infinite strip <span class="math">\(y&gt;0\)</span> with <span class="math">\(u\)</span> bounded as <span class="math">\(y\to\infty\)</span>: use <span class="math">\(e^{-n\pi y/a}\)</span>.</li>
+<li>Neumann conditions give cosine modes.</li>
+</ul>
+<p><strong>Circle (disc) <span class="math">\(r&lt;a\)</span></strong>, <span class="math">\(u(a,\theta)=f(\theta)\)</span>. In polar coordinates <span class="math">\(u_{rr}+\dfrac1ru_r+\dfrac1{r^2}u_{\theta\theta}=0\)</span>. Put <span class="math">\(u=R(r)\Theta(\theta)\)</span>:
+<span class="math">\(\Theta''+\lambda\Theta=0\ (2\pi\text{-periodic})\Rightarrow\lambda=n^2,\ n=0,1,2,\dots;\qquad r^2R''+rR'-n^2R=0\Rightarrow R=r^{n},\ r^{-n}\ (n\ge1),\ \text{or}\ 1,\ \ln r\ (n=0).\)</span>
+For the interior, <span class="math">\(u\)</span> must be bounded at <span class="math">\(r=0\)</span>, so <span class="math">\(r^{-n}\)</span> and <span class="math">\(\ln r\)</span> are discarded:
+<span class="math">\(u(r,\theta)=\frac{a_0}{2}+\sum_{n\ge1}\Big(\frac ra\Big)^n(a_n\cos n\theta+b_n\sin n\theta),\)</span>
+<span class="math">\(a_n=\frac1\pi\int_0^{2\pi}f(\varphi)\cos n\varphi\,d\varphi,\quad b_n=\frac1\pi\int_0^{2\pi}f(\varphi)\sin n\varphi\,d\varphi.\)</span></p>
+<ul>
+<li>Summing the series gives the Poisson integral <span class="math">\(u(r,\theta)=\dfrac{1}{2\pi}\displaystyle\int_0^{2\pi}\frac{a^2-r^2}{a^2-2ar\cos(\theta-\varphi)+r^2}f(\varphi)\,d\varphi\)</span>.</li>
+<li>Value at the centre: <span class="math">\(u(0)=\dfrac{a_0}{2}=\dfrac1{2\pi}\displaystyle\int_0^{2\pi}f\,d\varphi\)</span> (mean value property). A harmonic function attains its maximum and minimum on the boundary.</li>
+<li>Exterior problem <span class="math">\(r&gt;a\)</span>, <span class="math">\(u\)</span> bounded at infinity: use <span class="math">\((a/r)^n\)</span> instead of <span class="math">\((r/a)^n\)</span> (discard <span class="math">\(r^n\)</span> and <span class="math">\(\ln r\)</span>).</li>
+<li>Annulus <span class="math">\(a&lt;r&lt;b\)</span>: all of <span class="math">\(r^n,\ r^{-n},\ 1,\ \ln r\)</span> are kept and two boundary conditions fix the constants.</li>
+<li>Neumann problem on the disc (<span class="math">\(u_r=g\)</span> on <span class="math">\(r=a\)</span>): solvable only if <span class="math">\(\displaystyle\int_0^{2\pi}g\,d\theta=0\)</span>, and then <span class="math">\(u\)</span> is unique up to an additive constant.</li>
+</ul>
+<h3 id="typical-boundary-conditions">Typical boundary conditions</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Form</th>
+<th>Meaning (heat)</th>
+<th>Modes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dirichlet</td>
+<td><span class="math">\(u=0\)</span></td>
+<td>end held at zero temperature</td>
+<td><span class="math">\(\sin\)</span></td>
+</tr>
+<tr>
+<td>Neumann</td>
+<td><span class="math">\(u_x=0\)</span></td>
+<td>end insulated</td>
+<td><span class="math">\(\cos\)</span></td>
+</tr>
+<tr>
+<td>Robin</td>
+<td><span class="math">\(u_x+hu=0\)</span></td>
+<td>convective exchange</td>
+<td>transcendental eigenvalue equation (not asked in computation)</td>
+</tr>
+<tr>
+<td>Non-homogeneous</td>
+<td><span class="math">\(u=T_1\)</span></td>
+<td>end at fixed temperature</td>
+<td>subtract steady state first</td>
+</tr>
+</tbody>
+</table></div>
+</section><section class="note-section ns-formulas-and-results" aria-labelledby="formulas-and-results"><h2 id="formulas-and-results">Formulas and results</h2>
+<ul>
+<li>Eigenvalues: Dirichlet-Dirichlet <span class="math">\(\left(\dfrac{n\pi}{L}\right)^2\)</span> with <span class="math">\(\sin\)</span>; Neumann-Neumann <span class="math">\(\left(\dfrac{n\pi}{L}\right)^2\)</span> with <span class="math">\(\cos\)</span> (<span class="math">\(n\ge0\)</span>); mixed <span class="math">\(\left(\dfrac{(2n-1)\pi}{2L}\right)^2\)</span>.</li>
+<li><span class="math">\(b_n=\dfrac2L\displaystyle\int_0^Lf\sin\dfrac{n\pi x}{L}dx\)</span>; <span class="math">\(a_n=\dfrac2L\displaystyle\int_0^Lf\cos\dfrac{n\pi x}{L}dx\)</span>.</li>
+<li>Heat (Dirichlet): <span class="math">\(u=\sum b_ne^{-kn^2\pi^2t/L^2}\sin\dfrac{n\pi x}{L}\)</span>. Insulated: cosine series, limit <span class="math">\(\dfrac{a_0}2\)</span>.</li>
+<li>Steady state with <span class="math">\(u(0)=T_1,\ u(L)=T_2\)</span>: <span class="math">\(T_1+(T_2-T_1)x/L\)</span>.</li>
+<li>Wave: <span class="math">\(u=\sum(a_n\cos\omega_nt+b_n\sin\omega_nt)\sin\dfrac{n\pi x}{L}\)</span>, <span class="math">\(\omega_n=\dfrac{n\pi c}{L}\)</span>; <span class="math">\(a_n\)</span> from <span class="math">\(f\)</span>, <span class="math">\(b_n=\dfrac{2}{n\pi c}\displaystyle\int g\sin\dfrac{n\pi x}{L}dx\)</span>.</li>
+<li>d’Alembert: <span class="math">\(u=\tfrac12[f(x+ct)+f(x-ct)]+\dfrac1{2c}\displaystyle\int_{x-ct}^{x+ct}g\)</span>.</li>
+<li>Laplace on rectangle (data on top): <span class="math">\(u=\sum B_n\sin\dfrac{n\pi x}{a}\dfrac{\sinh(n\pi y/a)}{\sinh(n\pi b/a)}\)</span>, <span class="math">\(B_n=\dfrac2a\displaystyle\int f\sin\dfrac{n\pi x}{a}\)</span>.</li>
+<li>Laplace on disc: <span class="math">\(u=\dfrac{a_0}2+\sum(r/a)^n(a_n\cos n\theta+b_n\sin n\theta)\)</span>, coefficients with <span class="math">\(\dfrac1\pi\displaystyle\int_0^{2\pi}\)</span>; centre value <span class="math">\(=\dfrac{a_0}2\)</span>.</li>
+<li>Standard <span class="math">\(b_n\)</span>: <span class="math">\(f=1\)</span>: <span class="math">\(\dfrac{4}{n\pi}\)</span> (odd <span class="math">\(n\)</span>); <span class="math">\(f=x\)</span>: <span class="math">\(\dfrac{2L(-1)^{n+1}}{n\pi}\)</span>; <span class="math">\(f=x(L-x)\)</span>: <span class="math">\(\dfrac{8L^2}{n^3\pi^3}\)</span> (odd <span class="math">\(n\)</span>).</li>
+</ul>
+</section><section class="note-section ns-worked-examples" aria-labelledby="worked-examples"><h2 id="worked-examples">Worked examples</h2>
+<h3 id="example-1-heat-equation-with-a-parabolic-initial-profile">Example 1: heat equation with a parabolic initial profile</h3>
+<p>Solve <span class="math">\(u_t=u_{xx}\)</span>, <span class="math">\(0&lt;x&lt;\pi\)</span>, <span class="math">\(u(0,t)=u(\pi,t)=0\)</span>, <span class="math">\(u(x,0)=x(\pi-x)\)</span>.</p>
+<p>Here <span class="math">\(L=\pi,\ k=1\)</span>, so <span class="math">\(u=\sum b_ne^{-n^2t}\sin nx\)</span> with <span class="math">\(b_n=\dfrac2\pi\displaystyle\int_0^\pi x(\pi-x)\sin nx\,dx=\dfrac{4(1-(-1)^n)}{\pi n^3}\)</span>. Even <span class="math">\(n\)</span>: <span class="math">\(0\)</span>; odd <span class="math">\(n\)</span>: <span class="math">\(\dfrac{8}{\pi n^3}\)</span>.
+<span class="math">\(u=\frac8\pi\sum_{n\ \mathrm{odd}}\frac{e^{-n^2t}}{n^3}\sin nx.\)</span>
+Check at <span class="math">\(t=0,\ x=\pi/2\)</span>: <span class="math">\(\dfrac8\pi\Big(1-\dfrac1{27}+\dfrac1{125}-\cdots\Big)=\dfrac8\pi\cdot\dfrac{\pi^3}{32}=\dfrac{\pi^2}{4}=x(\pi-x)\)</span>.</p>
+<h3 id="example-2-insulated-bar">Example 2: insulated bar</h3>
+<p>Solve <span class="math">\(u_t=ku_{xx}\)</span>, <span class="math">\(u_x(0,t)=u_x(L,t)=0\)</span>, <span class="math">\(u(x,0)=x\)</span>.</p>
+<p>Cosine series: <span class="math">\(a_0=\dfrac2L\displaystyle\int_0^Lx\,dx=L\)</span>, <span class="math">\(a_n=\dfrac{2L((-1)^n-1)}{n^2\pi^2}\)</span>.
+<span class="math">\(u=\frac L2-\frac{4L}{\pi^2}\sum_{n\ \mathrm{odd}}\frac1{n^2}e^{-kn^2\pi^2t/L^2}\cos\frac{n\pi x}{L}.\)</span>
+As <span class="math">\(t\to\infty\)</span>, <span class="math">\(u\to\dfrac L2\)</span>, the mean of the initial temperature.</p>
+<h3 id="example-3-plucked-string">Example 3: plucked string</h3>
+<p>A string of length <span class="math">\(L\)</span> is pulled to height <span class="math">\(h\)</span> at the midpoint (triangular shape) and released from rest. Find <span class="math">\(u\)</span>.</p>
+<p><span class="math">\(g=0\)</span> so <span class="math">\(b_n=0\)</span>. <span class="math">\(a_n=\dfrac{8h}{n^2\pi^2}\sin\dfrac{n\pi}2\)</span>: <span class="math">\(a_1=\dfrac{8h}{\pi^2},\ a_2=0,\ a_3=-\dfrac{8h}{9\pi^2},\dots\)</span>
+<span class="math">\(u=\frac{8h}{\pi^2}\Big[\sin\frac{\pi x}{L}\cos\frac{\pi ct}{L}-\frac19\sin\frac{3\pi x}L\cos\frac{3\pi ct}L+\cdots\Big].\)</span>
+Check at <span class="math">\(t=0,\ x=L/2\)</span>: <span class="math">\(\dfrac{8h}{\pi^2}\Big(1+\dfrac19+\dfrac1{25}+\cdots\Big)=\dfrac{8h}{\pi^2}\cdot\dfrac{\pi^2}{8}=h\)</span>.</p>
+<h3 id="example-4-dalembert">Example 4: d’Alembert</h3>
+<p>Solve <span class="math">\(u_{tt}=c^2u_{xx}\)</span> on the line with <span class="math">\(u(x,0)=x^2,\ u_t(x,0)=2x\)</span>.</p>
+<p><span class="math">\(\dfrac12[(x+ct)^2+(x-ct)^2]=x^2+c^2t^2\)</span>, and <span class="math">\(\dfrac1{2c}\displaystyle\int_{x-ct}^{x+ct}2s\,ds=\dfrac1{2c}\cdot4xct=2xt\)</span>.
+<span class="math">\(u=x^2+c^2t^2+2xt.\)</span>
+Check: <span class="math">\(u_{tt}=2c^2=c^2u_{xx}\)</span>; <span class="math">\(u(x,0)=x^2\)</span>; <span class="math">\(u_t(x,0)=2x\)</span>.</p>
+<h3 id="example-5-laplace-on-a-rectangle">Example 5: Laplace on a rectangle</h3>
+<p>Solve <span class="math">\(u_{xx}+u_{yy}=0\)</span> on <span class="math">\(0&lt;x&lt;a,\ 0&lt;y&lt;b\)</span> with <span class="math">\(u=0\)</span> on <span class="math">\(x=0\)</span>, <span class="math">\(x=a\)</span>, <span class="math">\(y=0\)</span> and <span class="math">\(u(x,b)=1\)</span>.</p>
+<p><span class="math">\(B_n=\dfrac2a\displaystyle\int_0^a\sin\dfrac{n\pi x}{a}dx=\dfrac{4}{n\pi}\)</span> for odd <span class="math">\(n\)</span> and <span class="math">\(0\)</span> for even <span class="math">\(n\)</span>.
+<span class="math">\(u=\frac4\pi\sum_{n\ \mathrm{odd}}\frac1n\sin\frac{n\pi x}a\,\frac{\sinh(n\pi y/a)}{\sinh(n\pi b/a)}.\)</span>
+At <span class="math">\(y=b\)</span> this is the Fourier series of the constant <span class="math">\(1\)</span> on <span class="math">\((0,a)\)</span>.</p>
+<h3 id="example-6-laplace-on-a-disc">Example 6: Laplace on a disc</h3>
+<p>A disc <span class="math">\(r&lt;a\)</span> has <span class="math">\(u=T_0\)</span> on the upper semicircle (<span class="math">\(0&lt;\theta&lt;\pi\)</span>) and <span class="math">\(u=0\)</span> on the lower. Find <span class="math">\(u\)</span> and the centre value.</p>
+<p><span class="math">\(a_0=\dfrac1\pi\displaystyle\int_0^\pi T_0\,d\varphi=T_0\)</span>, <span class="math">\(a_n=0\)</span> (<span class="math">\(n\ge1\)</span>), <span class="math">\(b_n=\dfrac{T_0}{\pi}\displaystyle\int_0^\pi\sin n\varphi\,d\varphi=\dfrac{T_0(1-(-1)^n)}{n\pi}\)</span>.
+<span class="math">\(u=\frac{T_0}2+\frac{2T_0}\pi\sum_{n\ \mathrm{odd}}\frac1n\Big(\frac ra\Big)^n\sin n\theta,\qquad u(0)=\frac{T_0}{2}.\)</span></p>
+</section><section class="note-section ns-common-traps" aria-labelledby="common-traps"><h2 id="common-traps">Common traps</h2>
+<ul>
+<li>Sign of the separation constant. For the heat equation with Dirichlet conditions use <span class="math">\(-\lambda\)</span> (<span class="math">\(\lambda&gt;0\)</span>) so the time factor is <span class="math">\(e^{-\lambda kt}\)</span>. A positive constant gives growth and is excluded by the boundary conditions.</li>
+<li>Heat equation: only one initial condition (<span class="math">\(u(x,0)\)</span>); wave equation: two (<span class="math">\(u\)</span> and <span class="math">\(u_t\)</span>). Forgetting <span class="math">\(b_n\)</span> in the wave equation when <span class="math">\(g\ne0\)</span>.</li>
+<li>The <span class="math">\(b_n\)</span> in the wave equation carries <span class="math">\(\dfrac{2}{n\pi c}\)</span>, not <span class="math">\(\dfrac2L\)</span>; the factor <span class="math">\(\dfrac{n\pi c}{L}\)</span> from differentiating <span class="math">\(\sin\omega_nt\)</span> must be divided out.</li>
+<li>Sine series for Dirichlet ends, cosine series for Neumann ends. Using the wrong one is a common distractor.</li>
+<li>The constant term of a cosine series is <span class="math">\(\dfrac{a_0}2\)</span> where <span class="math">\(a_0=\dfrac2L\displaystyle\int_0^Lf\)</span>, so it equals the mean value <span class="math">\(\dfrac1L\displaystyle\int_0^Lf\)</span>. Using <span class="math">\(a_0\)</span> itself as the constant term doubles it.</li>
+<li>In the rectangle, <span class="math">\(\sinh\)</span> (or <span class="math">\(\cosh\)</span>) appears in the direction where the conditions are not both homogeneous. Writing <span class="math">\(\sin\dfrac{n\pi y}{a}\)</span> is wrong. The normalising factor is <span class="math">\(\sinh(n\pi b/a)\)</span>, not <span class="math">\(\cosh\)</span>.</li>
+<li>Non-homogeneous boundary values (such as <span class="math">\(u(0,t)=T_1\)</span>) are not separable directly. Subtract the steady state first.</li>
+<li>Disc: <span class="math">\(r^n\)</span> (not <span class="math">\(r^{-n}\)</span>) inside, <span class="math">\((r/a)^n\)</span> in the series, and the Fourier coefficients use <span class="math">\(\dfrac1\pi\)</span>, not <span class="math">\(\dfrac2\pi\)</span>, over <span class="math">\((0,2\pi)\)</span>.</li>
+<li>A bounded solution on a disc excludes <span class="math">\(\ln r\)</span> and <span class="math">\(r^{-n}\)</span> because they are infinite at the centre.</li>
+<li>Frequency versus angular frequency of a string: <span class="math">\(\omega_n=\dfrac{n\pi c}{L}\)</span> but frequency (cycles per unit time) <span class="math">\(=\dfrac{nc}{2L}\)</span>.</li>
+<li>d’Alembert’s integral has factor <span class="math">\(\dfrac1{2c}\)</span> and limits <span class="math">\(x\pm ct\)</span>; forgetting the <span class="math">\(\dfrac12\)</span> in front of <span class="math">\(f\)</span> is a classic error.</li>
+<li>Fourier series at a jump converges to the mean of the two one-sided limits, not to either value.</li>
+</ul>
+</section><section class="note-section ns-previous-year-questions" aria-labelledby="previous-year-questions"><h2 id="previous-year-questions">Previous-year questions</h2>
+<p>None yet. Related past question: the 2025-Q59 match (heat equation parabolic, wave equation hyperbolic, Laplace equation elliptic) is in the topic on higher-order linear PDEs and classification.</p>
+</section><section class="note-section ns-quick-revision" aria-labelledby="quick-revision"><h2 id="quick-revision">Quick revision</h2>
+<ul>
+<li><span class="math">\(u=X(x)T(t)\)</span>, both sides equal <span class="math">\(-\lambda\)</span>; boundary conditions give eigenvalues, then superpose.</li>
+<li>Dirichlet <span class="math">\(X(0)=X(L)=0\)</span>: <span class="math">\(\lambda_n=(n\pi/L)^2\)</span>, <span class="math">\(X=\sin\)</span>. Neumann: <span class="math">\(\cos\)</span>, <span class="math">\(n\ge0\)</span>.</li>
+<li><span class="math">\(b_n=\dfrac2L\displaystyle\int_0^Lf\sin\dfrac{n\pi x}L\,dx\)</span>.</li>
+<li>Heat: modes decay as <span class="math">\(e^{-kn^2\pi^2t/L^2}\)</span>; insulated ends tend to the mean value <span class="math">\(\dfrac{a_0}2\)</span>.</li>
+<li>Non-zero end temperatures: subtract the linear steady state first.</li>
+<li>Wave: <span class="math">\(\omega_n=\dfrac{n\pi c}{L}\)</span>; <span class="math">\(a_n\)</span> from <span class="math">\(f\)</span>, <span class="math">\(b_n=\dfrac2{n\pi c}\displaystyle\int g\sin\)</span>; fundamental frequency <span class="math">\(\dfrac{c}{2L}\)</span>.</li>
+<li>d’Alembert: <span class="math">\(u=\tfrac12[f(x+ct)+f(x-ct)]+\dfrac1{2c}\displaystyle\int_{x-ct}^{x+ct}g\)</span>.</li>
+<li>Rectangle Laplace: <span class="math">\(\sin(n\pi x/a)\,\sinh(n\pi y/a)/\sinh(n\pi b/a)\)</span>, coefficient <span class="math">\(\dfrac2a\displaystyle\int f\sin\)</span>.</li>
+<li>Disc Laplace: <span class="math">\(\dfrac{a_0}2+\sum(r/a)^n(a_n\cos n\theta+b_n\sin n\theta)\)</span>, coefficients <span class="math">\(\dfrac1\pi\displaystyle\int_0^{2\pi}\)</span>; centre value <span class="math">\(=\dfrac{a_0}2\)</span>.</li>
+<li>Disc: discard <span class="math">\(r^{-n}\)</span> and <span class="math">\(\ln r\)</span> (unbounded at <span class="math">\(0\)</span>). Exterior: <span class="math">\((a/r)^n\)</span>.</li>
+<li>Standard <span class="math">\(b_n\)</span>: <span class="math">\(1\to4/(n\pi)\)</span> (odd), <span class="math">\(x\to2L(-1)^{n+1}/(n\pi)\)</span>, <span class="math">\(x(L-x)\to8L^2/(n^3\pi^3)\)</span> (odd).</li>
+</ul>
+</section></article></div><section class="section reader-end"><button class="read-btn" type="button" data-read-btn aria-pressed="false"><span class="box" aria-hidden="true"></span><span data-read-label>Mark as read</span></button><ul class="units end-links"><li><a class="unit-card" href="/uphesc-maths/learn/differential-equations/separation-of-variables/practice/"><span class="unit-top"><span class="unit-name">Practise this topic</span></span><p class="flush">15 questions with worked solutions</p></a></li><li><a class="unit-card" href="/uphesc-maths/learn/differential-equations/formulas/"><span class="unit-top"><span class="unit-name">Unit 6 formula sheet</span></span><p class="flush">Last topic of the unit. Revise every formula in one place.</p></a></li></ul><p class="prev-link"><a href="/uphesc-maths/learn/differential-equations/higher-order-linear-pdes/">Previous: Higher-order linear PDEs with constant coefficients, classification and canonical forms</a></p></section></div><footer class="foot"><p>Built from every paper that survives: the full 2025 and 2026 papers (140 maths questions) and half of 2019 (35, from a solution video). 2015 left only an answer key, and nothing was found for 2021. The commission has never published its booklets. Unit counts use 2025 and 2026 only, so they show a range, not a trend.</p><p>2025 answers match the official key. 2026 has no key yet, so its answers were worked out by hand and marked high, medium or low confidence, and every unsure one was solved again, blind. 2019 answers come from the video and are not checked against the official key.</p></footer></main><script type="module">var e=document.documentElement,t=()=>e.dataset.mode?e.dataset.mode===`dark`:matchMedia(`(prefers-color-scheme: dark)`).matches;document.querySelector(`[data-mode-toggle]`)?.addEventListener(`click`,()=>{let n=t()?`light`:`dark`;e.dataset.mode=n;try{localStorage.setItem(`um:mode`,n)}catch{}}),!e.dataset.mode&&t()&&(e.dataset.mode=`dark`);var n=document.querySelectorAll(`[data-old-toggle]`),r=t=>{t?e.dataset.old=`on`:delete e.dataset.old,n.forEach(e=>e.setAttribute(`aria-checked`,String(t)))};r(e.dataset.old===`on`),n.forEach(t=>t.addEventListener(`click`,()=>{let t=e.dataset.old!==`on`;r(t);try{localStorage.setItem(`um:old`,t?`on`:`off`)}catch{}}));var i=document.querySelectorAll(`[data-view]`),a=t=>{t===`bars`?e.dataset.view=`bars`:delete e.dataset.view,i.forEach(e=>e.setAttribute(`aria-pressed`,String(e.dataset.view===t)))};a(e.dataset.view===`bars`?`bars`:`heat`),i.forEach(e=>e.addEventListener(`click`,()=>{a(e.dataset.view);try{localStorage.setItem(`um:view`,e.dataset.view)}catch{}}));var o=document.createElement(`div`);o.className=`tip`,o.setAttribute(`role`,`tooltip`),o.hidden=!0,document.body.append(o);var s=null,c=(e,t)=>{let n=o.offsetWidth,r=o.offsetHeight,i=e+12,a=t+12;i+n>innerWidth-8&&(i=Math.max(8,e-n-12)),a+r>innerHeight-8&&(a=Math.max(8,t-r-12)),o.style.left=`${i}px`,o.style.top=`${a}px`},l=()=>{if(s){let e=s.getBoundingClientRect();c(e.left+e.width*.3,e.bottom-8)}},u=e=>{e!==s&&(s=e,o.replaceChildren(...[...e.querySelector(`.tip-src`).childNodes].map(e=>e.cloneNode(!0)))),o.hidden=!1},d=()=>{o.hidden=!0,s=null};document.addEventListener(`pointermove`,e=>{if(e.pointerType!==`mouse`)return;let t=e.target.closest(`[data-tip]`);t?(u(t),c(e.clientX,e.clientY)):s&&d()}),document.addEventListener(`focusin`,e=>{let t=e.target.closest(`[data-tip]`);t&&(u(t),l())}),document.addEventListener(`focusout`,()=>d()),addEventListener(`scroll`,()=>{s&&document.activeElement===s?l():s&&d()},{passive:!0}),document.addEventListener(`keydown`,e=>{e.key===`Escape`&&d()});var f=`um:done`,p={};try{p=JSON.parse(localStorage.getItem(f)||`{}`)}catch{}var m=()=>{document.querySelectorAll(`[data-progress]`).forEach(e=>{let t=[...document.querySelectorAll(`[data-group="${e.dataset.progress}"]`)],n=t.filter(e=>e.checked).length;e.querySelector(`.progress-bar span`).style.width=`${n/t.length*100}%`,e.querySelector(`[data-count]`).textContent=`${n} of ${t.length} done`})};document.querySelectorAll(`input[data-check]`).forEach(e=>{e.checked=!!p[e.dataset.check],e.addEventListener(`change`,()=>{p[e.dataset.check]=e.checked;try{localStorage.setItem(f,JSON.stringify(p))}catch{}m()})}),m();</script></body></html><script type="module" src="/uphesc-maths/_astro/index.astro_astro_type_script_index_0_lang.t7qZbIYF.js"></script>

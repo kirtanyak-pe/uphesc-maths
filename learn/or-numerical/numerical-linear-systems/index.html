@@ -1,0 +1,271 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Numerical solution of linear systems · UPESSC maths</title><meta name="description" content="What to study for the UPESSC (formerly UPHESC) Assistant Professor maths paper, built from every paper that survives."><link rel="icon" href="/uphesc-maths/favicon.svg" type="image/svg+xml"><link rel="preload" href="/uphesc-maths/fonts/inter-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin><!-- the saved light/dark, 2019 and chart-view choices, before first paint --><script>
+    try { var m = localStorage.getItem('um:mode'); if (m) document.documentElement.dataset.mode = m; } catch (e) {}
+    try { if (localStorage.getItem('um:old') === 'on') document.documentElement.dataset.old = 'on'; } catch (e) {}
+    try { if (localStorage.getItem('um:view') === 'bars') document.documentElement.dataset.view = 'bars'; } catch (e) {}
+  </script><!-- maths: the vendored MathJax typesets \( \) and \[ \] text, loaded only on pages that have any --><script>(function(){const VENDOR = "/uphesc-maths/vendor";
+
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+      loader: { paths: { mathjax: VENDOR + '/mathjax', fonts: VENDOR + '/mathjax/fonts' } },
+      output: { font: 'mathjax-stix2', displayOverflow: 'scroll' },
+      options: { ignoreHtmlClass: 'no-math', processHtmlClass: 'math', menuOptions: { settings: { enrich: false, speech: false, braille: false } } },
+      chtml: { displayOverflow: 'scroll' },
+      // an inline formula with a piece wider than its line gets its own scrolling line, like display maths
+      startup: { pageReady: () => MathJax.startup.defaultPageReady().then(fitMath) },
+    };
+    function fitMath() {
+      for (const m of document.querySelectorAll('mjx-container:not([display="true"]):not(.mjx-wide)')) {
+        const box = m.closest('p, li, dd, blockquote, div');
+        if (!box || m.closest('td, th')) continue;
+        const right = box.getBoundingClientRect().right + 1;
+        if ([...m.getClientRects()].some((r) => r.right > right)) m.classList.add('mjx-wide');
+      }
+    }
+    let fitQueued = 0;
+    const queueFit = () => { if (window.MathJax?.startup?.document && !fitQueued) fitQueued = requestAnimationFrame(() => { fitQueued = 0; fitMath(); }); };
+    addEventListener('resize', queueFit);
+    addEventListener('click', () => setTimeout(queueFit, 50));
+    document.addEventListener('DOMContentLoaded', () => {
+      if (!document.querySelector('.math')) return;
+      const s = document.createElement('script');
+      s.async = true;
+      s.src = VENDOR + '/mathjax/tex-chtml-nofont.js';
+      document.head.appendChild(s);
+    });
+  })();</script><link rel="stylesheet" href="/uphesc-maths/_astro/Base.CkQ5KWO8.css"></head><body data-tab="learn"><nav class="appnav" aria-label="Main"><a class="appnav-brand" href="/uphesc-maths/" aria-label="UPESSC maths home">∑</a><a class="appnav-item" href="/uphesc-maths/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4 10.2 12 4l8 6.2V19a1 1 0 0 1-1 1h-4.5v-5.5h-5V20H5a1 1 0 0 1-1-1z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Plan</span></a><a class="appnav-item" href="/uphesc-maths/learn/" aria-current="page"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M12 6.5C10 5 7.5 4.5 4 4.5v13c3.5 0 6 .5 8 2 2-1.5 4.5-2 8-2v-13c-3.5 0-6 .5-8 2zM12 6.5v13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Learn</span></a><a class="appnav-item" href="/uphesc-maths/units/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4 5h7v7H4zM13 5h7v7h-7zM4 14h7v6H4zM13 14h7v6h-7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Units</span></a><a class="appnav-item" href="/uphesc-maths/papers/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M7 3h7l4 4v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zM14 3v4h4M9 12h6M9 16h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Papers</span></a><a class="appnav-item" href="/uphesc-maths/revise/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M5 12.5 9.5 17 19 7.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Revise</span></a></nav><header class="topbar"><a class="bar-back" href="/uphesc-maths/learn/or-numerical/" aria-label="Back"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a><p class="bar-title">Unit 9</p><button class="bar-btn" type="button" data-mode-toggle aria-label="Switch light or dark"><svg class="i-moon" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path></svg><svg class="i-sun" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path></svg></button></header><main class="page"><div class="reader" data-topic="numerical-linear-systems"><header class="page-head topic-head"><p class="kicker"><a href="/uphesc-maths/learn/or-numerical/">Unit 9 · Operations Research and Numerical Analysis</a></p><h1>Numerical solution of linear systems</h1><ul class="meta"><li class="prio high">High priority</li><li>1 h 30 min to study</li><li>Asked once</li><li class="read-flag" data-read-flag hidden>Read</li></ul><p class="pyq-line">Previous papers: 2026 Q59</p></header><div class="reader-grid"><nav class="toc" aria-label="On this page"><details class="toc-box" data-toc><summary>On this page</summary><ol><li><a href="#why-it-matters-for-the-exam">Why it matters for the exam</a></li><li><a href="#core-ideas">Core ideas</a></li><li class="sub"><a href="#the-problem">The problem</a></li><li class="sub"><a href="#gauss-elimination">Gauss elimination</a></li><li class="sub"><a href="#pivoting">Pivoting</a></li><li class="sub"><a href="#gauss-jordan-method">Gauss-Jordan method</a></li><li class="sub"><a href="#lu-factorisation">LU factorisation</a></li><li class="sub"><a href="#operation-counts-multiplications-and-divisions">Operation counts (multiplications and divisions)</a></li><li class="sub"><a href="#jacobi-and-gauss-seidel-the-iterations">Jacobi and Gauss-Seidel: the iterations</a></li><li class="sub"><a href="#convergence">Convergence</a></li><li class="sub"><a href="#why-gauss-seidel-is-usually-faster">Why Gauss-Seidel is usually faster</a></li><li class="sub"><a href="#successive-over-relaxation-statement-only">Successive over-relaxation (statement only)</a></li><li class="sub"><a href="#condition-number-basic-level">Condition number (basic level)</a></li><li><a href="#formulas-and-results">Formulas and results</a></li><li><a href="#worked-examples">Worked examples</a></li><li class="sub"><a href="#example-1-gauss-elimination">Example 1: Gauss elimination</a></li><li class="sub"><a href="#example-2-why-pivot">Example 2: why pivot</a></li><li class="sub"><a href="#example-3-doolittle-lu">Example 3: Doolittle LU</a></li><li class="sub"><a href="#example-4-jacobi-versus-gauss-seidel">Example 4: Jacobi versus Gauss-Seidel</a></li><li class="sub"><a href="#example-5-iteration-matrices">Example 5: iteration matrices</a></li><li class="sub"><a href="#example-6-condition-number">Example 6: condition number</a></li><li><a href="#common-traps">Common traps</a></li><li><a href="#previous-year-questions">Previous-year questions</a></li><li class="sub"><a href="#2026-q59-worked-key-b-unofficial-key-flagged-med-confidence">2026-Q59 (worked key: B; unofficial key, flagged “med” confidence)</a></li><li><a href="#quick-revision">Quick revision</a></li></ol></details></nav><article class="prose"><section class="note-section ns-why-it-matters-for-the-exam" aria-labelledby="why-it-matters-for-the-exam"><h2 id="why-it-matters-for-the-exam">Why it matters for the exam</h2>
+<p>The syllabus names Gauss elimination and Gauss-Seidel directly, and the 2026 paper asked Gauss-Seidel versus Jacobi (Q59). Typical questions: which method needs pivoting, what the convergence condition is (diagonal dominance, spectral radius), which of Jacobi and Gauss-Seidel is faster, and the form of an LU factorisation. Operation counts and condition number appear as statement-type options.</p>
+</section><section class="note-section ns-core-ideas" aria-labelledby="core-ideas"><h2 id="core-ideas">Core ideas</h2>
+<h3 id="the-problem">The problem</h3>
+<p>Solve <span class="math">\(A\mathbf x=\mathbf b\)</span> with <span class="math">\(A\)</span> an <span class="math">\(n\times n\)</span> nonsingular matrix.</p>
+<ul>
+<li><strong>Direct methods</strong> give the exact answer in a finite number of steps if there were no rounding: Gauss elimination, Gauss-Jordan, LU, Cholesky.</li>
+<li><strong>Iterative methods</strong> produce a sequence <span class="math">\(\mathbf x^{(0)},\mathbf x^{(1)},\dots\to\mathbf x\)</span>: Jacobi, Gauss-Seidel, SOR. They are preferred for large sparse systems.</li>
+</ul>
+<h3 id="gauss-elimination">Gauss elimination</h3>
+<p>Two phases on the augmented matrix <span class="math">\([A\mid\mathbf b]\)</span>.</p>
+<ol>
+<li><strong>Forward elimination.</strong> For <span class="math">\(k=1,\dots,n-1\)</span> use row <span class="math">\(k\)</span> (pivot <span class="math">\(a_{kk}\)</span>) to make zeros below it. Multiplier <span class="math">\(m_{ik}=a_{ik}/a_{kk}\)</span>; row<span class="math">\(_i\leftarrow\)</span> row<span class="math">\(_i-m_{ik}\,\)</span>row<span class="math">\(_k\)</span>. This ends with an upper-triangular system <span class="math">\(U\mathbf x=\mathbf c\)</span>.</li>
+<li><strong>Back substitution.</strong>
+<span class="math">\(x_n=\frac{c_n}{u_{nn}},\qquad x_i=\frac1{u_{ii}}\Big(c_i-\sum_{j=i+1}^{n}u_{ij}x_j\Big).\)</span></li>
+</ol>
+<p>Facts used in questions:</p>
+<ul>
+<li><span class="math">\(\det A=\pm\)</span> product of the pivots (sign <span class="math">\((-1)^s\)</span> for <span class="math">\(s\)</span> row interchanges).</li>
+<li>It fails (without row exchange) if a pivot is <span class="math">\(0\)</span>, even when <span class="math">\(A\)</span> is nonsingular.</li>
+<li>Inconsistency shows as a row <span class="math">\(0=c\neq0\)</span>; infinitely many solutions as an all-zero row.</li>
+</ul>
+<h3 id="pivoting">Pivoting</h3>
+<p>A <strong>small pivot</strong> gives a huge multiplier and amplifies rounding error. Fix: exchange rows before eliminating.</p>
+<ul>
+<li><strong>Partial pivoting:</strong> in column <span class="math">\(k\)</span>, pick the row <span class="math">\(i\ge k\)</span> with largest <span class="math">\(\lvert a_{ik}\rvert\)</span> and swap it to row <span class="math">\(k\)</span>.</li>
+<li><strong>Complete pivoting:</strong> pick the largest <span class="math">\(\lvert a_{ij}\rvert\)</span> over the whole remaining block (swaps rows <em>and</em> columns, so variables are re-ordered). More stable but more costly.</li>
+<li><strong>Scaled partial pivoting:</strong> compare <span class="math">\(\lvert a_{ik}\rvert/s_i\)</span> where <span class="math">\(s_i=\max_j\lvert a_{ij}\rvert\)</span>.</li>
+</ul>
+<p>Pivoting is for <strong>stability</strong>, not for speed. It does not change the exact solution.</p>
+<h3 id="gauss-jordan-method">Gauss-Jordan method</h3>
+<p>Eliminate above <strong>and</strong> below each pivot, and scale pivots to <span class="math">\(1\)</span>, so <span class="math">\([A\mid\mathbf b]\to[I\mid\mathbf x]\)</span>. No back substitution. Applying the same row operations to <span class="math">\([A\mid I]\)</span> gives <span class="math">\([I\mid A^{-1}]\)</span>, the standard way to compute an inverse by hand. It needs about <span class="math">\(n^3/2\)</span> multiplications versus <span class="math">\(n^3/3\)</span> for Gauss elimination, so it is slower for solving a single system.</p>
+<h3 id="lu-factorisation">LU factorisation</h3>
+<p>If <span class="math">\(A=LU\)</span> with <span class="math">\(L\)</span> lower and <span class="math">\(U\)</span> upper triangular, solve <span class="math">\(A\mathbf x=\mathbf b\)</span> in two triangular solves:</p>
+<p><span class="math">\(L\mathbf y=\mathbf b\ \text{(forward)},\qquad U\mathbf x=\mathbf y\ \text{(backward)}.\)</span></p>
+<p><strong>Existence.</strong> If all leading principal minors of <span class="math">\(A\)</span> are nonzero, <span class="math">\(A=LU\)</span> exists and is unique once the diagonal of <span class="math">\(L\)</span> (or <span class="math">\(U\)</span>) is fixed. Otherwise row pivoting is needed: <span class="math">\(PA=LU\)</span>.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Variant</th>
+<th>Normalisation</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Doolittle</strong></td>
+<td><span class="math">\(l_{ii}=1\)</span></td>
+<td><span class="math">\(U\)</span> is the result of Gauss elimination, <span class="math">\(L\)</span> stores the multipliers <span class="math">\(m_{ik}\)</span></td>
+</tr>
+<tr>
+<td><strong>Crout</strong></td>
+<td><span class="math">\(u_{ii}=1\)</span></td>
+<td><span class="math">\(L'=LD,\ U'=D^{-1}U\)</span> where <span class="math">\(D=\operatorname{diag}(u_{ii})\)</span></td>
+</tr>
+<tr>
+<td><strong>Cholesky</strong></td>
+<td><span class="math">\(A=LL^{T}\)</span></td>
+<td>only for symmetric positive definite <span class="math">\(A\)</span>; about half the work</td>
+</tr>
+</tbody>
+</table></div>
+<p>Doolittle formulas (<span class="math">\(u_{1j}=a_{1j}\)</span>):</p>
+<p><span class="math">\(u_{ij}=a_{ij}-\sum_{k=1}^{i-1}l_{ik}u_{kj}\ (j\ge i),\qquad l_{ij}=\frac1{u_{jj}}\Big(a_{ij}-\sum_{k=1}^{j-1}l_{ik}u_{kj}\Big)\ (i&gt;j).\)</span></p>
+<p><span class="math">\(\det A=\prod u_{ii}\)</span> (Doolittle). The big advantage: factorise once (<span class="math">\(\approx n^3/3\)</span>), then each new right-hand side costs only <span class="math">\(n^2\)</span>.</p>
+<h3 id="operation-counts-multiplications-and-divisions">Operation counts (multiplications and divisions)</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gauss elimination (solve)</td>
+<td><span class="math">\(\dfrac{n^3}{3}+n^2-\dfrac n3\ \approx\ \dfrac{n^3}3\)</span></td>
+</tr>
+<tr>
+<td>Gauss-Jordan (solve)</td>
+<td><span class="math">\(\dfrac{n^3}{2}+\dfrac{n^2}{2}\ \approx\ \dfrac{n^3}2\)</span></td>
+</tr>
+<tr>
+<td>LU factorisation</td>
+<td><span class="math">\(\approx\dfrac{n^3}{3}\)</span>; each further right side <span class="math">\(n^2\)</span></td>
+</tr>
+<tr>
+<td>Inverse by Gauss-Jordan</td>
+<td><span class="math">\(\approx n^3\)</span></td>
+</tr>
+<tr>
+<td>Cramer’s rule</td>
+<td>about <span class="math">\(n\cdot n!\)</span> with cofactor expansion: hopeless for large <span class="math">\(n\)</span></td>
+</tr>
+<tr>
+<td>One Jacobi or Gauss-Seidel sweep (dense)</td>
+<td><span class="math">\(n^2\)</span></td>
+</tr>
+</tbody>
+</table></div>
+<p>An iterative method wins only when it needs fewer than about <span class="math">\(n/3\)</span> sweeps (dense case) or when <span class="math">\(A\)</span> is sparse.</p>
+<h3 id="jacobi-and-gauss-seidel-the-iterations">Jacobi and Gauss-Seidel: the iterations</h3>
+<p>Write <span class="math">\(A=D+L+U\)</span> with <span class="math">\(D\)</span> the diagonal, <span class="math">\(L\)</span> the strictly lower and <span class="math">\(U\)</span> the strictly upper part (not the LU factors). Assume <span class="math">\(a_{ii}\neq0\)</span>.</p>
+<p><strong>Jacobi (method of simultaneous displacements):</strong> every component uses only <strong>old</strong> values.</p>
+<p><span class="math">\(x_i^{(k+1)}=\frac1{a_{ii}}\Big(b_i-\sum_{j\ne i}a_{ij}x_j^{(k)}\Big),\qquad D\mathbf x^{(k+1)}=\mathbf b-(L+U)\mathbf x^{(k)}.\)</span></p>
+<p><strong>Gauss-Seidel (successive displacements):</strong> use the <strong>newest</strong> values as soon as they are available.</p>
+<p><span class="math">\(x_i^{(k+1)}=\frac1{a_{ii}}\Big(b_i-\sum_{j&lt;i}a_{ij}x_j^{(k+1)}-\sum_{j&gt;i}a_{ij}x_j^{(k)}\Big),\qquad (D+L)\mathbf x^{(k+1)}=\mathbf b-U\mathbf x^{(k)}.\)</span></p>
+<p>Both have the form <span class="math">\(\mathbf x^{(k+1)}=T\mathbf x^{(k)}+\mathbf c\)</span> with <strong>iteration matrices</strong></p>
+<p><span class="math">\(T_J=-D^{-1}(L+U),\qquad T_{GS}=-(D+L)^{-1}U.\)</span></p>
+<h3 id="convergence">Convergence</h3>
+<p>The error obeys <span class="math">\(\mathbf e^{(k+1)}=T\mathbf e^{(k)}\)</span>, so <span class="math">\(\mathbf e^{(k)}=T^k\mathbf e^{(0)}\)</span>.</p>
+<p><strong>Fundamental theorem.</strong> The iteration converges for every starting vector <span class="math">\(\mathbf x^{(0)}\)</span> <strong>if and only if</strong> the spectral radius <span class="math">\(\rho(T)=\max\lvert\lambda_i(T)\rvert&lt;1\)</span>. A sufficient condition is <span class="math">\(\lVert T\rVert&lt;1\)</span> in some induced norm; then</p>
+<p><span class="math">\(\lVert\mathbf x^{(k)}-\mathbf x\rVert\le\frac{\lVert T\rVert^k}{1-\lVert T\rVert}\lVert\mathbf x^{(1)}-\mathbf x^{(0)}\rVert.\)</span></p>
+<p><strong>Diagonal dominance (sufficient, not necessary).</strong> <span class="math">\(A\)</span> is <strong>strictly diagonally dominant</strong> by rows if</p>
+<p><span class="math">\(\lvert a_{ii}\rvert&gt;\sum_{j\ne i}\lvert a_{ij}\rvert\quad\text{for every }i.\)</span></p>
+<p>Then <strong>both</strong> Jacobi and Gauss-Seidel converge for every <span class="math">\(\mathbf x^{(0)}\)</span>. (For Jacobi, <span class="math">\(\lVert T_J\rVert_\infty&lt;1\)</span> directly.) Rows may be re-ordered to create dominance. Weak dominance (with <span class="math">\(\ge\)</span> and strict for at least one row) works if <span class="math">\(A\)</span> is irreducible.</p>
+<p><strong>Other results.</strong></p>
+<ul>
+<li>If <span class="math">\(A\)</span> is <strong>symmetric positive definite</strong>, Gauss-Seidel converges (Jacobi need not).</li>
+<li><strong>Rate:</strong> the smaller <span class="math">\(\rho(T)\)</span>, the faster. Digits gained per sweep <span class="math">\(\approx-\log_{10}\rho(T)\)</span>.</li>
+<li><strong>Stein-Rosenberg:</strong> for nonnegative <span class="math">\(T_J\)</span>, Jacobi and Gauss-Seidel converge or diverge together, and when they converge <span class="math">\(\rho(T_{GS})\le\rho(T_J)\)</span>.</li>
+<li><strong>Consistently ordered matrices</strong> (block tridiagonal systems from discretised PDEs): <span class="math">\(\rho(T_{GS})=\rho(T_J)^2\)</span>. So Gauss-Seidel needs about <strong>half</strong> as many iterations.</li>
+<li>Convergence rate is <strong>linear</strong>.</li>
+</ul>
+<h3 id="why-gauss-seidel-is-usually-faster">Why Gauss-Seidel is usually faster</h3>
+<p>It uses the freshly computed components in the same sweep, so information propagates faster, and it needs less storage (it overwrites <span class="math">\(\mathbf x\)</span> in place; Jacobi keeps two vectors). In typical diagonally dominant and PDE-type systems <span class="math">\(\rho(T_{GS})=\rho(T_J)^2\)</span>. <strong>But this is not a theorem for all matrices:</strong> there are matrices where Jacobi converges and Gauss-Seidel diverges, and vice versa. Example: <span class="math">\(A=\begin{pmatrix}1&amp;2&amp;-2\\1&amp;1&amp;1\\2&amp;2&amp;1\end{pmatrix}\)</span> has <span class="math">\(\rho(T_J)=0\)</span> (so Jacobi converges in <span class="math">\(3\)</span> steps) but <span class="math">\(\rho(T_{GS})=2\)</span> (Gauss-Seidel diverges). So the safe exam statement is: <em>for diagonally dominant systems both converge and Gauss-Seidel generally converges faster</em>.</p>
+<h3 id="successive-over-relaxation-statement-only">Successive over-relaxation (statement only)</h3>
+<p>SOR takes <span class="math">\(\mathbf x^{(k+1)}=(1-\omega)\mathbf x^{(k)}+\omega\,\mathbf x^{(k+1)}_{GS}\)</span>. For <span class="math">\(0&lt;\omega&lt;2\)</span> it can converge (necessary: <span class="math">\(0&lt;\omega&lt;2\)</span>); <span class="math">\(\omega=1\)</span> is Gauss-Seidel; the best <span class="math">\(\omega\)</span> can improve the rate dramatically.</p>
+<h3 id="condition-number-basic-level">Condition number (basic level)</h3>
+<p>For nonsingular <span class="math">\(A\)</span> and a matrix norm:</p>
+<p><span class="math">\(\kappa(A)=\lVert A\rVert\,\lVert A^{-1}\rVert\ \ge1.\)</span></p>
+<p>For the <span class="math">\(2\)</span>-norm and symmetric positive definite <span class="math">\(A\)</span>, <span class="math">\(\kappa_2=\lambda_{\max}/\lambda_{\min}\)</span>. It measures sensitivity to data errors: if <span class="math">\(A\mathbf x=\mathbf b\)</span> and <span class="math">\(A(\mathbf x+\delta\mathbf x)=\mathbf b+\delta\mathbf b\)</span>,</p>
+<p><span class="math">\(\frac{\lVert\delta\mathbf x\rVert}{\lVert\mathbf x\rVert}\le\kappa(A)\,\frac{\lVert\delta\mathbf b\rVert}{\lVert\mathbf b\rVert}.\)</span></p>
+<ul>
+<li><span class="math">\(\kappa\)</span> close to <span class="math">\(1\)</span>: <strong>well-conditioned</strong>; <span class="math">\(\kappa\)</span> large: <strong>ill-conditioned</strong>.</li>
+<li>The same bound holds for errors in <span class="math">\(A\)</span> (to first order). A <strong>small residual</strong> <span class="math">\(\mathbf r=\mathbf b-A\hat{\mathbf x}\)</span> does not mean a small error if <span class="math">\(\kappa\)</span> is large: <span class="math">\(\dfrac{\lVert\mathbf e\rVert}{\lVert\mathbf x\rVert}\le\kappa\dfrac{\lVert\mathbf r\rVert}{\lVert\mathbf b\rVert}\)</span>.</li>
+<li>Ill-conditioning is a property of the <strong>problem</strong>, not of the algorithm. Pivoting cannot cure it.</li>
+<li>Classic ill-conditioned examples: Hilbert matrices (<span class="math">\(\kappa_\infty(H_3)=748\)</span>, growing fast with <span class="math">\(n\)</span>), nearly parallel lines.</li>
+<li><span class="math">\(\det A\)</span> small does <strong>not</strong> by itself mean ill-conditioned (scaling <span class="math">\(A\)</span> changes <span class="math">\(\det\)</span> but not <span class="math">\(\kappa\)</span>).</li>
+</ul>
+</section><section class="note-section ns-formulas-and-results" aria-labelledby="formulas-and-results"><h2 id="formulas-and-results">Formulas and results</h2>
+<ul>
+<li>Back substitution: <span class="math">\(x_i=\frac1{u_{ii}}\big(c_i-\sum_{j&gt;i}u_{ij}x_j\big)\)</span>; <span class="math">\(\det A=(-1)^s\prod u_{ii}\)</span>.</li>
+<li>Doolittle: <span class="math">\(l_{ii}=1\)</span>; Crout: <span class="math">\(u_{ii}=1\)</span>; Cholesky: <span class="math">\(A=LL^T\)</span> (SPD).</li>
+<li><span class="math">\(A=LU\)</span> exists if all leading principal minors are nonzero; <span class="math">\(PA=LU\)</span> in general.</li>
+<li>Jacobi: <span class="math">\(x_i^{(k+1)}=\frac1{a_{ii}}\big(b_i-\sum_{j\ne i}a_{ij}x_j^{(k)}\big)\)</span>; <span class="math">\(T_J=-D^{-1}(L+U)\)</span>.</li>
+<li>Gauss-Seidel: new values used at once; <span class="math">\(T_{GS}=-(D+L)^{-1}U\)</span>.</li>
+<li>Converges <span class="math">\(\forall\,\mathbf x^{(0)}\iff\rho(T)&lt;1\)</span>; sufficient: <span class="math">\(\lVert T\rVert&lt;1\)</span> or <span class="math">\(A\)</span> strictly diagonally dominant.</li>
+<li>Consistently ordered: <span class="math">\(\rho(T_{GS})=\rho(T_J)^2\)</span>.</li>
+<li>Gauss <span class="math">\(\approx n^3/3\)</span>, Gauss-Jordan <span class="math">\(\approx n^3/2\)</span>, per sweep <span class="math">\(n^2\)</span>.</li>
+<li><span class="math">\(\kappa(A)=\lVert A\rVert\lVert A^{-1}\rVert\ge1\)</span>; <span class="math">\(\frac{\lVert\delta x\rVert}{\lVert x\rVert}\le\kappa\frac{\lVert\delta b\rVert}{\lVert b\rVert}\)</span>.</li>
+</ul>
+</section><section class="note-section ns-worked-examples" aria-labelledby="worked-examples"><h2 id="worked-examples">Worked examples</h2>
+<h3 id="example-1-gauss-elimination">Example 1: Gauss elimination</h3>
+<p>Solve <span class="math">\(x+y+z=6,\ 2x-y+z=3,\ x+2y-z=2\)</span>.</p>
+<p>Step 1 (pivot <span class="math">\(1\)</span>): <span class="math">\(R_2-2R_1\)</span> gives <span class="math">\((0,-3,-1\mid-9)\)</span> and <span class="math">\(R_3-R_1\)</span> gives <span class="math">\((0,1,-2\mid-4)\)</span>.
+Step 2: <span class="math">\(R_3+\tfrac13R_2\)</span> gives <span class="math">\((0,0,-\tfrac73\mid-7)\)</span>, so <span class="math">\(z=3\)</span>.
+Back substitution: <span class="math">\(-3y-3=-9\Rightarrow y=2\)</span>; <span class="math">\(x+2+3=6\Rightarrow x=1\)</span>. Solution <span class="math">\((1,2,3)\)</span>.</p>
+<h3 id="example-2-why-pivot">Example 2: why pivot</h3>
+<p>Solve <span class="math">\(0.0001x+y=1,\ x+y=2\)</span> keeping <span class="math">\(3\)</span> significant digits. True solution: <span class="math">\(x=1.0001,\ y=0.9999\)</span>.</p>
+<p>Without pivoting: multiplier <span class="math">\(10^4\)</span>; <span class="math">\(y(1-10^4)=2-10^4\)</span> rounds to <span class="math">\(-10^4y=-10^4\)</span>, so <span class="math">\(y=1.00\)</span>; then <span class="math">\(x=(1-1.00)/0.0001=0\)</span>. <strong>Wrong.</strong>
+With partial pivoting (swap rows: <span class="math">\(x+y=2\)</span> first): <span class="math">\(y=\dfrac{1-0.0002}{1-0.0001}\approx1.00\)</span>, <span class="math">\(x=2-1.00=1.00\)</span>. <strong>Correct to 3 digits.</strong></p>
+<h3 id="example-3-doolittle-lu">Example 3: Doolittle LU</h3>
+<p><span class="math">\(A=\begin{pmatrix}2&amp;1&amp;1\\4&amp;3&amp;3\\8&amp;7&amp;9\end{pmatrix}\)</span>. Multipliers: <span class="math">\(l_{21}=2\)</span>, <span class="math">\(l_{31}=4\)</span>. After step 1 the lower block is <span class="math">\(\begin{pmatrix}1&amp;1\\3&amp;5\end{pmatrix}\)</span>, <span class="math">\(l_{32}=3\)</span>, <span class="math">\(u_{33}=5-3=2\)</span>.</p>
+<p><span class="math">\(L=\begin{pmatrix}1&amp;0&amp;0\\2&amp;1&amp;0\\4&amp;3&amp;1\end{pmatrix},\quad U=\begin{pmatrix}2&amp;1&amp;1\\0&amp;1&amp;1\\0&amp;0&amp;2\end{pmatrix},\quad\det A=2\cdot1\cdot2=4.\)</span></p>
+<p>Check row 3 of <span class="math">\(LU\)</span>: <span class="math">\(4(2,1,1)+3(0,1,1)+(0,0,2)=(8,7,9)\)</span>. The Crout form has <span class="math">\(u_{ii}=1\)</span>: <span class="math">\(L'=\begin{pmatrix}2&amp;0&amp;0\\4&amp;1&amp;0\\8&amp;3&amp;2\end{pmatrix}\)</span>, <span class="math">\(U'=\begin{pmatrix}1&amp;\frac12&amp;\frac12\\0&amp;1&amp;1\\0&amp;0&amp;1\end{pmatrix}\)</span>.</p>
+<h3 id="example-4-jacobi-versus-gauss-seidel">Example 4: Jacobi versus Gauss-Seidel</h3>
+<p>Solve <span class="math">\(10x+y+z=15,\ x+10y+z=24,\ x+y+10z=33\)</span> (strictly diagonally dominant; solution <span class="math">\((1,2,3)\)</span>), <span class="math">\(\mathbf x^{(0)}=\mathbf 0\)</span>.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Sweep</th>
+<th>Jacobi</th>
+<th>Gauss-Seidel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><span class="math">\((1.5,\ 2.4,\ 3.3)\)</span></td>
+<td><span class="math">\((1.5,\ 2.25,\ 2.925)\)</span></td>
+</tr>
+<tr>
+<td>2</td>
+<td><span class="math">\((0.93,\ 1.92,\ 2.91)\)</span></td>
+<td><span class="math">\((0.9825,\ 2.00925,\ 3.00083)\)</span></td>
+</tr>
+<tr>
+<td>3</td>
+<td><span class="math">\((1.017,\ 2.016,\ 3.015)\)</span></td>
+<td><span class="math">\((0.99899,\ 2.00002,\ 3.0001)\)</span></td>
+</tr>
+<tr>
+<td>4</td>
+<td><span class="math">\((0.9969,\ 1.9968,\ 2.9967)\)</span></td>
+<td><span class="math">\((0.99999,\ 1.99999,\ 3.0000)\)</span></td>
+</tr>
+</tbody>
+</table></div>
+<p>Gauss-Seidel step 1: <span class="math">\(x=\frac{15}{10}=1.5\)</span>; then <span class="math">\(y=\frac{24-1.5}{10}=2.25\)</span> using the <strong>new</strong> <span class="math">\(x\)</span>; then <span class="math">\(z=\frac{33-1.5-2.25}{10}=2.925\)</span>. After <span class="math">\(4\)</span> sweeps GS is accurate to about <span class="math">\(10^{-5}\)</span>, Jacobi only to <span class="math">\(3\times10^{-3}\)</span>.</p>
+<h3 id="example-5-iteration-matrices">Example 5: iteration matrices</h3>
+<p><span class="math">\(A=\begin{pmatrix}4&amp;1\\2&amp;5\end{pmatrix}\)</span>. <span class="math">\(T_J=-D^{-1}(L+U)=\begin{pmatrix}0&amp;-\frac14\\-\frac25&amp;0\end{pmatrix}\)</span>, eigenvalues <span class="math">\(\pm\sqrt{1/10}\)</span>, <span class="math">\(\rho(T_J)=0.3162\)</span>.
+<span class="math">\(T_{GS}=-(D+L)^{-1}U=\begin{pmatrix}0&amp;-\frac14\\0&amp;\frac1{10}\end{pmatrix}\)</span>, eigenvalues <span class="math">\(0,\ \tfrac1{10}\)</span>, <span class="math">\(\rho(T_{GS})=0.1=\rho(T_J)^2\)</span>. Both <span class="math">\(&lt;1\)</span>; Gauss-Seidel is twice as fast.</p>
+<h3 id="example-6-condition-number">Example 6: condition number</h3>
+<p><span class="math">\(A=\begin{pmatrix}1&amp;1\\1&amp;1.0001\end{pmatrix}\)</span>. <span class="math">\(A^{-1}=10^4\begin{pmatrix}1.0001&amp;-1\\-1&amp;1\end{pmatrix}\)</span>. <span class="math">\(\lVert A\rVert_\infty=2.0001\)</span>, <span class="math">\(\lVert A^{-1}\rVert_\infty=20001\)</span>, so <span class="math">\(\kappa_\infty\approx4\times10^4\)</span>.</p>
+<p>Effect: <span class="math">\(x+y=2,\ x+1.0001y=2.0001\)</span> gives <span class="math">\((1,1)\)</span>. Changing the right side by <span class="math">\(10^{-4}\)</span> to <span class="math">\((2,2)\)</span> gives <span class="math">\((2,0)\)</span>: a <span class="math">\(10^{-4}\)</span> change in data moves the solution by <span class="math">\(1\)</span>.</p>
+</section><section class="note-section ns-common-traps" aria-labelledby="common-traps"><h2 id="common-traps">Common traps</h2>
+<ul>
+<li><strong>Convergence needs <span class="math">\(\rho(T)&lt;1\)</span></strong>; strict diagonal dominance is only <strong>sufficient</strong>. A system may converge without dominance. The reverse “converges <span class="math">\(\Rightarrow\)</span> dominant” is false.</li>
+<li>Dominance is about <span class="math">\(\lvert a_{ii}\rvert\)</span> versus the <strong>sum of the other entries in the row</strong> (absolute values), not versus the largest one.</li>
+<li>Gauss-Seidel is <strong>usually</strong> faster, not always. Options saying “always faster” or “never slower” are unsafe; options saying “diverges” for a diagonally dominant system are wrong.</li>
+<li>Jacobi uses only old values (simultaneous), Gauss-Seidel uses new ones (successive). Exams swap the names.</li>
+<li>Gauss-Jordan costs <strong>more</strong> than Gauss elimination (<span class="math">\(n^3/2\)</span> vs <span class="math">\(n^3/3\)</span>).</li>
+<li>Pivoting does not change the solution and cannot fix an ill-conditioned problem.</li>
+<li>Doolittle has <span class="math">\(1\)</span>’s on the diagonal of <span class="math">\(L\)</span>; Crout has them on <span class="math">\(U\)</span>.</li>
+<li>Rows are used for diagonal dominance, so re-order <strong>equations</strong>, not variables, when you need to make a system dominant (reordering columns also works but renames the unknowns).</li>
+<li><span class="math">\(\kappa(A)\ge1\)</span> always; <span class="math">\(\kappa(I)=1\)</span>. Large <span class="math">\(\kappa\)</span> is not the same as small determinant.</li>
+<li>Cramer’s rule is <em>not</em> a numerical method for large systems.</li>
+</ul>
+</section><section class="note-section ns-previous-year-questions" aria-labelledby="previous-year-questions"><h2 id="previous-year-questions">Previous-year questions</h2>
+<h3 id="2026-q59-worked-key-b-unofficial-key-flagged-med-confidence">2026-Q59 (worked key: B; unofficial key, flagged “med” confidence)</h3>
+<p><strong>Question.</strong> Gauss-Seidel is applied to a diagonally dominant linear system arising from the discretisation of a PDE. Compared with the Jacobi method, its rate of convergence is: (A) slower (B) faster (C) the same (D) it diverges.
+<strong>Answer: B (faster).</strong> Diagonal dominance guarantees convergence of both, so D is out. For consistently ordered (PDE-type) matrices <span class="math">\(\rho(T_{GS})=\rho(T_J)^2\)</span>, so Gauss-Seidel needs about half the sweeps. Note from the key: “faster” is the usual textbook statement, not a theorem for every diagonally dominant system.</p>
+</section><section class="note-section ns-quick-revision" aria-labelledby="quick-revision"><h2 id="quick-revision">Quick revision</h2>
+<ul>
+<li>Gauss elimination: forward elimination to <span class="math">\(U\)</span>, then back substitution; <span class="math">\(\det=\pm\prod\)</span> pivots.</li>
+<li>Partial pivoting: swap in the largest <span class="math">\(\lvert a_{ik}\rvert\)</span> in the column; for stability.</li>
+<li>Gauss-Jordan reduces to <span class="math">\(I\)</span>; gives the inverse; <span class="math">\(n^3/2\)</span> vs <span class="math">\(n^3/3\)</span>.</li>
+<li>Doolittle: <span class="math">\(l_{ii}=1\)</span>; Crout: <span class="math">\(u_{ii}=1\)</span>; Cholesky <span class="math">\(A=LL^T\)</span> for SPD.</li>
+<li>Jacobi uses old values; Gauss-Seidel uses new values at once.</li>
+<li><span class="math">\(T_J=-D^{-1}(L+U)\)</span>, <span class="math">\(T_{GS}=-(D+L)^{-1}U\)</span>.</li>
+<li>Converges for all starts iff <span class="math">\(\rho(T)&lt;1\)</span>; strict diagonal dominance is sufficient for both.</li>
+<li>Consistently ordered: <span class="math">\(\rho(T_{GS})=\rho(T_J)^2\)</span>, GS about twice as fast.</li>
+<li><span class="math">\(\kappa(A)=\lVert A\rVert\lVert A^{-1}\rVert\)</span>; relative error <span class="math">\(\le\kappa\times\)</span> relative data error.</li>
+<li>LU: solve <span class="math">\(Ly=b\)</span> then <span class="math">\(Ux=y\)</span>; new right side costs <span class="math">\(n^2\)</span>.</li>
+</ul>
+</section></article></div><section class="section reader-end"><button class="read-btn" type="button" data-read-btn aria-pressed="false"><span class="box" aria-hidden="true"></span><span data-read-label>Mark as read</span></button><ul class="units end-links"><li><a class="unit-card" href="/uphesc-maths/learn/or-numerical/numerical-linear-systems/practice/"><span class="unit-top"><span class="unit-name">Practise this topic</span></span><p class="flush">13 questions with worked solutions</p></a></li><li><a class="unit-card" href="/uphesc-maths/learn/or-numerical/interpolation/"><span class="unit-top"><span class="unit-name">Next: Finite differences and interpolation</span></span><p class="flush">High priority · 2 h 30 min</p></a></li></ul><p class="prev-link"><a href="/uphesc-maths/learn/or-numerical/roots-of-equations/">Previous: Roots of algebraic and transcendental equations</a></p></section></div><footer class="foot"><p>Built from every paper that survives: the full 2025 and 2026 papers (140 maths questions) and half of 2019 (35, from a solution video). 2015 left only an answer key, and nothing was found for 2021. The commission has never published its booklets. Unit counts use 2025 and 2026 only, so they show a range, not a trend.</p><p>2025 answers match the official key. 2026 has no key yet, so its answers were worked out by hand and marked high, medium or low confidence, and every unsure one was solved again, blind. 2019 answers come from the video and are not checked against the official key.</p></footer></main><script type="module">var e=document.documentElement,t=()=>e.dataset.mode?e.dataset.mode===`dark`:matchMedia(`(prefers-color-scheme: dark)`).matches;document.querySelector(`[data-mode-toggle]`)?.addEventListener(`click`,()=>{let n=t()?`light`:`dark`;e.dataset.mode=n;try{localStorage.setItem(`um:mode`,n)}catch{}}),!e.dataset.mode&&t()&&(e.dataset.mode=`dark`);var n=document.querySelectorAll(`[data-old-toggle]`),r=t=>{t?e.dataset.old=`on`:delete e.dataset.old,n.forEach(e=>e.setAttribute(`aria-checked`,String(t)))};r(e.dataset.old===`on`),n.forEach(t=>t.addEventListener(`click`,()=>{let t=e.dataset.old!==`on`;r(t);try{localStorage.setItem(`um:old`,t?`on`:`off`)}catch{}}));var i=document.querySelectorAll(`[data-view]`),a=t=>{t===`bars`?e.dataset.view=`bars`:delete e.dataset.view,i.forEach(e=>e.setAttribute(`aria-pressed`,String(e.dataset.view===t)))};a(e.dataset.view===`bars`?`bars`:`heat`),i.forEach(e=>e.addEventListener(`click`,()=>{a(e.dataset.view);try{localStorage.setItem(`um:view`,e.dataset.view)}catch{}}));var o=document.createElement(`div`);o.className=`tip`,o.setAttribute(`role`,`tooltip`),o.hidden=!0,document.body.append(o);var s=null,c=(e,t)=>{let n=o.offsetWidth,r=o.offsetHeight,i=e+12,a=t+12;i+n>innerWidth-8&&(i=Math.max(8,e-n-12)),a+r>innerHeight-8&&(a=Math.max(8,t-r-12)),o.style.left=`${i}px`,o.style.top=`${a}px`},l=()=>{if(s){let e=s.getBoundingClientRect();c(e.left+e.width*.3,e.bottom-8)}},u=e=>{e!==s&&(s=e,o.replaceChildren(...[...e.querySelector(`.tip-src`).childNodes].map(e=>e.cloneNode(!0)))),o.hidden=!1},d=()=>{o.hidden=!0,s=null};document.addEventListener(`pointermove`,e=>{if(e.pointerType!==`mouse`)return;let t=e.target.closest(`[data-tip]`);t?(u(t),c(e.clientX,e.clientY)):s&&d()}),document.addEventListener(`focusin`,e=>{let t=e.target.closest(`[data-tip]`);t&&(u(t),l())}),document.addEventListener(`focusout`,()=>d()),addEventListener(`scroll`,()=>{s&&document.activeElement===s?l():s&&d()},{passive:!0}),document.addEventListener(`keydown`,e=>{e.key===`Escape`&&d()});var f=`um:done`,p={};try{p=JSON.parse(localStorage.getItem(f)||`{}`)}catch{}var m=()=>{document.querySelectorAll(`[data-progress]`).forEach(e=>{let t=[...document.querySelectorAll(`[data-group="${e.dataset.progress}"]`)],n=t.filter(e=>e.checked).length;e.querySelector(`.progress-bar span`).style.width=`${n/t.length*100}%`,e.querySelector(`[data-count]`).textContent=`${n} of ${t.length} done`})};document.querySelectorAll(`input[data-check]`).forEach(e=>{e.checked=!!p[e.dataset.check],e.addEventListener(`change`,()=>{p[e.dataset.check]=e.checked;try{localStorage.setItem(f,JSON.stringify(p))}catch{}m()})}),m();</script></body></html><script type="module" src="/uphesc-maths/_astro/index.astro_astro_type_script_index_0_lang.t7qZbIYF.js"></script>

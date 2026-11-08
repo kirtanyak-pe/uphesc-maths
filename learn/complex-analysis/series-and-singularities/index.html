@@ -1,0 +1,364 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Series and singularities · UPESSC maths</title><meta name="description" content="What to study for the UPESSC (formerly UPHESC) Assistant Professor maths paper, built from every paper that survives."><link rel="icon" href="/uphesc-maths/favicon.svg" type="image/svg+xml"><link rel="preload" href="/uphesc-maths/fonts/inter-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin><!-- the saved light/dark, 2019 and chart-view choices, before first paint --><script>
+    try { var m = localStorage.getItem('um:mode'); if (m) document.documentElement.dataset.mode = m; } catch (e) {}
+    try { if (localStorage.getItem('um:old') === 'on') document.documentElement.dataset.old = 'on'; } catch (e) {}
+    try { if (localStorage.getItem('um:view') === 'bars') document.documentElement.dataset.view = 'bars'; } catch (e) {}
+  </script><!-- maths: the vendored MathJax typesets \( \) and \[ \] text, loaded only on pages that have any --><script>(function(){const VENDOR = "/uphesc-maths/vendor";
+
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+      loader: { paths: { mathjax: VENDOR + '/mathjax', fonts: VENDOR + '/mathjax/fonts' } },
+      output: { font: 'mathjax-stix2', displayOverflow: 'scroll' },
+      options: { ignoreHtmlClass: 'no-math', processHtmlClass: 'math', menuOptions: { settings: { enrich: false, speech: false, braille: false } } },
+      chtml: { displayOverflow: 'scroll' },
+      // an inline formula with a piece wider than its line gets its own scrolling line, like display maths
+      startup: { pageReady: () => MathJax.startup.defaultPageReady().then(fitMath) },
+    };
+    function fitMath() {
+      for (const m of document.querySelectorAll('mjx-container:not([display="true"]):not(.mjx-wide)')) {
+        const box = m.closest('p, li, dd, blockquote, div');
+        if (!box || m.closest('td, th')) continue;
+        const right = box.getBoundingClientRect().right + 1;
+        if ([...m.getClientRects()].some((r) => r.right > right)) m.classList.add('mjx-wide');
+      }
+    }
+    let fitQueued = 0;
+    const queueFit = () => { if (window.MathJax?.startup?.document && !fitQueued) fitQueued = requestAnimationFrame(() => { fitQueued = 0; fitMath(); }); };
+    addEventListener('resize', queueFit);
+    addEventListener('click', () => setTimeout(queueFit, 50));
+    document.addEventListener('DOMContentLoaded', () => {
+      if (!document.querySelector('.math')) return;
+      const s = document.createElement('script');
+      s.async = true;
+      s.src = VENDOR + '/mathjax/tex-chtml-nofont.js';
+      document.head.appendChild(s);
+    });
+  })();</script><link rel="stylesheet" href="/uphesc-maths/_astro/Base.CkQ5KWO8.css"></head><body data-tab="learn"><nav class="appnav" aria-label="Main"><a class="appnav-brand" href="/uphesc-maths/" aria-label="UPESSC maths home">∑</a><a class="appnav-item" href="/uphesc-maths/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4 10.2 12 4l8 6.2V19a1 1 0 0 1-1 1h-4.5v-5.5h-5V20H5a1 1 0 0 1-1-1z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Plan</span></a><a class="appnav-item" href="/uphesc-maths/learn/" aria-current="page"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M12 6.5C10 5 7.5 4.5 4 4.5v13c3.5 0 6 .5 8 2 2-1.5 4.5-2 8-2v-13c-3.5 0-6 .5-8 2zM12 6.5v13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Learn</span></a><a class="appnav-item" href="/uphesc-maths/units/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4 5h7v7H4zM13 5h7v7h-7zM4 14h7v6H4zM13 14h7v6h-7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Units</span></a><a class="appnav-item" href="/uphesc-maths/papers/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M7 3h7l4 4v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zM14 3v4h4M9 12h6M9 16h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Papers</span></a><a class="appnav-item" href="/uphesc-maths/revise/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M5 12.5 9.5 17 19 7.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Revise</span></a></nav><header class="topbar"><a class="bar-back" href="/uphesc-maths/learn/complex-analysis/" aria-label="Back"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a><p class="bar-title">Unit 4</p><button class="bar-btn" type="button" data-mode-toggle aria-label="Switch light or dark"><svg class="i-moon" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path></svg><svg class="i-sun" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path></svg></button></header><main class="page"><div class="reader" data-topic="series-and-singularities"><header class="page-head topic-head"><p class="kicker"><a href="/uphesc-maths/learn/complex-analysis/">Unit 4 · Complex Analysis</a></p><h1>Series and singularities</h1><ul class="meta"><li class="prio high">High priority</li><li>2 h 10 min to study</li><li>Asked 5 times</li><li class="read-flag" data-read-flag hidden>Read</li></ul><p class="pyq-line">Previous papers: 2019 Q34, 2019, 2019, 2025 Q61, 2025 Q66</p><p class="prereq">Read first: <a href="/uphesc-maths/learn/complex-analysis/analytic-functions/">Analytic functions</a>, <a href="/uphesc-maths/learn/complex-analysis/cauchy-theory/">Cauchy theory</a></p></header><div class="reader-grid"><nav class="toc" aria-label="On this page"><details class="toc-box" data-toc><summary>On this page</summary><ol><li><a href="#why-it-matters-for-the-exam">Why it matters for the exam</a></li><li><a href="#core-ideas">Core ideas</a></li><li class="sub"><a href="#power-series-and-radius-of-convergence">Power series and radius of convergence</a></li><li class="sub"><a href="#taylors-theorem">Taylor’s theorem</a></li><li class="sub"><a href="#laurents-theorem">Laurent’s theorem</a></li><li class="sub"><a href="#zeros-of-analytic-functions">Zeros of analytic functions</a></li><li class="sub"><a href="#identity-theorem">Identity theorem</a></li><li class="sub"><a href="#isolated-singularities">Isolated singularities</a></li><li class="sub"><a href="#singularity-at-infinity">Singularity at infinity</a></li><li class="sub"><a href="#meromorphic-functions">Meromorphic functions</a></li><li><a href="#formulas-and-results">Formulas and results</a></li><li><a href="#worked-examples">Worked examples</a></li><li class="sub"><a href="#example-1-radius-of-convergence">Example 1: radius of convergence</a></li><li class="sub"><a href="#example-2-laurent-series-in-an-annulus">Example 2: Laurent series in an annulus</a></li><li class="sub"><a href="#example-3-residue-from-a-laurent-series-2025-q61">Example 3: residue from a Laurent series (2025 Q61)</a></li><li class="sub"><a href="#example-4-order-of-a-zero-and-type-of-singularity">Example 4: order of a zero and type of singularity</a></li><li class="sub"><a href="#example-5-identity-theorem">Example 5: identity theorem</a></li><li class="sub"><a href="#example-6-classification-at-0-and-infty">Example 6: classification at <span class="math">\(0\)</span> and <span class="math">\(\infty\)</span></a></li><li><a href="#common-traps">Common traps</a></li><li><a href="#previous-year-questions">Previous-year questions</a></li><li class="sub"><a href="#2019-q34-radius-of-convergence-of-the-series-with-coefficients-34in">2019 Q34: radius of convergence of the series with coefficients <span class="math">\((3+4i)^n\)</span></a></li><li class="sub"><a href="#2019-unnumbered-no-1-for-fzdfracezez-1-which-statement-is-not-true-entire-has-only-poles-as-singularities-infinitely-many-poles-on-the-imaginary-axis-each-pole-simple">2019 (unnumbered, no. 1): for <span class="math">\(f(z)=\dfrac{e^z}{e^z-1}\)</span> which statement is NOT true? (entire; has only poles as singularities; infinitely many poles on the imaginary axis; each pole simple)</a></li><li class="sub"><a href="#2019-unnumbered-no-4-which-statement-about-analytic-functions-is-not-true-zeros-isolated-identity-theorem-poles-isolated-a-non-zero-analytic-function-can-have-a-zero-of-infinite-order">2019 (unnumbered, no. 4): which statement about analytic functions is NOT true? (zeros isolated; identity theorem; poles isolated; a non-zero analytic function can have a zero of infinite order)</a></li><li class="sub"><a href="#2025-q61-residue-of-zcos1z-at-z0">2025 Q61: residue of <span class="math">\(z\cos(1/z)\)</span> at <span class="math">\(z=0\)</span></a></li><li class="sub"><a href="#2025-q66-assertion-reason-on-poles">2025 Q66: assertion-reason on poles</a></li><li><a href="#quick-revision">Quick revision</a></li></ol></details></nav><article class="prose"><section class="note-section ns-why-it-matters-for-the-exam" aria-labelledby="why-it-matters-for-the-exam"><h2 id="why-it-matters-for-the-exam">Why it matters for the exam</h2>
+<p>Series, zeros and singularities are the language in which residues, poles and conformal maps are stated, so the topic feeds every later one. Direct questions seen: radius of convergence of <span class="math">\(\sum(3+4i)^nz^n\)</span> (2019 Q34), which statement about <span class="math">\(e^z/(e^z-1)\)</span> is false (2019), which statement about zeros is false (2019), residue of <span class="math">\(z\cos(1/z)\)</span> at <span class="math">\(0\)</span> (2025 Q61), and the pole-order statement for <span class="math">\(p/q\)</span> (2025 Q66). Expect “classify the singularity” and “find the Laurent coefficient” questions.</p>
+</section><section class="note-section ns-core-ideas" aria-labelledby="core-ideas"><h2 id="core-ideas">Core ideas</h2>
+<h3 id="power-series-and-radius-of-convergence">Power series and radius of convergence</h3>
+<p>A power series <span class="math">\(\sum_{n\ge0}a_n(z-a)^n\)</span> has a <strong>radius of convergence</strong> <span class="math">\(R\in[0,\infty]\)</span>: it converges absolutely for <span class="math">\(|z-a|&lt;R\)</span>, diverges for <span class="math">\(|z-a|&gt;R\)</span>, and anything can happen on <span class="math">\(|z-a|=R\)</span>.</p>
+<p><span class="math">\(\frac1R=\limsup_{n\to\infty}|a_n|^{1/n}\quad\text{(Cauchy-Hadamard)},\qquad \frac1R=\lim\left|\frac{a_{n+1}}{a_n}\right|\ \text{if this limit exists.}\)</span></p>
+<ul>
+<li>Convergence is uniform on compact subsets of the open disc. The sum is analytic there and can be differentiated and integrated term by term; <span class="math">\(\sum a_nz^n\)</span>, <span class="math">\(\sum na_nz^{n-1}\)</span> and <span class="math">\(\sum\frac{a_n}{n+1}z^{n+1}\)</span> all have the same <span class="math">\(R\)</span>.</li>
+<li><span class="math">\(\sum(3+4i)^nz^n\)</span>: <span class="math">\(|a_n|^{1/n}=5\)</span>, so <span class="math">\(R=1/5\)</span> (2019 Q34).</li>
+<li><span class="math">\(\sum z^n\)</span>: <span class="math">\(R=1\)</span>. <span class="math">\(\sum\frac{z^n}{n!}\)</span>: <span class="math">\(R=\infty\)</span>. <span class="math">\(\sum n!\,z^n\)</span>: <span class="math">\(R=0\)</span>. <span class="math">\(\sum n^nz^n\)</span>: <span class="math">\(R=0\)</span>. <span class="math">\(\sum\frac{z^n}{n^n}\)</span>: <span class="math">\(R=\infty\)</span>.</li>
+<li><span class="math">\(\sum\frac{n!}{n^n}z^n\)</span>: ratio <span class="math">\(\to1/e\)</span>, so <span class="math">\(R=e\)</span>.</li>
+<li><span class="math">\(\sum z^{n^2}\)</span> and <span class="math">\(\sum z^{n!}\)</span>: <span class="math">\(R=1\)</span> (lacunary: coefficients are <span class="math">\(0\)</span> or <span class="math">\(1\)</span>). For gap series use <span class="math">\(|a_n|^{1/n}\)</span>, not ratio.</li>
+<li><span class="math">\(\sum a_nz^{2n}\)</span>: if <span class="math">\(\sum a_nw^n\)</span> has radius <span class="math">\(\rho\)</span> then <span class="math">\(R=\sqrt\rho\)</span>.</li>
+<li>Product of series: radius at least <span class="math">\(\min(R_1,R_2)\)</span> (Cauchy product).</li>
+</ul>
+<h3 id="taylors-theorem">Taylor’s theorem</h3>
+<p>If <span class="math">\(f\)</span> is analytic in <span class="math">\(|z-a|&lt;R\)</span>, then
+<span class="math">\(f(z)=\sum_{n=0}^\infty\frac{f^{(n)}(a)}{n!}(z-a)^n,\qquad a_n=\frac1{2\pi i}\oint_{|z-a|=r}\frac{f(z)}{(z-a)^{n+1}}dz\quad(0&lt;r&lt;R).\)</span></p>
+<p><strong>Radius of convergence of the Taylor series of <span class="math">\(f\)</span> at <span class="math">\(a\)</span> = distance from <span class="math">\(a\)</span> to the nearest singularity of <span class="math">\(f\)</span></strong> (nearest point where <span class="math">\(f\)</span> fails to be analytic, branch points included). This is much faster than the root test.</p>
+<ul>
+<li><span class="math">\(\dfrac1{1+z^2}\)</span> at <span class="math">\(0\)</span>: nearest singularities <span class="math">\(\pm i\)</span>, <span class="math">\(R=1\)</span>. At <span class="math">\(a=1\)</span>: <span class="math">\(R=\sqrt2\)</span>. At <span class="math">\(a=2\)</span>: <span class="math">\(R=\sqrt5\)</span>.</li>
+<li><span class="math">\(\tan z\)</span> at <span class="math">\(0\)</span>: nearest poles <span class="math">\(\pm\pi/2\)</span>, <span class="math">\(R=\pi/2\)</span>.</li>
+<li><span class="math">\(\operatorname{Log}(1+z)\)</span> at <span class="math">\(0\)</span>: <span class="math">\(R=1\)</span> (branch point at <span class="math">\(-1\)</span>).</li>
+<li><span class="math">\(\dfrac{z}{e^z-1}\)</span> at <span class="math">\(0\)</span>: singularities at <span class="math">\(\pm2\pi i\)</span>, <span class="math">\(R=2\pi\)</span>.</li>
+<li>Taylor series of an entire function converges on all of <span class="math">\(\mathbb C\)</span>.</li>
+</ul>
+<p><strong>Standard Maclaurin series.</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Series</th>
+<th>Valid for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math">\(e^z\)</span></td>
+<td><span class="math">\(\sum\frac{z^n}{n!}\)</span></td>
+<td>all <span class="math">\(z\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(\sin z\)</span></td>
+<td><span class="math">\(\sum\frac{(-1)^nz^{2n+1}}{(2n+1)!}\)</span></td>
+<td>all <span class="math">\(z\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(\cos z\)</span></td>
+<td><span class="math">\(\sum\frac{(-1)^nz^{2n}}{(2n)!}\)</span></td>
+<td>all <span class="math">\(z\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(\sinh z\)</span>, <span class="math">\(\cosh z\)</span></td>
+<td><span class="math">\(\sum\frac{z^{2n+1}}{(2n+1)!}\)</span>, <span class="math">\(\sum\frac{z^{2n}}{(2n)!}\)</span></td>
+<td>all <span class="math">\(z\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(\frac1{1-z}\)</span></td>
+<td><span class="math">\(\sum z^n\)</span></td>
+<td><span class="math">\(\lvert z\rvert&lt;1\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(\frac1{1+z^2}\)</span></td>
+<td><span class="math">\(\sum(-1)^nz^{2n}\)</span></td>
+<td><span class="math">\(\lvert z\rvert&lt;1\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(\operatorname{Log}(1+z)\)</span></td>
+<td><span class="math">\(\sum_{n\ge1}\frac{(-1)^{n+1}z^n}{n}\)</span></td>
+<td><span class="math">\(\lvert z\rvert&lt;1\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\((1+z)^\alpha\)</span></td>
+<td><span class="math">\(\sum\binom\alpha nz^n\)</span></td>
+<td><span class="math">\(\lvert z\rvert&lt;1\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(\tan z\)</span></td>
+<td><span class="math">\(z+\frac{z^3}3+\frac{2z^5}{15}+\frac{17z^7}{315}+\cdots\)</span></td>
+<td><span class="math">\(\lvert z\rvert&lt;\pi/2\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(\frac z{e^z-1}\)</span></td>
+<td><span class="math">\(1-\frac z2+\frac{z^2}{12}-\cdots\)</span></td>
+<td><span class="math">\(\lvert z\rvert&lt;2\pi\)</span></td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="laurents-theorem">Laurent’s theorem</h3>
+<p>If <span class="math">\(f\)</span> is analytic in the annulus <span class="math">\(A:\ r&lt;|z-a|&lt;R\)</span> (<span class="math">\(0\le r&lt;R\le\infty\)</span>), then it has a unique expansion
+<span class="math">\(f(z)=\sum_{n=-\infty}^{\infty}a_n(z-a)^n,\qquad a_n=\frac1{2\pi i}\oint_{|z-a|=\rho}\frac{f(z)}{(z-a)^{n+1}}dz\quad(r&lt;\rho&lt;R),\)</span>
+converging in <span class="math">\(A\)</span> (uniformly on compact subsets).</p>
+<ul>
+<li>The <strong>analytic part</strong> is <span class="math">\(\sum_{n\ge0}a_n(z-a)^n\)</span>, the <strong>principal part</strong> is <span class="math">\(\sum_{n&lt;0}a_n(z-a)^n\)</span>.</li>
+<li>The expansion is unique <strong>for a given annulus</strong>. The same function has different Laurent series in different annuli bounded by its singularities. Always identify the region first.</li>
+<li><span class="math">\(a_{-1}\)</span> is the <strong>residue</strong> of <span class="math">\(f\)</span> at <span class="math">\(a\)</span> (when <span class="math">\(a\)</span> is the centre of an annulus <span class="math">\(0&lt;|z-a|&lt;R\)</span>).</li>
+<li>If <span class="math">\(f\)</span> is analytic in the whole disc <span class="math">\(|z-a|&lt;R\)</span> the Laurent series is the Taylor series (<span class="math">\(a_n=0\)</span> for <span class="math">\(n&lt;0\)</span>).</li>
+<li>To expand: use geometric series with the right ratio. For <span class="math">\(|z|&lt;1\)</span> write <span class="math">\(\frac1{1-z}=\sum z^n\)</span>; for <span class="math">\(|z|&gt;1\)</span> write <span class="math">\(\frac1{1-z}=-\frac1z\cdot\frac1{1-1/z}=-\sum_{n\ge1}z^{-n}\)</span>.</li>
+</ul>
+<p><strong>Example (three regions for one function).</strong> <span class="math">\(f=\dfrac1{(z-1)(z-2)}=\dfrac1{z-2}-\dfrac1{z-1}\)</span>.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Region</th>
+<th>Laurent series</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math">\(\lvert z\rvert&lt;1\)</span></td>
+<td><span class="math">\(\sum_{n\ge0}\left(1-2^{-(n+1)}\right)z^n\)</span> (Taylor)</td>
+</tr>
+<tr>
+<td><span class="math">\(1&lt;\lvert z\rvert&lt;2\)</span></td>
+<td><span class="math">\(-\sum_{n\ge0}\frac{z^n}{2^{n+1}}-\sum_{n\ge1}z^{-n}\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(\lvert z\rvert&gt;2\)</span></td>
+<td><span class="math">\(\sum_{n\ge0}(2^n-1)z^{-n-1}\)</span></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Further expansions.</strong> <span class="math">\(e^{1/z}=\sum_{n\ge0}\frac{1}{n!z^n}\)</span> on <span class="math">\(0&lt;|z|&lt;\infty\)</span>; <span class="math">\(z\cos\frac1z=z-\frac1{2z}+\frac1{24z^3}-\cdots\)</span> (residue <span class="math">\(-\frac12\)</span>); <span class="math">\(\dfrac1{z(z-1)}=-\frac1z-\sum_{n\ge0}z^n\)</span> on <span class="math">\(0&lt;|z|&lt;1\)</span> and <span class="math">\(=\sum_{n\ge2}z^{-n}\)</span> on <span class="math">\(|z|&gt;1\)</span>.</p>
+<h3 id="zeros-of-analytic-functions">Zeros of analytic functions</h3>
+<p><span class="math">\(a\)</span> is a <strong>zero of order <span class="math">\(m\)</span></strong> (<span class="math">\(m\ge1\)</span>) of <span class="math">\(f\)</span> if <span class="math">\(f(z)=(z-a)^mg(z)\)</span> with <span class="math">\(g\)</span> analytic and <span class="math">\(g(a)\ne0\)</span>. Equivalent: <span class="math">\(f(a)=f'(a)=\dots=f^{(m-1)}(a)=0\)</span> and <span class="math">\(f^{(m)}(a)\ne0\)</span>; equivalent: the Taylor series at <span class="math">\(a\)</span> starts with <span class="math">\(c_m(z-a)^m\)</span>, <span class="math">\(c_m\neq0\)</span>.</p>
+<ul>
+<li>Zero of order <span class="math">\(1\)</span> is a simple zero.</li>
+<li>Orders add under multiplication: <span class="math">\(\operatorname{ord}(fg)=\operatorname{ord}f+\operatorname{ord}g\)</span>. If <span class="math">\(f\)</span> has a zero of order <span class="math">\(m\)</span> then <span class="math">\(f'\)</span> has a zero of order <span class="math">\(m-1\)</span> there, and <span class="math">\(f^2\)</span> has order <span class="math">\(2m\)</span>.</li>
+<li>Orders at <span class="math">\(z=0\)</span>: <span class="math">\(\sin z-z\)</span>: <span class="math">\(3\)</span>. <span class="math">\(1-\cos z\)</span>: <span class="math">\(2\)</span>. <span class="math">\(e^z-1-z\)</span>: <span class="math">\(2\)</span>. <span class="math">\(e^z-1\)</span>: <span class="math">\(1\)</span>. <span class="math">\(z^2\sin z\)</span>: <span class="math">\(3\)</span>. <span class="math">\(\sin^2z\)</span>: <span class="math">\(2\)</span>. <span class="math">\(\tan z-z\)</span>: <span class="math">\(3\)</span>. <span class="math">\(e^{z^2}-1\)</span>: <span class="math">\(2\)</span>. <span class="math">\(2\cos z-2+z^2\)</span>: <span class="math">\(4\)</span>. <span class="math">\(\sinh z-\sin z\)</span>: <span class="math">\(3\)</span>. (All checked from Taylor series.)</li>
+<li><span class="math">\(\sin z\)</span> has simple zeros at <span class="math">\(n\pi\)</span>; <span class="math">\(\cos z\)</span> at <span class="math">\(\frac\pi2+n\pi\)</span>; <span class="math">\(e^z-1\)</span> at <span class="math">\(2\pi in\)</span> (simple).</li>
+</ul>
+<p><strong>Zeros are isolated.</strong> If <span class="math">\(f\)</span> is analytic and not identically zero on a domain <span class="math">\(D\)</span>, then each zero has a punctured neighbourhood with no other zero. So a non-zero analytic function can never have a zero of infinite order: if all derivatives vanish at <span class="math">\(a\)</span> the Taylor series is <span class="math">\(0\)</span> near <span class="math">\(a\)</span>, and then <span class="math">\(f\equiv0\)</span> on <span class="math">\(D\)</span>.</p>
+<p>Zeros are <strong>isolated in <span class="math">\(D\)</span></strong>, but zero sets can accumulate on the boundary or at a singularity: <span class="math">\(\sin(1/z)\)</span> has zeros <span class="math">\(1/(n\pi)\)</span> accumulating at <span class="math">\(0\)</span>, which is not in the domain <span class="math">\(\mathbb C\setminus\{0\}\)</span> where it is analytic. No contradiction.</p>
+<h3 id="identity-theorem">Identity theorem</h3>
+<p><strong>Statement.</strong> Let <span class="math">\(f,g\)</span> be analytic on a domain <span class="math">\(D\)</span> (open and <strong>connected</strong>). If <span class="math">\(f=g\)</span> on a set that has a <strong>limit point in <span class="math">\(D\)</span></strong>, then <span class="math">\(f\equiv g\)</span> on <span class="math">\(D\)</span>. (Equivalently: if the zero set of <span class="math">\(f\)</span> has a limit point in <span class="math">\(D\)</span> then <span class="math">\(f\equiv0\)</span>.)</p>
+<ul>
+<li>Typical: <span class="math">\(f(1/n)=0\)</span> for all large <span class="math">\(n\)</span>, <span class="math">\(f\)</span> analytic near <span class="math">\(0\)</span> implies <span class="math">\(f\equiv0\)</span>.</li>
+<li>If <span class="math">\(f(1/n)=1/n\)</span> for all <span class="math">\(n\ge1\)</span> and <span class="math">\(f\)</span> is analytic on a domain containing <span class="math">\(0\)</span> then <span class="math">\(f(z)=z\)</span>. If <span class="math">\(f(1/n)=1/n^2\)</span>, then <span class="math">\(f(z)=z^2\)</span>.</li>
+<li>If <span class="math">\(f(1/n)=(-1)^n/n\)</span>: no analytic <span class="math">\(f\)</span> exists on a neighbourhood of <span class="math">\(0\)</span> (subsequences <span class="math">\(n\)</span> even/odd would force both <span class="math">\(f=z\)</span> and <span class="math">\(f=-z\)</span>).</li>
+<li>The limit point must lie <strong>in</strong> the domain; and the domain must be <strong>connected</strong>.</li>
+<li>Real analytic functions <span class="math">\(e^x,\sin x\)</span> have unique analytic extensions <span class="math">\(e^z,\sin z\)</span> to <span class="math">\(\mathbb C\)</span>. So real identities like <span class="math">\(\sin^2+\cos^2=1\)</span> extend automatically.</li>
+</ul>
+<h3 id="isolated-singularities">Isolated singularities</h3>
+<p><span class="math">\(a\)</span> is an <strong>isolated singularity</strong> of <span class="math">\(f\)</span> if <span class="math">\(f\)</span> is analytic in some punctured disc <span class="math">\(0&lt;|z-a|&lt;\rho\)</span> but not at <span class="math">\(a\)</span> (or not defined). Use the Laurent series <span class="math">\(f=\sum a_n(z-a)^n\)</span> in that punctured disc.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Principal part</th>
+<th>Behaviour of <span class="math">\(f\)</span> as <span class="math">\(z\to a\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Removable</strong></td>
+<td>none (<span class="math">\(a_n=0\)</span> for <span class="math">\(n&lt;0\)</span>)</td>
+<td><span class="math">\(\lim f\)</span> exists and is finite; <span class="math">\(f\)</span> is bounded near <span class="math">\(a\)</span></td>
+</tr>
+<tr>
+<td><strong>Pole of order <span class="math">\(m\)</span></strong></td>
+<td>finite: <span class="math">\(a_{-m}\ne0\)</span>, <span class="math">\(a_n=0\)</span> for <span class="math">\(n&lt;-m\)</span></td>
+<td><span class="math">\(\lvert f\rvert\to\infty\)</span>; <span class="math">\(\lim(z-a)^mf=a_{-m}\ne0\)</span></td>
+</tr>
+<tr>
+<td><strong>Essential</strong></td>
+<td>infinitely many <span class="math">\(a_n\ne0\)</span> with <span class="math">\(n&lt;0\)</span></td>
+<td>no limit, finite or infinite</td>
+</tr>
+</tbody>
+</table></div>
+<p>Tests:</p>
+<ul>
+<li><strong>Riemann’s removable singularity theorem:</strong> <span class="math">\(f\)</span> bounded near <span class="math">\(a\)</span> implies removable. (Also: <span class="math">\(\lim(z-a)f(z)=0\)</span> implies removable.)</li>
+<li>Pole of order <span class="math">\(m\)</span> iff <span class="math">\(f(z)=\dfrac{g(z)}{(z-a)^m}\)</span> with <span class="math">\(g\)</span> analytic at <span class="math">\(a\)</span> and <span class="math">\(g(a)\neq0\)</span>, iff <span class="math">\(1/f\)</span> has a zero of order <span class="math">\(m\)</span> at <span class="math">\(a\)</span> (after removing the singularity).</li>
+<li>Quotient <span class="math">\(f=p/q\)</span> with <span class="math">\(p,q\)</span> analytic at <span class="math">\(a\)</span>, <span class="math">\(q\)</span> of zero order <span class="math">\(m\)</span> at <span class="math">\(a\)</span>, <span class="math">\(p\)</span> of order <span class="math">\(k\)</span> at <span class="math">\(a\)</span> (<span class="math">\(k=0\)</span> if <span class="math">\(p(a)\ne0\)</span>): pole of order <span class="math">\(m-k\)</span> if <span class="math">\(m&gt;k\)</span>, removable if <span class="math">\(m\le k\)</span>. In particular <span class="math">\(p(a)\ne0\)</span> and <span class="math">\(q\)</span> has a zero of order <span class="math">\(m\)</span> gives a pole of order <span class="math">\(m\)</span> (2025 Q66). Without <span class="math">\(p(a)\neq0\)</span> the pole order can drop.</li>
+<li>If <span class="math">\(|f(z)|\le M|z-a|^{-s}\)</span> near <span class="math">\(a\)</span>, the singularity is removable or a pole of order <span class="math">\(\le s\)</span>; it is not essential.</li>
+<li>To see an essential singularity: Laurent series with infinitely many negative powers, or two sequences tending to <span class="math">\(a\)</span> with different limits of <span class="math">\(f\)</span>.</li>
+</ul>
+<p><strong>Casorati-Weierstrass.</strong> If <span class="math">\(a\)</span> is an essential singularity of <span class="math">\(f\)</span>, then for every punctured neighbourhood <span class="math">\(U\)</span> of <span class="math">\(a\)</span>, <span class="math">\(f(U)\)</span> is <strong>dense</strong> in <span class="math">\(\mathbb C\)</span>. <strong>Great Picard theorem</strong> (stronger): <span class="math">\(f(U)\)</span> is all of <span class="math">\(\mathbb C\)</span> with at most one exception. <span class="math">\(e^{1/z}\)</span> omits only <span class="math">\(0\)</span>.</p>
+<p>Examples:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Point</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math">\(\sin z/z\)</span>, <span class="math">\((e^z-1)/z\)</span>, <span class="math">\((1-\cos z)/z^2\)</span></td>
+<td><span class="math">\(0\)</span></td>
+<td>removable</td>
+</tr>
+<tr>
+<td><span class="math">\(z/(e^z-1)\)</span></td>
+<td><span class="math">\(0\)</span></td>
+<td>removable</td>
+</tr>
+<tr>
+<td><span class="math">\(1/z^3\)</span>, <span class="math">\(1/\sin z\)</span>, <span class="math">\(\cot z\)</span>, <span class="math">\(1/(e^z-1)\)</span></td>
+<td><span class="math">\(0\)</span></td>
+<td>pole of order <span class="math">\(3\)</span>, <span class="math">\(1\)</span>, <span class="math">\(1\)</span>, <span class="math">\(1\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(1/(1-\cos z)\)</span></td>
+<td><span class="math">\(0\)</span></td>
+<td>pole of order <span class="math">\(2\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(1/(z-\sin z)\)</span></td>
+<td><span class="math">\(0\)</span></td>
+<td>pole of order <span class="math">\(3\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(\dfrac{1}{(z-1)^2(z+2)}\)</span></td>
+<td><span class="math">\(1\)</span>; <span class="math">\(-2\)</span></td>
+<td>double pole; simple pole</td>
+</tr>
+<tr>
+<td><span class="math">\(e^{1/z}\)</span>, <span class="math">\(\sin(1/z)\)</span>, <span class="math">\(z\cos(1/z)\)</span></td>
+<td><span class="math">\(0\)</span></td>
+<td>essential</td>
+</tr>
+<tr>
+<td><span class="math">\(\tan z\)</span></td>
+<td><span class="math">\(\frac\pi2+n\pi\)</span></td>
+<td>simple poles</td>
+</tr>
+<tr>
+<td><span class="math">\(\dfrac{e^z}{e^z-1}\)</span></td>
+<td><span class="math">\(2\pi ik\)</span></td>
+<td>simple poles</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Not isolated.</strong> <span class="math">\(1/\sin(1/z)\)</span> has poles at <span class="math">\(1/(n\pi)\)</span> accumulating at <span class="math">\(0\)</span>, so <span class="math">\(0\)</span> is a non-isolated singularity. <span class="math">\(\operatorname{Log}z\)</span> and <span class="math">\(\sqrt z\)</span> at <span class="math">\(0\)</span> are branch points, not isolated singularities in the sense above.</p>
+<p>Other facts:</p>
+<ul>
+<li>A function with a pole at <span class="math">\(a\)</span>: <span class="math">\(f'\)</span> has a pole of order <span class="math">\(m+1\)</span>; <span class="math">\(e^f\)</span> has an essential singularity.</li>
+<li>If <span class="math">\(f\)</span> has a zero (pole) of order <span class="math">\(m\)</span> at <span class="math">\(a\)</span> then <span class="math">\(f'/f\)</span> has a simple pole at <span class="math">\(a\)</span> with residue <span class="math">\(m\)</span> (<span class="math">\(-m\)</span>).</li>
+<li>At an essential singularity <span class="math">\(f'\)</span> is again essential.</li>
+</ul>
+<h3 id="singularity-at-infinity">Singularity at infinity</h3>
+<p>Classify <span class="math">\(f\)</span> at <span class="math">\(\infty\)</span> by <span class="math">\(g(w)=f(1/w)\)</span> at <span class="math">\(w=0\)</span>.</p>
+<ul>
+<li><strong>Removable</strong> at <span class="math">\(\infty\)</span>: <span class="math">\(f\)</span> bounded near <span class="math">\(\infty\)</span> (e.g. <span class="math">\(1/z\)</span>, <span class="math">\(\dfrac{z+1}{z-1}\)</span>).</li>
+<li><strong>Pole of order <span class="math">\(m\)</span></strong> at <span class="math">\(\infty\)</span>: <span class="math">\(f(z)\sim cz^m\)</span>; for an entire function this means <span class="math">\(f\)</span> is a <strong>polynomial</strong> of degree <span class="math">\(m\)</span>.</li>
+<li><strong>Essential</strong> at <span class="math">\(\infty\)</span>: <span class="math">\(e^z\)</span>, <span class="math">\(\sin z\)</span>, <span class="math">\(\cos z\)</span>, <span class="math">\(\cosh z\)</span> (any entire function that is not a polynomial).</li>
+</ul>
+<p>Consequences: an entire function with a removable singularity at <span class="math">\(\infty\)</span> is constant (Liouville). An entire function with a pole at <span class="math">\(\infty\)</span> is a polynomial. A function analytic on the extended plane (including <span class="math">\(\infty\)</span>) is constant. A function meromorphic on the extended plane <span class="math">\(\mathbb C\cup\{\infty\}\)</span> is a <strong>rational function</strong>.</p>
+<h3 id="meromorphic-functions">Meromorphic functions</h3>
+<p><span class="math">\(f\)</span> is <strong>meromorphic</strong> on a domain <span class="math">\(D\)</span> if it is analytic on <span class="math">\(D\)</span> except for poles (isolated, so in a compact set there are finitely many).</p>
+<ul>
+<li>Examples: rational functions, <span class="math">\(\tan z\)</span>, <span class="math">\(\cot z\)</span>, <span class="math">\(\sec z\)</span>, <span class="math">\(1/\sin z\)</span>, <span class="math">\(\dfrac{e^z}{e^z-1}\)</span>, <span class="math">\(\Gamma(z)\)</span>, <span class="math">\(\dfrac1{\sin\pi z}\)</span>.</li>
+<li>Not meromorphic on <span class="math">\(\mathbb C\)</span>: <span class="math">\(e^{1/z}\)</span>, <span class="math">\(\operatorname{Log}z\)</span>, <span class="math">\(\sqrt z\)</span>, <span class="math">\(1/\sin(1/z)\)</span> (essential singularity or branch/non-isolated singularity).</li>
+<li>Every meromorphic function on <span class="math">\(\mathbb C\)</span> is a quotient of two entire functions.</li>
+<li>For <span class="math">\(f=\dfrac{e^z}{e^z-1}\)</span> (2019): poles exactly where <span class="math">\(e^z=1\)</span>, i.e. <span class="math">\(z=2\pi ik\)</span>, <span class="math">\(k\in\mathbb Z\)</span>. Each is simple because <span class="math">\(e^z-1\)</span> has a simple zero (<span class="math">\((e^z)'=e^z=1\ne0\)</span>) and the numerator equals <span class="math">\(1\)</span> there. So <span class="math">\(f\)</span> is meromorphic, has infinitely many poles all on the imaginary axis, each simple, and is <strong>not</strong> entire.</li>
+</ul>
+</section><section class="note-section ns-formulas-and-results" aria-labelledby="formulas-and-results"><h2 id="formulas-and-results">Formulas and results</h2>
+<ul>
+<li><span class="math">\(1/R=\limsup|a_n|^{1/n}\)</span>; ratio test <span class="math">\(1/R=\lim|a_{n+1}/a_n|\)</span>.</li>
+<li>Taylor radius at <span class="math">\(a\)</span> = distance to nearest singularity.</li>
+<li>Taylor coefficients <span class="math">\(a_n=f^{(n)}(a)/n!=\frac1{2\pi i}\oint\frac{f}{(z-a)^{n+1}}\)</span>; same formula for Laurent coefficients <span class="math">\(a_n\)</span>, <span class="math">\(n\in\mathbb Z\)</span>.</li>
+<li>Laurent series unique per annulus; <span class="math">\(a_{-1}\)</span> is the residue.</li>
+<li>Zero of order <span class="math">\(m\)</span>: <span class="math">\(f=(z-a)^mg\)</span>, <span class="math">\(g(a)\neq0\)</span>; derivatives up to <span class="math">\(m-1\)</span> vanish.</li>
+<li>Zeros of a non-zero analytic function on a domain are isolated; no infinite-order zeros.</li>
+<li>Identity theorem: agreement on a set with a limit point inside the domain forces equality.</li>
+<li>Removable: bounded. Pole: <span class="math">\(|f|\to\infty\)</span>, <span class="math">\(\lim(z-a)^mf\neq0\)</span>. Essential: otherwise.</li>
+<li>Casorati-Weierstrass: dense image near an essential singularity. Picard: all values but one.</li>
+<li>At <span class="math">\(\infty\)</span>: polynomial of degree <span class="math">\(m\)</span> has pole of order <span class="math">\(m\)</span>; transcendental entire has essential singularity.</li>
+<li>Meromorphic on the extended plane means rational.</li>
+<li>If <span class="math">\(f\)</span> has pole of order <span class="math">\(m\)</span> at <span class="math">\(a\)</span>, <span class="math">\(f'/f\)</span> has residue <span class="math">\(-m\)</span> there.</li>
+</ul>
+</section><section class="note-section ns-worked-examples" aria-labelledby="worked-examples"><h2 id="worked-examples">Worked examples</h2>
+<h3 id="example-1-radius-of-convergence">Example 1: radius of convergence</h3>
+<p>Find <span class="math">\(R\)</span> for <span class="math">\(\sum\frac{n!}{n^n}z^n\)</span>. Ratio: <span class="math">\(\frac{a_{n+1}}{a_n}=\frac{(n+1)!}{(n+1)^{n+1}}\cdot\frac{n^n}{n!}=\left(\frac n{n+1}\right)^n\to\frac1e\)</span>. So <span class="math">\(R=e\)</span>.</p>
+<h3 id="example-2-laurent-series-in-an-annulus">Example 2: Laurent series in an annulus</h3>
+<p>Expand <span class="math">\(f(z)=\dfrac1{(z-1)(z-2)}\)</span> for <span class="math">\(1&lt;|z|&lt;2\)</span>. Partial fractions <span class="math">\(f=\frac1{z-2}-\frac1{z-1}\)</span>. For <span class="math">\(|z|&lt;2\)</span>: <span class="math">\(\frac1{z-2}=-\frac12\cdot\frac1{1-z/2}=-\sum_{n\ge0}\frac{z^n}{2^{n+1}}\)</span>. For <span class="math">\(|z|&gt;1\)</span>: <span class="math">\(\frac1{z-1}=\frac1z\cdot\frac1{1-1/z}=\sum_{n\ge1}z^{-n}\)</span>. So
+<span class="math">\(f(z)=-\sum_{n\ge0}\frac{z^n}{2^{n+1}}-\sum_{n\ge1}z^{-n}.\)</span></p>
+<h3 id="example-3-residue-from-a-laurent-series-2025-q61">Example 3: residue from a Laurent series (2025 Q61)</h3>
+<p><span class="math">\(\cos w=1-\frac{w^2}2+\frac{w^4}{24}-\cdots\)</span> with <span class="math">\(w=1/z\)</span> gives <span class="math">\(z\cos\frac1z=z-\frac1{2z}+\frac1{24z^3}-\cdots\)</span> on <span class="math">\(0&lt;|z|&lt;\infty\)</span>. The coefficient of <span class="math">\(z^{-1}\)</span> is <span class="math">\(-\frac12\)</span>. So the residue at <span class="math">\(0\)</span> is <span class="math">\(-\tfrac12\)</span> and <span class="math">\(0\)</span> is an essential singularity.</p>
+<h3 id="example-4-order-of-a-zero-and-type-of-singularity">Example 4: order of a zero and type of singularity</h3>
+<p><span class="math">\(f(z)=\dfrac1{z-\sin z}\)</span> at <span class="math">\(0\)</span>. <span class="math">\(z-\sin z=\frac{z^3}6-\frac{z^5}{120}+\cdots\)</span> has a zero of order <span class="math">\(3\)</span>, so <span class="math">\(f\)</span> has a pole of order <span class="math">\(3\)</span>: <span class="math">\(f=\frac6{z^3}+\frac3{10z}+\cdots\)</span> (residue <span class="math">\(\frac3{10}\)</span>).</p>
+<h3 id="example-5-identity-theorem">Example 5: identity theorem</h3>
+<p>Is there an entire function with <span class="math">\(f(1/n)=\dfrac1{n+1}\)</span>, <span class="math">\(n\ge1\)</span>? Candidate <span class="math">\(g(z)=\dfrac z{1+z}\)</span> is analytic near <span class="math">\(0\)</span> and agrees on <span class="math">\(1/n\)</span>. By the identity theorem any analytic <span class="math">\(f\)</span> on a domain containing <span class="math">\(0\)</span> and these points equals <span class="math">\(g\)</span> there. But <span class="math">\(g\)</span> has a pole at <span class="math">\(-1\)</span>, so no <strong>entire</strong> <span class="math">\(f\)</span> exists, while an <span class="math">\(f\)</span> analytic on <span class="math">\(|z|&lt;1\)</span> exists (it is <span class="math">\(g\)</span>). Always state the domain.</p>
+<h3 id="example-6-classification-at-0-and-infty">Example 6: classification at <span class="math">\(0\)</span> and <span class="math">\(\infty\)</span></h3>
+<p><span class="math">\(f(z)=\dfrac{\sin z}{z^2}\)</span>: <span class="math">\(\sin z=z-\frac{z^3}6+\cdots\)</span>, so <span class="math">\(f=\frac1z-\frac z6+\cdots\)</span>, a simple pole at <span class="math">\(0\)</span>, residue <span class="math">\(1\)</span>. At <span class="math">\(\infty\)</span>: <span class="math">\(f\to0\)</span> along the real axis but along the imaginary axis <span class="math">\(\sin z\)</span> grows exponentially, so <span class="math">\(\infty\)</span> is an essential singularity.</p>
+</section><section class="note-section ns-common-traps" aria-labelledby="common-traps"><h2 id="common-traps">Common traps</h2>
+<ul>
+<li>The radius of convergence for the Taylor series is the <strong>distance to the nearest singularity</strong>, not the distance to the nearest zero or to the origin. It depends on the centre.</li>
+<li>Always read the <strong>annulus</strong> in a Laurent question. The same <span class="math">\(f\)</span> has different series on <span class="math">\(|z|&lt;1\)</span>, <span class="math">\(1&lt;|z|&lt;2\)</span> and <span class="math">\(|z|&gt;2\)</span>.</li>
+<li>Removable singularity: <span class="math">\(\sin z/z\)</span> at <span class="math">\(0\)</span> is <strong>not</strong> a pole. A quotient <span class="math">\(p/q\)</span> with <span class="math">\(q(a)=0\)</span> is a pole only when the numerator does not vanish to at least the same order.</li>
+<li>Pole order <span class="math">\(=\)</span> order of zero of denominator only if <span class="math">\(p(a)\ne0\)</span> (see 2025 Q66: the reason <span class="math">\(p(z_0)\neq0\)</span> is essential).</li>
+<li>Essential singularity: <span class="math">\(e^{1/z}\)</span> has no limit at <span class="math">\(0\)</span> (it <span class="math">\(\to\infty\)</span> along the positive real axis, <span class="math">\(\to0\)</span> along the negative real axis).</li>
+<li>A nonzero analytic function <strong>cannot</strong> have a zero of infinite order (isolated zeros). “Zeros can have infinite order” is the false statement in 2019.</li>
+<li>Identity theorem needs a connected domain and a limit point <strong>inside</strong> it. <span class="math">\(\sin(1/z)\)</span> vanishes at <span class="math">\(1/(n\pi)\)</span> but is not zero.</li>
+<li><span class="math">\(e^z/(e^z-1)\)</span> is <strong>not</strong> entire; it has infinitely many simple poles <span class="math">\(2\pi ik\)</span>.</li>
+<li>Polynomials have a <strong>pole</strong> at <span class="math">\(\infty\)</span>; <span class="math">\(e^z\)</span>, <span class="math">\(\sin z\)</span>, <span class="math">\(\cos z\)</span> have an <strong>essential</strong> singularity at <span class="math">\(\infty\)</span>; <span class="math">\(1/z\)</span> has a zero at <span class="math">\(\infty\)</span>.</li>
+<li>The residue is the coefficient of <span class="math">\((z-a)^{-1}\)</span> in the Laurent expansion about <span class="math">\(a\)</span>, not the coefficient of the leading term.</li>
+<li>Ratio test fails on gap series (<span class="math">\(\sum z^{n!}\)</span>); use the root test.</li>
+<li>Casorati-Weierstrass says the image is <strong>dense</strong>, Picard says all values but one. Neither holds at a pole.</li>
+</ul>
+</section><section class="note-section ns-previous-year-questions" aria-labelledby="previous-year-questions"><h2 id="previous-year-questions">Previous-year questions</h2>
+<h3 id="2019-q34-radius-of-convergence-of-the-series-with-coefficients-34in">2019 Q34: radius of convergence of the series with coefficients <span class="math">\((3+4i)^n\)</span></h3>
+<p><strong>Answer: <span class="math">\(1/5\)</span>.</strong> The series is <span class="math">\(\sum(3+4i)^nz^n\)</span> (the variable symbol was garbled in the recovered source). <span class="math">\(|a_n|^{1/n}=|3+4i|=5\)</span> so <span class="math">\(R=1/5\)</span>.</p>
+<h3 id="2019-unnumbered-no-1-for-fzdfracezez-1-which-statement-is-not-true-entire-has-only-poles-as-singularities-infinitely-many-poles-on-the-imaginary-axis-each-pole-simple">2019 (unnumbered, no. 1): for <span class="math">\(f(z)=\dfrac{e^z}{e^z-1}\)</span> which statement is NOT true? (entire; has only poles as singularities; infinitely many poles on the imaginary axis; each pole simple)</h3>
+<p><strong>Answer: “<span class="math">\(f\)</span> is entire”.</strong> <span class="math">\(f\)</span> is meromorphic with simple poles at <span class="math">\(z=2\pi ik\)</span>.</p>
+<h3 id="2019-unnumbered-no-4-which-statement-about-analytic-functions-is-not-true-zeros-isolated-identity-theorem-poles-isolated-a-non-zero-analytic-function-can-have-a-zero-of-infinite-order">2019 (unnumbered, no. 4): which statement about analytic functions is NOT true? (zeros isolated; identity theorem; poles isolated; a non-zero analytic function can have a zero of infinite order)</h3>
+<p><strong>Answer: “a non-zero analytic function can have a zero of infinite order”.</strong> Zeros of a non-identically-zero analytic function have finite order and are isolated.</p>
+<h3 id="2025-q61-residue-of-zcos1z-at-z0">2025 Q61: residue of <span class="math">\(z\cos(1/z)\)</span> at <span class="math">\(z=0\)</span></h3>
+<p><strong>Answer: (C) <span class="math">\(-\frac12\)</span>.</strong> <span class="math">\(z\cos\frac1z=z-\frac1{2z}+\cdots\)</span>; the coefficient of <span class="math">\(\frac1z\)</span> is <span class="math">\(-\frac12\)</span>.</p>
+<h3 id="2025-q66-assertion-reason-on-poles">2025 Q66: assertion-reason on poles</h3>
+<p>Assertion (A): the quotient <span class="math">\(p(z)/q(z)\)</span> has a pole of order <span class="math">\(m\)</span> at <span class="math">\(z_0\)</span>. Reason (R): <span class="math">\(p(z_0)\ne0\)</span> and <span class="math">\(q\)</span> has a zero of order <span class="math">\(m\)</span> at <span class="math">\(z_0\)</span>.</p>
+<p><strong>Answer: (A) both true and R explains A.</strong> With <span class="math">\(p(z_0)\ne0\)</span> (here <span class="math">\(p\)</span> analytic at <span class="math">\(z_0\)</span>), <span class="math">\(q=(z-z_0)^mh\)</span>, <span class="math">\(h(z_0)\ne0\)</span>, so <span class="math">\(p/q=\frac{p/h}{(z-z_0)^m}\)</span> with numerator non-zero at <span class="math">\(z_0\)</span>: a pole of order <span class="math">\(m\)</span>. (This is the official key’s answer.)</p>
+</section><section class="note-section ns-quick-revision" aria-labelledby="quick-revision"><h2 id="quick-revision">Quick revision</h2>
+<ul>
+<li><span class="math">\(1/R=\limsup|a_n|^{1/n}\)</span>; <span class="math">\(\sum(3+4i)^nz^n\)</span> has <span class="math">\(R=1/5\)</span>.</li>
+<li>Taylor radius at <span class="math">\(a\)</span> = distance to the nearest singularity of <span class="math">\(f\)</span>.</li>
+<li>Laurent series: unique per annulus; <span class="math">\(a_{-1}\)</span> = residue; principal part = negative powers.</li>
+<li>Zero of order <span class="math">\(m\)</span>: <span class="math">\(f=(z-a)^mg\)</span>, <span class="math">\(g(a)\neq0\)</span>; <span class="math">\(\sin z-z\)</span> has order <span class="math">\(3\)</span> at <span class="math">\(0\)</span>.</li>
+<li>Zeros of non-zero analytic functions on a domain are isolated and of finite order.</li>
+<li>Identity theorem: agree on a set with a limit point in a connected domain implies equal.</li>
+<li>Removable: bounded. Pole order <span class="math">\(m\)</span>: <span class="math">\(|f|\to\infty\)</span>, <span class="math">\((z-a)^mf\to\)</span> non-zero. Essential: infinitely many negative powers.</li>
+<li>Casorati-Weierstrass: <span class="math">\(f\)</span> is dense-valued near an essential singularity; Picard: all but one value.</li>
+<li>At <span class="math">\(\infty\)</span>: polynomial is a pole, <span class="math">\(e^z\)</span> is essential; meromorphic on the extended plane means rational.</li>
+<li><span class="math">\(e^z/(e^z-1)\)</span>: simple poles at <span class="math">\(2\pi ik\)</span>, not entire.</li>
+<li>Residue of <span class="math">\(z\cos(1/z)\)</span> at <span class="math">\(0\)</span> is <span class="math">\(-\frac12\)</span>.</li>
+</ul>
+</section></article></div><section class="section reader-end"><button class="read-btn" type="button" data-read-btn aria-pressed="false"><span class="box" aria-hidden="true"></span><span data-read-label>Mark as read</span></button><ul class="units end-links"><li><a class="unit-card" href="/uphesc-maths/learn/complex-analysis/series-and-singularities/practice/"><span class="unit-top"><span class="unit-name">Practise this topic</span></span><p class="flush">13 questions with worked solutions</p></a></li><li><a class="unit-card" href="/uphesc-maths/learn/complex-analysis/residues-and-contour-integration/"><span class="unit-top"><span class="unit-name">Next: Residues and contour integration</span></span><p class="flush">High priority · 2 h 40 min</p></a></li></ul><p class="prev-link"><a href="/uphesc-maths/learn/complex-analysis/cauchy-theory/">Previous: Cauchy theory</a></p></section></div><footer class="foot"><p>Built from every paper that survives: the full 2025 and 2026 papers (140 maths questions) and half of 2019 (35, from a solution video). 2015 left only an answer key, and nothing was found for 2021. The commission has never published its booklets. Unit counts use 2025 and 2026 only, so they show a range, not a trend.</p><p>2025 answers match the official key. 2026 has no key yet, so its answers were worked out by hand and marked high, medium or low confidence, and every unsure one was solved again, blind. 2019 answers come from the video and are not checked against the official key.</p></footer></main><script type="module">var e=document.documentElement,t=()=>e.dataset.mode?e.dataset.mode===`dark`:matchMedia(`(prefers-color-scheme: dark)`).matches;document.querySelector(`[data-mode-toggle]`)?.addEventListener(`click`,()=>{let n=t()?`light`:`dark`;e.dataset.mode=n;try{localStorage.setItem(`um:mode`,n)}catch{}}),!e.dataset.mode&&t()&&(e.dataset.mode=`dark`);var n=document.querySelectorAll(`[data-old-toggle]`),r=t=>{t?e.dataset.old=`on`:delete e.dataset.old,n.forEach(e=>e.setAttribute(`aria-checked`,String(t)))};r(e.dataset.old===`on`),n.forEach(t=>t.addEventListener(`click`,()=>{let t=e.dataset.old!==`on`;r(t);try{localStorage.setItem(`um:old`,t?`on`:`off`)}catch{}}));var i=document.querySelectorAll(`[data-view]`),a=t=>{t===`bars`?e.dataset.view=`bars`:delete e.dataset.view,i.forEach(e=>e.setAttribute(`aria-pressed`,String(e.dataset.view===t)))};a(e.dataset.view===`bars`?`bars`:`heat`),i.forEach(e=>e.addEventListener(`click`,()=>{a(e.dataset.view);try{localStorage.setItem(`um:view`,e.dataset.view)}catch{}}));var o=document.createElement(`div`);o.className=`tip`,o.setAttribute(`role`,`tooltip`),o.hidden=!0,document.body.append(o);var s=null,c=(e,t)=>{let n=o.offsetWidth,r=o.offsetHeight,i=e+12,a=t+12;i+n>innerWidth-8&&(i=Math.max(8,e-n-12)),a+r>innerHeight-8&&(a=Math.max(8,t-r-12)),o.style.left=`${i}px`,o.style.top=`${a}px`},l=()=>{if(s){let e=s.getBoundingClientRect();c(e.left+e.width*.3,e.bottom-8)}},u=e=>{e!==s&&(s=e,o.replaceChildren(...[...e.querySelector(`.tip-src`).childNodes].map(e=>e.cloneNode(!0)))),o.hidden=!1},d=()=>{o.hidden=!0,s=null};document.addEventListener(`pointermove`,e=>{if(e.pointerType!==`mouse`)return;let t=e.target.closest(`[data-tip]`);t?(u(t),c(e.clientX,e.clientY)):s&&d()}),document.addEventListener(`focusin`,e=>{let t=e.target.closest(`[data-tip]`);t&&(u(t),l())}),document.addEventListener(`focusout`,()=>d()),addEventListener(`scroll`,()=>{s&&document.activeElement===s?l():s&&d()},{passive:!0}),document.addEventListener(`keydown`,e=>{e.key===`Escape`&&d()});var f=`um:done`,p={};try{p=JSON.parse(localStorage.getItem(f)||`{}`)}catch{}var m=()=>{document.querySelectorAll(`[data-progress]`).forEach(e=>{let t=[...document.querySelectorAll(`[data-group="${e.dataset.progress}"]`)],n=t.filter(e=>e.checked).length;e.querySelector(`.progress-bar span`).style.width=`${n/t.length*100}%`,e.querySelector(`[data-count]`).textContent=`${n} of ${t.length} done`})};document.querySelectorAll(`input[data-check]`).forEach(e=>{e.checked=!!p[e.dataset.check],e.addEventListener(`change`,()=>{p[e.dataset.check]=e.checked;try{localStorage.setItem(f,JSON.stringify(p))}catch{}m()})}),m();</script></body></html><script type="module" src="/uphesc-maths/_astro/index.astro_astro_type_script_index_0_lang.t7qZbIYF.js"></script>

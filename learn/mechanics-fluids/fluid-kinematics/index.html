@@ -1,0 +1,282 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Fluid kinematics · UPESSC maths</title><meta name="description" content="What to study for the UPESSC (formerly UPHESC) Assistant Professor maths paper, built from every paper that survives."><link rel="icon" href="/uphesc-maths/favicon.svg" type="image/svg+xml"><link rel="preload" href="/uphesc-maths/fonts/inter-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin><!-- the saved light/dark, 2019 and chart-view choices, before first paint --><script>
+    try { var m = localStorage.getItem('um:mode'); if (m) document.documentElement.dataset.mode = m; } catch (e) {}
+    try { if (localStorage.getItem('um:old') === 'on') document.documentElement.dataset.old = 'on'; } catch (e) {}
+    try { if (localStorage.getItem('um:view') === 'bars') document.documentElement.dataset.view = 'bars'; } catch (e) {}
+  </script><!-- maths: the vendored MathJax typesets \( \) and \[ \] text, loaded only on pages that have any --><script>(function(){const VENDOR = "/uphesc-maths/vendor";
+
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+      loader: { paths: { mathjax: VENDOR + '/mathjax', fonts: VENDOR + '/mathjax/fonts' } },
+      output: { font: 'mathjax-stix2', displayOverflow: 'scroll' },
+      options: { ignoreHtmlClass: 'no-math', processHtmlClass: 'math', menuOptions: { settings: { enrich: false, speech: false, braille: false } } },
+      chtml: { displayOverflow: 'scroll' },
+      // an inline formula with a piece wider than its line gets its own scrolling line, like display maths
+      startup: { pageReady: () => MathJax.startup.defaultPageReady().then(fitMath) },
+    };
+    function fitMath() {
+      for (const m of document.querySelectorAll('mjx-container:not([display="true"]):not(.mjx-wide)')) {
+        const box = m.closest('p, li, dd, blockquote, div');
+        if (!box || m.closest('td, th')) continue;
+        const right = box.getBoundingClientRect().right + 1;
+        if ([...m.getClientRects()].some((r) => r.right > right)) m.classList.add('mjx-wide');
+      }
+    }
+    let fitQueued = 0;
+    const queueFit = () => { if (window.MathJax?.startup?.document && !fitQueued) fitQueued = requestAnimationFrame(() => { fitQueued = 0; fitMath(); }); };
+    addEventListener('resize', queueFit);
+    addEventListener('click', () => setTimeout(queueFit, 50));
+    document.addEventListener('DOMContentLoaded', () => {
+      if (!document.querySelector('.math')) return;
+      const s = document.createElement('script');
+      s.async = true;
+      s.src = VENDOR + '/mathjax/tex-chtml-nofont.js';
+      document.head.appendChild(s);
+    });
+  })();</script><link rel="stylesheet" href="/uphesc-maths/_astro/Base.CkQ5KWO8.css"></head><body data-tab="learn"><nav class="appnav" aria-label="Main"><a class="appnav-brand" href="/uphesc-maths/" aria-label="UPESSC maths home">∑</a><a class="appnav-item" href="/uphesc-maths/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4 10.2 12 4l8 6.2V19a1 1 0 0 1-1 1h-4.5v-5.5h-5V20H5a1 1 0 0 1-1-1z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Plan</span></a><a class="appnav-item" href="/uphesc-maths/learn/" aria-current="page"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M12 6.5C10 5 7.5 4.5 4 4.5v13c3.5 0 6 .5 8 2 2-1.5 4.5-2 8-2v-13c-3.5 0-6 .5-8 2zM12 6.5v13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Learn</span></a><a class="appnav-item" href="/uphesc-maths/units/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4 5h7v7H4zM13 5h7v7h-7zM4 14h7v6H4zM13 14h7v6h-7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Units</span></a><a class="appnav-item" href="/uphesc-maths/papers/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M7 3h7l4 4v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zM14 3v4h4M9 12h6M9 16h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Papers</span></a><a class="appnav-item" href="/uphesc-maths/revise/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M5 12.5 9.5 17 19 7.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Revise</span></a></nav><header class="topbar"><a class="bar-back" href="/uphesc-maths/learn/mechanics-fluids/" aria-label="Back"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a><p class="bar-title">Unit 8</p><button class="bar-btn" type="button" data-mode-toggle aria-label="Switch light or dark"><svg class="i-moon" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path></svg><svg class="i-sun" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path></svg></button></header><main class="page"><div class="reader" data-topic="fluid-kinematics"><header class="page-head topic-head"><p class="kicker"><a href="/uphesc-maths/learn/mechanics-fluids/">Unit 8 · Mechanics and Fluid Dynamics</a></p><h1>Fluid kinematics</h1><ul class="meta"><li class="prio high">High priority</li><li>1 h 40 min to study</li><li>Asked 3 times</li><li class="read-flag" data-read-flag hidden>Read</li></ul><p class="pyq-line">Previous papers: 2025 Q67, 2025 Q70, 2025 Q72</p></header><div class="reader-grid"><nav class="toc" aria-label="On this page"><details class="toc-box" data-toc><summary>On this page</summary><ol><li><a href="#why-it-matters-for-the-exam">Why it matters for the exam</a></li><li><a href="#core-ideas">Core ideas</a></li><li class="sub"><a href="#two-descriptions-of-motion">Two descriptions of motion</a></li><li class="sub"><a href="#material-derivative-and-acceleration">Material derivative and acceleration</a></li><li class="sub"><a href="#streamlines-pathlines-streaklines">Streamlines, pathlines, streaklines</a></li><li class="sub"><a href="#boundary-surface">Boundary surface</a></li><li class="sub"><a href="#equation-of-continuity-conservation-of-mass">Equation of continuity (conservation of mass)</a></li><li class="sub"><a href="#continuity-in-coordinates">Continuity in coordinates</a></li><li class="sub"><a href="#checking-whether-a-velocity-field-is-a-possible-incompressible-flow">Checking whether a velocity field is a possible incompressible flow</a></li><li class="sub"><a href="#rotation-vorticity-circulation">Rotation, vorticity, circulation</a></li><li class="sub"><a href="#kelvins-circulation-theorem">Kelvin’s circulation theorem</a></li><li class="sub"><a href="#velocity-potential">Velocity potential</a></li><li class="sub"><a href="#stream-function-and-cauchy-riemann-relations">Stream function and Cauchy-Riemann relations</a></li><li class="sub"><a href="#sign-conventions-in-one-place">Sign conventions in one place</a></li><li><a href="#formulas-and-results">Formulas and results</a></li><li><a href="#worked-examples">Worked examples</a></li><li class="sub"><a href="#example-1-lagrangian-to-eulerian">Example 1: Lagrangian to Eulerian</a></li><li class="sub"><a href="#example-2-acceleration-in-an-unsteady-field">Example 2: acceleration in an unsteady field</a></li><li class="sub"><a href="#example-3-streamline-pathline-streakline">Example 3: streamline, pathline, streakline</a></li><li class="sub"><a href="#example-4-incompressibility-in-polar-coordinates">Example 4: incompressibility in polar coordinates</a></li><li class="sub"><a href="#example-5-finding-constants-and-the-missing-component">Example 5: finding constants and the missing component</a></li><li class="sub"><a href="#example-6-circulation-and-vorticity">Example 6: circulation and vorticity</a></li><li><a href="#common-traps">Common traps</a></li><li><a href="#previous-year-questions">Previous-year questions</a></li><li class="sub"><a href="#2025-q67-official-key-b">2025 Q67 (official key B)</a></li><li class="sub"><a href="#2025-q70-official-key-c">2025 Q70 (official key C)</a></li><li class="sub"><a href="#2025-q72-official-key-d">2025 Q72 (official key D)</a></li><li><a href="#quick-revision">Quick revision</a></li></ol></details></nav><article class="prose"><section class="note-section ns-why-it-matters-for-the-exam" aria-labelledby="why-it-matters-for-the-exam"><h2 id="why-it-matters-for-the-exam">Why it matters for the exam</h2>
+<p>Fluid kinematics is the most reliably asked part of the fluid syllabus. In 2025 three of the four fluid questions (Q67, Q70, Q72) came from here: the continuity equation in spherical symmetry, the continuity equation versus incompressibility, and the relations between velocity potential and stream function. Expect direct recall of the equation of continuity in some coordinate system, an assertion-reason on <span class="math">\(\nabla\cdot\mathbf q=0\)</span> versus <span class="math">\(\nabla\times\mathbf q=0\)</span>, or a check of whether a given field is a possible flow.</p>
+</section><section class="note-section ns-core-ideas" aria-labelledby="core-ideas"><h2 id="core-ideas">Core ideas</h2>
+<h3 id="two-descriptions-of-motion">Two descriptions of motion</h3>
+<p><strong>Lagrangian (material) description.</strong> Label each particle by its position <span class="math">\((a,b,c)\)</span> at <span class="math">\(t=0\)</span> and follow it: <span class="math">\(\mathbf r=\mathbf r(a,b,c,t)\)</span>. The velocity is <span class="math">\(\partial\mathbf r/\partial t\)</span> with <span class="math">\((a,b,c)\)</span> fixed.</p>
+<p><strong>Eulerian (field) description.</strong> Sit at a fixed point <span class="math">\(\mathbf r\)</span> and record what passes: <span class="math">\(\mathbf q=\mathbf q(\mathbf r,t)\)</span>, <span class="math">\(p(\mathbf r,t)\)</span>, <span class="math">\(\rho(\mathbf r,t)\)</span>. This is the description used almost everywhere in the exam.</p>
+<p>To go from Lagrangian to Eulerian, invert <span class="math">\(\mathbf r=\mathbf r(a,b,c,t)\)</span> to get <span class="math">\((a,b,c)\)</span> in terms of <span class="math">\((\mathbf r,t)\)</span> and substitute. To go back, solve <span class="math">\(dx/dt=u\)</span>, <span class="math">\(dy/dt=v\)</span>, <span class="math">\(dz/dt=w\)</span> with <span class="math">\(\mathbf r=(a,b,c)\)</span> at <span class="math">\(t=0\)</span>.</p>
+<h3 id="material-derivative-and-acceleration">Material derivative and acceleration</h3>
+<p>The rate of change of a quantity <span class="math">\(F\)</span> following a fluid particle is
+<span class="math">\(\frac{DF}{Dt}=\frac{\partial F}{\partial t}+(\mathbf q\cdot\nabla)F=\frac{\partial F}{\partial t}+u\frac{\partial F}{\partial x}+v\frac{\partial F}{\partial y}+w\frac{\partial F}{\partial z}.\)</span>
+The first term is the <strong>local</strong> change, the second the <strong>convective</strong> change. The acceleration is
+<span class="math">\(\mathbf f=\frac{D\mathbf q}{Dt}=\frac{\partial\mathbf q}{\partial t}+(\mathbf q\cdot\nabla)\mathbf q=\frac{\partial\mathbf q}{\partial t}+\nabla\!\left(\tfrac12 q^2\right)-\mathbf q\times\boldsymbol\omega ,\)</span>
+where <span class="math">\(\boldsymbol\omega=\nabla\times\mathbf q\)</span> (Lamb’s form, from the identity <span class="math">\((\mathbf q\cdot\nabla)\mathbf q=\nabla(\tfrac12q^2)-\mathbf q\times(\nabla\times\mathbf q)\)</span>).</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Steady flow</td>
+<td><span class="math">\(\partial/\partial t=0\)</span> at every point; the pattern does not change with time</td>
+</tr>
+<tr>
+<td>Uniform flow</td>
+<td><span class="math">\(\mathbf q\)</span> is the same at all points at one instant</td>
+</tr>
+<tr>
+<td>Local acceleration</td>
+<td><span class="math">\(\partial\mathbf q/\partial t\)</span></td>
+</tr>
+<tr>
+<td>Convective acceleration</td>
+<td><span class="math">\((\mathbf q\cdot\nabla)\mathbf q\)</span>, nonzero even in steady flow if <span class="math">\(\mathbf q\)</span> varies in space</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="streamlines-pathlines-streaklines">Streamlines, pathlines, streaklines</h3>
+<ul>
+<li><strong>Streamline.</strong> A curve whose tangent at each point is the velocity at that instant. At fixed <span class="math">\(t\)</span>: <span class="math">\(\dfrac{dx}{u}=\dfrac{dy}{v}=\dfrac{dz}{w}\)</span>. Time is a constant parameter while integrating.</li>
+<li><strong>Pathline.</strong> The track of one particle: integrate <span class="math">\(\dfrac{dx}{dt}=u,\ \dfrac{dy}{dt}=v,\ \dfrac{dz}{dt}=w\)</span> and eliminate <span class="math">\(t\)</span>.</li>
+<li><strong>Streakline.</strong> The locus, at one instant, of all particles that have passed through a given point (the smoke trail from a fixed nozzle).</li>
+</ul>
+<p>In <strong>steady</strong> flow all three coincide. In unsteady flow they are in general different curves. A stream tube is a bundle of streamlines through a closed curve; no fluid crosses its wall.</p>
+<h3 id="boundary-surface">Boundary surface</h3>
+<p>A surface <span class="math">\(F(\mathbf r,t)=0\)</span> moving with the fluid (always made of the same particles) satisfies <span class="math">\(DF/Dt=0\)</span>. This is the kinematical boundary condition. At a fixed rigid wall it reduces to <span class="math">\(\mathbf q\cdot\mathbf n=0\)</span>. At a moving boundary the normal component of fluid velocity equals the normal component of the boundary velocity.</p>
+<h3 id="equation-of-continuity-conservation-of-mass">Equation of continuity (conservation of mass)</h3>
+<p>For a fixed volume <span class="math">\(V\)</span> with surface <span class="math">\(S\)</span>: the rate of increase of mass inside equals the inflow through <span class="math">\(S\)</span>,
+<span class="math">\(\int_V\frac{\partial\rho}{\partial t}\,dV=-\oint_S\rho\,\mathbf q\cdot\mathbf n\,dS=-\int_V\nabla\cdot(\rho\mathbf q)\,dV .\)</span>
+As <span class="math">\(V\)</span> is arbitrary,
+<span class="math">\(\boxed{\ \frac{\partial\rho}{\partial t}+\nabla\cdot(\rho\mathbf q)=0\ }\qquad\Longleftrightarrow\qquad\frac{D\rho}{Dt}+\rho\,\nabla\cdot\mathbf q=0 .\)</span></p>
+<p><strong>Incompressible fluid.</strong> The density of each particle stays constant, <span class="math">\(D\rho/Dt=0\)</span>, so <span class="math">\(\nabla\cdot\mathbf q=0\)</span>. The fluid need not have uniform density, and the flow need not be irrotational. Incompressible does not mean irrotational.</p>
+<p><strong>Steady flow</strong> (not nec. incompressible): <span class="math">\(\nabla\cdot(\rho\mathbf q)=0\)</span>.</p>
+<p><strong>Lagrangian form.</strong> <span class="math">\(\rho\,\dfrac{\partial(x,y,z)}{\partial(a,b,c)}=\rho_0(a,b,c)\)</span>. For an incompressible fluid with uniform initial density, the Jacobian equals <span class="math">\(1\)</span>.</p>
+<p>The divergence <span class="math">\(\nabla\cdot\mathbf q\)</span> is the rate of volume expansion per unit volume.</p>
+<h3 id="continuity-in-coordinates">Continuity in coordinates</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>System</th>
+<th>Equation of continuity (general <span class="math">\(\rho\)</span>)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cartesian <span class="math">\((x,y,z)\)</span></td>
+<td><span class="math">\(\dfrac{\partial\rho}{\partial t}+\dfrac{\partial(\rho u)}{\partial x}+\dfrac{\partial(\rho v)}{\partial y}+\dfrac{\partial(\rho w)}{\partial z}=0\)</span></td>
+</tr>
+<tr>
+<td>Cylindrical <span class="math">\((R,\theta,z)\)</span></td>
+<td><span class="math">\(\dfrac{\partial\rho}{\partial t}+\dfrac1R\dfrac{\partial(R\rho q_R)}{\partial R}+\dfrac1R\dfrac{\partial(\rho q_\theta)}{\partial\theta}+\dfrac{\partial(\rho q_z)}{\partial z}=0\)</span></td>
+</tr>
+<tr>
+<td>Spherical <span class="math">\((r,\theta,\phi)\)</span></td>
+<td><span class="math">\(\dfrac{\partial\rho}{\partial t}+\dfrac1{r^2}\dfrac{\partial(\rho r^2q_r)}{\partial r}+\dfrac1{r\sin\theta}\dfrac{\partial(\rho\sin\theta\,q_\theta)}{\partial\theta}+\dfrac1{r\sin\theta}\dfrac{\partial(\rho q_\phi)}{\partial\phi}=0\)</span></td>
+</tr>
+</tbody>
+</table></div>
+<p>Here <span class="math">\(\theta\)</span> is the azimuth in cylindrical coordinates and the polar angle in spherical ones, and <span class="math">\(\phi\)</span> is the azimuth in spherical ones.</p>
+<p><strong>Special cases.</strong></p>
+<ul>
+<li>Spherical symmetry (<span class="math">\(q_\theta=q_\phi=0\)</span>, everything depends on <span class="math">\(r,t\)</span> only): <span class="math">\(\dfrac{\partial\rho}{\partial t}+\dfrac1{r^2}\dfrac{\partial(\rho r^2q)}{\partial r}=0\)</span>.</li>
+<li>Cylindrical (2-D radial) symmetry: <span class="math">\(\dfrac{\partial\rho}{\partial t}+\dfrac1R\dfrac{\partial(R\rho q)}{\partial R}=0\)</span>.</li>
+<li>Incompressible, steady, purely radial: <span class="math">\(r^2q=\text{const}\)</span> in 3-D (so <span class="math">\(q\propto1/r^2\)</span>) and <span class="math">\(Rq=\text{const}\)</span> in 2-D (so <span class="math">\(q\propto1/R\)</span>). These are the point source and the line source.</li>
+</ul>
+<h3 id="checking-whether-a-velocity-field-is-a-possible-incompressible-flow">Checking whether a velocity field is a possible incompressible flow</h3>
+<p>A given <span class="math">\(\mathbf q\)</span> is a possible motion of an incompressible fluid if and only if <span class="math">\(\nabla\cdot\mathbf q=0\)</span> (and the field is single-valued and smooth). Compute the divergence in the coordinate system in which the components are given. If the problem also says “irrotational”, check <span class="math">\(\nabla\times\mathbf q=0\)</span> separately: the two tests are independent.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Divergence</th>
+<th>Curl</th>
+<th>Verdict</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math">\(u=x,\ v=y\)</span></td>
+<td><span class="math">\(2\)</span></td>
+<td><span class="math">\(0\)</span></td>
+<td>irrotational, not incompressible</td>
+</tr>
+<tr>
+<td><span class="math">\(u=-y,\ v=x\)</span></td>
+<td><span class="math">\(0\)</span></td>
+<td><span class="math">\(2\)</span></td>
+<td>incompressible, rotational</td>
+</tr>
+<tr>
+<td><span class="math">\(u=x^2-y^2,\ v=-2xy\)</span></td>
+<td><span class="math">\(0\)</span></td>
+<td><span class="math">\(0\)</span></td>
+<td>both</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="rotation-vorticity-circulation">Rotation, vorticity, circulation</h3>
+<p>The vorticity is <span class="math">\(\boldsymbol\omega=\nabla\times\mathbf q\)</span>; a fluid element rotates with angular velocity <span class="math">\(\tfrac12\boldsymbol\omega\)</span>. In Cartesian components
+<span class="math">\(\boldsymbol\omega=\left(\frac{\partial w}{\partial y}-\frac{\partial v}{\partial z},\ \frac{\partial u}{\partial z}-\frac{\partial w}{\partial x},\ \frac{\partial v}{\partial x}-\frac{\partial u}{\partial y}\right).\)</span>
+In cylindrical coordinates the axial component is <span class="math">\(\omega_z=\dfrac1R\left[\dfrac{\partial(Rq_\theta)}{\partial R}-\dfrac{\partial q_R}{\partial\theta}\right]\)</span>. Always <span class="math">\(\nabla\cdot\boldsymbol\omega=0\)</span>. A <strong>vortex line</strong> is a curve tangent to <span class="math">\(\boldsymbol\omega\)</span>; a <strong>vortex tube</strong> is a bundle of vortex lines.</p>
+<p>Two standard flows:</p>
+<ul>
+<li><strong>Rigid rotation</strong> <span class="math">\(q_\theta=\Omega R\)</span>: <span class="math">\(\omega=2\Omega\)</span> (forced vortex).</li>
+<li><strong>Free (line) vortex</strong> <span class="math">\(q_\theta=\kappa/R\)</span>: <span class="math">\(\omega=0\)</span> everywhere except the axis; circulation <span class="math">\(2\pi\kappa\)</span> about the axis.</li>
+</ul>
+<p><strong>Circulation</strong> about a closed curve <span class="math">\(C\)</span> is <span class="math">\(\Gamma=\oint_C\mathbf q\cdot d\mathbf r\)</span>. By Stokes’ theorem <span class="math">\(\Gamma=\int_S\boldsymbol\omega\cdot\mathbf n\,dS\)</span> for any surface <span class="math">\(S\)</span> spanning <span class="math">\(C\)</span> inside the region of flow.</p>
+<h3 id="kelvins-circulation-theorem">Kelvin’s circulation theorem</h3>
+<blockquote>
+<p>For an <strong>inviscid</strong> fluid with <strong>conservative</strong> body forces and density depending on pressure only (<strong>barotropic</strong>, which includes incompressible), the circulation about any closed curve moving with the fluid is constant in time: <span class="math">\(D\Gamma/Dt=0\)</span>.</p>
+</blockquote>
+<p>Proof idea: <span class="math">\(\dfrac{D\Gamma}{Dt}=\oint\dfrac{D\mathbf q}{Dt}\cdot d\mathbf r+\oint\mathbf q\cdot d\mathbf q\)</span>. The second integral is <span class="math">\(\oint d(\tfrac12q^2)=0\)</span>. By Euler’s equation <span class="math">\(D\mathbf q/Dt=-\nabla\Omega-\nabla p/\rho\)</span> is a gradient of a single-valued function, so its closed integral is <span class="math">\(0\)</span>.</p>
+<p>Consequences (Lagrange and Helmholtz): vortex lines move with the fluid and their strength stays constant; a flow that is irrotational at one instant stays irrotational; a flow started from rest is irrotational. The theorem needs the curve to be a material curve, and it fails if viscosity or a non-barotropic density is present.</p>
+<h3 id="velocity-potential">Velocity potential</h3>
+<p>If <span class="math">\(\nabla\times\mathbf q=0\)</span> in a simply connected region, a scalar <span class="math">\(\phi\)</span> exists with
+<span class="math">\(\mathbf q=-\nabla\phi\qquad(\text{many Indian texts; modern texts write }\mathbf q=+\nabla\phi).\)</span>
+Surfaces <span class="math">\(\phi=\text{const}\)</span> are <strong>equipotentials</strong> and cut the streamlines at right angles. If also <span class="math">\(\nabla\cdot\mathbf q=0\)</span> then <span class="math">\(\nabla^2\phi=0\)</span> (Laplace’s equation).</p>
+<p>In a <strong>multiply connected</strong> region (for example the plane with a point or a cylinder removed) an irrotational flow can have nonzero circulation about a hole, and then <span class="math">\(\phi\)</span> is many-valued: it increases by <span class="math">\(-\Gamma\)</span> (with <span class="math">\(\mathbf q=-\nabla\phi\)</span>) on each circuit. Such flow is <em>cyclic</em>; zero circulation gives <em>acyclic</em> flow.</p>
+<h3 id="stream-function-and-cauchy-riemann-relations">Stream function and Cauchy-Riemann relations</h3>
+<p>For a 2-D incompressible flow <span class="math">\(u_x+v_y=0\)</span>, so a stream function exists:
+<span class="math">\(u=-\frac{\partial\psi}{\partial y},\qquad v=\frac{\partial\psi}{\partial x}.\)</span>
+If the flow is also irrotational, <span class="math">\(\phi\)</span> and <span class="math">\(\psi\)</span> satisfy
+<span class="math">\(\frac{\partial\phi}{\partial x}=\frac{\partial\psi}{\partial y},\qquad\frac{\partial\phi}{\partial y}=-\frac{\partial\psi}{\partial x},\)</span>
+the Cauchy-Riemann equations, so <span class="math">\(\phi+i\psi\)</span> is analytic in <span class="math">\(z=x+iy\)</span>. In polar form <span class="math">\(\partial\phi/\partial r=\tfrac1r\partial\psi/\partial\theta\)</span> and <span class="math">\(\tfrac1r\partial\phi/\partial\theta=-\partial\psi/\partial r\)</span>. With the opposite sign pairing (<span class="math">\(\mathbf q=+\nabla\phi\)</span>, <span class="math">\(u=\psi_y\)</span>, <span class="math">\(v=-\psi_x\)</span>) the same two relations hold. That is why the exam item on these relations has the same answer in both conventions.</p>
+<h3 id="sign-conventions-in-one-place">Sign conventions in one place</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Convention</th>
+<th><span class="math">\(\mathbf q\)</span></th>
+<th><span class="math">\(u,\ v\)</span> from <span class="math">\(\psi\)</span></th>
+<th><span class="math">\(dw/dz\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Used in these notes (Chorlton, Raisinghania)</td>
+<td><span class="math">\(-\nabla\phi\)</span></td>
+<td><span class="math">\(-\psi_y,\ \psi_x\)</span></td>
+<td><span class="math">\(-u+iv\)</span></td>
+</tr>
+<tr>
+<td>Modern</td>
+<td><span class="math">\(+\nabla\phi\)</span></td>
+<td><span class="math">\(\psi_y,\ -\psi_x\)</span></td>
+<td><span class="math">\(u-iv\)</span></td>
+</tr>
+</tbody>
+</table></div>
+<p>Speeds, streamline shapes and pressures do not depend on the convention; only the sign of <span class="math">\(\phi\)</span>, <span class="math">\(\psi\)</span> and of source strength written in <span class="math">\(w\)</span> do.</p>
+</section><section class="note-section ns-formulas-and-results" aria-labelledby="formulas-and-results"><h2 id="formulas-and-results">Formulas and results</h2>
+<ul>
+<li><span class="math">\(\dfrac{D}{Dt}=\dfrac{\partial}{\partial t}+\mathbf q\cdot\nabla\)</span>; acceleration <span class="math">\(=\dfrac{\partial\mathbf q}{\partial t}+\nabla(\tfrac12q^2)-\mathbf q\times\boldsymbol\omega\)</span>.</li>
+<li>Streamline <span class="math">\(dx/u=dy/v=dz/w\)</span> (<span class="math">\(t\)</span> fixed); pathline <span class="math">\(dx/dt=u,\dots\)</span>; coincide if steady.</li>
+<li>Continuity: <span class="math">\(\partial\rho/\partial t+\nabla\cdot(\rho\mathbf q)=0\)</span>; incompressible: <span class="math">\(\nabla\cdot\mathbf q=0\)</span>.</li>
+<li>Spherical symmetry: <span class="math">\(\dfrac{\partial\rho}{\partial t}+\dfrac1{r^2}\dfrac{\partial(\rho r^2q)}{\partial r}=0\)</span>.</li>
+<li>Cylindrical: <span class="math">\(\dfrac1R\dfrac{\partial(Rq_R)}{\partial R}+\dfrac1R\dfrac{\partial q_\theta}{\partial\theta}+\dfrac{\partial q_z}{\partial z}=0\)</span> (incompressible).</li>
+<li>Spherical: <span class="math">\(\dfrac1{r^2}\dfrac{\partial(r^2q_r)}{\partial r}+\dfrac1{r\sin\theta}\dfrac{\partial(\sin\theta\,q_\theta)}{\partial\theta}+\dfrac1{r\sin\theta}\dfrac{\partial q_\phi}{\partial\phi}=0\)</span> (incompressible).</li>
+<li><span class="math">\(\boldsymbol\omega=\nabla\times\mathbf q\)</span>, element spin <span class="math">\(=\tfrac12\boldsymbol\omega\)</span>; rigid rotation: <span class="math">\(\omega=2\Omega\)</span>.</li>
+<li><span class="math">\(\Gamma=\oint\mathbf q\cdot d\mathbf r=\int\boldsymbol\omega\cdot\mathbf n\,dS\)</span>.</li>
+<li>Kelvin: <span class="math">\(D\Gamma/Dt=0\)</span> (inviscid, barotropic, conservative forces).</li>
+<li>Irrotational: <span class="math">\(\mathbf q=-\nabla\phi\)</span>; plus incompressible: <span class="math">\(\nabla^2\phi=0\)</span>.</li>
+<li>2-D: <span class="math">\(u=-\psi_y,\ v=\psi_x\)</span>; <span class="math">\(\phi_x=\psi_y,\ \phi_y=-\psi_x\)</span>.</li>
+</ul>
+</section><section class="note-section ns-worked-examples" aria-labelledby="worked-examples"><h2 id="worked-examples">Worked examples</h2>
+<h3 id="example-1-lagrangian-to-eulerian">Example 1: Lagrangian to Eulerian</h3>
+<p>A flow is <span class="math">\(x=ae^{-kt},\ y=be^{kt},\ z=c\)</span>. Find the Eulerian velocity, the acceleration and the streamlines.</p>
+<p>Differentiate at fixed <span class="math">\((a,b,c)\)</span>: <span class="math">\(u=-kae^{-kt}=-kx\)</span>, <span class="math">\(v=kbe^{kt}=ky\)</span>, <span class="math">\(w=0\)</span>. This is steady. Convective acceleration: <span class="math">\(f_x=u\,\partial u/\partial x=(-kx)(-k)=k^2x\)</span>, <span class="math">\(f_y=k^2y\)</span>. The Lagrangian check <span class="math">\(\partial^2x/\partial t^2=k^2ae^{-kt}=k^2x\)</span> agrees. Streamlines: <span class="math">\(dx/(-kx)=dy/(ky)\)</span> gives <span class="math">\(\ln x+\ln y=\text{const}\)</span>, i.e. <span class="math">\(xy=\text{const}\)</span> (rectangular hyperbolas). Also <span class="math">\(\nabla\cdot\mathbf q=-k+k=0\)</span>: possible incompressible flow.</p>
+<h3 id="example-2-acceleration-in-an-unsteady-field">Example 2: acceleration in an unsteady field</h3>
+<p><span class="math">\(u=x+t,\ v=y-t,\ w=0\)</span>. Find <span class="math">\(f_x,f_y\)</span> at <span class="math">\((1,2)\)</span>, <span class="math">\(t=1\)</span>.</p>
+<p><span class="math">\(f_x=\partial u/\partial t+u\,u_x+v\,u_y=1+(x+t)(1)+0=x+t+1=3\)</span>.
+<span class="math">\(f_y=\partial v/\partial t+u\,v_x+v\,v_y=-1+0+(y-t)=-1+1=0\)</span>.
+So <span class="math">\(\mathbf f=(3,0)\)</span>. (Local part alone gives only <span class="math">\(1\)</span> for <span class="math">\(f_x\)</span>: a typical wrong option.)</p>
+<h3 id="example-3-streamline-pathline-streakline">Example 3: streamline, pathline, streakline</h3>
+<p><span class="math">\(u=1,\ v=t\)</span>. Compare the three curves through the origin.</p>
+<ul>
+<li>Streamline at <span class="math">\(t=2\)</span>: <span class="math">\(dy/dx=v/u=2\)</span>, so <span class="math">\(y=2x\)</span>.</li>
+<li>Pathline of the particle at the origin at <span class="math">\(t=0\)</span>: <span class="math">\(x=t,\ y=t^2/2\)</span>, so <span class="math">\(y=x^2/2\)</span>.</li>
+<li>Streakline at <span class="math">\(t=2\)</span> (particles released at the origin at times <span class="math">\(\tau\in[0,2]\)</span>): position at time <span class="math">\(2\)</span> is <span class="math">\(x=2-\tau\)</span>, <span class="math">\(y=(4-\tau^2)/2\)</span>; with <span class="math">\(\tau=2-x\)</span> this is <span class="math">\(y=2x-\tfrac12x^2\)</span>, <span class="math">\(0\le x\le2\)</span>.</li>
+</ul>
+<p>At <span class="math">\(x=1\)</span> the three give <span class="math">\(y=2,\ \tfrac12,\ \tfrac32\)</span>: all different, because the flow is unsteady.</p>
+<h3 id="example-4-incompressibility-in-polar-coordinates">Example 4: incompressibility in polar coordinates</h3>
+<p>Show that <span class="math">\(q_R=U\cos\theta\,(1-a^2/R^2)\)</span>, <span class="math">\(q_\theta=-U\sin\theta\,(1+a^2/R^2)\)</span> satisfies continuity.</p>
+<p><span class="math">\(\dfrac1R\dfrac{\partial(Rq_R)}{\partial R}=\dfrac{U\cos\theta}{R}\dfrac{\partial}{\partial R}\!\left(R-\dfrac{a^2}R\right)=\dfrac{U\cos\theta}{R}\left(1+\dfrac{a^2}{R^2}\right)\)</span>, and
+<span class="math">\(\dfrac1R\dfrac{\partial q_\theta}{\partial\theta}=-\dfrac{U\cos\theta}{R}\left(1+\dfrac{a^2}{R^2}\right)\)</span>. The sum is <span class="math">\(0\)</span>. (This is the flow past a circular cylinder, see the next topic.)</p>
+<h3 id="example-5-finding-constants-and-the-missing-component">Example 5: finding constants and the missing component</h3>
+<p>(a) <span class="math">\(u=2x+4y,\ v=bx+cy\)</span> is a possible incompressible irrotational flow. Divergence: <span class="math">\(2+c=0\)</span>, so <span class="math">\(c=-2\)</span>. Curl: <span class="math">\(v_x-u_y=b-4=0\)</span>, so <span class="math">\(b=4\)</span>.
+(b) <span class="math">\(u=3x^2y\)</span> with <span class="math">\(w=0\)</span>: <span class="math">\(v_y=-u_x=-6xy\)</span>, so <span class="math">\(v=-3xy^2+g(x)\)</span> for any function <span class="math">\(g(x)\)</span>.</p>
+<h3 id="example-6-circulation-and-vorticity">Example 6: circulation and vorticity</h3>
+<p>For <span class="math">\(\mathbf q=(-\Omega y,\Omega x,0)\)</span> the vorticity is <span class="math">\(\omega_z=\Omega-(-\Omega)=2\Omega\)</span>. Around a circle of radius <span class="math">\(a\)</span>, <span class="math">\(\Gamma=\oint q_\theta\,a\,d\theta=2\pi a^2\Omega\)</span>, which equals <span class="math">\(\omega\times\text{area}=2\Omega\cdot\pi a^2\)</span>. For <span class="math">\(\Omega=3,\ a=2\)</span>: <span class="math">\(\Gamma=24\pi\)</span>. For the free vortex <span class="math">\(q_\theta=\kappa/R\)</span>, <span class="math">\(\Gamma=2\pi\kappa\)</span> on every circle about the axis, although <span class="math">\(\omega=0\)</span> in the fluid; the circulation comes entirely from the singular axis.</p>
+</section><section class="note-section ns-common-traps" aria-labelledby="common-traps"><h2 id="common-traps">Common traps</h2>
+<ul>
+<li><strong>Incompressible <span class="math">\(\ne\)</span> irrotational.</strong> The 2025 Q70 reason says incompressibility is <span class="math">\(\nabla\times\mathbf q=0\)</span>. It is <span class="math">\(\nabla\cdot\mathbf q=0\)</span>. The curl condition is irrotationality.</li>
+<li><strong>Steady <span class="math">\(\ne\)</span> uniform</strong>, and steady flow still has convective acceleration.</li>
+<li><strong>Streamlines, pathlines, streaklines agree only for steady flow.</strong> Streamlines use <span class="math">\(t\)</span> as a fixed parameter; pathlines do not.</li>
+<li><strong>Spherical symmetry factor.</strong> It is <span class="math">\(r^2q\)</span> inside the <span class="math">\(r\)</span>-derivative with a <span class="math">\(1/r^2\)</span> in front. A <span class="math">\(1/r\)</span> in front of <span class="math">\(\partial(\rho qr)/\partial r\)</span> is the cylindrical form.</li>
+<li><strong>The stream function exists for every 2-D incompressible flow;</strong> the velocity potential exists only for irrotational flow. Do not swap them.</li>
+<li><strong>Cauchy-Riemann signs.</strong> <span class="math">\(\phi_x=\psi_y\)</span> and <span class="math">\(\phi_y=-\psi_x\)</span>. The other combination <span class="math">\(\phi_x=\psi_y\)</span> and <span class="math">\(\phi_y=+\psi_x\)</span> is false.</li>
+<li><strong>Kelvin’s theorem</strong> is about a closed curve moving with the fluid, not a fixed curve, and requires inviscid, barotropic and conservative forces.</li>
+<li><strong>A free vortex is irrotational but has circulation.</strong> Zero vorticity does not imply zero circulation in a multiply connected region.</li>
+</ul>
+</section><section class="note-section ns-previous-year-questions" aria-labelledby="previous-year-questions"><h2 id="previous-year-questions">Previous-year questions</h2>
+<h3 id="2025-q67-official-key-b">2025 Q67 (official key B)</h3>
+<p>Question: In the case of spherical symmetry the equation of continuity is… (four forms of <span class="math">\(\partial\rho/\partial t\)</span> and <span class="math">\(\partial(\rho qr^2)/\partial r\)</span>; one option is “none of these”). The correct form is <span class="math">\(\dfrac{\partial\rho}{\partial t}+\dfrac1{r^2}\dfrac{\partial(\rho qr^2)}{\partial r}=0\)</span>.
+Solution: set <span class="math">\(q_\theta=q_\phi=0\)</span> and no <span class="math">\(\theta,\phi\)</span> dependence in the spherical continuity equation. Option B is the one with <span class="math">\(1/r^2\)</span> outside and <span class="math">\(r^2\)</span> inside.</p>
+<h3 id="2025-q70-official-key-c">2025 Q70 (official key C)</h3>
+<p>Question (assertion-reason). A: the equation of continuity for a fluid is <span class="math">\(\partial\rho/\partial t+\nabla\cdot(\rho\mathbf q)=0\)</span>. R: the equation of continuity for an incompressible fluid is <span class="math">\(\nabla\times\mathbf q=0\)</span>. Answer: A is true, R is false.
+Solution: R should read <span class="math">\(\nabla\cdot\mathbf q=0\)</span>. <span class="math">\(\nabla\times\mathbf q=0\)</span> is irrotationality.</p>
+<h3 id="2025-q72-official-key-d">2025 Q72 (official key D)</h3>
+<p>Question: The relations between velocity potential <span class="math">\(\phi\)</span> and stream function <span class="math">\(\psi\)</span> are (a) <span class="math">\(\phi_x=\psi_y\)</span>, (b) <span class="math">\(\phi_y=\psi_x\)</span>, (c) <span class="math">\(\phi_x=-\psi_y\)</span>, (d) <span class="math">\(\phi_y=-\psi_x\)</span>. Which are correct? Answer: a, d only.
+Solution: These are the Cauchy-Riemann equations of <span class="math">\(\phi+i\psi\)</span>: <span class="math">\(\phi_x=\psi_y\)</span> and <span class="math">\(\phi_y=-\psi_x\)</span>. Options b and c have the wrong sign.</p>
+</section><section class="note-section ns-quick-revision" aria-labelledby="quick-revision"><h2 id="quick-revision">Quick revision</h2>
+<ul>
+<li>Eulerian: fields at fixed points. Lagrangian: follow particle <span class="math">\((a,b,c)\)</span>.</li>
+<li><span class="math">\(D/Dt=\partial/\partial t+\mathbf q\cdot\nabla\)</span>; acceleration has local + convective parts.</li>
+<li>Steady flow: streamline = pathline = streakline.</li>
+<li>Continuity: <span class="math">\(\partial\rho/\partial t+\nabla\cdot(\rho\mathbf q)=0\)</span>; incompressible means <span class="math">\(\nabla\cdot\mathbf q=0\)</span>.</li>
+<li>Spherical symmetry: <span class="math">\(\partial\rho/\partial t+r^{-2}\,\partial(\rho r^2q)/\partial r=0\)</span>.</li>
+<li>Radial incompressible flow: <span class="math">\(q\propto1/r^2\)</span> in 3-D, <span class="math">\(q\propto1/R\)</span> in 2-D.</li>
+<li>Vorticity <span class="math">\(=\nabla\times\mathbf q\)</span>; element spin is half of it; rigid rotation has <span class="math">\(\omega=2\Omega\)</span>.</li>
+<li><span class="math">\(\Gamma=\oint\mathbf q\cdot d\mathbf r=\int\boldsymbol\omega\cdot\mathbf n\,dS\)</span>.</li>
+<li>Kelvin: circulation about a material curve is constant (inviscid, barotropic, conservative).</li>
+<li>Irrotational: <span class="math">\(\mathbf q=-\nabla\phi\)</span>; with incompressible, <span class="math">\(\nabla^2\phi=0\)</span>.</li>
+<li><span class="math">\(\psi\)</span> exists for 2-D incompressible; <span class="math">\(\phi\)</span> only if irrotational; <span class="math">\(\phi_x=\psi_y\)</span>, <span class="math">\(\phi_y=-\psi_x\)</span>.</li>
+</ul>
+</section></article></div><section class="section reader-end"><button class="read-btn" type="button" data-read-btn aria-pressed="false"><span class="box" aria-hidden="true"></span><span data-read-label>Mark as read</span></button><ul class="units end-links"><li><a class="unit-card" href="/uphesc-maths/learn/mechanics-fluids/fluid-kinematics/practice/"><span class="unit-top"><span class="unit-name">Practise this topic</span></span><p class="flush">12 questions with worked solutions</p></a></li><li><a class="unit-card" href="/uphesc-maths/learn/mechanics-fluids/equations-of-motion/"><span class="unit-top"><span class="unit-name">Next: Equations of motion and Bernoulli&#39;s equation</span></span><p class="flush">Medium priority · 1 h 40 min</p></a></li></ul><p class="prev-link"><a href="/uphesc-maths/learn/mechanics-fluids/small-oscillations/">Previous: Small oscillations and normal modes</a></p></section></div><footer class="foot"><p>Built from every paper that survives: the full 2025 and 2026 papers (140 maths questions) and half of 2019 (35, from a solution video). 2015 left only an answer key, and nothing was found for 2021. The commission has never published its booklets. Unit counts use 2025 and 2026 only, so they show a range, not a trend.</p><p>2025 answers match the official key. 2026 has no key yet, so its answers were worked out by hand and marked high, medium or low confidence, and every unsure one was solved again, blind. 2019 answers come from the video and are not checked against the official key.</p></footer></main><script type="module">var e=document.documentElement,t=()=>e.dataset.mode?e.dataset.mode===`dark`:matchMedia(`(prefers-color-scheme: dark)`).matches;document.querySelector(`[data-mode-toggle]`)?.addEventListener(`click`,()=>{let n=t()?`light`:`dark`;e.dataset.mode=n;try{localStorage.setItem(`um:mode`,n)}catch{}}),!e.dataset.mode&&t()&&(e.dataset.mode=`dark`);var n=document.querySelectorAll(`[data-old-toggle]`),r=t=>{t?e.dataset.old=`on`:delete e.dataset.old,n.forEach(e=>e.setAttribute(`aria-checked`,String(t)))};r(e.dataset.old===`on`),n.forEach(t=>t.addEventListener(`click`,()=>{let t=e.dataset.old!==`on`;r(t);try{localStorage.setItem(`um:old`,t?`on`:`off`)}catch{}}));var i=document.querySelectorAll(`[data-view]`),a=t=>{t===`bars`?e.dataset.view=`bars`:delete e.dataset.view,i.forEach(e=>e.setAttribute(`aria-pressed`,String(e.dataset.view===t)))};a(e.dataset.view===`bars`?`bars`:`heat`),i.forEach(e=>e.addEventListener(`click`,()=>{a(e.dataset.view);try{localStorage.setItem(`um:view`,e.dataset.view)}catch{}}));var o=document.createElement(`div`);o.className=`tip`,o.setAttribute(`role`,`tooltip`),o.hidden=!0,document.body.append(o);var s=null,c=(e,t)=>{let n=o.offsetWidth,r=o.offsetHeight,i=e+12,a=t+12;i+n>innerWidth-8&&(i=Math.max(8,e-n-12)),a+r>innerHeight-8&&(a=Math.max(8,t-r-12)),o.style.left=`${i}px`,o.style.top=`${a}px`},l=()=>{if(s){let e=s.getBoundingClientRect();c(e.left+e.width*.3,e.bottom-8)}},u=e=>{e!==s&&(s=e,o.replaceChildren(...[...e.querySelector(`.tip-src`).childNodes].map(e=>e.cloneNode(!0)))),o.hidden=!1},d=()=>{o.hidden=!0,s=null};document.addEventListener(`pointermove`,e=>{if(e.pointerType!==`mouse`)return;let t=e.target.closest(`[data-tip]`);t?(u(t),c(e.clientX,e.clientY)):s&&d()}),document.addEventListener(`focusin`,e=>{let t=e.target.closest(`[data-tip]`);t&&(u(t),l())}),document.addEventListener(`focusout`,()=>d()),addEventListener(`scroll`,()=>{s&&document.activeElement===s?l():s&&d()},{passive:!0}),document.addEventListener(`keydown`,e=>{e.key===`Escape`&&d()});var f=`um:done`,p={};try{p=JSON.parse(localStorage.getItem(f)||`{}`)}catch{}var m=()=>{document.querySelectorAll(`[data-progress]`).forEach(e=>{let t=[...document.querySelectorAll(`[data-group="${e.dataset.progress}"]`)],n=t.filter(e=>e.checked).length;e.querySelector(`.progress-bar span`).style.width=`${n/t.length*100}%`,e.querySelector(`[data-count]`).textContent=`${n} of ${t.length} done`})};document.querySelectorAll(`input[data-check]`).forEach(e=>{e.checked=!!p[e.dataset.check],e.addEventListener(`change`,()=>{p[e.dataset.check]=e.checked;try{localStorage.setItem(f,JSON.stringify(p))}catch{}m()})}),m();</script></body></html><script type="module" src="/uphesc-maths/_astro/index.astro_astro_type_script_index_0_lang.t7qZbIYF.js"></script>

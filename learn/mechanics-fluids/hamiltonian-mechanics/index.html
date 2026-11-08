@@ -1,0 +1,356 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Hamiltonian mechanics, Poisson brackets and canonical transformations · UPESSC maths</title><meta name="description" content="What to study for the UPESSC (formerly UPHESC) Assistant Professor maths paper, built from every paper that survives."><link rel="icon" href="/uphesc-maths/favicon.svg" type="image/svg+xml"><link rel="preload" href="/uphesc-maths/fonts/inter-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin><!-- the saved light/dark, 2019 and chart-view choices, before first paint --><script>
+    try { var m = localStorage.getItem('um:mode'); if (m) document.documentElement.dataset.mode = m; } catch (e) {}
+    try { if (localStorage.getItem('um:old') === 'on') document.documentElement.dataset.old = 'on'; } catch (e) {}
+    try { if (localStorage.getItem('um:view') === 'bars') document.documentElement.dataset.view = 'bars'; } catch (e) {}
+  </script><!-- maths: the vendored MathJax typesets \( \) and \[ \] text, loaded only on pages that have any --><script>(function(){const VENDOR = "/uphesc-maths/vendor";
+
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+      loader: { paths: { mathjax: VENDOR + '/mathjax', fonts: VENDOR + '/mathjax/fonts' } },
+      output: { font: 'mathjax-stix2', displayOverflow: 'scroll' },
+      options: { ignoreHtmlClass: 'no-math', processHtmlClass: 'math', menuOptions: { settings: { enrich: false, speech: false, braille: false } } },
+      chtml: { displayOverflow: 'scroll' },
+      // an inline formula with a piece wider than its line gets its own scrolling line, like display maths
+      startup: { pageReady: () => MathJax.startup.defaultPageReady().then(fitMath) },
+    };
+    function fitMath() {
+      for (const m of document.querySelectorAll('mjx-container:not([display="true"]):not(.mjx-wide)')) {
+        const box = m.closest('p, li, dd, blockquote, div');
+        if (!box || m.closest('td, th')) continue;
+        const right = box.getBoundingClientRect().right + 1;
+        if ([...m.getClientRects()].some((r) => r.right > right)) m.classList.add('mjx-wide');
+      }
+    }
+    let fitQueued = 0;
+    const queueFit = () => { if (window.MathJax?.startup?.document && !fitQueued) fitQueued = requestAnimationFrame(() => { fitQueued = 0; fitMath(); }); };
+    addEventListener('resize', queueFit);
+    addEventListener('click', () => setTimeout(queueFit, 50));
+    document.addEventListener('DOMContentLoaded', () => {
+      if (!document.querySelector('.math')) return;
+      const s = document.createElement('script');
+      s.async = true;
+      s.src = VENDOR + '/mathjax/tex-chtml-nofont.js';
+      document.head.appendChild(s);
+    });
+  })();</script><link rel="stylesheet" href="/uphesc-maths/_astro/Base.CkQ5KWO8.css"></head><body data-tab="learn"><nav class="appnav" aria-label="Main"><a class="appnav-brand" href="/uphesc-maths/" aria-label="UPESSC maths home">∑</a><a class="appnav-item" href="/uphesc-maths/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4 10.2 12 4l8 6.2V19a1 1 0 0 1-1 1h-4.5v-5.5h-5V20H5a1 1 0 0 1-1-1z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Plan</span></a><a class="appnav-item" href="/uphesc-maths/learn/" aria-current="page"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M12 6.5C10 5 7.5 4.5 4 4.5v13c3.5 0 6 .5 8 2 2-1.5 4.5-2 8-2v-13c-3.5 0-6 .5-8 2zM12 6.5v13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Learn</span></a><a class="appnav-item" href="/uphesc-maths/units/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4 5h7v7H4zM13 5h7v7h-7zM4 14h7v6H4zM13 14h7v6h-7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Units</span></a><a class="appnav-item" href="/uphesc-maths/papers/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M7 3h7l4 4v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zM14 3v4h4M9 12h6M9 16h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Papers</span></a><a class="appnav-item" href="/uphesc-maths/revise/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M5 12.5 9.5 17 19 7.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Revise</span></a></nav><header class="topbar"><a class="bar-back" href="/uphesc-maths/learn/mechanics-fluids/" aria-label="Back"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a><p class="bar-title">Unit 8</p><button class="bar-btn" type="button" data-mode-toggle aria-label="Switch light or dark"><svg class="i-moon" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path></svg><svg class="i-sun" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path></svg></button></header><main class="page"><div class="reader" data-topic="hamiltonian-mechanics"><header class="page-head topic-head"><p class="kicker"><a href="/uphesc-maths/learn/mechanics-fluids/">Unit 8 · Mechanics and Fluid Dynamics</a></p><h1>Hamiltonian mechanics, Poisson brackets and canonical transformations</h1><ul class="meta"><li class="prio high">High priority</li><li>2 h 30 min to study</li><li>Asked 5 times</li><li class="read-flag" data-read-flag hidden>Read</li></ul><p class="pyq-line">Previous papers: 2025 Q69, 2025 Q73, 2026 Q40, 2026 Q50, 2026 Q55</p><p class="prereq">Read first: <a href="/uphesc-maths/learn/mechanics-fluids/lagrangian-mechanics/">Lagrangian mechanics</a></p></header><div class="reader-grid"><nav class="toc" aria-label="On this page"><details class="toc-box" data-toc><summary>On this page</summary><ol><li><a href="#why-it-matters-for-the-exam">Why it matters for the exam</a></li><li><a href="#core-ideas">Core ideas</a></li><li class="sub"><a href="#legendre-transform-and-hamiltons-equations">Legendre transform and Hamilton’s equations</a></li><li class="sub"><a href="#when-is-htv">When is <span class="math">\(H=T+V\)</span>?</a></li><li class="sub"><a href="#hamiltons-variational-principle">Hamilton’s variational principle</a></li><li class="sub"><a href="#poisson-brackets">Poisson brackets</a></li><li class="sub"><a href="#canonical-transformations">Canonical transformations</a></li><li class="sub"><a href="#four-types-of-generating-function">Four types of generating function</a></li><li class="sub"><a href="#infinitesimal-canonical-transformations">Infinitesimal canonical transformations</a></li><li class="sub"><a href="#action-angle-variables-bounded-motion">Action-angle variables (bounded motion)</a></li><li><a href="#formulas-and-results">Formulas and results</a></li><li><a href="#worked-examples">Worked examples</a></li><li class="sub"><a href="#example-1-hamiltonian-from-a-lagrangian-2025-style">Example 1: Hamiltonian from a Lagrangian (2025 style)</a></li><li class="sub"><a href="#example-2-poisson-brackets-of-l_z">Example 2: Poisson brackets of <span class="math">\(L_z\)</span></a></li><li class="sub"><a href="#example-3-is-qq2-pp2q-canonical">Example 3: is <span class="math">\(Q=q^2\)</span>, <span class="math">\(P=p/(2q)\)</span> canonical?</a></li><li class="sub"><a href="#example-4-generating-function-f_2">Example 4: generating function <span class="math">\(F_2\)</span></a></li><li class="sub"><a href="#example-5-htv-or-not">Example 5: <span class="math">\(H=T+V\)</span> or not?</a></li><li class="sub"><a href="#example-6-one-degree-of-freedom-area-preserved">Example 6: one degree of freedom, area preserved</a></li><li><a href="#common-traps">Common traps</a></li><li><a href="#previous-year-questions">Previous-year questions</a></li><li class="sub"><a href="#2025-q69-which-poisson-bracket-relation-does-not-always-hold">2025-Q69: which Poisson-bracket relation does not always hold</a></li><li class="sub"><a href="#2025-q73-hamiltonian-for-a-given-lagrangian">2025-Q73: Hamiltonian for a given Lagrangian</a></li><li class="sub"><a href="#2026-q40-canonical-transformation-and-invariants">2026-Q40: canonical transformation and invariants</a></li><li class="sub"><a href="#2026-q50-poisson-bracket-ah0">2026-Q50: Poisson bracket <span class="math">\(\{A,H\}=0\)</span></a></li><li class="sub"><a href="#2026-q55-action-angle-variables">2026-Q55: action-angle variables</a></li><li><a href="#quick-revision">Quick revision</a></li></ol></details></nav><article class="prose"><section class="note-section ns-why-it-matters-for-the-exam" aria-labelledby="why-it-matters-for-the-exam"><h2 id="why-it-matters-for-the-exam">Why it matters for the exam</h2>
+<p>This is the most examined topic of the mechanics half: five of the ten mechanics questions in 2025 and 2026 come from it (Poisson-bracket identities, a Hamiltonian from a Lagrangian, what a canonical transformation preserves, what <span class="math">\(\{A,H\}=0\)</span> means, action-angle variables). Questions are short and direct. You need the exact definitions, the fundamental brackets, the four generating functions, and the conditions for a transformation to be canonical.</p>
+</section><section class="note-section ns-core-ideas" aria-labelledby="core-ideas"><h2 id="core-ideas">Core ideas</h2>
+<h3 id="legendre-transform-and-hamiltons-equations">Legendre transform and Hamilton’s equations</h3>
+<p>Given <span class="math">\(L(q,\dot q,t)\)</span>, define the generalized momenta <span class="math">\(p_j=\partial L/\partial\dot q_j\)</span>. If the Hessian <span class="math">\(\det\left(\partial^2L/\partial\dot q_i\partial\dot q_j\right)\ne0\)</span>, this can be inverted to give <span class="math">\(\dot q_j=\dot q_j(q,p,t)\)</span>. The <strong>Hamiltonian</strong> is the Legendre transform</p>
+<p><span class="math">\(H(q,p,t)=\sum_jp_j\dot q_j-L(q,\dot q,t),\)</span></p>
+<p>with every <span class="math">\(\dot q\)</span> replaced by its expression in <span class="math">\((q,p,t)\)</span>. Taking the differential and using the definition of <span class="math">\(p_j\)</span> gives <strong>Hamilton’s canonical equations</strong>:</p>
+<p><span class="math">\(\boxed{\dot q_j=\frac{\partial H}{\partial p_j},\qquad \dot p_j=-\frac{\partial H}{\partial q_j},\qquad \frac{\partial H}{\partial t}=-\frac{\partial L}{\partial t}.}\)</span></p>
+<p>For <span class="math">\(n\)</span> degrees of freedom these are <span class="math">\(2n\)</span> first-order equations in <strong>phase space</strong> <span class="math">\((q_1..q_n,p_1..p_n)\)</span>. Along a motion,</p>
+<p><span class="math">\(\frac{dH}{dt}=\frac{\partial H}{\partial t}.\)</span></p>
+<p>So <span class="math">\(H\)</span> is constant when it has no explicit time. A coordinate <span class="math">\(q_k\)</span> missing from <span class="math">\(H\)</span> is cyclic: <span class="math">\(\dot p_k=0\)</span>.</p>
+<h3 id="when-is-htv">When is <span class="math">\(H=T+V\)</span>?</h3>
+<p><span class="math">\(H=T+V\)</span> holds if both</p>
+<ol>
+<li>the constraints are <strong>scleronomic</strong> (time independent), so <span class="math">\(T\)</span> is a homogeneous quadratic form in <span class="math">\(\dot q\)</span>, and</li>
+<li>the potential <span class="math">\(V\)</span> depends on coordinates only, not on velocities.</li>
+</ol>
+<p>Reason: <span class="math">\(T=\tfrac12\sum m_{jk}\dot q_j\dot q_k\)</span> gives <span class="math">\(\sum p_j\dot q_j=2T\)</span>, so <span class="math">\(H=2T-(T-V)=T+V\)</span>.</p>
+<p>Two separate questions are asked about <span class="math">\(H\)</span>:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th></th>
+<th><span class="math">\(\partial H/\partial t=0\)</span></th>
+<th><span class="math">\(\partial H/\partial t\ne0\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Scleronomic, <span class="math">\(V=V(q)\)</span></td>
+<td><span class="math">\(H=T+V=E\)</span>, conserved</td>
+<td><span class="math">\(H=T+V\)</span> but not conserved (time-dependent <span class="math">\(V\)</span>)</td>
+</tr>
+<tr>
+<td>Rheonomic constraints</td>
+<td><span class="math">\(H\)</span> conserved but <span class="math">\(H\ne T+V\)</span> (rotating wire)</td>
+<td>neither</td>
+</tr>
+</tbody>
+</table></div>
+<p>Examples:</p>
+<ul>
+<li>Free particle: <span class="math">\(H=p^2/2m\)</span>. Harmonic oscillator: <span class="math">\(H=\dfrac{p^2}{2m}+\tfrac12m\omega^2q^2\)</span>.</li>
+<li>Central force in plane polar coordinates: <span class="math">\(H=\dfrac{p_r^2}{2m}+\dfrac{p_\theta^2}{2mr^2}+V(r)\)</span>.</li>
+<li>Charged particle in a field: <span class="math">\(H=\dfrac{(\mathbf p-q\mathbf A)^2}{2m}+q\phi\)</span>. This is <span class="math">\(T+q\phi\)</span> but <span class="math">\(\mathbf p\ne m\mathbf v\)</span>.</li>
+<li>Bead on a horizontal wire rotating at <span class="math">\(\omega\)</span>: <span class="math">\(L=\tfrac12m(\dot r^2+r^2\omega^2)\)</span>, <span class="math">\(p=m\dot r\)</span>, <span class="math">\(H=\dfrac{p^2}{2m}-\tfrac12m\omega^2r^2\)</span>. It is conserved but is not <span class="math">\(T+V\)</span>.</li>
+</ul>
+<p><strong>Procedure</strong> to find <span class="math">\(H\)</span>: (1) write <span class="math">\(L\)</span>, (2) compute <span class="math">\(p_j=\partial L/\partial\dot q_j\)</span>, (3) solve for <span class="math">\(\dot q_j\)</span>, (4) form <span class="math">\(\sum p_j\dot q_j-L\)</span>, (5) express everything in <span class="math">\((q,p)\)</span>. For a quadratic <span class="math">\(T=\tfrac12\dot q^TM\dot q\)</span> the result is <span class="math">\(H=\tfrac12p^TM^{-1}p+V\)</span>.</p>
+<h3 id="hamiltons-variational-principle">Hamilton’s variational principle</h3>
+<p>The motion of a <strong>holonomic</strong> system with forces derivable from a (generalized) potential makes the <strong>action</strong></p>
+<p><span class="math">\(S=\int_{t_1}^{t_2}L\,dt\)</span></p>
+<p>stationary for variations <span class="math">\(\delta q_j(t)\)</span> that vanish at the end points, <span class="math">\(\delta q_j(t_1)=\delta q_j(t_2)=0\)</span>:</p>
+<p><span class="math">\(\delta\int_{t_1}^{t_2}L(q,\dot q,t)\,dt=0.\)</span></p>
+<p>Applying the calculus of variations (Euler-Lagrange equation for the integrand <span class="math">\(L\)</span>) gives Lagrange’s equations. The path need not minimise <span class="math">\(S\)</span>; it makes it stationary.</p>
+<p><strong>Modified Hamilton’s principle</strong> (phase space). Vary <span class="math">\(q\)</span> and <span class="math">\(p\)</span> independently, with <span class="math">\(\delta q=0\)</span> at the ends:</p>
+<p><span class="math">\(\delta\int_{t_1}^{t_2}\Big(\sum_jp_j\dot q_j-H\Big)dt=0,\)</span></p>
+<p>which gives the canonical equations.</p>
+<p><strong>Principle of least action</strong> (Maupertuis): for scleronomic systems with conserved energy, and fixed energy <span class="math">\(E\)</span>, <span class="math">\(\delta\int\sum p_j\,dq_j=0\)</span> (varied paths with the same <span class="math">\(E\)</span> and fixed end points). Do not confuse it with Hamilton’s principle: Hamilton fixes the time interval and varies energy, Maupertuis fixes the energy and varies the time.</p>
+<h3 id="poisson-brackets">Poisson brackets</h3>
+<p>For two functions <span class="math">\(u(q,p,t)\)</span>, <span class="math">\(v(q,p,t)\)</span> the <strong>Poisson bracket</strong> is</p>
+<p><span class="math">\([u,v]=\{u,v\}=\sum_j\left(\frac{\partial u}{\partial q_j}\frac{\partial v}{\partial p_j}-\frac{\partial u}{\partial p_j}\frac{\partial v}{\partial q_j}\right).\)</span></p>
+<p>(This is the Goldstein/Landau sign. It matches the PYQ notation <span class="math">\([q_r,p_s]\)</span>.)</p>
+<p><strong>Properties.</strong></p>
+<ol>
+<li>Antisymmetry: <span class="math">\([u,v]=-[v,u]\)</span>, so <span class="math">\([u,u]=0\)</span>.</li>
+<li>Linearity: <span class="math">\([au+bv,w]=a[u,w]+b[v,w]\)</span>.</li>
+<li><span class="math">\([u,c]=0\)</span> for a constant <span class="math">\(c\)</span>.</li>
+<li>Product rule (Leibniz): <span class="math">\([uv,w]=u[v,w]+[u,w]v\)</span>.</li>
+<li><strong>Jacobi identity</strong>: <span class="math">\([u,[v,w]]+[v,[w,u]]+[w,[u,v]]=0\)</span>.</li>
+<li>Partial-derivative rules: <span class="math">\([q_j,F]=\partial F/\partial p_j\)</span>, <span class="math">\([p_j,F]=-\partial F/\partial q_j\)</span>.</li>
+<li>Time derivative: <span class="math">\(\dfrac{\partial}{\partial t}[u,v]=[\partial_tu,v]+[u,\partial_tv]\)</span>.</li>
+</ol>
+<p><strong>Fundamental brackets.</strong></p>
+<p><span class="math">\([q_i,q_j]=0,\qquad [p_i,p_j]=0,\qquad [q_i,p_j]=\delta_{ij}.\)</span></p>
+<p>Note <span class="math">\([q_r,p_s]=\delta_{rs}\)</span>, which is <span class="math">\(0\)</span> only for <span class="math">\(r\ne s\)</span>. The identity “<span class="math">\([q_r,p_s]=0\)</span> always” is false (the option that fails in 2025-Q69).</p>
+<p><strong>Equation of motion in bracket form.</strong> For any <span class="math">\(u(q,p,t)\)</span>,</p>
+<p><span class="math">\(\frac{du}{dt}=[u,H]+\frac{\partial u}{\partial t}.\)</span></p>
+<p>With <span class="math">\(u=q_j\)</span> and <span class="math">\(u=p_j\)</span> this gives the canonical equations: <span class="math">\(\dot q_j=[q_j,H]=\partial H/\partial p_j\)</span>, <span class="math">\(\dot p_j=[p_j,H]=-\partial H/\partial q_j\)</span>.</p>
+<p><strong>Constants of motion.</strong></p>
+<ul>
+<li>If <span class="math">\(u\)</span> has no explicit <span class="math">\(t\)</span> and <span class="math">\([u,H]=0\)</span>, then <span class="math">\(u\)</span> is conserved (2026-Q50). If <span class="math">\(u\)</span> depends on <span class="math">\(t\)</span>, the condition is <span class="math">\([u,H]+\partial_tu=0\)</span>.</li>
+<li><strong>Poisson’s theorem</strong>: if <span class="math">\(u\)</span> and <span class="math">\(v\)</span> are constants of motion, so is <span class="math">\([u,v]\)</span> (proof from the Jacobi identity). It may be trivial (a constant) or may produce a new integral.</li>
+<li>Example: if <span class="math">\(L_x\)</span> and <span class="math">\(L_y\)</span> are conserved, then <span class="math">\([L_x,L_y]=L_z\)</span> is conserved.</li>
+</ul>
+<p><strong>Angular-momentum brackets</strong> (<span class="math">\(\mathbf L=\mathbf r\times\mathbf p\)</span>):</p>
+<p><span class="math">\([L_x,L_y]=L_z,\quad[L_y,L_z]=L_x,\quad[L_z,L_x]=L_y,\qquad [L_i,L_j]=\epsilon_{ijk}L_k,\)</span></p>
+<p><span class="math">\([L^2,L_i]=0.\)</span></p>
+<p>For a vector <span class="math">\(\mathbf A\)</span> built from <span class="math">\(\mathbf r\)</span> or <span class="math">\(\mathbf p\)</span>: <span class="math">\([L_i,A_j]=\epsilon_{ijk}A_k\)</span>, for example <span class="math">\([L_z,x]=y\)</span>, <span class="math">\([L_z,y]=-x\)</span>, <span class="math">\([L_z,p_x]=p_y\)</span>, <span class="math">\([L_z,p_y]=-p_x\)</span>, <span class="math">\([L_z,z]=[L_z,p_z]=0\)</span>. For any scalar <span class="math">\(f(r^2,p^2,\mathbf r\cdot\mathbf p)\)</span>: <span class="math">\([L_i,f]=0\)</span>. Hence <span class="math">\(L_z\)</span> commutes with every function of <span class="math">\(r\)</span>, <span class="math">\(p^2\)</span> and <span class="math">\(\mathbf r\cdot\mathbf p\)</span>, so angular momentum is conserved in any central field, <span class="math">\(H=p^2/2m+V(r)\)</span>.</p>
+<h3 id="canonical-transformations">Canonical transformations</h3>
+<p>A transformation <span class="math">\((q,p)\to(Q,P)\)</span>, <span class="math">\(Q_j=Q_j(q,p,t)\)</span>, <span class="math">\(P_j=P_j(q,p,t)\)</span>, is <strong>canonical</strong> if there is a new Hamiltonian <span class="math">\(K(Q,P,t)\)</span> such that</p>
+<p><span class="math">\(\dot Q_j=\frac{\partial K}{\partial P_j},\qquad\dot P_j=-\frac{\partial K}{\partial Q_j}.\)</span></p>
+<p>It is enough that the two phase-space action integrals differ by a total derivative:</p>
+<p><span class="math">\(\sum p_j\dot q_j-H=\sum P_j\dot Q_j-K+\frac{dF}{dt}.\)</span></p>
+<p><span class="math">\(F\)</span> is the <strong>generating function</strong>.</p>
+<p><strong>Conditions for a transformation to be canonical</strong> (any one is equivalent to the others):</p>
+<ol>
+<li>The Poisson-bracket test:</li>
+</ol>
+<p><span class="math">\([Q_i,Q_j]_{q,p}=0,\quad[P_i,P_j]_{q,p}=0,\quad[Q_i,P_j]_{q,p}=\delta_{ij}.\)</span></p>
+<ol start="2">
+<li><strong>Symplectic condition.</strong> Let <span class="math">\(\eta=(q,p)\)</span>, <span class="math">\(\zeta=(Q,P)\)</span>, <span class="math">\(M=\partial\zeta/\partial\eta\)</span> the Jacobian matrix, <span class="math">\(J=\begin{pmatrix}0&amp;I\\-I&amp;0\end{pmatrix}\)</span>. Then <span class="math">\(MJM^T=J\)</span> (equivalently <span class="math">\(M^TJM=J\)</span>).</li>
+<li>The differential form <span class="math">\(\sum(p_j\,dq_j-P_j\,dQ_j)\)</span> is exact (at fixed <span class="math">\(t\)</span>).</li>
+<li>A generating function exists.</li>
+</ol>
+<p>For <strong>one degree of freedom</strong> the symplectic condition reduces to</p>
+<p><span class="math">\(\frac{\partial(Q,P)}{\partial(q,p)}=\frac{\partial Q}{\partial q}\frac{\partial P}{\partial p}-\frac{\partial Q}{\partial p}\frac{\partial P}{\partial q}=1,\)</span></p>
+<p>i.e. unit Jacobian: the transformation preserves <strong>phase-space area</strong>. This is the answer to 2026-Q40. Only for one degree of freedom is “Jacobian <span class="math">\(=1\)</span>” equivalent to canonical. In general the invariants are the Poisson brackets, the symplectic 2-form, <strong>phase-space volume</strong> (Liouville’s theorem) and the Poincare integral invariants. Energy, position and momentum alone are not preserved by a general canonical transformation.</p>
+<p>Consequences: Poisson brackets are invariant, <span class="math">\([u,v]_{q,p}=[u,v]_{Q,P}\)</span>, and the form of the equation of motion <span class="math">\(\dot u=[u,H]+\partial_tu\)</span> is the same in every canonical coordinate system. The motion itself <span class="math">\((q_0,p_0)\to(q(t),p(t))\)</span> is a canonical transformation, with <span class="math">\(H\)</span> as the generator.</p>
+<p>A scale change <span class="math">\(Q=\lambda q\)</span>, <span class="math">\(P=\lambda p\)</span> is <strong>not</strong> canonical for <span class="math">\(\lambda^2\ne1\)</span> (the bracket is <span class="math">\(\lambda^2\)</span>), but <span class="math">\(Q=\lambda q\)</span>, <span class="math">\(P=p/\lambda\)</span> is. The transformation is “canonical up to scale” if <span class="math">\([Q,P]=c\)</span> constant.</p>
+<h3 id="four-types-of-generating-function">Four types of generating function</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Function</th>
+<th>Relations</th>
+<th>New Hamiltonian</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><span class="math">\(F_1(q,Q,t)\)</span></td>
+<td><span class="math">\(p_j=\dfrac{\partial F_1}{\partial q_j},\ P_j=-\dfrac{\partial F_1}{\partial Q_j}\)</span></td>
+<td><span class="math">\(K=H+\dfrac{\partial F_1}{\partial t}\)</span></td>
+</tr>
+<tr>
+<td>2</td>
+<td><span class="math">\(F_2(q,P,t)\)</span></td>
+<td><span class="math">\(p_j=\dfrac{\partial F_2}{\partial q_j},\ Q_j=\dfrac{\partial F_2}{\partial P_j}\)</span></td>
+<td><span class="math">\(K=H+\dfrac{\partial F_2}{\partial t}\)</span></td>
+</tr>
+<tr>
+<td>3</td>
+<td><span class="math">\(F_3(p,Q,t)\)</span></td>
+<td><span class="math">\(q_j=-\dfrac{\partial F_3}{\partial p_j},\ P_j=-\dfrac{\partial F_3}{\partial Q_j}\)</span></td>
+<td><span class="math">\(K=H+\dfrac{\partial F_3}{\partial t}\)</span></td>
+</tr>
+<tr>
+<td>4</td>
+<td><span class="math">\(F_4(p,P,t)\)</span></td>
+<td><span class="math">\(q_j=-\dfrac{\partial F_4}{\partial p_j},\ Q_j=\dfrac{\partial F_4}{\partial P_j}\)</span></td>
+<td><span class="math">\(K=H+\dfrac{\partial F_4}{\partial t}\)</span></td>
+</tr>
+</tbody>
+</table></div>
+<p>The types are related by Legendre transforms:</p>
+<p><span class="math">\(F_2=F_1+\sum Q_jP_j,\qquad F_3=F_1-\sum q_jp_j,\qquad F_4=F_1-\sum q_jp_j+\sum Q_jP_j.\)</span></p>
+<p>Standard ones:</p>
+<ul>
+<li><span class="math">\(F_2=\sum q_jP_j\)</span> generates the <strong>identity</strong>: <span class="math">\(Q_j=q_j\)</span>, <span class="math">\(P_j=p_j\)</span>.</li>
+<li><span class="math">\(F_1=\sum q_jQ_j\)</span> exchanges coordinates and momenta: <span class="math">\(Q_j=p_j\)</span>, <span class="math">\(P_j=-q_j\)</span>.</li>
+<li><span class="math">\(F_2=\sum f_j(q,t)P_j\)</span> generates a point transformation <span class="math">\(Q_j=f_j(q,t)\)</span>.</li>
+<li>Harmonic oscillator: <span class="math">\(F_1=\tfrac12m\omega q^2\cot Q\)</span> gives <span class="math">\(q=\sqrt{2P/m\omega}\,\sin Q\)</span>, <span class="math">\(p=\sqrt{2m\omega P}\,\cos Q\)</span>, and <span class="math">\(K=\omega P\)</span>. <span class="math">\(Q\)</span> is cyclic, so <span class="math">\(P=E/\omega\)</span> is constant.</li>
+</ul>
+<p>If a time-independent canonical transformation is used, <span class="math">\(K(Q,P)=H(q(Q,P),p(Q,P))\)</span>, but the generating-function term <span class="math">\(\partial F/\partial t\)</span> matters when <span class="math">\(F\)</span> depends on <span class="math">\(t\)</span>.</p>
+<h3 id="infinitesimal-canonical-transformations">Infinitesimal canonical transformations</h3>
+<p><span class="math">\(Q_j=q_j+\epsilon\,\dfrac{\partial G}{\partial p_j}\)</span>, <span class="math">\(P_j=p_j-\epsilon\,\dfrac{\partial G}{\partial q_j}\)</span> with generator <span class="math">\(G\)</span>; for any <span class="math">\(u\)</span>, <span class="math">\(\delta u=\epsilon[u,G]\)</span>. Choosing <span class="math">\(G=H\)</span> and <span class="math">\(\epsilon=dt\)</span> gives the actual motion. <span class="math">\(G=p_x\)</span> generates translations; <span class="math">\(G=L_z\)</span> generates rotations. If <span class="math">\([G,H]=0\)</span> then <span class="math">\(G\)</span> is conserved and the transformation is a symmetry of <span class="math">\(H\)</span>.</p>
+<h3 id="action-angle-variables-bounded-motion">Action-angle variables (bounded motion)</h3>
+<p>For a one-dimensional system <span class="math">\(H=p^2/2m+V(q)\)</span> with <strong>bounded periodic motion</strong> (libration between turning points, or rotation) define the action</p>
+<p><span class="math">\(J=\frac1{2\pi}\oint p\,dq.\)</span></p>
+<p>There is a canonical transformation to <span class="math">\((\theta,J)\)</span> in which <span class="math">\(H=H(J)\)</span> only, <span class="math">\(\dot J=0\)</span>, <span class="math">\(\dot\theta=\partial H/\partial J=\omega(J)\)</span> and <span class="math">\(\theta\)</span> grows by <span class="math">\(2\pi\)</span> over one period. The harmonic oscillator has <span class="math">\(J=E/\omega\)</span> and <span class="math">\(H=\omega J\)</span> (with the <span class="math">\(\tfrac1{2\pi}\)</span> convention). This is the answer to 2026-Q55: action-angle variables require <strong>periodic, bounded</strong> motion, not non-periodic, chaotic or unbounded motion.</p>
+<p>Hamilton-Jacobi in one line: seek a canonical transformation with <span class="math">\(K=0\)</span>; then <span class="math">\(F_2=S(q,P,t)\)</span> satisfies <span class="math">\(H(q,\partial S/\partial q,t)+\partial S/\partial t=0\)</span>.</p>
+</section><section class="note-section ns-formulas-and-results" aria-labelledby="formulas-and-results"><h2 id="formulas-and-results">Formulas and results</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Formula</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hamiltonian</td>
+<td><span class="math">\(H=\sum p_j\dot q_j-L\)</span>, <span class="math">\(\ p_j=\partial L/\partial\dot q_j\)</span></td>
+</tr>
+<tr>
+<td>Canonical equations</td>
+<td><span class="math">\(\dot q_j=\partial H/\partial p_j\)</span>, <span class="math">\(\ \dot p_j=-\partial H/\partial q_j\)</span></td>
+</tr>
+<tr>
+<td>Time derivative</td>
+<td><span class="math">\(dH/dt=\partial H/\partial t=-\partial L/\partial t\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(H=T+V\)</span> if</td>
+<td>scleronomic constraints and <span class="math">\(V\)</span> independent of velocities</td>
+</tr>
+<tr>
+<td>Hamilton’s principle</td>
+<td><span class="math">\(\delta\int_{t_1}^{t_2}L\,dt=0\)</span>, <span class="math">\(\delta q=0\)</span> at ends</td>
+</tr>
+<tr>
+<td>Modified principle</td>
+<td><span class="math">\(\delta\int(\sum p\dot q-H)dt=0\)</span></td>
+</tr>
+<tr>
+<td>Poisson bracket</td>
+<td><span class="math">\([u,v]=\sum(\partial_{q}u\,\partial_{p}v-\partial_{p}u\,\partial_{q}v)\)</span></td>
+</tr>
+<tr>
+<td>Fundamental brackets</td>
+<td><span class="math">\([q_i,q_j]=[p_i,p_j]=0\)</span>, <span class="math">\(\ [q_i,p_j]=\delta_{ij}\)</span></td>
+</tr>
+<tr>
+<td>Jacobi</td>
+<td><span class="math">\([u,[v,w]]+[v,[w,u]]+[w,[u,v]]=0\)</span></td>
+</tr>
+<tr>
+<td>Leibniz</td>
+<td><span class="math">\([uv,w]=u[v,w]+[u,w]v\)</span></td>
+</tr>
+<tr>
+<td>Motion</td>
+<td><span class="math">\(\dot u=[u,H]+\partial_tu\)</span></td>
+</tr>
+<tr>
+<td>Constant of motion</td>
+<td><span class="math">\([u,H]=0\)</span> (and <span class="math">\(\partial_tu=0\)</span>)</td>
+</tr>
+<tr>
+<td>Poisson’s theorem</td>
+<td><span class="math">\(u,v\)</span> constants <span class="math">\(\Rightarrow[u,v]\)</span> constant</td>
+</tr>
+<tr>
+<td>Angular momentum</td>
+<td><span class="math">\([L_x,L_y]=L_z\)</span> cyclic, <span class="math">\(\ [L^2,L_i]=0\)</span></td>
+</tr>
+<tr>
+<td>Canonical test</td>
+<td><span class="math">\([Q_i,Q_j]=[P_i,P_j]=0\)</span>, <span class="math">\([Q_i,P_j]=\delta_{ij}\)</span></td>
+</tr>
+<tr>
+<td>Symplectic</td>
+<td><span class="math">\(MJM^T=J\)</span>; one degree of freedom: <span class="math">\(\partial(Q,P)/\partial(q,p)=1\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(F_1\)</span></td>
+<td><span class="math">\(p=\partial_qF_1\)</span>, <span class="math">\(P=-\partial_QF_1\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(F_2\)</span></td>
+<td><span class="math">\(p=\partial_qF_2\)</span>, <span class="math">\(Q=\partial_PF_2\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(F_3\)</span></td>
+<td><span class="math">\(q=-\partial_pF_3\)</span>, <span class="math">\(P=-\partial_QF_3\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(F_4\)</span></td>
+<td><span class="math">\(q=-\partial_pF_4\)</span>, <span class="math">\(Q=\partial_PF_4\)</span></td>
+</tr>
+<tr>
+<td>New Hamiltonian</td>
+<td><span class="math">\(K=H+\partial F/\partial t\)</span></td>
+</tr>
+<tr>
+<td>Action variable</td>
+<td><span class="math">\(J=\tfrac1{2\pi}\oint p\,dq\)</span>, <span class="math">\(\ \omega=\partial H/\partial J\)</span></td>
+</tr>
+</tbody>
+</table></div>
+</section><section class="note-section ns-worked-examples" aria-labelledby="worked-examples"><h2 id="worked-examples">Worked examples</h2>
+<h3 id="example-1-hamiltonian-from-a-lagrangian-2025-style">Example 1: Hamiltonian from a Lagrangian (2025 style)</h3>
+<p><span class="math">\(L=\dot x^2+2\dot y^2-xy\)</span> (with <span class="math">\(a=1\)</span>, <span class="math">\(b=2\)</span>, <span class="math">\(k=1\)</span>). Then <span class="math">\(p_x=2\dot x\)</span>, <span class="math">\(p_y=4\dot y\)</span>, so <span class="math">\(\dot x=p_x/2\)</span>, <span class="math">\(\dot y=p_y/4\)</span>.</p>
+<p><span class="math">\(H=p_x\dot x+p_y\dot y-L=\frac{p_x^2}{2}+\frac{p_y^2}{4}-\left(\frac{p_x^2}{4}+\frac{2p_y^2}{16}-xy\right)=\frac{p_x^2}{4}+\frac{p_y^2}{8}+xy.\)</span></p>
+<p>General rule: <span class="math">\(L=a\dot x^2+b\dot y^2-U\)</span> gives <span class="math">\(H=\dfrac{p_x^2}{4a}+\dfrac{p_y^2}{4b}+U\)</span>. The kinetic term is <span class="math">\(p^2/2m_{\rm eff}\)</span> with <span class="math">\(m_{\rm eff}=2a\)</span>, and the potential keeps its sign: <span class="math">\(+kxy\)</span> when <span class="math">\(L\)</span> has <span class="math">\(-kxy\)</span>.</p>
+<h3 id="example-2-poisson-brackets-of-l_z">Example 2: Poisson brackets of <span class="math">\(L_z\)</span></h3>
+<p><span class="math">\(L_z=xp_y-yp_x\)</span>. Then <span class="math">\([L_z,x]=-\dfrac{\partial L_z}{\partial p_x}\cdot1=y\)</span> and <span class="math">\([L_z,p_x]=\dfrac{\partial L_z}{\partial x}\cdot1=p_y\)</span>. Also <span class="math">\([L_z,x^2+y^2]=0\)</span> since <span class="math">\(L_z\)</span> generates rotations about <span class="math">\(z\)</span> and <span class="math">\(x^2+y^2\)</span> is invariant.</p>
+<h3 id="example-3-is-qq2-pp2q-canonical">Example 3: is <span class="math">\(Q=q^2\)</span>, <span class="math">\(P=p/(2q)\)</span> canonical?</h3>
+<p><span class="math">\([Q,P]=\dfrac{\partial Q}{\partial q}\dfrac{\partial P}{\partial p}-\dfrac{\partial Q}{\partial p}\dfrac{\partial P}{\partial q}=2q\cdot\dfrac1{2q}-0=1.\)</span> Yes. By contrast <span class="math">\(Q=q+p\)</span>, <span class="math">\(P=q-p\)</span> gives <span class="math">\([Q,P]=1\cdot(-1)-1\cdot1=-2\)</span>: not canonical. And <span class="math">\(Q=(q+p)/\sqrt2\)</span>, <span class="math">\(P=(p-q)/\sqrt2\)</span> gives <span class="math">\(+1\)</span>: canonical (rotation by <span class="math">\(45^\circ\)</span>).</p>
+<h3 id="example-4-generating-function-f_2">Example 4: generating function <span class="math">\(F_2\)</span></h3>
+<p>Find the transformation with <span class="math">\(F_2(q,P)=qP+\tfrac12\lambda q^2\)</span>. Then <span class="math">\(p=\partial_qF_2=P+\lambda q\)</span> and <span class="math">\(Q=\partial_PF_2=q\)</span>. So <span class="math">\(Q=q\)</span>, <span class="math">\(P=p-\lambda q\)</span>. Check: <span class="math">\([Q,P]=1\cdot1-0=1\)</span>. This is a “shear” in phase space, area preserving.</p>
+<h3 id="example-5-htv-or-not">Example 5: <span class="math">\(H=T+V\)</span> or not?</h3>
+<p><span class="math">\(L=\tfrac12m(\dot r^2+r^2\dot\theta^2)-V(r)\)</span>: scleronomic, <span class="math">\(V\)</span> velocity independent, so <span class="math">\(H=T+V\)</span>, conserved. For a bead on a wire rotating at <span class="math">\(\omega\)</span>: <span class="math">\(H=p^2/2m-\tfrac12m\omega^2r^2\ne T+V\)</span> but <span class="math">\(\partial H/\partial t=0\)</span>, so <span class="math">\(H\)</span> is conserved. For a pendulum of length <span class="math">\(l(t)\)</span> the constraint is rheonomic and <span class="math">\(\partial H/\partial t\ne0\)</span>: <span class="math">\(H\)</span> is neither conserved nor <span class="math">\(T+V\)</span>.</p>
+<h3 id="example-6-one-degree-of-freedom-area-preserved">Example 6: one degree of freedom, area preserved</h3>
+<p>Under <span class="math">\(Q=\ln(1+\sqrt q\cos p)\)</span>, <span class="math">\(P=2(1+\sqrt q\cos p)\sqrt q\sin p\)</span> the bracket <span class="math">\([Q,P]=1\)</span>, so the transformation is canonical (a classical test-case from Goldstein). Under <span class="math">\(Q=2q\)</span>, <span class="math">\(P=2p\)</span> the Jacobian is <span class="math">\(4\)</span>: not canonical.</p>
+</section><section class="note-section ns-common-traps" aria-labelledby="common-traps"><h2 id="common-traps">Common traps</h2>
+<ul>
+<li><strong><span class="math">\([q_r,p_s]=\delta_{rs}\)</span>, not <span class="math">\(0\)</span>.</strong> Only <span class="math">\([q_r,q_s]=0\)</span> and <span class="math">\([p_r,p_s]=0\)</span> vanish. The Jacobi identity and antisymmetry always hold.</li>
+<li><strong>Sign convention</strong> of the bracket: with <span class="math">\([u,v]=\sum(\partial_qu\,\partial_pv-\partial_pu\,\partial_qv)\)</span> one gets <span class="math">\([q,p]=+1\)</span> and <span class="math">\(\dot u=[u,H]\)</span>. The opposite convention gives <span class="math">\([q,p]=-1\)</span>.</li>
+<li><strong><span class="math">\(\{A,H\}=0\)</span> means <span class="math">\(A\)</span> is conserved</strong> (if <span class="math">\(A\)</span> has no explicit time). It does not mean <span class="math">\(A\)</span> is zero, linear in time or oscillating.</li>
+<li><strong>Conserved <span class="math">\(H\)</span> is not always energy</strong> and <span class="math">\(H\)</span> is not always <span class="math">\(T+V\)</span>.</li>
+<li><strong>Canonical transformations do not preserve energy, position or momentum</strong>: they preserve the symplectic structure, hence phase-space area (1 dof) or volume, and all Poisson brackets. A scale change <span class="math">\(Q=2q\)</span>, <span class="math">\(P=2p\)</span> is not canonical.</li>
+<li><strong>Jacobian <span class="math">\(=1\)</span> is necessary for all <span class="math">\(n\)</span> but sufficient only for <span class="math">\(n=1\)</span>.</strong></li>
+<li><strong>Generating functions:</strong> <span class="math">\(F_1(q,Q)\)</span> and <span class="math">\(F_2(q,P)\)</span> both give <span class="math">\(p=+\partial_qF\)</span>. Every derivative with respect to <span class="math">\(p\)</span> carries a minus sign (<span class="math">\(q=-\partial_pF\)</span> for <span class="math">\(F_3,F_4\)</span>), and <span class="math">\(P=-\partial_QF\)</span> for <span class="math">\(F_1,F_3\)</span>. Mixing up <span class="math">\(F_2\)</span> (<span class="math">\(Q=+\partial_PF_2\)</span>) and <span class="math">\(F_3\)</span> is the standard slip.</li>
+<li><strong>Poisson’s theorem</strong> produces a conserved quantity, but it may be trivial or a function of the earlier ones.</li>
+<li><strong>Action-angle variables</strong> need bounded periodic motion, not any motion. Unbounded motion in a repulsive potential has no action variable of this type.</li>
+<li>Hamilton’s principle varies the path at fixed times with fixed end points; the endpoints in <span class="math">\(q\)</span> are fixed, not the momenta.</li>
+<li><span class="math">\(H\)</span> is a function of <span class="math">\((q,p,t)\)</span>. Leaving <span class="math">\(\dot q\)</span> inside <span class="math">\(H\)</span> (not eliminated) is an error.</li>
+</ul>
+</section><section class="note-section ns-previous-year-questions" aria-labelledby="previous-year-questions"><h2 id="previous-year-questions">Previous-year questions</h2>
+<h3 id="2025-q69-which-poisson-bracket-relation-does-not-always-hold">2025-Q69: which Poisson-bracket relation does not always hold</h3>
+<p><strong>Question.</strong> For any functions <span class="math">\(f,g,h\)</span> of <span class="math">\((q,p)\)</span>, with <span class="math">\([f,g]\)</span> the Poisson bracket, which relation does not always hold? (A) <span class="math">\([f,g]=-[g,f]\)</span> (B) <span class="math">\([[f,g],h]+[[g,h],f]+[[h,f],g]=0\)</span> (C) <span class="math">\([q_r,q_s]=0\)</span> (D) <span class="math">\([q_r,p_s]=0\)</span>.</p>
+<p><strong>Answer: D.</strong> Antisymmetry (A), the Jacobi identity (B) and <span class="math">\([q_r,q_s]=0\)</span> (C) always hold. The fundamental bracket is <span class="math">\([q_r,p_s]=\delta_{rs}\)</span>, which is <span class="math">\(1\)</span> when <span class="math">\(r=s\)</span>. (Official key.)</p>
+<h3 id="2025-q73-hamiltonian-for-a-given-lagrangian">2025-Q73: Hamiltonian for a given Lagrangian</h3>
+<p><strong>Question.</strong> The Hamiltonian corresponding to <span class="math">\(L=a\dot x^2+b\dot y^2-kxy\)</span> is: (A) <span class="math">\(\frac{p_x^2}{2a}+\frac{p_y^2}{2b}+kxy\)</span> (B) <span class="math">\(\frac{p_x^2}{4a}+\frac{p_y^2}{4b}-kxy\)</span> (C) <span class="math">\(\frac{p_x^2}{4a}+\frac{p_y^2}{4b}+kxy\)</span> (D) <span class="math">\(\frac{p_x^2}{4a}-\frac{p_y^2}{4b}+kxy\)</span>.</p>
+<p><strong>Answer: C.</strong> <span class="math">\(p_x=2a\dot x\)</span>, <span class="math">\(p_y=2b\dot y\)</span>. <span class="math">\(H=p_x\dot x+p_y\dot y-L=a\dot x^2+b\dot y^2+kxy=\dfrac{p_x^2}{4a}+\dfrac{p_y^2}{4b}+kxy\)</span>. Option A uses <span class="math">\(m=a\)</span> instead of <span class="math">\(2a\)</span>. (Official key.)</p>
+<h3 id="2026-q40-canonical-transformation-and-invariants">2026-Q40: canonical transformation and invariants</h3>
+<p><strong>Question.</strong> A canonical transformation preserves the symplectic structure. Which quantity is invariant: (A) energy only (B) position only (C) momentum only (D) phase-space area.</p>
+<p><strong>Answer: D.</strong> The Jacobian matrix satisfies <span class="math">\(MJM^T=J\)</span>, so <span class="math">\(\det M=1\)</span> and phase-space area (for one degree of freedom) or volume is preserved. Energy <span class="math">\(H\)</span> becomes <span class="math">\(K\ne H\)</span> in general; <span class="math">\(q\)</span> and <span class="math">\(p\)</span> are mixed. (Worked key, unofficial.)</p>
+<h3 id="2026-q50-poisson-bracket-ah0">2026-Q50: Poisson bracket <span class="math">\(\{A,H\}=0\)</span></h3>
+<p><strong>Question.</strong> In Poisson-bracket algebra, if <span class="math">\(\{A,H\}=0\)</span>, the implication is: (A) <span class="math">\(A\)</span> increases linearly (B) <span class="math">\(A\)</span> is conserved (C) <span class="math">\(A\)</span> oscillates (D) undefined.</p>
+<p><strong>Answer: B.</strong> <span class="math">\(\dot A=\{A,H\}+\partial_tA=0\)</span> for a time-independent <span class="math">\(A\)</span>. (Worked key, unofficial.)</p>
+<h3 id="2026-q55-action-angle-variables">2026-Q55: action-angle variables</h3>
+<p><strong>Question.</strong> For <span class="math">\(H=p^2/2m+V(q)\)</span>, if the transformation leads to action-angle variables, identify the condition on the motion: (A) non-periodic (B) chaotic (C) periodic and bounded (D) unstable.</p>
+<p><strong>Answer: C.</strong> Action-angle variables exist for bounded periodic (libration or rotation) motion, with <span class="math">\(J=\frac1{2\pi}\oint p\,dq\)</span>. (Worked key, unofficial. The Hindi option reads “periodic, bounded”.)</p>
+</section><section class="note-section ns-quick-revision" aria-labelledby="quick-revision"><h2 id="quick-revision">Quick revision</h2>
+<ul>
+<li><span class="math">\(H=\sum p\dot q-L\)</span>, then eliminate <span class="math">\(\dot q\)</span> using <span class="math">\(p=\partial L/\partial\dot q\)</span>.</li>
+<li><span class="math">\(\dot q=\partial H/\partial p\)</span>, <span class="math">\(\dot p=-\partial H/\partial q\)</span>; <span class="math">\(dH/dt=\partial H/\partial t\)</span>.</li>
+<li><span class="math">\(H=T+V\)</span> iff scleronomic constraints and velocity-independent <span class="math">\(V\)</span>.</li>
+<li><span class="math">\(L=a\dot x^2+\dots\)</span> gives <span class="math">\(p^2/4a\)</span>, not <span class="math">\(p^2/2a\)</span>.</li>
+<li>Hamilton’s principle: <span class="math">\(\delta\int L\,dt=0\)</span> with fixed end points; gives Lagrange’s equations.</li>
+<li><span class="math">\([q_i,p_j]=\delta_{ij}\)</span>; <span class="math">\([q,q]=[p,p]=0\)</span>; antisymmetric; Jacobi holds always.</li>
+<li><span class="math">\(\dot u=[u,H]+\partial_tu\)</span>; <span class="math">\([u,H]=0\)</span> means <span class="math">\(u\)</span> conserved; <span class="math">\([L_x,L_y]=L_z\)</span>; <span class="math">\([L^2,L_i]=0\)</span>.</li>
+<li>Canonical iff <span class="math">\([Q,P]=1\)</span> (one dof: <span class="math">\(\partial(Q,P)/\partial(q,p)=1\)</span>); phase-space area/volume preserved.</li>
+<li><span class="math">\(F_1\)</span>: <span class="math">\(p=\partial_qF_1\)</span>, <span class="math">\(P=-\partial_QF_1\)</span>. <span class="math">\(F_2\)</span>: <span class="math">\(p=\partial_qF_2\)</span>, <span class="math">\(Q=\partial_PF_2\)</span>. <span class="math">\(K=H+\partial_tF\)</span>.</li>
+<li><span class="math">\(F_2=\sum q_jP_j\)</span> is the identity; <span class="math">\(F_1=\sum q_jQ_j\)</span> swaps <span class="math">\(q\to p\)</span>.</li>
+<li>Action variable <span class="math">\(J=\frac1{2\pi}\oint p\,dq\)</span> needs bounded periodic motion; <span class="math">\(\omega=\partial H/\partial J\)</span>.</li>
+</ul>
+</section></article></div><section class="section reader-end"><button class="read-btn" type="button" data-read-btn aria-pressed="false"><span class="box" aria-hidden="true"></span><span data-read-label>Mark as read</span></button><ul class="units end-links"><li><a class="unit-card" href="/uphesc-maths/learn/mechanics-fluids/hamiltonian-mechanics/practice/"><span class="unit-top"><span class="unit-name">Practise this topic</span></span><p class="flush">14 questions with worked solutions</p></a></li><li><a class="unit-card" href="/uphesc-maths/learn/mechanics-fluids/rigid-body-motion/"><span class="unit-top"><span class="unit-name">Next: Rigid body motion and Euler&#39;s equations</span></span><p class="flush">Medium priority · 1 h 50 min</p></a></li></ul><p class="prev-link"><a href="/uphesc-maths/learn/mechanics-fluids/lagrangian-mechanics/">Previous: Lagrangian mechanics</a></p></section></div><footer class="foot"><p>Built from every paper that survives: the full 2025 and 2026 papers (140 maths questions) and half of 2019 (35, from a solution video). 2015 left only an answer key, and nothing was found for 2021. The commission has never published its booklets. Unit counts use 2025 and 2026 only, so they show a range, not a trend.</p><p>2025 answers match the official key. 2026 has no key yet, so its answers were worked out by hand and marked high, medium or low confidence, and every unsure one was solved again, blind. 2019 answers come from the video and are not checked against the official key.</p></footer></main><script type="module">var e=document.documentElement,t=()=>e.dataset.mode?e.dataset.mode===`dark`:matchMedia(`(prefers-color-scheme: dark)`).matches;document.querySelector(`[data-mode-toggle]`)?.addEventListener(`click`,()=>{let n=t()?`light`:`dark`;e.dataset.mode=n;try{localStorage.setItem(`um:mode`,n)}catch{}}),!e.dataset.mode&&t()&&(e.dataset.mode=`dark`);var n=document.querySelectorAll(`[data-old-toggle]`),r=t=>{t?e.dataset.old=`on`:delete e.dataset.old,n.forEach(e=>e.setAttribute(`aria-checked`,String(t)))};r(e.dataset.old===`on`),n.forEach(t=>t.addEventListener(`click`,()=>{let t=e.dataset.old!==`on`;r(t);try{localStorage.setItem(`um:old`,t?`on`:`off`)}catch{}}));var i=document.querySelectorAll(`[data-view]`),a=t=>{t===`bars`?e.dataset.view=`bars`:delete e.dataset.view,i.forEach(e=>e.setAttribute(`aria-pressed`,String(e.dataset.view===t)))};a(e.dataset.view===`bars`?`bars`:`heat`),i.forEach(e=>e.addEventListener(`click`,()=>{a(e.dataset.view);try{localStorage.setItem(`um:view`,e.dataset.view)}catch{}}));var o=document.createElement(`div`);o.className=`tip`,o.setAttribute(`role`,`tooltip`),o.hidden=!0,document.body.append(o);var s=null,c=(e,t)=>{let n=o.offsetWidth,r=o.offsetHeight,i=e+12,a=t+12;i+n>innerWidth-8&&(i=Math.max(8,e-n-12)),a+r>innerHeight-8&&(a=Math.max(8,t-r-12)),o.style.left=`${i}px`,o.style.top=`${a}px`},l=()=>{if(s){let e=s.getBoundingClientRect();c(e.left+e.width*.3,e.bottom-8)}},u=e=>{e!==s&&(s=e,o.replaceChildren(...[...e.querySelector(`.tip-src`).childNodes].map(e=>e.cloneNode(!0)))),o.hidden=!1},d=()=>{o.hidden=!0,s=null};document.addEventListener(`pointermove`,e=>{if(e.pointerType!==`mouse`)return;let t=e.target.closest(`[data-tip]`);t?(u(t),c(e.clientX,e.clientY)):s&&d()}),document.addEventListener(`focusin`,e=>{let t=e.target.closest(`[data-tip]`);t&&(u(t),l())}),document.addEventListener(`focusout`,()=>d()),addEventListener(`scroll`,()=>{s&&document.activeElement===s?l():s&&d()},{passive:!0}),document.addEventListener(`keydown`,e=>{e.key===`Escape`&&d()});var f=`um:done`,p={};try{p=JSON.parse(localStorage.getItem(f)||`{}`)}catch{}var m=()=>{document.querySelectorAll(`[data-progress]`).forEach(e=>{let t=[...document.querySelectorAll(`[data-group="${e.dataset.progress}"]`)],n=t.filter(e=>e.checked).length;e.querySelector(`.progress-bar span`).style.width=`${n/t.length*100}%`,e.querySelector(`[data-count]`).textContent=`${n} of ${t.length} done`})};document.querySelectorAll(`input[data-check]`).forEach(e=>{e.checked=!!p[e.dataset.check],e.addEventListener(`change`,()=>{p[e.dataset.check]=e.checked;try{localStorage.setItem(f,JSON.stringify(p))}catch{}m()})}),m();</script></body></html><script type="module" src="/uphesc-maths/_astro/index.astro_astro_type_script_index_0_lang.t7qZbIYF.js"></script>

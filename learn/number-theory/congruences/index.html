@@ -1,0 +1,299 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Congruences, CRT, Fermat-Euler-Wilson, primitive roots · UPESSC maths</title><meta name="description" content="What to study for the UPESSC (formerly UPHESC) Assistant Professor maths paper, built from every paper that survives."><link rel="icon" href="/uphesc-maths/favicon.svg" type="image/svg+xml"><link rel="preload" href="/uphesc-maths/fonts/inter-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin><!-- the saved light/dark, 2019 and chart-view choices, before first paint --><script>
+    try { var m = localStorage.getItem('um:mode'); if (m) document.documentElement.dataset.mode = m; } catch (e) {}
+    try { if (localStorage.getItem('um:old') === 'on') document.documentElement.dataset.old = 'on'; } catch (e) {}
+    try { if (localStorage.getItem('um:view') === 'bars') document.documentElement.dataset.view = 'bars'; } catch (e) {}
+  </script><!-- maths: the vendored MathJax typesets \( \) and \[ \] text, loaded only on pages that have any --><script>(function(){const VENDOR = "/uphesc-maths/vendor";
+
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+      loader: { paths: { mathjax: VENDOR + '/mathjax', fonts: VENDOR + '/mathjax/fonts' } },
+      output: { font: 'mathjax-stix2', displayOverflow: 'scroll' },
+      options: { ignoreHtmlClass: 'no-math', processHtmlClass: 'math', menuOptions: { settings: { enrich: false, speech: false, braille: false } } },
+      chtml: { displayOverflow: 'scroll' },
+      // an inline formula with a piece wider than its line gets its own scrolling line, like display maths
+      startup: { pageReady: () => MathJax.startup.defaultPageReady().then(fitMath) },
+    };
+    function fitMath() {
+      for (const m of document.querySelectorAll('mjx-container:not([display="true"]):not(.mjx-wide)')) {
+        const box = m.closest('p, li, dd, blockquote, div');
+        if (!box || m.closest('td, th')) continue;
+        const right = box.getBoundingClientRect().right + 1;
+        if ([...m.getClientRects()].some((r) => r.right > right)) m.classList.add('mjx-wide');
+      }
+    }
+    let fitQueued = 0;
+    const queueFit = () => { if (window.MathJax?.startup?.document && !fitQueued) fitQueued = requestAnimationFrame(() => { fitQueued = 0; fitMath(); }); };
+    addEventListener('resize', queueFit);
+    addEventListener('click', () => setTimeout(queueFit, 50));
+    document.addEventListener('DOMContentLoaded', () => {
+      if (!document.querySelector('.math')) return;
+      const s = document.createElement('script');
+      s.async = true;
+      s.src = VENDOR + '/mathjax/tex-chtml-nofont.js';
+      document.head.appendChild(s);
+    });
+  })();</script><link rel="stylesheet" href="/uphesc-maths/_astro/Base.CkQ5KWO8.css"></head><body data-tab="learn"><nav class="appnav" aria-label="Main"><a class="appnav-brand" href="/uphesc-maths/" aria-label="UPESSC maths home">∑</a><a class="appnav-item" href="/uphesc-maths/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4 10.2 12 4l8 6.2V19a1 1 0 0 1-1 1h-4.5v-5.5h-5V20H5a1 1 0 0 1-1-1z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Plan</span></a><a class="appnav-item" href="/uphesc-maths/learn/" aria-current="page"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M12 6.5C10 5 7.5 4.5 4 4.5v13c3.5 0 6 .5 8 2 2-1.5 4.5-2 8-2v-13c-3.5 0-6 .5-8 2zM12 6.5v13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Learn</span></a><a class="appnav-item" href="/uphesc-maths/units/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4 5h7v7H4zM13 5h7v7h-7zM4 14h7v6H4zM13 14h7v6h-7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Units</span></a><a class="appnav-item" href="/uphesc-maths/papers/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M7 3h7l4 4v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zM14 3v4h4M9 12h6M9 16h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Papers</span></a><a class="appnav-item" href="/uphesc-maths/revise/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M5 12.5 9.5 17 19 7.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Revise</span></a></nav><header class="topbar"><a class="bar-back" href="/uphesc-maths/learn/number-theory/" aria-label="Back"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a><p class="bar-title">Unit 10</p><button class="bar-btn" type="button" data-mode-toggle aria-label="Switch light or dark"><svg class="i-moon" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path></svg><svg class="i-sun" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path></svg></button></header><main class="page"><div class="reader" data-topic="congruences"><header class="page-head topic-head"><p class="kicker"><a href="/uphesc-maths/learn/number-theory/">Unit 10 · Vedic Mathematics and Number Theory</a></p><h1>Congruences, CRT, Fermat-Euler-Wilson, primitive roots</h1><ul class="meta"><li class="prio high">High priority</li><li>2 h to study</li><li>Asked 2 times</li><li class="read-flag" data-read-flag hidden>Read</li></ul><p class="pyq-line">Previous papers: 2025 Q90, 2026 Q48</p><p class="prereq">Read first: <a href="/uphesc-maths/learn/number-theory/divisibility-and-primes/">Divisibility, gcd, primes and special numbers</a>, <a href="/uphesc-maths/learn/number-theory/arithmetical-functions/">Arithmetical functions and Mobius inversion</a></p></header><div class="reader-grid"><nav class="toc" aria-label="On this page"><details class="toc-box" data-toc><summary>On this page</summary><ol><li><a href="#why-it-matters-for-the-exam">Why it matters for the exam</a></li><li><a href="#core-ideas">Core ideas</a></li><li class="sub"><a href="#congruence-and-residue-classes">Congruence and residue classes</a></li><li class="sub"><a href="#linear-congruence-ax-equiv-b-pmod-m">Linear congruence <span class="math">\(ax \equiv b \pmod m\)</span></a></li><li class="sub"><a href="#chinese-remainder-theorem-crt">Chinese remainder theorem (CRT)</a></li><li class="sub"><a href="#fermats-little-theorem">Fermat’s little theorem</a></li><li class="sub"><a href="#eulers-theorem">Euler’s theorem</a></li><li class="sub"><a href="#wilsons-theorem">Wilson’s theorem</a></li><li class="sub"><a href="#order-of-an-element">Order of an element</a></li><li class="sub"><a href="#primitive-roots">Primitive roots</a></li><li class="sub"><a href="#pseudoprimes-and-carmichael-numbers">Pseudoprimes and Carmichael numbers</a></li><li class="sub"><a href="#remainder-and-last-digit-problems">Remainder and last-digit problems</a></li><li><a href="#formulas-and-results">Formulas and results</a></li><li><a href="#worked-examples">Worked examples</a></li><li class="sub"><a href="#example-1-linear-congruence-with-several-solutions">Example 1: linear congruence with several solutions</a></li><li class="sub"><a href="#example-2-a-system-by-crt">Example 2: a system by CRT</a></li><li class="sub"><a href="#example-3-moduli-that-are-not-coprime">Example 3: moduli that are not coprime</a></li><li class="sub"><a href="#example-4-last-two-digits">Example 4: last two digits</a></li><li class="sub"><a href="#example-5-fermat-reduction-and-wilson">Example 5: Fermat reduction and Wilson</a></li><li class="sub"><a href="#example-6-pseudoprime">Example 6: pseudoprime</a></li><li class="sub"><a href="#example-7-counting-primitive-roots">Example 7: counting primitive roots</a></li><li><a href="#common-traps">Common traps</a></li><li><a href="#previous-year-questions">Previous-year questions</a></li><li><a href="#quick-revision">Quick revision</a></li></ol></details></nav><article class="prose"><section class="note-section ns-why-it-matters-for-the-exam" aria-labelledby="why-it-matters-for-the-exam"><h2 id="why-it-matters-for-the-exam">Why it matters for the exam</h2>
+<p>Congruence arithmetic is the working language of every number-theory question. In 2025 and 2026 two questions are pure congruence computations (<span class="math">\(2^{340} \bmod 341\)</span> and <span class="math">\(1003\times997 \bmod 13\)</span>), and the divisor question 2026 Q37 also needed a mod-5 check. Expect a remainder computation, a statement about Fermat, Euler or Wilson, a count of solutions or primitive roots, or Carmichael numbers. Speed matters: most of these are two-line problems once the theorem is recognised.</p>
+</section><section class="note-section ns-core-ideas" aria-labelledby="core-ideas"><h2 id="core-ideas">Core ideas</h2>
+<h3 id="congruence-and-residue-classes">Congruence and residue classes</h3>
+<p><span class="math">\(a \equiv b \pmod m\)</span> means <span class="math">\(m \mid (a - b)\)</span>. It is an equivalence relation whose classes are the residue classes modulo <span class="math">\(m\)</span>; there are <span class="math">\(m\)</span> of them. A <strong>complete residue system</strong> has one representative from each class (<span class="math">\(0,1,\dots,m-1\)</span>). A <strong>reduced residue system</strong> keeps only the classes coprime to <span class="math">\(m\)</span>: there are <span class="math">\(\varphi(m)\)</span> of them.</p>
+<p>Rules (for <span class="math">\(a\equiv b\)</span>, <span class="math">\(c\equiv d \pmod m\)</span>):</p>
+<ul>
+<li><span class="math">\(a + c\equiv b + d\)</span>, <span class="math">\(a - c\equiv b - d\)</span>, <span class="math">\(ac\equiv bd\)</span>, <span class="math">\(a^k\equiv b^k\)</span> for <span class="math">\(k\ge0\)</span>. So for any polynomial <span class="math">\(f\)</span> with integer coefficients, <span class="math">\(f(a)\equiv f(b)\)</span>.</li>
+<li><strong>Cancellation:</strong> <span class="math">\(ac\equiv bc\pmod m\)</span> implies <span class="math">\(a\equiv b\pmod{m/\gcd(c,m)}\)</span>. You may cancel <span class="math">\(c\)</span> with the modulus unchanged only if <span class="math">\(\gcd(c,m) = 1\)</span>.</li>
+<li>If <span class="math">\(a\equiv b\pmod m\)</span> then <span class="math">\(a\equiv b\)</span> modulo every divisor of <span class="math">\(m\)</span>. If <span class="math">\(a\equiv b\)</span> modulo <span class="math">\(m\)</span> and modulo <span class="math">\(n\)</span> then modulo <span class="math">\(\operatorname{lcm}(m,n)\)</span>.</li>
+<li><strong>Exponents are not reduced modulo <span class="math">\(m\)</span>.</strong> <span class="math">\(a^k\bmod m\)</span> depends on <span class="math">\(k\)</span> only through <span class="math">\(k\)</span> modulo the order of <span class="math">\(a\)</span> (a divisor of <span class="math">\(\varphi(m)\)</span>), not through <span class="math">\(k\bmod m\)</span>. For <span class="math">\(2^{100}\bmod7\)</span> reduce <span class="math">\(100\)</span> modulo <span class="math">\(3\)</span>, not modulo <span class="math">\(7\)</span>.</li>
+<li>Digit tests: <span class="math">\(10\equiv1\pmod9\)</span> and <span class="math">\(\pmod3\)</span>, so a number is divisible by <span class="math">\(9\)</span> (or <span class="math">\(3\)</span>) iff its digit sum is. <span class="math">\(10\equiv-1\pmod{11}\)</span> gives the alternating-sum test. <span class="math">\(1001 = 7\cdot11\cdot13\)</span> and <span class="math">\(10^3\equiv-1\pmod{1001}\)</span> give the test for <span class="math">\(7,11,13\)</span> by alternating sums of 3-digit blocks.</li>
+</ul>
+<h3 id="linear-congruence-ax-equiv-b-pmod-m">Linear congruence <span class="math">\(ax \equiv b \pmod m\)</span></h3>
+<p>Let <span class="math">\(d = \gcd(a,m)\)</span>.</p>
+<ul>
+<li>It has a solution <strong>iff <span class="math">\(d \mid b\)</span></strong>.</li>
+<li>If <span class="math">\(d \mid b\)</span>, there are <strong>exactly <span class="math">\(d\)</span> solutions</strong> modulo <span class="math">\(m\)</span>. They form one residue class modulo <span class="math">\(m/d\)</span>: <span class="math">\(x_0, x_0 + m/d, \dots, x_0 + (d-1)m/d\)</span>.</li>
+<li>If <span class="math">\(d = 1\)</span> there is exactly one solution <span class="math">\(x\equiv a^{-1}b\)</span>, and <span class="math">\(a^{-1}\)</span> exists iff <span class="math">\(\gcd(a,m) = 1\)</span> (Bezout: <span class="math">\(ax+my = 1\)</span>).</li>
+</ul>
+<p>Method: divide through by <span class="math">\(d\)</span> to get <span class="math">\(a'x\equiv b'\pmod{m'}\)</span> with <span class="math">\(\gcd(a',m') = 1\)</span>, find <span class="math">\(a'^{-1}\)</span> by Euclid, then list the <span class="math">\(d\)</span> solutions.</p>
+<h3 id="chinese-remainder-theorem-crt">Chinese remainder theorem (CRT)</h3>
+<p><strong>Statement.</strong> If <span class="math">\(m_1,\dots,m_k\)</span> are <strong>pairwise coprime</strong>, the system <span class="math">\(x\equiv a_i\pmod{m_i}\)</span> (<span class="math">\(i=1,\dots,k\)</span>) has a solution, unique modulo <span class="math">\(M = m_1\cdots m_k\)</span>.</p>
+<p>Construction: <span class="math">\(M_i = M/m_i\)</span>, <span class="math">\(y_i\equiv M_i^{-1}\pmod{m_i}\)</span>, then <span class="math">\(x\equiv\sum a_iM_iy_i\pmod M\)</span>.</p>
+<p>Equivalent algebraic form: <span class="math">\(\mathbb Z_M\cong\mathbb Z_{m_1}\times\cdots\times\mathbb Z_{m_k}\)</span> as rings, and <span class="math">\((\mathbb Z_M)^\times\cong\prod(\mathbb Z_{m_i})^\times\)</span>, which is why <span class="math">\(\varphi\)</span> is multiplicative.</p>
+<p><strong>Moduli not coprime.</strong> The system <span class="math">\(x\equiv a\pmod m\)</span>, <span class="math">\(x\equiv b\pmod n\)</span> is solvable iff <span class="math">\(a\equiv b\pmod{\gcd(m,n)}\)</span>, and then the solution is unique modulo <span class="math">\(\operatorname{lcm}(m,n)\)</span>. Without that condition there is no solution.</p>
+<p><strong>Counting roots of polynomial congruences.</strong> If <span class="math">\(m = \prod p_i^{a_i}\)</span>, then the number of solutions of <span class="math">\(f(x)\equiv0\pmod m\)</span> is the product of the numbers of solutions modulo each <span class="math">\(p_i^{a_i}\)</span>. Lagrange: a polynomial of degree <span class="math">\(n\)</span> has at most <span class="math">\(n\)</span> roots modulo a <strong>prime</strong> <span class="math">\(p\)</span>. This fails for composite moduli: <span class="math">\(x^2\equiv1\pmod8\)</span> has <span class="math">\(4\)</span> roots (<span class="math">\(1,3,5,7\)</span>) and <span class="math">\(x^2\equiv1\pmod{15}\)</span> has <span class="math">\(4\)</span> roots (<span class="math">\(1,4,11,14\)</span>). In general <span class="math">\(x^2\equiv1\pmod m\)</span> has <span class="math">\(2^{k}\)</span> roots for odd <span class="math">\(m\)</span> with <span class="math">\(k\)</span> distinct prime factors.</p>
+<h3 id="fermats-little-theorem">Fermat’s little theorem</h3>
+<p>If <span class="math">\(p\)</span> is prime and <span class="math">\(p\nmid a\)</span> then <span class="math">\(a^{p-1}\equiv1\pmod p\)</span>. Equivalently <span class="math">\(a^p\equiv a\pmod p\)</span> for <strong>all</strong> integers <span class="math">\(a\)</span>.</p>
+<p>Uses: <span class="math">\(a^{-1}\equiv a^{p-2}\pmod p\)</span>. Also <span class="math">\(a^{n}\equiv a^{n \bmod (p-1)}\pmod p\)</span> when <span class="math">\(p\nmid a\)</span>. Applying Fermat to each prime <span class="math">\(p\)</span> with <span class="math">\((p-1)\mid(k-1)\)</span> shows that <span class="math">\(n^5-n\)</span> is divisible by <span class="math">\(2\cdot3\cdot5 = 30\)</span>, <span class="math">\(n^7-n\)</span> by <span class="math">\(2\cdot3\cdot7 = 42\)</span>, and <span class="math">\(n^{13}-n\)</span> by <span class="math">\(2\cdot3\cdot5\cdot7\cdot13 = 2730\)</span>.</p>
+<h3 id="eulers-theorem">Euler’s theorem</h3>
+<p>If <span class="math">\(\gcd(a,m) = 1\)</span> then <span class="math">\(a^{\varphi(m)}\equiv1\pmod m\)</span>. This generalises Fermat (<span class="math">\(m = p\)</span>, <span class="math">\(\varphi = p-1\)</span>). The hypothesis <span class="math">\(\gcd(a,m) = 1\)</span> is essential: <span class="math">\(2^{\varphi(4)} = 2^2 = 4\not\equiv1\pmod4\)</span>.</p>
+<p><strong>Carmichael’s sharper exponent.</strong> The least <span class="math">\(\lambda(m)\)</span> with <span class="math">\(a^{\lambda(m)}\equiv1\)</span> for all <span class="math">\(a\)</span> coprime to <span class="math">\(m\)</span> is the exponent of the group <span class="math">\((\mathbb Z_m)^\times\)</span>. <span class="math">\(\lambda(p^k) = \varphi(p^k)\)</span> except <span class="math">\(\lambda(2^k) = 2^{k-2}\)</span> for <span class="math">\(k\ge3\)</span>, and <span class="math">\(\lambda(\operatorname{lcm}) = \operatorname{lcm}\)</span> of the <span class="math">\(\lambda\)</span>’s. For example <span class="math">\(\lambda(100) = \operatorname{lcm}(\lambda(4),\lambda(25)) = \operatorname{lcm}(2,20) = 20\)</span> (instead of <span class="math">\(\varphi(100)=40\)</span>) and <span class="math">\(\lambda(561) = 80\)</span>.</p>
+<h3 id="wilsons-theorem">Wilson’s theorem</h3>
+<p>For an integer <span class="math">\(n&gt;1\)</span>: <span class="math">\((n-1)!\equiv-1\pmod n\)</span> <strong>iff <span class="math">\(n\)</span> is prime.</strong></p>
+<p>Proof for prime <span class="math">\(p\)</span>: in <span class="math">\((p-1)! = 1\cdot2\cdots(p-1)\)</span> pair each <span class="math">\(a\)</span> with its inverse; only <span class="math">\(1\)</span> and <span class="math">\(p-1\)</span> are their own inverses (the roots of <span class="math">\(x^2\equiv1\)</span>). So the product is <span class="math">\(1\cdot(p-1)\equiv-1\)</span>.</p>
+<ul>
+<li>For composite <span class="math">\(n&gt;4\)</span>: <span class="math">\((n-1)!\equiv0\pmod n\)</span>. (For <span class="math">\(n = 4\)</span>: <span class="math">\(3! = 6\equiv2\)</span>.)</li>
+<li>Consequence: <span class="math">\(\bigl(\tfrac{p-1}2\bigr)!^2\equiv(-1)^{(p+1)/2}\pmod p\)</span>. So for <span class="math">\(p\equiv1\pmod4\)</span> the number <span class="math">\(\bigl(\tfrac{p-1}2\bigr)!\)</span> is a square root of <span class="math">\(-1\)</span> modulo <span class="math">\(p\)</span>. Check: <span class="math">\(p = 13\)</span>, <span class="math">\(6! = 720\equiv5\)</span> and <span class="math">\(5^2 = 25\equiv-1\)</span>.</li>
+<li>Useful form: <span class="math">\((p-2)!\equiv1\pmod p\)</span> and <span class="math">\((p-1-k)!\,k!\equiv(-1)^{k+1}\pmod p\)</span>.</li>
+</ul>
+<h3 id="order-of-an-element">Order of an element</h3>
+<p>For <span class="math">\(\gcd(a,m) = 1\)</span>, <span class="math">\(\operatorname{ord}_m(a)\)</span> is the least <span class="math">\(k\ge1\)</span> with <span class="math">\(a^k\equiv1\pmod m\)</span>.</p>
+<ul>
+<li><span class="math">\(a^n\equiv1\pmod m\)</span> iff <span class="math">\(\operatorname{ord}_m(a)\mid n\)</span>. In particular <span class="math">\(\operatorname{ord}_m(a)\mid\varphi(m)\)</span> (and <span class="math">\(\mid\lambda(m)\)</span>).</li>
+<li><span class="math">\(\operatorname{ord}(a^k) = \operatorname{ord}(a)/\gcd(\operatorname{ord}(a),k)\)</span>.</li>
+<li>If <span class="math">\(\operatorname{ord}(a) = r\)</span>, <span class="math">\(\operatorname{ord}(b) = s\)</span> and <span class="math">\(\gcd(r,s) = 1\)</span>, then <span class="math">\(\operatorname{ord}(ab) = rs\)</span>.</li>
+<li>If <span class="math">\(a^k\equiv1\)</span> and <span class="math">\(a^l\equiv1\)</span> then <span class="math">\(a^{\gcd(k,l)}\equiv1\)</span>.</li>
+<li>Modulo a prime <span class="math">\(p\)</span>: the order of <span class="math">\(a\)</span> divides <span class="math">\(p-1\)</span>, and for each <span class="math">\(d\mid p-1\)</span> there are exactly <span class="math">\(\varphi(d)\)</span> elements of order <span class="math">\(d\)</span> (so <span class="math">\(\sum_{d\mid p-1}\varphi(d) = p-1\)</span> is Gauss’s identity again).</li>
+</ul>
+<p>Example: modulo <span class="math">\(13\)</span> the orders of <span class="math">\(1,\dots,12\)</span> are <span class="math">\(1,12,3,6,4,12,12,4,3,6,12,2\)</span>. The counts are <span class="math">\(\varphi(1)=1\)</span> of order <span class="math">\(1\)</span>, <span class="math">\(1\)</span> of order <span class="math">\(2\)</span>, <span class="math">\(2\)</span> of order <span class="math">\(3\)</span>, <span class="math">\(2\)</span> of order <span class="math">\(4\)</span>, <span class="math">\(2\)</span> of order <span class="math">\(6\)</span>, <span class="math">\(4\)</span> of order <span class="math">\(12\)</span>.</p>
+<h3 id="primitive-roots">Primitive roots</h3>
+<p><span class="math">\(g\)</span> is a <strong>primitive root</strong> modulo <span class="math">\(m\)</span> if <span class="math">\(\operatorname{ord}_m(g) = \varphi(m)\)</span>, i.e. <span class="math">\(g\)</span> generates the group <span class="math">\((\mathbb Z_m)^\times\)</span>.</p>
+<p><strong>Existence theorem (Gauss).</strong> Primitive roots modulo <span class="math">\(m\)</span> exist <strong>iff</strong> <span class="math">\(m = 1, 2, 4, p^k\)</span> or <span class="math">\(2p^k\)</span> with <span class="math">\(p\)</span> an odd prime and <span class="math">\(k\ge1\)</span>.</p>
+<p><strong>Count.</strong> When they exist there are exactly <span class="math">\(\varphi(\varphi(m))\)</span> of them. In particular modulo a prime <span class="math">\(p\)</span> there are <span class="math">\(\varphi(p-1)\)</span>.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th><span class="math">\(m\)</span></th>
+<th><span class="math">\(\varphi(m)\)</span></th>
+<th>Primitive roots</th>
+<th>Count <span class="math">\(=\varphi(\varphi(m))\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math">\(7\)</span></td>
+<td><span class="math">\(6\)</span></td>
+<td><span class="math">\(3, 5\)</span></td>
+<td><span class="math">\(2\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(9\)</span></td>
+<td><span class="math">\(6\)</span></td>
+<td><span class="math">\(2, 5\)</span></td>
+<td><span class="math">\(2\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(10\)</span></td>
+<td><span class="math">\(4\)</span></td>
+<td><span class="math">\(3, 7\)</span></td>
+<td><span class="math">\(2\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(11\)</span></td>
+<td><span class="math">\(10\)</span></td>
+<td><span class="math">\(2, 6, 7, 8\)</span></td>
+<td><span class="math">\(4\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(13\)</span></td>
+<td><span class="math">\(12\)</span></td>
+<td><span class="math">\(2, 6, 7, 11\)</span></td>
+<td><span class="math">\(4\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(8\)</span>, <span class="math">\(12\)</span>, <span class="math">\(15\)</span>, <span class="math">\(16\)</span>, <span class="math">\(20\)</span></td>
+<td></td>
+<td>none</td>
+<td>(not of the allowed form)</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li>Test for a prime <span class="math">\(p\)</span>: <span class="math">\(g\)</span> is a primitive root iff <span class="math">\(g^{(p-1)/q}\not\equiv1\pmod p\)</span> for every prime <span class="math">\(q\mid p-1\)</span>.</li>
+<li>If <span class="math">\(g\)</span> is a primitive root modulo a prime <span class="math">\(p\)</span>, then <span class="math">\(g^{(p-1)/2}\equiv-1\)</span> and <span class="math">\(-1\)</span> is the only element of order <span class="math">\(2\)</span>.</li>
+<li>If <span class="math">\(g\)</span> is a primitive root modulo <span class="math">\(p\)</span>, then <span class="math">\(g\)</span> or <span class="math">\(g+p\)</span> is a primitive root modulo <span class="math">\(p^2\)</span>, and then modulo every <span class="math">\(p^k\)</span>.</li>
+<li>Powers <span class="math">\(g^k\)</span> (<span class="math">\(1\le k\le\varphi(m)\)</span>, <span class="math">\(\gcd(k,\varphi(m)) = 1\)</span>) are exactly the primitive roots.</li>
+<li>Modulo <span class="math">\(2^k\)</span> with <span class="math">\(k\ge3\)</span> the group is <span class="math">\(C_2\times C_{2^{k-2}}\)</span>, not cyclic: modulo <span class="math">\(8\)</span> every odd number squares to <span class="math">\(1\)</span>.</li>
+</ul>
+<h3 id="pseudoprimes-and-carmichael-numbers">Pseudoprimes and Carmichael numbers</h3>
+<p>Fermat’s theorem gives a primality filter: if <span class="math">\(2^{n-1}\not\equiv1\pmod n\)</span>, then <span class="math">\(n\)</span> is composite. The converse fails.</p>
+<ul>
+<li>A <strong>Fermat pseudoprime to base <span class="math">\(a\)</span></strong> is a composite <span class="math">\(n\)</span> with <span class="math">\(a^{n-1}\equiv1\pmod n\)</span>. The smallest base-<span class="math">\(2\)</span> pseudoprime is <span class="math">\(341 = 11\cdot31\)</span>. Others: <span class="math">\(561, 645, 1105, 1387, 1729,\dots\)</span>.</li>
+<li>A <strong>Carmichael number</strong> is a composite <span class="math">\(n\)</span> with <span class="math">\(a^{n-1}\equiv1\pmod n\)</span> for <strong>every</strong> <span class="math">\(a\)</span> coprime to <span class="math">\(n\)</span>. The smallest is <span class="math">\(561 = 3\cdot11\cdot17\)</span>. Next: <span class="math">\(1105, 1729, 2465, 2821, 6601, 8911\)</span>.</li>
+<li><strong>Korselt’s criterion.</strong> <span class="math">\(n\)</span> is a Carmichael number iff <span class="math">\(n\)</span> is composite, square-free, and <span class="math">\(p-1\mid n-1\)</span> for every prime <span class="math">\(p\mid n\)</span>. Check <span class="math">\(561\)</span>: <span class="math">\(2\mid560\)</span>, <span class="math">\(10\mid560\)</span>, <span class="math">\(16\mid560\)</span>.</li>
+<li>Every Carmichael number is odd and has at least three prime factors.</li>
+<li>Alford, Granville and Pomerance (1994) proved there are infinitely many Carmichael numbers.</li>
+<li>Why <span class="math">\(341\)</span> is a pseudoprime: <span class="math">\(2^{10}\equiv1\pmod{11}\)</span> and <span class="math">\(2^{5}\equiv1\pmod{31}\)</span> with <span class="math">\(10, 5\mid340\)</span>, so <span class="math">\(2^{340}\equiv1\)</span> modulo both, hence modulo <span class="math">\(341\)</span>. Also <span class="math">\(3^{340}\not\equiv1\pmod{341}\)</span>, so <span class="math">\(341\)</span> is not Carmichael.</li>
+</ul>
+<h3 id="remainder-and-last-digit-problems">Remainder and last-digit problems</h3>
+<p>Toolbox:</p>
+<ol>
+<li><strong>Last digit</strong> of <span class="math">\(a^n\)</span>: reduce <span class="math">\(a\)</span> modulo <span class="math">\(10\)</span>; the last digits cycle with period dividing <span class="math">\(4\)</span>. Cycle of <span class="math">\(2\)</span>: <span class="math">\(2,4,8,6\)</span>; of <span class="math">\(3\)</span>: <span class="math">\(3,9,7,1\)</span>; of <span class="math">\(7\)</span>: <span class="math">\(7,9,3,1\)</span>; <span class="math">\(4\)</span>: <span class="math">\(4,6\)</span>; <span class="math">\(9\)</span>: <span class="math">\(9,1\)</span>; <span class="math">\(0,1,5,6\)</span> fixed.</li>
+<li><strong>Last two digits:</strong> work modulo <span class="math">\(100\)</span> with <span class="math">\(\lambda(100) = 20\)</span>. For odd <span class="math">\(a\)</span> coprime to <span class="math">\(5\)</span>, <span class="math">\(a^{20}\equiv1\)</span>; if <span class="math">\(a\equiv1\pmod{10}\)</span> or <span class="math">\(a^4\equiv1\)</span> the cycle is shorter (<span class="math">\(7^4 = 2401\equiv1\)</span>).</li>
+<li><strong>Remainder modulo a prime <span class="math">\(p\)</span>:</strong> reduce the exponent modulo <span class="math">\(p-1\)</span> (Fermat) when <span class="math">\(p\nmid a\)</span>.</li>
+<li><strong>Remainder modulo composite <span class="math">\(m\)</span>:</strong> use <span class="math">\(\varphi(m)\)</span> or split with CRT.</li>
+<li><strong>Factorials:</strong> <span class="math">\(n!\equiv0\pmod m\)</span> for <span class="math">\(n\ge m\)</span> when <span class="math">\(m\)</span> is composite or equal to <span class="math">\(n\)</span>; Wilson for prime moduli.</li>
+<li><strong>Special products:</strong> <span class="math">\((1000+3)(1000-3) = 10^6-9\)</span>; <span class="math">\(10^3\equiv-1\pmod{13}\)</span> so <span class="math">\(10^6\equiv1\pmod{13}\)</span>.</li>
+<li><strong>Tower</strong> <span class="math">\(a^{b^c}\)</span>: compute <span class="math">\(b^c\bmod\varphi(m)\)</span> first.</li>
+</ol>
+</section><section class="note-section ns-formulas-and-results" aria-labelledby="formulas-and-results"><h2 id="formulas-and-results">Formulas and results</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Linear congruence <span class="math">\(ax\equiv b\ (m)\)</span></td>
+<td>solvable iff <span class="math">\(\gcd(a,m)\mid b\)</span>; then <span class="math">\(\gcd(a,m)\)</span> solutions mod <span class="math">\(m\)</span></td>
+</tr>
+<tr>
+<td>Inverse</td>
+<td><span class="math">\(a^{-1}\)</span> mod <span class="math">\(m\)</span> exists iff <span class="math">\(\gcd(a,m)=1\)</span></td>
+</tr>
+<tr>
+<td>Cancellation</td>
+<td><span class="math">\(ac\equiv bc\ (m)\Rightarrow a\equiv b\ (m/\gcd(c,m))\)</span></td>
+</tr>
+<tr>
+<td>CRT</td>
+<td>pairwise coprime <span class="math">\(m_i\)</span>: unique solution mod <span class="math">\(\prod m_i\)</span></td>
+</tr>
+<tr>
+<td>CRT, general</td>
+<td>solvable iff <span class="math">\(a\equiv b\ (\gcd(m,n))\)</span>; unique mod <span class="math">\(\operatorname{lcm}\)</span></td>
+</tr>
+<tr>
+<td>Fermat</td>
+<td><span class="math">\(a^{p-1}\equiv1\ (p)\)</span> for <span class="math">\(p\nmid a\)</span>; <span class="math">\(a^p\equiv a\)</span> always</td>
+</tr>
+<tr>
+<td>Euler</td>
+<td><span class="math">\(a^{\varphi(m)}\equiv1\ (m)\)</span> for <span class="math">\(\gcd(a,m)=1\)</span></td>
+</tr>
+<tr>
+<td>Wilson</td>
+<td><span class="math">\((n-1)!\equiv-1\ (n)\)</span> iff <span class="math">\(n\)</span> is prime</td>
+</tr>
+<tr>
+<td>Order</td>
+<td><span class="math">\(\operatorname{ord}(a)\mid\varphi(m)\)</span>; <span class="math">\(a^n\equiv1\iff\operatorname{ord}(a)\mid n\)</span></td>
+</tr>
+<tr>
+<td>Elements of order <span class="math">\(d\)</span> mod <span class="math">\(p\)</span></td>
+<td><span class="math">\(\varphi(d)\)</span> for each <span class="math">\(d\mid p-1\)</span></td>
+</tr>
+<tr>
+<td>Primitive roots exist iff</td>
+<td><span class="math">\(m=1,2,4,p^k,2p^k\)</span> (<span class="math">\(p\)</span> odd prime)</td>
+</tr>
+<tr>
+<td>Number of primitive roots</td>
+<td><span class="math">\(\varphi(\varphi(m))\)</span></td>
+</tr>
+<tr>
+<td>Carmichael (Korselt)</td>
+<td>square-free, composite, <span class="math">\(p-1\mid n-1\)</span> for all <span class="math">\(p\mid n\)</span></td>
+</tr>
+<tr>
+<td>Smallest Carmichael</td>
+<td><span class="math">\(561 = 3\cdot11\cdot17\)</span></td>
+</tr>
+<tr>
+<td>Smallest base-2 pseudoprime</td>
+<td><span class="math">\(341 = 11\cdot31\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(\lambda(100)\)</span></td>
+<td><span class="math">\(20\)</span></td>
+</tr>
+</tbody>
+</table></div>
+</section><section class="note-section ns-worked-examples" aria-labelledby="worked-examples"><h2 id="worked-examples">Worked examples</h2>
+<h3 id="example-1-linear-congruence-with-several-solutions">Example 1: linear congruence with several solutions</h3>
+<p>Solve <span class="math">\(6x\equiv9\pmod{15}\)</span>.</p>
+<p><span class="math">\(\gcd(6,15) = 3\mid9\)</span>, so there are <span class="math">\(3\)</span> solutions. Divide by <span class="math">\(3\)</span>: <span class="math">\(2x\equiv3\pmod5\)</span>. The inverse of <span class="math">\(2\)</span> modulo <span class="math">\(5\)</span> is <span class="math">\(3\)</span>, so <span class="math">\(x\equiv9\equiv4\pmod5\)</span>. The solutions modulo <span class="math">\(15\)</span> are <span class="math">\(x = 4, 9, 14\)</span>.</p>
+<h3 id="example-2-a-system-by-crt">Example 2: a system by CRT</h3>
+<p>Solve <span class="math">\(x\equiv2\pmod3\)</span>, <span class="math">\(x\equiv3\pmod5\)</span>, <span class="math">\(x\equiv2\pmod7\)</span>.</p>
+<p><span class="math">\(M = 105\)</span>. <span class="math">\(M_1 = 35\equiv2\pmod3\)</span>, inverse <span class="math">\(2\)</span>; <span class="math">\(M_2 = 21\equiv1\pmod5\)</span>, inverse <span class="math">\(1\)</span>; <span class="math">\(M_3 = 15\equiv1\pmod7\)</span>, inverse <span class="math">\(1\)</span>. So <span class="math">\(x\equiv2\cdot35\cdot2 + 3\cdot21\cdot1 + 2\cdot15\cdot1 = 140+63+30 = 233\equiv233-210 = 23\pmod{105}\)</span>. Check: <span class="math">\(23 = 3\cdot7+2\)</span>, <span class="math">\(23 = 4\cdot5+3\)</span>, <span class="math">\(23 = 3\cdot7+2\)</span>. Answer <span class="math">\(x\equiv23\pmod{105}\)</span>.</p>
+<h3 id="example-3-moduli-that-are-not-coprime">Example 3: moduli that are not coprime</h3>
+<p>Solve <span class="math">\(x\equiv5\pmod{12}\)</span>, <span class="math">\(x\equiv11\pmod{18}\)</span>.</p>
+<p><span class="math">\(\gcd(12,18) = 6\)</span> and <span class="math">\(5\equiv11\pmod6\)</span>, so a solution exists, unique modulo <span class="math">\(\operatorname{lcm} = 36\)</span>. From <span class="math">\(x = 5+12t\)</span>: <span class="math">\(5+12t\equiv11\pmod{18}\)</span> gives <span class="math">\(12t\equiv6\pmod{18}\)</span>, <span class="math">\(2t\equiv1\pmod3\)</span>, <span class="math">\(t\equiv2\pmod3\)</span>. Then <span class="math">\(x = 29\)</span>. Answer <span class="math">\(x\equiv29\pmod{36}\)</span>. If the second congruence had been <span class="math">\(x\equiv10\pmod{18}\)</span>, then <span class="math">\(5\not\equiv10\pmod6\)</span> and there would be no solution.</p>
+<h3 id="example-4-last-two-digits">Example 4: last two digits</h3>
+<p>Find the last two digits of <span class="math">\(7^{2025}\)</span> and of <span class="math">\(3^{1000}\)</span>.</p>
+<p><span class="math">\(7^2 = 49\)</span>, <span class="math">\(7^4 = 2401\equiv1\pmod{100}\)</span>. <span class="math">\(2025 = 4\cdot506+1\)</span>, so <span class="math">\(7^{2025}\equiv7\)</span>: last two digits <span class="math">\(07\)</span>.
+For <span class="math">\(3\)</span>: <span class="math">\(\gcd(3,100) = 1\)</span> and <span class="math">\(\lambda(100) = 20\)</span>, so <span class="math">\(3^{20}\equiv1\pmod{100}\)</span>; <span class="math">\(1000 = 20\cdot50\)</span>, so <span class="math">\(3^{1000}\equiv1\)</span>: last two digits <span class="math">\(01\)</span>.</p>
+<h3 id="example-5-fermat-reduction-and-wilson">Example 5: Fermat reduction and Wilson</h3>
+<p>(a) <span class="math">\(2^{100}\bmod7\)</span>: <span class="math">\(2^3 = 8\equiv1\)</span>, and <span class="math">\(100 = 3\cdot33+1\)</span>, so the remainder is <span class="math">\(2\)</span>.
+(b) <span class="math">\(15!\bmod17\)</span>: <span class="math">\(16!\equiv-1\pmod{17}\)</span> (Wilson) and <span class="math">\(16\equiv-1\)</span>, so <span class="math">\(15!\equiv(-1)/(-1) = 1\)</span>.
+(c) <span class="math">\(7^{77}\bmod13\)</span>: <span class="math">\(7^{12}\equiv1\)</span>; <span class="math">\(77 = 12\cdot6+5\)</span>; <span class="math">\(7^2 = 49\equiv10\)</span>, <span class="math">\(7^4\equiv100\equiv9\)</span>, <span class="math">\(7^5\equiv63\equiv11\)</span>. The remainder is <span class="math">\(11\)</span>.</p>
+<h3 id="example-6-pseudoprime">Example 6: pseudoprime</h3>
+<p>Show that <span class="math">\(2^{340}\equiv1\pmod{341}\)</span> although <span class="math">\(341\)</span> is composite.</p>
+<p><span class="math">\(341 = 11\cdot31\)</span>. By Fermat, <span class="math">\(2^{10}\equiv1\pmod{11}\)</span> and <span class="math">\(340 = 34\cdot10\)</span>, so <span class="math">\(2^{340}\equiv1\pmod{11}\)</span>. Also <span class="math">\(2^5 = 32\equiv1\pmod{31}\)</span> and <span class="math">\(340 = 68\cdot5\)</span>, so <span class="math">\(2^{340}\equiv1\pmod{31}\)</span>. By CRT (or since <span class="math">\(11\)</span> and <span class="math">\(31\)</span> are coprime) <span class="math">\(2^{340}\equiv1\pmod{341}\)</span>.</p>
+<h3 id="example-7-counting-primitive-roots">Example 7: counting primitive roots</h3>
+<p>How many primitive roots has <span class="math">\(13\)</span>? <span class="math">\(\varphi(12) = 4\)</span>. They are <span class="math">\(2, 6, 7, 11\)</span>. How many has <span class="math">\(25\)</span>? <span class="math">\(25 = 5^2\)</span> has primitive roots; the count is <span class="math">\(\varphi(\varphi(25)) = \varphi(20) = 8\)</span>. Does <span class="math">\(15\)</span> have any? No: <span class="math">\(15 = 3\cdot5\)</span> is not of the form <span class="math">\(p^k\)</span> or <span class="math">\(2p^k\)</span>.</p>
+</section><section class="note-section ns-common-traps" aria-labelledby="common-traps"><h2 id="common-traps">Common traps</h2>
+<ul>
+<li><strong>Euler’s theorem needs <span class="math">\(\gcd(a,m) = 1\)</span>.</strong> <span class="math">\(2^{\varphi(9)}= 2^6 = 64\equiv1\pmod9\)</span> is fine but <span class="math">\(3^{6}\equiv0\pmod9\)</span>.</li>
+<li><strong>Wilson is “iff prime”.</strong> <span class="math">\((n-1)!\equiv-1\pmod n\)</span> characterises primes; <span class="math">\((n-1)!\equiv0\)</span> for composite <span class="math">\(n&gt;4\)</span>.</li>
+<li><strong>Fermat’s theorem is not an “iff”.</strong> <span class="math">\(2^{340}\equiv1\pmod{341}\)</span> and <span class="math">\(341\)</span> is composite. Primality via a single base is unreliable.</li>
+<li><strong>Carmichael numbers fool every base coprime to <span class="math">\(n\)</span>.</strong> <span class="math">\(561\)</span> is the smallest, not <span class="math">\(341\)</span> (that is the smallest base-<span class="math">\(2\)</span> pseudoprime).</li>
+<li><strong>Number of solutions of <span class="math">\(ax\equiv b\pmod m\)</span> is <span class="math">\(\gcd(a,m)\)</span></strong> (when solvable), not <span class="math">\(1\)</span> and not <span class="math">\(\gcd(a,b)\)</span>.</li>
+<li><strong>Cancelling a common factor</strong> changes the modulus: <span class="math">\(6x\equiv6\cdot4\pmod{15}\)</span> gives <span class="math">\(x\equiv4\pmod5\)</span>, not mod <span class="math">\(15\)</span>.</li>
+<li><strong>CRT needs pairwise coprime moduli</strong> (or a compatibility check). Solving modulo <span class="math">\(4\)</span> and <span class="math">\(6\)</span> independently can give a contradiction.</li>
+<li><strong>Reduce exponents modulo <span class="math">\(\varphi(m)\)</span>, not modulo <span class="math">\(m\)</span>.</strong> <span class="math">\(2^{100}\bmod 7\)</span> uses <span class="math">\(100\bmod 6\)</span> (or the order <span class="math">\(3\)</span>), not <span class="math">\(100\bmod7\)</span>.</li>
+<li><strong>Number of primitive roots is <span class="math">\(\varphi(\varphi(m))\)</span></strong>, not <span class="math">\(\varphi(m)\)</span>. And <span class="math">\(m = 8, 12, 15\)</span> have none.</li>
+<li><strong><span class="math">\(\mathbb Z_m^\times\)</span> cyclic does not mean <span class="math">\(m\)</span> prime.</strong> <span class="math">\(m = 9, 10, 18, 25\)</span> also have primitive roots.</li>
+<li><strong>Last digit cycles have period <span class="math">\(4\)</span> in the exponent</strong> (for <span class="math">\(2,3,7,8\)</span>), so reduce the exponent mod <span class="math">\(4\)</span> and use <span class="math">\(4\)</span> (not <span class="math">\(0\)</span>) when the remainder is <span class="math">\(0\)</span>.</li>
+<li><strong>Polynomial root count:</strong> at most <span class="math">\(\deg f\)</span> roots modulo a prime only; <span class="math">\(x^2\equiv1\pmod8\)</span> has four roots.</li>
+</ul>
+</section><section class="note-section ns-previous-year-questions" aria-labelledby="previous-year-questions"><h2 id="previous-year-questions">Previous-year questions</h2>
+<p><strong>2025 Q90.</strong> The remainder when <span class="math">\(2^{340}\)</span> is divided by <span class="math">\(341\)</span> is: (A) 5 (B) 3 (C) 2 (D) 1. <strong>Answer: D</strong> (official key).
+Solution: <span class="math">\(341 = 11\cdot31\)</span>. <span class="math">\(2^{10}\equiv1\pmod{11}\)</span> and <span class="math">\(2^5\equiv1\pmod{31}\)</span>, and both <span class="math">\(10\)</span> and <span class="math">\(5\)</span> divide <span class="math">\(340\)</span>. So <span class="math">\(2^{340}\equiv1\)</span> modulo <span class="math">\(11\)</span> and <span class="math">\(31\)</span>, hence modulo <span class="math">\(341\)</span>. (This is the standard pseudoprime example.)</p>
+<p><strong>2026 Q48.</strong> Using the Vedic method and congruences, if <span class="math">\(x = 1003\times997\)</span>, then <span class="math">\(x\pmod{13}\)</span> equals: (A) 1 (B) 3 (C) 12 (D) 9. <strong>Worked key: B (3), but the question is defective.</strong> The correct value is <span class="math">\(5\)</span>, which is not an option.
+Solution: <span class="math">\(1003\times997 = (1000+3)(1000-3) = 10^6-9 = 999991\)</span>. <span class="math">\(10^3 = 1000\equiv-1\pmod{13}\)</span> (since <span class="math">\(1001 = 7\cdot11\cdot13\)</span>), so <span class="math">\(10^6\equiv1\)</span> and <span class="math">\(x\equiv1-9 = -8\equiv5\pmod{13}\)</span>. Directly: <span class="math">\(1003\equiv2\)</span>, <span class="math">\(997\equiv9\)</span>, product <span class="math">\(18\equiv5\)</span>. The value <span class="math">\(3\)</span> is what the same product gives modulo <span class="math">\(11\)</span>; the options may belong to a different modulus. If this appears with options that include <span class="math">\(5\)</span>, answer <span class="math">\(5\)</span>.</p>
+</section><section class="note-section ns-quick-revision" aria-labelledby="quick-revision"><h2 id="quick-revision">Quick revision</h2>
+<ul>
+<li><span class="math">\(ax\equiv b\pmod m\)</span>: solvable iff <span class="math">\(\gcd(a,m)\mid b\)</span>; then <span class="math">\(\gcd(a,m)\)</span> solutions modulo <span class="math">\(m\)</span>.</li>
+<li>CRT: pairwise coprime moduli give a unique solution modulo the product; otherwise check <span class="math">\(a\equiv b\pmod{\gcd}\)</span>, solution modulo the lcm.</li>
+<li>Fermat: <span class="math">\(a^{p-1}\equiv1\pmod p\)</span> for <span class="math">\(p\nmid a\)</span>; <span class="math">\(a^p\equiv a\)</span> for all <span class="math">\(a\)</span>.</li>
+<li>Euler: <span class="math">\(a^{\varphi(m)}\equiv1\pmod m\)</span> when <span class="math">\(\gcd(a,m)=1\)</span>; <span class="math">\(\lambda(100) = 20\)</span>.</li>
+<li>Wilson: <span class="math">\((n-1)!\equiv-1\pmod n\)</span> iff <span class="math">\(n\)</span> is prime; <span class="math">\((p-2)!\equiv1\)</span>.</li>
+<li><span class="math">\(\operatorname{ord}_m(a)\mid\varphi(m)\)</span>; <span class="math">\(a^n\equiv1\)</span> iff <span class="math">\(\operatorname{ord}\mid n\)</span>.</li>
+<li>Primitive roots exist iff <span class="math">\(m = 1,2,4,p^k,2p^k\)</span>; there are <span class="math">\(\varphi(\varphi(m))\)</span> of them.</li>
+<li>Primitive roots: <span class="math">\(13\)</span> has <span class="math">\(4\)</span> (<span class="math">\(2,6,7,11\)</span>); <span class="math">\(11\)</span> has <span class="math">\(4\)</span> (<span class="math">\(2,6,7,8\)</span>); <span class="math">\(7\)</span> has <span class="math">\(2\)</span> (<span class="math">\(3,5\)</span>); <span class="math">\(8\)</span> and <span class="math">\(15\)</span> have none.</li>
+<li><span class="math">\(341 = 11\cdot31\)</span> is the least base-<span class="math">\(2\)</span> pseudoprime: <span class="math">\(2^{340}\equiv1\pmod{341}\)</span>.</li>
+<li>Carmichael: square-free and <span class="math">\(p-1\mid n-1\)</span> for all <span class="math">\(p\mid n\)</span>; smallest is <span class="math">\(561 = 3\cdot11\cdot17\)</span>.</li>
+<li><span class="math">\(1003\times997 = 10^6-9\equiv5\pmod{13}\)</span> because <span class="math">\(10^6\equiv1\pmod{13}\)</span>.</li>
+<li>Last digits: reduce the exponent mod <span class="math">\(4\)</span>; last two digits: work mod <span class="math">\(100\)</span> with period dividing <span class="math">\(20\)</span>.</li>
+</ul>
+</section></article></div><section class="section reader-end"><button class="read-btn" type="button" data-read-btn aria-pressed="false"><span class="box" aria-hidden="true"></span><span data-read-label>Mark as read</span></button><ul class="units end-links"><li><a class="unit-card" href="/uphesc-maths/learn/number-theory/congruences/practice/"><span class="unit-top"><span class="unit-name">Practise this topic</span></span><p class="flush">14 questions with worked solutions</p></a></li><li><a class="unit-card" href="/uphesc-maths/learn/number-theory/quadratic-residues/"><span class="unit-top"><span class="unit-name">Next: Quadratic residues and reciprocity</span></span><p class="flush">High priority · 1 h 40 min</p></a></li></ul><p class="prev-link"><a href="/uphesc-maths/learn/number-theory/arithmetical-functions/">Previous: Arithmetical functions and Mobius inversion</a></p></section></div><footer class="foot"><p>Built from every paper that survives: the full 2025 and 2026 papers (140 maths questions) and half of 2019 (35, from a solution video). 2015 left only an answer key, and nothing was found for 2021. The commission has never published its booklets. Unit counts use 2025 and 2026 only, so they show a range, not a trend.</p><p>2025 answers match the official key. 2026 has no key yet, so its answers were worked out by hand and marked high, medium or low confidence, and every unsure one was solved again, blind. 2019 answers come from the video and are not checked against the official key.</p></footer></main><script type="module">var e=document.documentElement,t=()=>e.dataset.mode?e.dataset.mode===`dark`:matchMedia(`(prefers-color-scheme: dark)`).matches;document.querySelector(`[data-mode-toggle]`)?.addEventListener(`click`,()=>{let n=t()?`light`:`dark`;e.dataset.mode=n;try{localStorage.setItem(`um:mode`,n)}catch{}}),!e.dataset.mode&&t()&&(e.dataset.mode=`dark`);var n=document.querySelectorAll(`[data-old-toggle]`),r=t=>{t?e.dataset.old=`on`:delete e.dataset.old,n.forEach(e=>e.setAttribute(`aria-checked`,String(t)))};r(e.dataset.old===`on`),n.forEach(t=>t.addEventListener(`click`,()=>{let t=e.dataset.old!==`on`;r(t);try{localStorage.setItem(`um:old`,t?`on`:`off`)}catch{}}));var i=document.querySelectorAll(`[data-view]`),a=t=>{t===`bars`?e.dataset.view=`bars`:delete e.dataset.view,i.forEach(e=>e.setAttribute(`aria-pressed`,String(e.dataset.view===t)))};a(e.dataset.view===`bars`?`bars`:`heat`),i.forEach(e=>e.addEventListener(`click`,()=>{a(e.dataset.view);try{localStorage.setItem(`um:view`,e.dataset.view)}catch{}}));var o=document.createElement(`div`);o.className=`tip`,o.setAttribute(`role`,`tooltip`),o.hidden=!0,document.body.append(o);var s=null,c=(e,t)=>{let n=o.offsetWidth,r=o.offsetHeight,i=e+12,a=t+12;i+n>innerWidth-8&&(i=Math.max(8,e-n-12)),a+r>innerHeight-8&&(a=Math.max(8,t-r-12)),o.style.left=`${i}px`,o.style.top=`${a}px`},l=()=>{if(s){let e=s.getBoundingClientRect();c(e.left+e.width*.3,e.bottom-8)}},u=e=>{e!==s&&(s=e,o.replaceChildren(...[...e.querySelector(`.tip-src`).childNodes].map(e=>e.cloneNode(!0)))),o.hidden=!1},d=()=>{o.hidden=!0,s=null};document.addEventListener(`pointermove`,e=>{if(e.pointerType!==`mouse`)return;let t=e.target.closest(`[data-tip]`);t?(u(t),c(e.clientX,e.clientY)):s&&d()}),document.addEventListener(`focusin`,e=>{let t=e.target.closest(`[data-tip]`);t&&(u(t),l())}),document.addEventListener(`focusout`,()=>d()),addEventListener(`scroll`,()=>{s&&document.activeElement===s?l():s&&d()},{passive:!0}),document.addEventListener(`keydown`,e=>{e.key===`Escape`&&d()});var f=`um:done`,p={};try{p=JSON.parse(localStorage.getItem(f)||`{}`)}catch{}var m=()=>{document.querySelectorAll(`[data-progress]`).forEach(e=>{let t=[...document.querySelectorAll(`[data-group="${e.dataset.progress}"]`)],n=t.filter(e=>e.checked).length;e.querySelector(`.progress-bar span`).style.width=`${n/t.length*100}%`,e.querySelector(`[data-count]`).textContent=`${n} of ${t.length} done`})};document.querySelectorAll(`input[data-check]`).forEach(e=>{e.checked=!!p[e.dataset.check],e.addEventListener(`change`,()=>{p[e.dataset.check]=e.checked;try{localStorage.setItem(f,JSON.stringify(p))}catch{}m()})}),m();</script></body></html><script type="module" src="/uphesc-maths/_astro/index.astro_astro_type_script_index_0_lang.t7qZbIYF.js"></script>

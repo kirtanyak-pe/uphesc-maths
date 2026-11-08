@@ -1,0 +1,112 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Unit 2 formula sheet · UPESSC maths</title><meta name="description" content="What to study for the UPESSC (formerly UPHESC) Assistant Professor maths paper, built from every paper that survives."><link rel="icon" href="/uphesc-maths/favicon.svg" type="image/svg+xml"><link rel="preload" href="/uphesc-maths/fonts/inter-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin><!-- the saved light/dark, 2019 and chart-view choices, before first paint --><script>
+    try { var m = localStorage.getItem('um:mode'); if (m) document.documentElement.dataset.mode = m; } catch (e) {}
+    try { if (localStorage.getItem('um:old') === 'on') document.documentElement.dataset.old = 'on'; } catch (e) {}
+    try { if (localStorage.getItem('um:view') === 'bars') document.documentElement.dataset.view = 'bars'; } catch (e) {}
+  </script><!-- maths: the vendored MathJax typesets \( \) and \[ \] text, loaded only on pages that have any --><script>(function(){const VENDOR = "/uphesc-maths/vendor";
+
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+      loader: { paths: { mathjax: VENDOR + '/mathjax', fonts: VENDOR + '/mathjax/fonts' } },
+      output: { font: 'mathjax-stix2', displayOverflow: 'scroll' },
+      options: { ignoreHtmlClass: 'no-math', processHtmlClass: 'math', menuOptions: { settings: { enrich: false, speech: false, braille: false } } },
+      chtml: { displayOverflow: 'scroll' },
+      // an inline formula with a piece wider than its line gets its own scrolling line, like display maths
+      startup: { pageReady: () => MathJax.startup.defaultPageReady().then(fitMath) },
+    };
+    function fitMath() {
+      for (const m of document.querySelectorAll('mjx-container:not([display="true"]):not(.mjx-wide)')) {
+        const box = m.closest('p, li, dd, blockquote, div');
+        if (!box || m.closest('td, th')) continue;
+        const right = box.getBoundingClientRect().right + 1;
+        if ([...m.getClientRects()].some((r) => r.right > right)) m.classList.add('mjx-wide');
+      }
+    }
+    let fitQueued = 0;
+    const queueFit = () => { if (window.MathJax?.startup?.document && !fitQueued) fitQueued = requestAnimationFrame(() => { fitQueued = 0; fitMath(); }); };
+    addEventListener('resize', queueFit);
+    addEventListener('click', () => setTimeout(queueFit, 50));
+    document.addEventListener('DOMContentLoaded', () => {
+      if (!document.querySelector('.math')) return;
+      const s = document.createElement('script');
+      s.async = true;
+      s.src = VENDOR + '/mathjax/tex-chtml-nofont.js';
+      document.head.appendChild(s);
+    });
+  })();</script><link rel="stylesheet" href="/uphesc-maths/_astro/Base.CkQ5KWO8.css"></head><body data-tab="learn"><nav class="appnav" aria-label="Main"><a class="appnav-brand" href="/uphesc-maths/" aria-label="UPESSC maths home">∑</a><a class="appnav-item" href="/uphesc-maths/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4 10.2 12 4l8 6.2V19a1 1 0 0 1-1 1h-4.5v-5.5h-5V20H5a1 1 0 0 1-1-1z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Plan</span></a><a class="appnav-item" href="/uphesc-maths/learn/" aria-current="page"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M12 6.5C10 5 7.5 4.5 4 4.5v13c3.5 0 6 .5 8 2 2-1.5 4.5-2 8-2v-13c-3.5 0-6 .5-8 2zM12 6.5v13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Learn</span></a><a class="appnav-item" href="/uphesc-maths/units/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4 5h7v7H4zM13 5h7v7h-7zM4 14h7v6H4zM13 14h7v6h-7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Units</span></a><a class="appnav-item" href="/uphesc-maths/papers/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M7 3h7l4 4v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zM14 3v4h4M9 12h6M9 16h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Papers</span></a><a class="appnav-item" href="/uphesc-maths/revise/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M5 12.5 9.5 17 19 7.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Revise</span></a></nav><header class="topbar"><a class="bar-back" href="/uphesc-maths/learn/linear-algebra/" aria-label="Back"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a><p class="bar-title">Unit 2</p><button class="bar-btn" type="button" data-mode-toggle aria-label="Switch light or dark"><svg class="i-moon" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path></svg><svg class="i-sun" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path></svg></button></header><main class="page"><header class="page-head"><p class="kicker">Unit 2 · Linear Algebra</p><h1>Formula sheet</h1><p class="lede">Every formula and result of the unit. Each topic page explains where they come from.</p></header><article class="prose formula-sheet">
+<h3 id="vector-spaces">Vector spaces</h3>
+<ul>
+<li><span class="math">\(\dim(U+W)=\dim U+\dim W-\dim(U\cap W)\)</span>; <span class="math">\(V=U\oplus W\)</span> iff <span class="math">\(U\cap W=0\)</span> and <span class="math">\(\dim U+\dim W=\dim V\)</span>.</li>
+<li><span class="math">\(\dim V/W=\dim V-\dim W\)</span>; <span class="math">\(\dim(U\cap W)\ge\dim U+\dim W-\dim V\)</span>.</li>
+<li><span class="math">\(\dim M_n=n^2\)</span>; symmetric <span class="math">\(\tfrac{n(n+1)}2\)</span>; skew-symmetric <span class="math">\(\tfrac{n(n-1)}2\)</span>; trace zero <span class="math">\(n^2-1\)</span>; <span class="math">\(\dim P_n=n+1\)</span>; <span class="math">\(\dim_{\mathbb R}\mathbb C^n=2n\)</span>.</li>
+<li>Over <span class="math">\(F_q\)</span>: <span class="math">\(\lvert F_q^n\rvert=q^n\)</span>; number of ordered bases <span class="math">\(\prod_{i=0}^{n-1}(q^n-q^i)\)</span>; number of lines <span class="math">\((q^n-1)/(q-1)\)</span>.</li>
+<li><span class="math">\(U\cup W\)</span> is a subspace iff one contains the other.</li>
+</ul>
+<h3 id="linear-transformations">Linear transformations</h3>
+<ul>
+<li><span class="math">\(\dim V=\operatorname{nullity}T+\operatorname{rank}T\)</span> (nullity of the domain).</li>
+<li><span class="math">\(\dim L(V,W)=\dim V\cdot\dim W\)</span>.</li>
+<li>Column <span class="math">\(j\)</span> of <span class="math">\([T]_{B,C}\)</span> is <span class="math">\([T(b_j)]_C\)</span>; <span class="math">\([T]_{B'}=P^{-1}[T]_BP\)</span>.</li>
+<li>Similar matrices share trace, determinant, rank, <span class="math">\(\chi\)</span> and <span class="math">\(m\)</span>.</li>
+<li><span class="math">\(\operatorname{rank}A+\operatorname{rank}B-n\le\operatorname{rank}AB\le\min(\operatorname{rank}A,\operatorname{rank}B)\)</span>.</li>
+<li><span class="math">\(\operatorname{rank}(A+B)\le\operatorname{rank}A+\operatorname{rank}B\)</span>.</li>
+<li><span class="math">\(P^2=P\)</span>: <span class="math">\(V=\ker P\oplus\operatorname{range}P\)</span>, eigenvalues <span class="math">\(0,1\)</span>, <span class="math">\(\operatorname{tr}P=\operatorname{rank}P\)</span>.</li>
+<li>Nilpotent <span class="math">\(N\)</span> of index <span class="math">\(k\)</span>: <span class="math">\(N^n=0\)</span>, <span class="math">\(\operatorname{tr}N=0\)</span>, <span class="math">\((I-N)^{-1}=I+N+\cdots+N^{k-1}\)</span>; <span class="math">\(N^2=0\Rightarrow\operatorname{rank}N\le n/2\)</span>.</li>
+</ul>
+<h3 id="dual-spaces-and-linear-systems">Dual spaces and linear systems</h3>
+<ul>
+<li><span class="math">\(\dim V^*=\dim V\)</span>; dual basis <span class="math">\(f_i(v_j)=\delta_{ij}\)</span>, given by the rows of <span class="math">\(P^{-1}\)</span> when the basis vectors are the columns of <span class="math">\(P\)</span>.</li>
+<li><span class="math">\(\dim W^0=\dim V-\dim W\)</span>; <span class="math">\((W_1+W_2)^0=W_1^0\cap W_2^0\)</span>; <span class="math">\((W_1\cap W_2)^0=W_1^0+W_2^0\)</span>.</li>
+<li><span class="math">\(\ker T^t=(\operatorname{range}T)^0\)</span>; <span class="math">\(\operatorname{range}T^t=(\ker T)^0\)</span>; <span class="math">\(\operatorname{rank}T^t=\operatorname{rank}T\)</span>.</li>
+<li><span class="math">\(\ker f\subseteq\ker g\Rightarrow g=cf\)</span>.</li>
+<li><span class="math">\(Ax=b\)</span> is consistent iff <span class="math">\(\operatorname{rank}A=\operatorname{rank}[A\mid b]\)</span>; the solution set is empty or an affine space of dimension <span class="math">\(n-\operatorname{rank}A\)</span>; unique iff the rank is <span class="math">\(n\)</span>.</li>
+<li><span class="math">\(\operatorname{rank}(\operatorname{adj}A)=n,1,0\)</span> according as <span class="math">\(\operatorname{rank}A=n,\ n-1,\ &lt;n-1\)</span>.</li>
+<li><span class="math">\(Ax=0\)</span> has a non-trivial solution iff <span class="math">\(\operatorname{rank}A&lt;n\)</span> (for square <span class="math">\(A\)</span>: iff <span class="math">\(\det A=0\)</span>).</li>
+</ul>
+<h3 id="eigenvalues-and-diagonalisation">Eigenvalues and diagonalisation</h3>
+<ul>
+<li><span class="math">\(\chi_A(x)=\det(xI-A)=x^n-(\operatorname{tr}A)x^{n-1}+\cdots+(-1)^n\det A\)</span>.</li>
+<li><span class="math">\(\sum\lambda_i=\operatorname{tr}A\)</span>, <span class="math">\(\prod\lambda_i=\det A\)</span>, <span class="math">\(\operatorname{tr}A^k=\sum\lambda_i^k\)</span>.</li>
+<li><span class="math">\(1\le g(\lambda)\le a(\lambda)\)</span>, with <span class="math">\(g(\lambda)=n-\operatorname{rank}(A-\lambda I)\)</span>.</li>
+<li>Cayley-Hamilton: <span class="math">\(\chi_A(A)=0\)</span>; <span class="math">\(m_A\mid\chi_A\)</span>; same roots.</li>
+<li><span class="math">\(2\times2\)</span>: <span class="math">\(A^2=(\operatorname{tr}A)A-(\det A)I\)</span> and <span class="math">\(A^{-1}=\dfrac{(\operatorname{tr}A)I-A}{\det A}\)</span>.</li>
+<li>Diagonalisable iff <span class="math">\(m_A\)</span> has distinct linear factors iff <span class="math">\(\sum g(\lambda)=n\)</span>. Distinct eigenvalues is sufficient, not necessary.</li>
+<li>Eigenvalues: <span class="math">\(p(A)\to p(\lambda)\)</span>; <span class="math">\(A^{-1}\to1/\lambda\)</span>; <span class="math">\(\operatorname{adj}A\to\det A/\lambda\)</span>; <span class="math">\(A^T\)</span> same as <span class="math">\(A\)</span>; <span class="math">\(AB\)</span> and <span class="math">\(BA\)</span> have the same <span class="math">\(\chi\)</span>.</li>
+<li><span class="math">\(A^2=A\)</span>: eigenvalues <span class="math">\(0,1\)</span>; <span class="math">\(A^2=I\)</span>: eigenvalues <span class="math">\(\pm1\)</span>; nilpotent: only <span class="math">\(0\)</span>; rank one <span class="math">\(uv^T\)</span>: <span class="math">\(v^Tu\)</span> and <span class="math">\(0\)</span>’s.</li>
+<li><span class="math">\(\det(\operatorname{adj}A)=(\det A)^{n-1}\)</span>; <span class="math">\(\det(I+uv^T)=1+v^Tu\)</span>.</li>
+<li>Tridiagonal <span class="math">\(2,-1,-1\)</span>: <span class="math">\(\det=n+1\)</span>.</li>
+</ul>
+<h3 id="canonical-forms">Canonical forms</h3>
+<ul>
+<li>Jordan blocks for <span class="math">\(\lambda\)</span>: their number is <span class="math">\(g(\lambda)\)</span>, their sizes sum to <span class="math">\(a(\lambda)\)</span>, the largest equals the exponent of <span class="math">\((x-\lambda)\)</span> in <span class="math">\(m_A\)</span>.</li>
+<li>Number of blocks of size exactly <span class="math">\(k\)</span>: <span class="math">\(r_{k-1}-2r_k+r_{k+1}\)</span> with <span class="math">\(r_k=\operatorname{rank}(A-\lambda I)^k\)</span>.</li>
+<li>Number of Jordan forms for a given <span class="math">\(\chi=\prod(x-\lambda_i)^{a_i}\)</span>: <span class="math">\(\prod p(a_i)\)</span> (partition numbers); <span class="math">\(\chi\)</span> and <span class="math">\(m\)</span> determine the form when <span class="math">\(n\le3\)</span>, not for <span class="math">\(n=4\)</span> in general.</li>
+<li>Nilpotent <span class="math">\(n\times n\)</span> classes: <span class="math">\(p(n)\)</span>; <span class="math">\(N\sim J_n(0)\)</span> iff <span class="math">\(N^{n-1}\ne0\)</span>.</li>
+<li>Invariant factors <span class="math">\(d_1\mid d_2\mid\cdots\mid d_k\)</span>: <span class="math">\(\chi=\prod d_i\)</span>, <span class="math">\(m=d_k\)</span>, <span class="math">\(\sum\deg d_i=n\)</span>.</li>
+<li>Companion matrix <span class="math">\(C(f)\)</span> has <span class="math">\(\chi=m=f\)</span>. Rational form exists over any field; Jordan form needs <span class="math">\(\chi\)</span> to split.</li>
+<li><span class="math">\(J_2(\lambda)^m=\begin{pmatrix}\lambda^m&amp;m\lambda^{m-1}\\0&amp;\lambda^m\end{pmatrix}\)</span>.</li>
+</ul>
+<h3 id="inner-product-spaces">Inner product spaces</h3>
+<ul>
+<li>Cauchy-Schwarz: <span class="math">\(\lvert\langle x,y\rangle\rvert\le\lVert x\rVert\lVert y\rVert\)</span>, equality iff <span class="math">\(x,y\)</span> dependent.</li>
+<li>Parallelogram law: <span class="math">\(\lVert x+y\rVert^2+\lVert x-y\rVert^2=2\lVert x\rVert^2+2\lVert y\rVert^2\)</span>.</li>
+<li>Gram-Schmidt: <span class="math">\(u_j=v_j-\sum_{i&lt;j}\dfrac{\langle v_j,u_i\rangle}{\langle u_i,u_i\rangle}u_i\)</span>.</li>
+<li>Orthonormal expansion <span class="math">\(x=\sum\langle x,e_i\rangle e_i\)</span>; Parseval <span class="math">\(\lVert x\rVert^2=\sum\lvert\langle x,e_i\rangle\rvert^2\)</span>.</li>
+<li><span class="math">\(\dim W+\dim W^\perp=\dim V\)</span>; <span class="math">\(W^{\perp\perp}=W\)</span>; <span class="math">\(S\subseteq S^{\perp\perp}\)</span>.</li>
+<li>Projection onto a line: <span class="math">\(vv^T/v^Tv\)</span>; onto the column space of <span class="math">\(A\)</span>: <span class="math">\(A(A^TA)^{-1}A^T\)</span>. Orthogonal projections satisfy <span class="math">\(P^2=P=P^*\)</span>.</li>
+<li>Adjoint: <span class="math">\(\langle Tx,y\rangle=\langle x,T^*y\rangle\)</span>; <span class="math">\((ST)^*=T^*S^*\)</span>; <span class="math">\(\ker T^*=(\operatorname{range}T)^\perp\)</span>.</li>
+<li>Hermitian: real eigenvalues. Skew-Hermitian: purely imaginary or <span class="math">\(0\)</span>. Unitary: <span class="math">\(\lvert\lambda\rvert=1\)</span> and <span class="math">\(\lvert\det\rvert=1\)</span>. Real orthogonal: <span class="math">\(\det=\pm1\)</span>.</li>
+<li>Normal (<span class="math">\(AA^*=A^*A\)</span>) iff unitarily diagonalisable; real symmetric: orthogonally diagonalisable with real eigenvalues; eigenvectors of distinct eigenvalues are orthogonal.</li>
+<li>Cayley transform: <span class="math">\(K\)</span> skew-Hermitian implies <span class="math">\((I-K)(I+K)^{-1}\)</span> unitary.</li>
+</ul>
+<h3 id="quadratic-forms">Quadratic forms</h3>
+<ul>
+<li>Matrix of <span class="math">\(Q\)</span>: <span class="math">\(a_{ii}\)</span> is the coefficient of <span class="math">\(x_i^2\)</span>, <span class="math">\(a_{ij}\)</span> is half the coefficient of <span class="math">\(x_ix_j\)</span>.</li>
+<li>Congruence <span class="math">\(B=P^TAP\)</span> (<span class="math">\(P\)</span> invertible) preserves rank, definiteness and the pair <span class="math">\((p,q)\)</span>.</li>
+<li>Rank <span class="math">\(r=p+q\)</span>, index <span class="math">\(p\)</span> (number of positive squares), signature <span class="math">\(p-q\)</span>. Sylvester’s law of inertia: <span class="math">\((p,q)\)</span> does not depend on the reduction used.</li>
+<li>Number of real congruence classes of forms in <span class="math">\(n\)</span> variables: <span class="math">\(\tfrac{(n+1)(n+2)}2\)</span>; complex: <span class="math">\(n+1\)</span>.</li>
+<li>For symmetric <span class="math">\(A\)</span>, <span class="math">\(p\)</span> and <span class="math">\(q\)</span> are the numbers of positive and negative eigenvalues.</li>
+<li>Positive definite iff all eigenvalues <span class="math">\(&gt;0\)</span> iff all leading minors <span class="math">\(\Delta_k&gt;0\)</span> iff <span class="math">\(A=B^TB\)</span> with <span class="math">\(B\)</span> invertible. Negative definite iff <span class="math">\((-1)^k\Delta_k&gt;0\)</span>. Positive semidefinite iff all principal minors <span class="math">\(\ge0\)</span> (not only the leading ones).</li>
+<li>Rayleigh: <span class="math">\(\lambda_{\min}\le x^TAx\le\lambda_{\max}\)</span> for <span class="math">\(\lVert x\rVert=1\)</span>.</li>
+<li>Conics: <span class="math">\(ax^2+2hxy+by^2+\cdots\)</span> with <span class="math">\(\delta=ab-h^2\)</span>; rotation angle <span class="math">\(\tan2\theta=\dfrac{2h}{a-b}\)</span>.</li>
+</ul>
+</article><p class="prev-link"><a href="/uphesc-maths/learn/linear-algebra/">Back to the unit</a></p><footer class="foot"><p>Built from every paper that survives: the full 2025 and 2026 papers (140 maths questions) and half of 2019 (35, from a solution video). 2015 left only an answer key, and nothing was found for 2021. The commission has never published its booklets. Unit counts use 2025 and 2026 only, so they show a range, not a trend.</p><p>2025 answers match the official key. 2026 has no key yet, so its answers were worked out by hand and marked high, medium or low confidence, and every unsure one was solved again, blind. 2019 answers come from the video and are not checked against the official key.</p></footer></main><script type="module">var e=document.documentElement,t=()=>e.dataset.mode?e.dataset.mode===`dark`:matchMedia(`(prefers-color-scheme: dark)`).matches;document.querySelector(`[data-mode-toggle]`)?.addEventListener(`click`,()=>{let n=t()?`light`:`dark`;e.dataset.mode=n;try{localStorage.setItem(`um:mode`,n)}catch{}}),!e.dataset.mode&&t()&&(e.dataset.mode=`dark`);var n=document.querySelectorAll(`[data-old-toggle]`),r=t=>{t?e.dataset.old=`on`:delete e.dataset.old,n.forEach(e=>e.setAttribute(`aria-checked`,String(t)))};r(e.dataset.old===`on`),n.forEach(t=>t.addEventListener(`click`,()=>{let t=e.dataset.old!==`on`;r(t);try{localStorage.setItem(`um:old`,t?`on`:`off`)}catch{}}));var i=document.querySelectorAll(`[data-view]`),a=t=>{t===`bars`?e.dataset.view=`bars`:delete e.dataset.view,i.forEach(e=>e.setAttribute(`aria-pressed`,String(e.dataset.view===t)))};a(e.dataset.view===`bars`?`bars`:`heat`),i.forEach(e=>e.addEventListener(`click`,()=>{a(e.dataset.view);try{localStorage.setItem(`um:view`,e.dataset.view)}catch{}}));var o=document.createElement(`div`);o.className=`tip`,o.setAttribute(`role`,`tooltip`),o.hidden=!0,document.body.append(o);var s=null,c=(e,t)=>{let n=o.offsetWidth,r=o.offsetHeight,i=e+12,a=t+12;i+n>innerWidth-8&&(i=Math.max(8,e-n-12)),a+r>innerHeight-8&&(a=Math.max(8,t-r-12)),o.style.left=`${i}px`,o.style.top=`${a}px`},l=()=>{if(s){let e=s.getBoundingClientRect();c(e.left+e.width*.3,e.bottom-8)}},u=e=>{e!==s&&(s=e,o.replaceChildren(...[...e.querySelector(`.tip-src`).childNodes].map(e=>e.cloneNode(!0)))),o.hidden=!1},d=()=>{o.hidden=!0,s=null};document.addEventListener(`pointermove`,e=>{if(e.pointerType!==`mouse`)return;let t=e.target.closest(`[data-tip]`);t?(u(t),c(e.clientX,e.clientY)):s&&d()}),document.addEventListener(`focusin`,e=>{let t=e.target.closest(`[data-tip]`);t&&(u(t),l())}),document.addEventListener(`focusout`,()=>d()),addEventListener(`scroll`,()=>{s&&document.activeElement===s?l():s&&d()},{passive:!0}),document.addEventListener(`keydown`,e=>{e.key===`Escape`&&d()});var f=`um:done`,p={};try{p=JSON.parse(localStorage.getItem(f)||`{}`)}catch{}var m=()=>{document.querySelectorAll(`[data-progress]`).forEach(e=>{let t=[...document.querySelectorAll(`[data-group="${e.dataset.progress}"]`)],n=t.filter(e=>e.checked).length;e.querySelector(`.progress-bar span`).style.width=`${n/t.length*100}%`,e.querySelector(`[data-count]`).textContent=`${n} of ${t.length} done`})};document.querySelectorAll(`input[data-check]`).forEach(e=>{e.checked=!!p[e.dataset.check],e.addEventListener(`change`,()=>{p[e.dataset.check]=e.checked;try{localStorage.setItem(f,JSON.stringify(p))}catch{}m()})}),m();</script></body></html>

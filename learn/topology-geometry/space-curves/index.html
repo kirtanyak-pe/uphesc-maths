@@ -1,0 +1,262 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Space curves · UPESSC maths</title><meta name="description" content="What to study for the UPESSC (formerly UPHESC) Assistant Professor maths paper, built from every paper that survives."><link rel="icon" href="/uphesc-maths/favicon.svg" type="image/svg+xml"><link rel="preload" href="/uphesc-maths/fonts/inter-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin><!-- the saved light/dark, 2019 and chart-view choices, before first paint --><script>
+    try { var m = localStorage.getItem('um:mode'); if (m) document.documentElement.dataset.mode = m; } catch (e) {}
+    try { if (localStorage.getItem('um:old') === 'on') document.documentElement.dataset.old = 'on'; } catch (e) {}
+    try { if (localStorage.getItem('um:view') === 'bars') document.documentElement.dataset.view = 'bars'; } catch (e) {}
+  </script><!-- maths: the vendored MathJax typesets \( \) and \[ \] text, loaded only on pages that have any --><script>(function(){const VENDOR = "/uphesc-maths/vendor";
+
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+      loader: { paths: { mathjax: VENDOR + '/mathjax', fonts: VENDOR + '/mathjax/fonts' } },
+      output: { font: 'mathjax-stix2', displayOverflow: 'scroll' },
+      options: { ignoreHtmlClass: 'no-math', processHtmlClass: 'math', menuOptions: { settings: { enrich: false, speech: false, braille: false } } },
+      chtml: { displayOverflow: 'scroll' },
+      // an inline formula with a piece wider than its line gets its own scrolling line, like display maths
+      startup: { pageReady: () => MathJax.startup.defaultPageReady().then(fitMath) },
+    };
+    function fitMath() {
+      for (const m of document.querySelectorAll('mjx-container:not([display="true"]):not(.mjx-wide)')) {
+        const box = m.closest('p, li, dd, blockquote, div');
+        if (!box || m.closest('td, th')) continue;
+        const right = box.getBoundingClientRect().right + 1;
+        if ([...m.getClientRects()].some((r) => r.right > right)) m.classList.add('mjx-wide');
+      }
+    }
+    let fitQueued = 0;
+    const queueFit = () => { if (window.MathJax?.startup?.document && !fitQueued) fitQueued = requestAnimationFrame(() => { fitQueued = 0; fitMath(); }); };
+    addEventListener('resize', queueFit);
+    addEventListener('click', () => setTimeout(queueFit, 50));
+    document.addEventListener('DOMContentLoaded', () => {
+      if (!document.querySelector('.math')) return;
+      const s = document.createElement('script');
+      s.async = true;
+      s.src = VENDOR + '/mathjax/tex-chtml-nofont.js';
+      document.head.appendChild(s);
+    });
+  })();</script><link rel="stylesheet" href="/uphesc-maths/_astro/Base.CkQ5KWO8.css"></head><body data-tab="learn"><nav class="appnav" aria-label="Main"><a class="appnav-brand" href="/uphesc-maths/" aria-label="UPESSC maths home">∑</a><a class="appnav-item" href="/uphesc-maths/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4 10.2 12 4l8 6.2V19a1 1 0 0 1-1 1h-4.5v-5.5h-5V20H5a1 1 0 0 1-1-1z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Plan</span></a><a class="appnav-item" href="/uphesc-maths/learn/" aria-current="page"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M12 6.5C10 5 7.5 4.5 4 4.5v13c3.5 0 6 .5 8 2 2-1.5 4.5-2 8-2v-13c-3.5 0-6 .5-8 2zM12 6.5v13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Learn</span></a><a class="appnav-item" href="/uphesc-maths/units/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4 5h7v7H4zM13 5h7v7h-7zM4 14h7v6H4zM13 14h7v6h-7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Units</span></a><a class="appnav-item" href="/uphesc-maths/papers/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M7 3h7l4 4v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zM14 3v4h4M9 12h6M9 16h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Papers</span></a><a class="appnav-item" href="/uphesc-maths/revise/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M5 12.5 9.5 17 19 7.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Revise</span></a></nav><header class="topbar"><a class="bar-back" href="/uphesc-maths/learn/topology-geometry/" aria-label="Back"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a><p class="bar-title">Unit 5</p><button class="bar-btn" type="button" data-mode-toggle aria-label="Switch light or dark"><svg class="i-moon" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path></svg><svg class="i-sun" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path></svg></button></header><main class="page"><div class="reader" data-topic="space-curves"><header class="page-head topic-head"><p class="kicker"><a href="/uphesc-maths/learn/topology-geometry/">Unit 5 · Topology and Differential Geometry</a></p><h1>Space curves</h1><ul class="meta"><li class="prio high">High priority</li><li>1 h 40 min to study</li><li>Asked 5 times</li><li class="read-flag" data-read-flag hidden>Read</li></ul><p class="pyq-line">Previous papers: 2025 Q98, 2025 Q100, 2026 Q49, 2026 Q62, 2026 Q99</p></header><div class="reader-grid"><nav class="toc" aria-label="On this page"><details class="toc-box" data-toc><summary>On this page</summary><ol><li><a href="#why-it-matters-for-the-exam">Why it matters for the exam</a></li><li><a href="#core-ideas">Core ideas</a></li><li class="sub"><a href="#regular-curves-and-arc-length">Regular curves and arc length</a></li><li class="sub"><a href="#the-frenet-triad">The Frenet triad</a></li><li class="sub"><a href="#serret-frenet-formulas">Serret-Frenet formulas</a></li><li class="sub"><a href="#formulas-in-an-arbitrary-parameter">Formulas in an arbitrary parameter</a></li></ol></details></nav><article class="prose"><section class="note-section ns-why-it-matters-for-the-exam" aria-labelledby="why-it-matters-for-the-exam"><h2 id="why-it-matters-for-the-exam">Why it matters for the exam</h2>
+<p>Space curves are the most reliably asked part of differential geometry: five of the ten differential-geometry questions in the 2025 and 2026 papers are about curves (helix torsion, “constant curvature and torsion”, curvature of <span class="math">\((t,t^2,t^3)\)</span>, a curve with <span class="math">\(\tau=0\)</span>). Almost every question is one formula applied to a standard curve, or one theorem about helices. Learn the formulas for <span class="math">\(\kappa\)</span> and <span class="math">\(\tau\)</span> in a general parameter and the circular-helix values cold.</p>
+</section><section class="note-section ns-core-ideas" aria-labelledby="core-ideas"><h2 id="core-ideas">Core ideas</h2>
+<h3 id="regular-curves-and-arc-length">Regular curves and arc length</h3>
+<p>A parametrised curve is <span class="math">\(\gamma:I\to\mathbb R^3\)</span>, smooth. It is <strong>regular</strong> if <span class="math">\(\gamma'(t)\ne 0\)</span> for all <span class="math">\(t\)</span>. The <strong>arc length</strong> from <span class="math">\(t_0\)</span> is</p>
+<p><span class="math">\(s(t)=\int_{t_0}^{t}\lVert\gamma'(u)\rVert\,du,\qquad \frac{ds}{dt}=\lVert\gamma'(t)\rVert .\)</span></p>
+<p>A regular curve can always be reparametrised by <span class="math">\(s\)</span>; then <span class="math">\(\lVert\dot\gamma\rVert=1\)</span> (a dot means <span class="math">\(d/ds\)</span>). This is the <strong>unit-speed</strong> or natural parametrisation. Arc length does not depend on the parametrisation.</p>
+<p>Examples: the circular helix <span class="math">\((a\cos t,a\sin t,bt)\)</span> has speed <span class="math">\(\sqrt{a^2+b^2}\)</span>, so one turn has length <span class="math">\(2\pi\sqrt{a^2+b^2}\)</span>. For the curve <span class="math">\((t,t^2,t^3)\)</span> the speed is <span class="math">\(\sqrt{1+4t^2+9t^4}\)</span>.</p>
+<h3 id="the-frenet-triad">The Frenet triad</h3>
+<p>For a unit-speed curve:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Vector</th>
+<th>Definition</th>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math">\(T\)</span></td>
+<td><span class="math">\(\dot\gamma\)</span></td>
+<td>unit tangent</td>
+</tr>
+<tr>
+<td><span class="math">\(N\)</span></td>
+<td><span class="math">\(\dot T/\kappa\)</span> (needs <span class="math">\(\kappa\ne0\)</span>)</td>
+<td>principal normal</td>
+</tr>
+<tr>
+<td><span class="math">\(B\)</span></td>
+<td><span class="math">\(T\times N\)</span></td>
+<td>binormal</td>
+</tr>
+</tbody>
+</table></div>
+<p><span class="math">\(T,N,B\)</span> is a right-handed orthonormal frame at each point. The <strong>curvature</strong> is <span class="math">\(\kappa=\lVert\dot T\rVert=\lVert\ddot\gamma\rVert\ge0\)</span>. It measures how fast the tangent turns. The <strong>torsion</strong> <span class="math">\(\tau\)</span> is defined by <span class="math">\(\dot B=-\tau N\)</span>, equivalently <span class="math">\(\tau=\dot N\cdot B\)</span>. It measures how fast the curve leaves its osculating plane. Curvature is never negative; torsion has a sign (positive for a right-handed helix).</p>
+<p><strong>Sign convention.</strong> Most Indian textbooks (and the 2025 paper) use <span class="math">\(\dot B=-\tau N\)</span>, which gives <span class="math">\(\tau=b/(a^2+b^2)&gt;0\)</span> for the helix <span class="math">\((a\cos t,a\sin t,bt)\)</span>, <span class="math">\(b&gt;0\)</span>. Some books (do Carmo) use <span class="math">\(\dot B=\tau N\)</span> and get the opposite sign. If an option shows a negative torsion for a right-handed helix, the book used the other convention; in this exam use the first.</p>
+<h3 id="serret-frenet-formulas">Serret-Frenet formulas</h3>
+<p><span class="math">\(\dot T=\kappa N,\qquad \dot N=-\kappa T+\tau B,\qquad \dot B=-\tau N .\)</span></p>
+<p>In matrix form the coefficient matrix is skew-symmetric, which is why the frame stays orthonormal. The <strong>Darboux vector</strong> <span class="math">\(\omega=\tau T+\kappa B\)</span> gives all three at once: <span class="math">\(\dot T=\omega\times T\)</span>, <span class="math">\(\dot N=\omega\times N\)</span>, <span class="math">\(\dot B=\omega\times B\)</span>. Proof sketch: <span class="math">\(T\cdot N=0\)</span> and <span class="math">\(\lVert N\rVert=1\)</span> give <span class="math">\(\dot N\perp N\)</span>, so <span class="math">\(\dot N=aT+cB\)</span>; differentiating <span class="math">\(N\cdot T=0\)</span> gives <span class="math">\(a=-\kappa\)</span>; define <span class="math">\(\tau=c\)</span>.</p>
+<h3 id="formulas-in-an-arbitrary-parameter">Formulas in an arbitrary parameter</h3>
+<p>If <span class="math">\(\gamma(t)\)</span> is regular but not unit speed, write primes for <span class="math">\(d/dt\)</span>:</p>
+<div class="math math-display">\[\tau=\frac{(\gamma'\times\gamma'')\cdot\gamma'''}{\lVert\gamma'\times\gamma''\rVert^{2}}=\frac{[\gamma',\gamma'',\gamma''']}{\lVert\gamma'\times\gamma''\rVert^{2}}.$$
+
+The frame is $T=\gamma'/\lVert\gamma'\rVert$, $B=\gamma'\times\gamma''/\lVert\gamma'\times\gamma''\rVert$, $N=B\times T$. Also $\kappa=0$ at a point exactly when $\gamma'\parallel\gamma''$ there, and then $N,\tau$ are undefined.
+
+For a **plane curve** $y=f(x)$ the same formula gives
+$$\kappa=\frac{\lvert f''\rvert}{(1+f'^2)^{3/2}},$$
+for a parametric plane curve $\kappa=\dfrac{\lvert x'y''-y'x''\rvert}{(x'^2+y'^2)^{3/2}}$, and in polar form $r=r(\theta)$
+$$\kappa=\frac{\lvert r^2+2r'^2-rr''\rvert}{(r^2+r'^2)^{3/2}}.$$
+The radius of curvature is $\rho=1/\kappa$. For an ellipse $x^2/a^2+y^2/b^2=1$ the radius of curvature is $b^2/a$ at $(\pm a,0)$ and $a^2/b$ at $(0,\pm b)$.
+
+### Planes attached to a curve
+
+At a point $P=\gamma(t_0)$ with position vector $\mathbf r$ of a general point:
+
+| Plane | Spanned by | Normal vector | Equation |
+|---|---|---|---|
+| Osculating | $T,N$ | $B$ | $[\mathbf r-\gamma,\gamma',\gamma'']=0$ |
+| Normal | $N,B$ | $T$ | $(\mathbf r-\gamma)\cdot\gamma'=0$ |
+| Rectifying | $T,B$ | $N$ | $(\mathbf r-\gamma)\cdot N=0$ |
+
+The osculating plane is the limit of the plane through three nearby points of the curve. The curve crosses its osculating plane at a point where $\tau\ne0$.
+
+### Curves with special curvature
+
+- $\kappa\equiv0$ if and only if the curve is a straight line (or part of one).
+- If $\kappa\ne0$: $\tau\equiv0$ if and only if the curve is **planar**. Proof of "$\Rightarrow$": $\tau=0$ gives $\dot B=0$, so $B$ is constant; then $\frac{d}{ds}(\gamma\cdot B)=T\cdot B=0$, so $\gamma\cdot B$ is constant, which is a plane. The converse is clear because $B$ is the normal of that plane.
+- A plane curve has $\tau=0$ and its curvature can be given a sign. A plane curve with constant $\kappa&gt;0$ is a **circle** of radius $1/\kappa$.
+- **Fundamental theorem.** Given smooth $\kappa(s)&gt;0$ and $\tau(s)$ there is a unit-speed curve with these curvature and torsion, unique up to a rigid motion of $\mathbb R^3$. So $\kappa,\tau$ determine the curve's shape completely.
+- Curvature and torsion do not change under rigid motions; a reflection changes the sign of $\tau$.
+
+### Helices
+
+A **general (cylindrical) helix** is a curve whose tangent makes a constant angle with a fixed direction.
+
+**Lancret's theorem.** A curve with $\kappa\ne 0$ is a general helix if and only if $\tau/\kappa$ is constant. If the angle with the axis is $\theta$, then $\tau/\kappa=\cot\theta$. Plane curves ($\tau=0$) are the degenerate case $\theta=90^\circ$.
+
+Idea of proof: if $T\cdot u=\cos\theta$ for a fixed unit vector $u$, differentiate: $\kappa N\cdot u=0$, so $u\in\operatorname{span}(T,B)$, $u=\cos\theta\,T+\sin\theta\,B$. Differentiating $N\cdot u=0$ gives $-\kappa\cos\theta+\tau\sin\theta=0$, i.e. $\tau/\kappa=\cot\theta$. The converse takes $u=\cos\theta\,T+\sin\theta\,B$ and shows it is constant.
+
+The **circular helix** $\gamma(t)=(a\cos t,a\sin t,bt)$, $a&gt;0$, $b\ne0$:
+
+$$\kappa=\frac{a}{a^2+b^2},\qquad \tau=\frac{b}{a^2+b^2},\qquad \frac{\tau}{\kappa}=\frac ba .$$
+
+Its axis is the $z$-axis, the tangent makes the angle $\theta$ with it where $\tan\theta=a/b$, and it lies on the cylinder of radius $a$.
+
+**Theorem.** A curve with $\kappa$ and $\tau$ both constant is a circular helix, provided $\tau\ne0$ and $\kappa&gt;0$. (If $\tau=0$ it is a circle; if $\kappa=0$ it is a line.) Reason: constant $\kappa,\tau$ means $\tau/\kappa$ constant, so a general helix, and the fundamental theorem says the curve with these constants is the helix with $a=\kappa/(\kappa^2+\tau^2)$, $b=\tau/(\kappa^2+\tau^2)$.
+
+The converse is false: a general helix need not have constant $\kappa,\tau$. For example $\gamma(t)=(3t-t^3,\,3t^2,\,3t+t^3)$ has $\kappa=\tau=\dfrac{1}{3(1+t^2)^2}$, so $\tau/\kappa=1$ (tangent at $45^\circ$ to the $z$-axis), but neither is constant. The hierarchy is: circular helix $\subset$ general helix, and the question stem "constant curvature and torsion" means circular helix, not just "a helix".
+
+### Osculating circle and osculating sphere
+
+The **osculating circle** at $P$ lies in the osculating plane, has radius $\rho=1/\kappa$ and centre (the **centre of curvature**) $C=\gamma+\rho N$. It has second-order contact with the curve.
+
+The **osculating sphere** has centre and radius
+$$C=\gamma+\rho N+\frac{\dot\rho}{\tau}B,\qquad R^2=\rho^2+\Big(\frac{\dot\rho}{\tau}\Big)^2,$$
+where $\dot\rho=d\rho/ds$ (needs $\tau\ne0$). Differentiating $C$ gives $\dot C=\big(\rho\tau+\tfrac{d}{ds}(\dot\rho/\tau)\big)B$, so the osculating sphere has a fixed centre, i.e. the curve lies on a sphere, exactly when $\rho\tau+\dfrac{d}{ds}\Big(\dfrac{\dot\rho}{\tau}\Big)=0$. Then $R^2=\rho^2+(\dot\rho/\tau)^2$ is the constant squared radius. Caution: $R^2$ being constant is not enough (a circular helix has $\dot\rho=0$ and constant $R^2=\rho^2$, but it is not spherical).
+
+### Involutes and evolutes
+
+The **involute** of a unit-speed curve $\gamma$ is obtained by unwinding a taut string:
+$$\bar\gamma(s)=\gamma(s)+(c-s)\,T(s),\qquad c\ \text{constant}.$$
+Then $\dot{\bar\gamma}=(c-s)\kappa N$, so the tangent of the involute is $N$: the involute cuts all tangent lines of $\gamma$ at right angles. Different $c$ give a family of parallel involutes. The curvature of the involute is
+$$\bar\kappa=\frac{\sqrt{\kappa^2+\tau^2}}{\kappa\,\lvert c-s\rvert},$$
+which for a plane curve reduces to $1/\lvert c-s\rvert$ (the centre of curvature of the involute is the point of $\gamma$). Example: the involute of the circle of radius $a$ is $a(\cos t+t\sin t,\ \sin t-t\cos t)$ with curvature $1/(at)$.
+
+An **evolute** of $\gamma$ is a curve whose tangent lines are the normal lines of $\gamma$ (so $\gamma$ is an involute of its evolutes). For a plane curve the evolute is the locus of centres of curvature $\gamma+\rho N$. In space the evolutes are
+$$\Gamma(s)=\gamma+\rho N+\rho\cot\!\Big(\int\tau\,ds+c\Big)B,$$
+one for each constant $c$; for a plane curve $\tau=0$ and the cotangent factor is constant, and the plane evolute is $c=\pi/2$. Examples: the evolute of the parabola $y^2=4ax$ is the semicubical parabola $27ay^2=4(x-2a)^3$; the evolute of a circle is its centre; the evolute of a cycloid is an equal cycloid.
+
+### Other results that appear in exams
+
+- **Bertrand curves.** Two curves with the same principal normals at corresponding points. A curve has a Bertrand mate if and only if $a\kappa+b\tau=1$ for constants $a,b$ with $a\ne0$ -- a linear relation between $\kappa$ and $\tau$. Circular helices are Bertrand; in fact they have infinitely many mates.
+- Curves on a sphere of radius $R$ have $\kappa\ge1/R$.
+- The **tangent indicatrix** is the curve $T(s)$ on the unit sphere; $\lVert\dot T\rVert=\kappa$ is its speed. The binormal indicatrix has speed $\lvert\tau\rvert$.
+
+## Formulas and results
+
+**Frenet**
+
+- $\dot T=\kappa N$, $\dot N=-\kappa T+\tau B$, $\dot B=-\tau N$; $B=T\times N$, $N=B\times T$, $T=N\times B$.
+- $\kappa=\lVert\ddot\gamma\rVert$ for unit speed; $\tau=\dot N\cdot B=\dfrac{[\dot\gamma,\ddot\gamma,\dddot\gamma]}{\kappa^2}$.
+- Any parameter: $\kappa=\dfrac{\lVert\gamma'\times\gamma''\rVert}{\lVert\gamma'\rVert^3}$, $\tau=\dfrac{[\gamma',\gamma'',\gamma''']}{\lVert\gamma'\times\gamma''\rVert^2}$.
+- Plane curves: $\kappa=\dfrac{\lvert f''\rvert}{(1+f'^2)^{3/2}}$; $\kappa=\dfrac{\lvert x'y''-y'x''\rvert}{(x'^2+y'^2)^{3/2}}$; polar $\dfrac{\lvert r^2+2r'^2-rr''\rvert}{(r^2+r'^2)^{3/2}}$.
+
+**Standard curves**
+
+| Curve | $\kappa$ | $\tau$ |
+|---|---|---|
+| Line | $0$ | undefined |
+| Circle of radius $r$ | $1/r$ | $0$ |
+| Helix $(a\cos t,a\sin t,bt)$ | $a/(a^2+b^2)$ | $b/(a^2+b^2)$ |
+| Twisted cubic $(t,t^2,t^3)$ | $\dfrac{2\sqrt{1+9t^2+9t^4}}{(1+4t^2+9t^4)^{3/2}}$ | $\dfrac{3}{1+9t^2+9t^4}$ |
+| $(3t-t^3,3t^2,3t+t^3)$ | $\dfrac{1}{3(1+t^2)^2}$ | $\dfrac{1}{3(1+t^2)^2}$ |
+
+At $t=0$ the twisted cubic has $\kappa=2$, $\tau=3$.
+
+**Theorems**
+
+- $\tau\equiv0$ ($\kappa\ne0$) $\iff$ planar. $\kappa\equiv0\iff$ line.
+- Lancret: general helix $\iff\tau/\kappa$ constant ($=\cot\theta$).
+- $\kappa,\tau$ both constant and $\tau\ne0$ $\iff$ circular helix; $a=\kappa/(\kappa^2+\tau^2)$, $b=\tau/(\kappa^2+\tau^2)$.
+- Fundamental theorem: $\kappa(s)&gt;0,\tau(s)$ determine the curve up to rigid motion.
+- Osculating circle: radius $1/\kappa$, centre $\gamma+\rho N$. Osculating sphere: centre $\gamma+\rho N+(\dot\rho/\tau)B$.
+- Involute: $\gamma+(c-s)T$; evolute (plane): $\gamma+\rho N$.
+
+## Worked examples
+
+### Example 1: curvature and torsion of a helix
+
+Find $\kappa,\tau$ for $\gamma(t)=(3\cos t,3\sin t,4t)$.
+
+$\gamma'=(-3\sin t,3\cos t,4)$, $\gamma''=(-3\cos t,-3\sin t,0)$, $\gamma'''=(3\sin t,-3\cos t,0)$.
+$\gamma'\times\gamma''=(12\sin t,-12\cos t,9)$, so $\lVert\gamma'\times\gamma''\rVert=\sqrt{144+81}=15$ and $\lVert\gamma'\rVert=5$.
+$\kappa=15/125=3/25$.
+$(\gamma'\times\gamma'')\cdot\gamma'''=36\sin^2t+36\cos^2t=36$, so $\tau=36/225=4/25$.
+This agrees with $a/(a^2+b^2)=3/25$ and $b/(a^2+b^2)=4/25$.
+
+### Example 2: twisted cubic
+
+For $\gamma=(t,t^2,t^3)$: $\gamma'=(1,2t,3t^2)$, $\gamma''=(0,2,6t)$, $\gamma'''=(0,0,6)$.
+$\gamma'\times\gamma''=(6t^2,-6t,2)$, norm squared $=36t^4+36t^2+4=4(9t^4+9t^2+1)$.
+$[\gamma',\gamma'',\gamma''']=12$, so $\tau=\dfrac{12}{4(9t^4+9t^2+1)}=\dfrac{3}{1+9t^2+9t^4}$.
+At $t=1$: $\tau=3/19$, $\kappa=\dfrac{2\sqrt{19}}{14^{3/2}}$.
+At $t=0$: $\gamma'=(1,0,0)$, $\gamma''=(0,2,0)$, so $\kappa=2/1=2$ and $\tau=3$.
+
+### Example 3: osculating plane
+
+Osculating plane of the twisted cubic at $t=1$, point $(1,1,1)$. The binormal direction is $\gamma'\times\gamma''=(6,-6,2)\parallel(3,-3,1)$. The plane is $3(x-1)-3(y-1)+(z-1)=0$, i.e. $3x-3y+z=1$.
+
+### Example 4: a general helix and its angle
+
+Show $\gamma(t)=(3t-t^3,3t^2,3t+t^3)$ is a general helix and find the angle with its axis.
+$\gamma'=(3-3t^2,6t,3+3t^2)$, $\lVert\gamma'\rVert^2=9\,(2+2t^4+4t^2)=18(1+t^2)^2$, so $\lVert\gamma'\rVert=3\sqrt2(1+t^2)$. Then $T\cdot(0,0,1)=\dfrac{3(1+t^2)}{3\sqrt2(1+t^2)}=\dfrac1{\sqrt2}$ is constant, so the axis is the $z$-axis and $\theta=45^\circ$. Consistently $\tau/\kappa=\cot45^\circ=1$.
+
+### Example 5: curvature of a plane curve
+
+Radius of curvature of the ellipse $x^2/9+y^2/4=1$ at $(3,0)$. With $x=3\cos t$, $y=2\sin t$ at $t=0$: $x'=0$, $y'=2$, $x''=-3$, $y''=0$. $\kappa=\lvert 0\cdot0-2\cdot(-3)\rvert/(0+4)^{3/2}=6/8=3/4$. So $\rho=b^2/a=4/3$.
+
+### Example 6: constants to helix
+
+A curve has constant $\kappa=3$ and $\tau=4$. Then it is a circular helix with $a=3/25$, $b=4/25$ (radius of its cylinder $3/25$), pitch $2\pi b=8\pi/25$, and $\tau/\kappa=4/3=b/a$.
+
+## Common traps
+
+- **"Constant $\kappa$ and $\tau$" gives a circular helix, not a circle.** A circle needs $\tau=0$. Examiners use circle, line, helix, ellipse as options.
+- **"Helix" vs "circular helix".** A general (cylindrical) helix only needs $\tau/\kappa$ constant. In 2025-Q100 the correct option is "circular helix", while "a helix" and "a cylindrical helix" are look-alikes.
+- **Torsion formula mix-ups.** The helix has $\kappa=a/(a^2+b^2)$ and $\tau=b/(a^2+b^2)$: both have denominator $a^2+b^2$, not $(a\pm b)^2$ and not $a^2-b^2$. Note $\kappa$ has $a$ upstairs, $\tau$ has $b$.
+- **Wrong cross-product order.** $\tau$ uses $(\gamma'\times\gamma'')\cdot\gamma'''$, with the triple product in order; the denominator is $\lVert\gamma'\times\gamma''\rVert^2$, not the cube and not $\lVert\gamma'\rVert^3$.
+- **Torsion of a plane curve is $0$**, and torsion of a line is not defined (not "$0$ or infinity").
+- **Curvature is non-negative.** If the answer is $-2$ you used a signed plane curvature.
+- **Unit speed.** $\kappa=\lVert\ddot\gamma\rVert$ only for the arc-length parameter. In any other parameter $\gamma''$ also has a tangential part.
+- **$\tau=0$ implies planar only when $\kappa\ne0$.** Without $\kappa\ne0$ the frame does not exist.
+- A curve with $\kappa=1$, $\tau=0$ is a unit circle; it needs a plane ($\mathbb R^2$) to sit in, though the circle itself is a $1$-dimensional manifold.
+- Frenet formulas: $\dot N=-\kappa T+\tau B$ (sign on $\kappa T$ is negative); $\dot B=-\tau N$ (minus). Options flip these signs.
+
+## Previous-year questions
+
+**2025-Q98.** The torsion of the circular helix $\mathbf r=(a\cos u,a\sin u,bu)$ is: (A) $\dfrac{ab}{(a+b)^2}$ (B) $\dfrac{b}{a^2+b^2}$ (C) $\dfrac{a}{a^2-b^2}$ (D) $\dfrac{ab}{(a-b)^2}$.
+**Answer: B.** $\mathbf r'=(-a\sin u,a\cos u,b)$, $\mathbf r''=(-a\cos u,-a\sin u,0)$, $\mathbf r'''=(a\sin u,-a\cos u,0)$. $\mathbf r'\times\mathbf r''=(ab\sin u,-ab\cos u,a^2)$, norm$^2=a^2(a^2+b^2)$. Triple product $=a^2b$. $\tau=a^2b/(a^2(a^2+b^2))=b/(a^2+b^2)$. (Option letters follow the official key; the printed options are partly garbled in the scan, but the key is $b/(a^2+b^2)$.)
+
+**2025-Q100.** If the curvature and torsion of a curve are both constant, the curve is: (A) a cylindrical helix (B) a helix (C) a circular helix (D) none of these.
+**Answer: C.** Constant $\kappa,\tau$ gives $\tau/\kappa$ constant (a general helix) and the fundamental theorem fixes it as a circular helix (for $\tau\ne0$, $\kappa&gt;0$). A and B are true but weaker; C is the exact name.
+
+**2026-Q49.** (Worked key, unofficial.) A curve has $\kappa=1$, $\tau=0$. Using the geometric interpretation and manifold embedding, the dimension of the minimal ambient manifold containing the curve is: (A) $1$ (B) $3$ (C) $2$ (D) infinite.
+**Answer: C ($2$).** $\tau\equiv0$ makes it a plane curve and constant $\kappa=1$ makes it a unit circle, which sits in a plane, dimension $2$. Not fully certain: the wording is vague, and if "manifold" meant the circle itself the dimension would be $1$ (A). The worked key takes the ambient plane.
+
+**2026-Q62.** (Worked key, unofficial.) For $\gamma(t)=(t,t^2,t^3)$ the curvature at $t=0$ is: (A) $0$ (B) $1$ (C) $2$ (D) $3$.
+**Answer: C.** At $t=0$, $\gamma'=(1,0,0)$, $\gamma''=(0,2,0)$, $\gamma'\times\gamma''=(0,0,2)$, $\kappa=2/1^3=2$. Option D ($3$) is the torsion at $t=0$.
+
+**2026-Q99.** (Worked key, unofficial.) A curve with constant non-zero curvature and torsion has the geometric form: (A) circle (B) line (C) helix (D) ellipse (the paper shows options as circle, helix and others; the key is the helix).
+**Answer: C (helix).** A circle has $\tau=0$, a line has $\kappa=0$, so only the circular helix remains.
+
+## Quick revision
+
+- Unit speed: $\kappa=\lVert\ddot\gamma\rVert$; general: $\kappa=\lVert\gamma'\times\gamma''\rVert/\lVert\gamma'\rVert^3$.
+- $\tau=[\gamma',\gamma'',\gamma''']/\lVert\gamma'\times\gamma''\rVert^2$.
+- $\dot T=\kappa N$, $\dot N=-\kappa T+\tau B$, $\dot B=-\tau N$.
+- Helix $(a\cos t,a\sin t,bt)$: $\kappa=\frac{a}{a^2+b^2}$, $\tau=\frac{b}{a^2+b^2}$.
+- Twisted cubic at $t=0$: $\kappa=2$, $\tau=3$.
+- $\tau=0$ with $\kappa\ne0$ means a plane curve; $\kappa=0$ means a line.
+- $\tau/\kappa$ constant $=\cot\theta$ means a general helix (Lancret).
+- Constant $\kappa,\tau\ne0$ means a circular helix; constant $\kappa$, $\tau=0$ means a circle.
+- Osculating plane normal is $B$; the osculating circle has radius $1/\kappa$ and centre $\gamma+\rho N$.
+- Involute: $\gamma+(c-s)T$; evolute of a plane curve is its locus of centres of curvature.
+- $\kappa$ and $\tau$ determine a curve up to rigid motion.\]</div>
+</section></article></div><section class="section reader-end"><button class="read-btn" type="button" data-read-btn aria-pressed="false"><span class="box" aria-hidden="true"></span><span data-read-label>Mark as read</span></button><ul class="units end-links"><li><a class="unit-card" href="/uphesc-maths/learn/topology-geometry/space-curves/practice/"><span class="unit-top"><span class="unit-name">Practise this topic</span></span><p class="flush">13 questions with worked solutions</p></a></li><li><a class="unit-card" href="/uphesc-maths/learn/topology-geometry/surfaces-and-fundamental-forms/"><span class="unit-top"><span class="unit-name">Next: Surfaces and fundamental forms</span></span><p class="flush">Medium priority · 1 h 40 min</p></a></li></ul><p class="prev-link"><a href="/uphesc-maths/learn/topology-geometry/manifolds/">Previous: Manifolds</a></p></section></div><footer class="foot"><p>Built from every paper that survives: the full 2025 and 2026 papers (140 maths questions) and half of 2019 (35, from a solution video). 2015 left only an answer key, and nothing was found for 2021. The commission has never published its booklets. Unit counts use 2025 and 2026 only, so they show a range, not a trend.</p><p>2025 answers match the official key. 2026 has no key yet, so its answers were worked out by hand and marked high, medium or low confidence, and every unsure one was solved again, blind. 2019 answers come from the video and are not checked against the official key.</p></footer></main><script type="module">var e=document.documentElement,t=()=>e.dataset.mode?e.dataset.mode===`dark`:matchMedia(`(prefers-color-scheme: dark)`).matches;document.querySelector(`[data-mode-toggle]`)?.addEventListener(`click`,()=>{let n=t()?`light`:`dark`;e.dataset.mode=n;try{localStorage.setItem(`um:mode`,n)}catch{}}),!e.dataset.mode&&t()&&(e.dataset.mode=`dark`);var n=document.querySelectorAll(`[data-old-toggle]`),r=t=>{t?e.dataset.old=`on`:delete e.dataset.old,n.forEach(e=>e.setAttribute(`aria-checked`,String(t)))};r(e.dataset.old===`on`),n.forEach(t=>t.addEventListener(`click`,()=>{let t=e.dataset.old!==`on`;r(t);try{localStorage.setItem(`um:old`,t?`on`:`off`)}catch{}}));var i=document.querySelectorAll(`[data-view]`),a=t=>{t===`bars`?e.dataset.view=`bars`:delete e.dataset.view,i.forEach(e=>e.setAttribute(`aria-pressed`,String(e.dataset.view===t)))};a(e.dataset.view===`bars`?`bars`:`heat`),i.forEach(e=>e.addEventListener(`click`,()=>{a(e.dataset.view);try{localStorage.setItem(`um:view`,e.dataset.view)}catch{}}));var o=document.createElement(`div`);o.className=`tip`,o.setAttribute(`role`,`tooltip`),o.hidden=!0,document.body.append(o);var s=null,c=(e,t)=>{let n=o.offsetWidth,r=o.offsetHeight,i=e+12,a=t+12;i+n>innerWidth-8&&(i=Math.max(8,e-n-12)),a+r>innerHeight-8&&(a=Math.max(8,t-r-12)),o.style.left=`${i}px`,o.style.top=`${a}px`},l=()=>{if(s){let e=s.getBoundingClientRect();c(e.left+e.width*.3,e.bottom-8)}},u=e=>{e!==s&&(s=e,o.replaceChildren(...[...e.querySelector(`.tip-src`).childNodes].map(e=>e.cloneNode(!0)))),o.hidden=!1},d=()=>{o.hidden=!0,s=null};document.addEventListener(`pointermove`,e=>{if(e.pointerType!==`mouse`)return;let t=e.target.closest(`[data-tip]`);t?(u(t),c(e.clientX,e.clientY)):s&&d()}),document.addEventListener(`focusin`,e=>{let t=e.target.closest(`[data-tip]`);t&&(u(t),l())}),document.addEventListener(`focusout`,()=>d()),addEventListener(`scroll`,()=>{s&&document.activeElement===s?l():s&&d()},{passive:!0}),document.addEventListener(`keydown`,e=>{e.key===`Escape`&&d()});var f=`um:done`,p={};try{p=JSON.parse(localStorage.getItem(f)||`{}`)}catch{}var m=()=>{document.querySelectorAll(`[data-progress]`).forEach(e=>{let t=[...document.querySelectorAll(`[data-group="${e.dataset.progress}"]`)],n=t.filter(e=>e.checked).length;e.querySelector(`.progress-bar span`).style.width=`${n/t.length*100}%`,e.querySelector(`[data-count]`).textContent=`${n} of ${t.length} done`})};document.querySelectorAll(`input[data-check]`).forEach(e=>{e.checked=!!p[e.dataset.check],e.addEventListener(`change`,()=>{p[e.dataset.check]=e.checked;try{localStorage.setItem(f,JSON.stringify(p))}catch{}m()})}),m();</script></body></html><script type="module" src="/uphesc-maths/_astro/index.astro_astro_type_script_index_0_lang.t7qZbIYF.js"></script>

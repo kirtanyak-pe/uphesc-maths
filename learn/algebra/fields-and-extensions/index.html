@@ -1,0 +1,412 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Fields and field extensions · UPESSC maths</title><meta name="description" content="What to study for the UPESSC (formerly UPHESC) Assistant Professor maths paper, built from every paper that survives."><link rel="icon" href="/uphesc-maths/favicon.svg" type="image/svg+xml"><link rel="preload" href="/uphesc-maths/fonts/inter-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin><!-- the saved light/dark, 2019 and chart-view choices, before first paint --><script>
+    try { var m = localStorage.getItem('um:mode'); if (m) document.documentElement.dataset.mode = m; } catch (e) {}
+    try { if (localStorage.getItem('um:old') === 'on') document.documentElement.dataset.old = 'on'; } catch (e) {}
+    try { if (localStorage.getItem('um:view') === 'bars') document.documentElement.dataset.view = 'bars'; } catch (e) {}
+  </script><!-- maths: the vendored MathJax typesets \( \) and \[ \] text, loaded only on pages that have any --><script>(function(){const VENDOR = "/uphesc-maths/vendor";
+
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+      loader: { paths: { mathjax: VENDOR + '/mathjax', fonts: VENDOR + '/mathjax/fonts' } },
+      output: { font: 'mathjax-stix2', displayOverflow: 'scroll' },
+      options: { ignoreHtmlClass: 'no-math', processHtmlClass: 'math', menuOptions: { settings: { enrich: false, speech: false, braille: false } } },
+      chtml: { displayOverflow: 'scroll' },
+      // an inline formula with a piece wider than its line gets its own scrolling line, like display maths
+      startup: { pageReady: () => MathJax.startup.defaultPageReady().then(fitMath) },
+    };
+    function fitMath() {
+      for (const m of document.querySelectorAll('mjx-container:not([display="true"]):not(.mjx-wide)')) {
+        const box = m.closest('p, li, dd, blockquote, div');
+        if (!box || m.closest('td, th')) continue;
+        const right = box.getBoundingClientRect().right + 1;
+        if ([...m.getClientRects()].some((r) => r.right > right)) m.classList.add('mjx-wide');
+      }
+    }
+    let fitQueued = 0;
+    const queueFit = () => { if (window.MathJax?.startup?.document && !fitQueued) fitQueued = requestAnimationFrame(() => { fitQueued = 0; fitMath(); }); };
+    addEventListener('resize', queueFit);
+    addEventListener('click', () => setTimeout(queueFit, 50));
+    document.addEventListener('DOMContentLoaded', () => {
+      if (!document.querySelector('.math')) return;
+      const s = document.createElement('script');
+      s.async = true;
+      s.src = VENDOR + '/mathjax/tex-chtml-nofont.js';
+      document.head.appendChild(s);
+    });
+  })();</script><link rel="stylesheet" href="/uphesc-maths/_astro/Base.CkQ5KWO8.css"></head><body data-tab="learn"><nav class="appnav" aria-label="Main"><a class="appnav-brand" href="/uphesc-maths/" aria-label="UPESSC maths home">∑</a><a class="appnav-item" href="/uphesc-maths/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4 10.2 12 4l8 6.2V19a1 1 0 0 1-1 1h-4.5v-5.5h-5V20H5a1 1 0 0 1-1-1z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Plan</span></a><a class="appnav-item" href="/uphesc-maths/learn/" aria-current="page"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M12 6.5C10 5 7.5 4.5 4 4.5v13c3.5 0 6 .5 8 2 2-1.5 4.5-2 8-2v-13c-3.5 0-6 .5-8 2zM12 6.5v13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Learn</span></a><a class="appnav-item" href="/uphesc-maths/units/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4 5h7v7H4zM13 5h7v7h-7zM4 14h7v6H4zM13 14h7v6h-7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Units</span></a><a class="appnav-item" href="/uphesc-maths/papers/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M7 3h7l4 4v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zM14 3v4h4M9 12h6M9 16h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Papers</span></a><a class="appnav-item" href="/uphesc-maths/revise/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M5 12.5 9.5 17 19 7.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Revise</span></a></nav><header class="topbar"><a class="bar-back" href="/uphesc-maths/learn/algebra/" aria-label="Back"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a><p class="bar-title">Unit 1</p><button class="bar-btn" type="button" data-mode-toggle aria-label="Switch light or dark"><svg class="i-moon" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path></svg><svg class="i-sun" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path></svg></button></header><main class="page"><div class="reader" data-topic="fields-and-extensions"><header class="page-head topic-head"><p class="kicker"><a href="/uphesc-maths/learn/algebra/">Unit 1 · Abstract Algebra</a></p><h1>Fields and field extensions</h1><ul class="meta"><li class="prio high">High priority</li><li>1 h 40 min to study</li><li>Asked 4 times</li><li class="read-flag" data-read-flag hidden>Read</li></ul><p class="pyq-line">Previous papers: 2019 Q99, 2019, 2025 Q36, 2026 Q52</p><p class="prereq">Read first: <a href="/uphesc-maths/learn/algebra/rings-and-ideals/">Rings and ideals</a>, <a href="/uphesc-maths/learn/algebra/polynomial-rings-and-domains/">Polynomial rings and factorisation domains</a></p></header><div class="reader-grid"><nav class="toc" aria-label="On this page"><details class="toc-box" data-toc><summary>On this page</summary><ol><li><a href="#why-it-matters-for-the-exam">Why it matters for the exam</a></li><li><a href="#core-ideas">Core ideas</a></li><li class="sub"><a href="#field-extensions-and-degree">Field extensions and degree</a></li><li class="sub"><a href="#algebraic-elements-and-minimal-polynomials">Algebraic elements and minimal polynomials</a></li><li class="sub"><a href="#splitting-fields">Splitting fields</a></li><li class="sub"><a href="#separability-and-galois-only-as-much-as-degrees-need">Separability and Galois, only as much as degrees need</a></li><li class="sub"><a href="#finite-fields">Finite fields</a></li><li class="sub"><a href="#roots-of-unity">Roots of unity</a></li><li class="sub"><a href="#cyclotomic-polynomials">Cyclotomic polynomials</a></li><li class="sub"><a href="#constructibility-degrees-only">Constructibility (degrees only)</a></li><li><a href="#formulas-and-results">Formulas and results</a></li><li><a href="#worked-examples">Worked examples</a></li><li class="sub"><a href="#example-1-degree-and-minimal-polynomial-of-sqrt2sqrt3">Example 1: degree and minimal polynomial of <span class="math">\(\sqrt2+\sqrt3\)</span></a></li><li class="sub"><a href="#example-2-splitting-field-degrees">Example 2: splitting field degrees</a></li><li class="sub"><a href="#example-3-subfields-and-generators-of-mathbb-f_64">Example 3: subfields and generators of <span class="math">\(\mathbb F_{64}\)</span></a></li><li class="sub"><a href="#example-4-xn1-in-mathbb-f_27-2026-q52">Example 4: <span class="math">\(x^n=1\)</span> in <span class="math">\(\mathbb F_{27}\)</span> (2026 Q52)</a></li><li class="sub"><a href="#example-5-cyclotomic-polynomials">Example 5: cyclotomic polynomials</a></li><li class="sub"><a href="#example-6-roots-of-unity-sums">Example 6: roots of unity sums</a></li><li><a href="#common-traps">Common traps</a></li><li><a href="#previous-year-questions">Previous-year questions</a></li><li class="sub"><a href="#2019-q99-re-typed-from-a-video-answer-a">2019 Q99 (re-typed from a video; answer (a))</a></li><li class="sub"><a href="#2019-unnumbered-question-17-partial-from-a-video-answer-d-4">2019, unnumbered question 17 (partial, from a video; answer (d) <span class="math">\(4\)</span>)</a></li><li class="sub"><a href="#2025-q36-official-key-a">2025 Q36 (official key: A)</a></li><li class="sub"><a href="#2026-q52-worked-key-d-13">2026 Q52 (worked key: D, <span class="math">\(13\)</span>)</a></li><li><a href="#quick-revision">Quick revision</a></li></ol></details></nav><article class="prose"><section class="note-section ns-why-it-matters-for-the-exam" aria-labelledby="why-it-matters-for-the-exam"><h2 id="why-it-matters-for-the-exam">Why it matters for the exam</h2>
+<p>Field theory is the most reliable algebra topic outside group theory: all three papers have it (2019: degree of <span class="math">\(\mathbb Q(\sqrt2,\sqrt3)\)</span> and a roots-of-unity sum; 2025 Q36: degree of the splitting field of <span class="math">\(x^4+x^2+1\)</span>; 2026 Q52: elements of <span class="math">\(\mathbb F_{27}\)</span> with <span class="math">\(x^n=1\)</span>). Questions are numeric: degrees by the tower law, sizes and subfields of finite fields, cyclotomic polynomials, orders in <span class="math">\(\mathbb F_q^{*}\)</span>.</p>
+</section><section class="note-section ns-core-ideas" aria-labelledby="core-ideas"><h2 id="core-ideas">Core ideas</h2>
+<h3 id="field-extensions-and-degree">Field extensions and degree</h3>
+<p>If <span class="math">\(F\subseteq E\)</span> are fields, <span class="math">\(E\)</span> is an <strong>extension</strong> of <span class="math">\(F\)</span>, written <span class="math">\(E/F\)</span>. <span class="math">\(E\)</span> is a vector space over <span class="math">\(F\)</span>; <span class="math">\([E:F]=\dim_F E\)</span> is the <strong>degree</strong>. Finite extension means finite degree.</p>
+<p><strong>Tower law.</strong> For <span class="math">\(F\subseteq K\subseteq E\)</span>: <span class="math">\([E:F]=[E:K]\,[K:F]\)</span>.</p>
+<p>Consequences used constantly:</p>
+<ul>
+<li><span class="math">\([K:F]\)</span> divides <span class="math">\([E:F]\)</span>. If <span class="math">\([E:F]\)</span> is prime there is no intermediate field, and <span class="math">\(E=F(\alpha)\)</span> for every <span class="math">\(\alpha\in E\setminus F\)</span>.</li>
+<li>If <span class="math">\(K,L\)</span> are subfields of a common field containing <span class="math">\(F\)</span> and <span class="math">\(\gcd([K:F],[L:F])=1\)</span>, then <span class="math">\([KL:F]=[K:F][L:F]\)</span> (the compositum has degree divisible by both, and at most the product).</li>
+<li>Every finite extension is algebraic.</li>
+</ul>
+<p>The prime subfield of a field is <span class="math">\(\mathbb Q\)</span> (char <span class="math">\(0\)</span>) or <span class="math">\(\mathbb F_p\)</span> (char <span class="math">\(p\)</span>).</p>
+<h3 id="algebraic-elements-and-minimal-polynomials">Algebraic elements and minimal polynomials</h3>
+<p><span class="math">\(\alpha\in E\)</span> is <strong>algebraic</strong> over <span class="math">\(F\)</span> if <span class="math">\(f(\alpha)=0\)</span> for some nonzero <span class="math">\(f\in F[x]\)</span>; otherwise <strong>transcendental</strong>.</p>
+<p><strong>Minimal polynomial</strong> <span class="math">\(m_{\alpha,F}\)</span>: the monic polynomial of least degree with <span class="math">\(m(\alpha)=0\)</span>. Facts:</p>
+<ul>
+<li><span class="math">\(m\)</span> is irreducible over <span class="math">\(F\)</span>; and if <span class="math">\(f(\alpha)=0\)</span> then <span class="math">\(m\mid f\)</span>. Conversely a monic irreducible <span class="math">\(f\)</span> with <span class="math">\(f(\alpha)=0\)</span> <strong>is</strong> the minimal polynomial.</li>
+<li><span class="math">\(F(\alpha)\cong F[x]/(m)\)</span>, so <span class="math">\([F(\alpha):F]=\deg m\)</span>, with basis <span class="math">\(1,\alpha,\dots,\alpha^{\deg m-1}\)</span>. If <span class="math">\(\alpha\)</span> is transcendental, <span class="math">\(F(\alpha)\cong F(x)\)</span> and the degree is infinite.</li>
+<li>The algebraic elements of <span class="math">\(E\)</span> over <span class="math">\(F\)</span> form a subfield (sums, products, inverses of algebraic numbers are algebraic). The algebraic numbers are countable; <span class="math">\(e\)</span> and <span class="math">\(\pi\)</span> are transcendental (Hermite, Lindemann); so most reals are transcendental.</li>
+<li>Minimal polynomial of <span class="math">\(\sqrt2+\sqrt3\)</span> over <span class="math">\(\mathbb Q\)</span>: <span class="math">\(x^4-10x^2+1\)</span> (degree <span class="math">\(4\)</span>). Of <span class="math">\(1+\sqrt2\)</span>: <span class="math">\(x^2-2x-1\)</span>. Of <span class="math">\(\sqrt[3]2\)</span>: <span class="math">\(x^3-2\)</span>. Of <span class="math">\(\sqrt2+\sqrt[3]2\)</span>: degree <span class="math">\(6\)</span>.</li>
+</ul>
+<p>Typical degrees (memorise):</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Field</th>
+<th><span class="math">\([\,\cdot:\mathbb Q]\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math">\(\mathbb Q(\sqrt2)\)</span></td>
+<td><span class="math">\(2\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(\mathbb Q(\sqrt2,\sqrt3)=\mathbb Q(\sqrt2+\sqrt3)\)</span></td>
+<td><span class="math">\(4\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(\mathbb Q(\sqrt2,\sqrt3,\sqrt5)\)</span></td>
+<td><span class="math">\(8\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(\mathbb Q(\sqrt2,\sqrt8)=\mathbb Q(\sqrt2)\)</span></td>
+<td><span class="math">\(2\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(\mathbb Q(\sqrt[3]2)\)</span></td>
+<td><span class="math">\(3\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(\mathbb Q(\sqrt[3]2,\omega)\)</span>, <span class="math">\(\omega=e^{2\pi i/3}\)</span></td>
+<td><span class="math">\(6\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(\mathbb Q(\sqrt[4]2)\)</span></td>
+<td><span class="math">\(4\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(\mathbb Q(\sqrt[4]2,i)\)</span></td>
+<td><span class="math">\(8\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(\mathbb Q(\zeta_n)\)</span></td>
+<td><span class="math">\(\varphi(n)\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(\mathbb Q(\sqrt2,\sqrt[3]2)\)</span></td>
+<td><span class="math">\(6\)</span></td>
+</tr>
+</tbody>
+</table></div>
+<p>For quadratic radicals: <span class="math">\([\mathbb Q(\sqrt a,\sqrt b):\mathbb Q]=4\)</span> unless <span class="math">\(a,b\)</span> or <span class="math">\(ab\)</span> is a rational square. <strong>2019:</strong> <span class="math">\([\mathbb Q(\sqrt2,\sqrt3):\mathbb Q]=[\mathbb Q(\sqrt2,\sqrt3):\mathbb Q(\sqrt2)]\cdot2=2\cdot2=4\)</span>, since <span class="math">\(\sqrt3\notin\mathbb Q(\sqrt2)\)</span> (otherwise <span class="math">\(\sqrt3=a+b\sqrt2\)</span> would give <span class="math">\(3=a^2+2b^2+2ab\sqrt2\)</span>, forcing <span class="math">\(ab=0\)</span>, and neither <span class="math">\(3\)</span> nor <span class="math">\(3/2\)</span> is a rational square).</p>
+<p><strong>Primitive element theorem.</strong> A finite separable extension (in particular any finite extension in characteristic <span class="math">\(0\)</span>, and any finite extension of a finite field) is simple: <span class="math">\(E=F(\gamma)\)</span>.</p>
+<h3 id="splitting-fields">Splitting fields</h3>
+<p>A <strong>splitting field</strong> of <span class="math">\(f\in F[x]\)</span> over <span class="math">\(F\)</span> is an extension <span class="math">\(K\)</span> in which <span class="math">\(f\)</span> splits into linear factors and <span class="math">\(K=F(\text{roots of }f)\)</span>.</p>
+<ul>
+<li>Exists, and is unique up to <span class="math">\(F\)</span>-isomorphism.</li>
+<li><span class="math">\([K:F]\le n!\)</span> and <span class="math">\([K:F]\)</span> divides <span class="math">\(n!\)</span> where <span class="math">\(n=\deg f\)</span>. For irreducible <span class="math">\(f\)</span> of degree <span class="math">\(n\)</span>, <span class="math">\(n\mid[K:F]\)</span>.</li>
+<li>Splitting field of a <strong>product</strong> is the compositum of the splitting fields of the factors.</li>
+</ul>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th><span class="math">\(f\)</span></th>
+<th>Splitting field over <span class="math">\(\mathbb Q\)</span></th>
+<th>Degree</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math">\(x^2-2\)</span></td>
+<td><span class="math">\(\mathbb Q(\sqrt2)\)</span></td>
+<td><span class="math">\(2\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(x^3-2\)</span></td>
+<td><span class="math">\(\mathbb Q(\sqrt[3]2,\omega)\)</span></td>
+<td><span class="math">\(6\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(x^4-2\)</span></td>
+<td><span class="math">\(\mathbb Q(\sqrt[4]2,i)\)</span></td>
+<td><span class="math">\(8\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(x^4+1\)</span></td>
+<td><span class="math">\(\mathbb Q(\zeta_8)=\mathbb Q(i,\sqrt2)\)</span></td>
+<td><span class="math">\(4\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(x^4+x^2+1\)</span></td>
+<td><span class="math">\(\mathbb Q(\omega)\)</span></td>
+<td><span class="math">\(2\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(x^4-4\)</span></td>
+<td><span class="math">\(\mathbb Q(\sqrt2,i)\)</span></td>
+<td><span class="math">\(4\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(x^6-1\)</span></td>
+<td><span class="math">\(\mathbb Q(\omega)\)</span></td>
+<td><span class="math">\(2\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(x^p-1\)</span></td>
+<td><span class="math">\(\mathbb Q(\zeta_p)\)</span></td>
+<td><span class="math">\(p-1\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(x^n-1\)</span></td>
+<td><span class="math">\(\mathbb Q(\zeta_n)\)</span></td>
+<td><span class="math">\(\varphi(n)\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(x^3-3x+1\)</span></td>
+<td>cyclic cubic</td>
+<td><span class="math">\(3\)</span></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>2025 Q36.</strong> <span class="math">\(x^4+x^2+1=(x^2+x+1)(x^2-x+1)\)</span>. The roots are <span class="math">\(\omega,\omega^2,-\omega,-\omega^2\)</span>, the primitive cube and sixth roots of unity, and <span class="math">\(-\omega,-\omega^2\)</span> lie in <span class="math">\(\mathbb Q(\omega)\)</span> because <span class="math">\(-1\in\mathbb Q\)</span>. All four lie in <span class="math">\(\mathbb Q(\omega)=\mathbb Q(\sqrt{-3})\)</span>, and <span class="math">\(\omega\notin\mathbb Q\)</span>. The splitting field is <span class="math">\(\mathbb Q(\omega)\)</span>, degree <span class="math">\(\mathbf 2\)</span> (option A). The trap is to say “degree <span class="math">\(4\)</span> polynomial, so degree <span class="math">\(4\)</span> or <span class="math">\(24\)</span>”.</p>
+<p>For irreducible cubics: the splitting field has degree <span class="math">\(3\)</span> if the discriminant is a rational square, and <span class="math">\(6\)</span> otherwise (<span class="math">\(S_3\)</span>). <span class="math">\(x^3-2\)</span>: discriminant <span class="math">\(-108\)</span>, not a square, degree <span class="math">\(6\)</span>.</p>
+<p>Over a finite field: if <span class="math">\(f\in\mathbb F_q[x]\)</span> is irreducible of degree <span class="math">\(n\)</span>, its splitting field is <span class="math">\(\mathbb F_{q^n}\)</span>. In general the splitting field of <span class="math">\(f\)</span> is <span class="math">\(\mathbb F_{q^m}\)</span> with <span class="math">\(m=\operatorname{lcm}\)</span> of the degrees of the irreducible factors. For example <span class="math">\(x^3-2\)</span> over <span class="math">\(\mathbb F_5\)</span>: <span class="math">\(x=3\)</span> is a root (<span class="math">\(27\equiv2\)</span>) and since <span class="math">\(\gcd(3,4)=1\)</span> no other cube roots of <span class="math">\(2\)</span> exist in <span class="math">\(\mathbb F_5\)</span>, so <span class="math">\(x^3-2=(x-3)\cdot(\text{irreducible quadratic})\)</span> and the splitting field is <span class="math">\(\mathbb F_{25}\)</span>. Over <span class="math">\(\mathbb F_7\)</span>: no root (<span class="math">\(2\)</span> is not a cube mod <span class="math">\(7\)</span>; cubes are <span class="math">\(\pm1\)</span>), so irreducible and the splitting field is <span class="math">\(\mathbb F_{343}\)</span>.</p>
+<h3 id="separability-and-galois-only-as-much-as-degrees-need">Separability and Galois, only as much as degrees need</h3>
+<p><span class="math">\(f\)</span> irreducible over <span class="math">\(F\)</span> is <strong>separable</strong> if it has distinct roots in a splitting field, iff <span class="math">\(\gcd(f,f')=1\)</span>, iff <span class="math">\(f'\neq0\)</span>. Irreducible polynomials over fields of characteristic <span class="math">\(0\)</span> and over finite fields are always separable (“perfect” fields). Inseparable example: <span class="math">\(x^p-t\)</span> over <span class="math">\(\mathbb F_p(t)\)</span>.</p>
+<p>For a Galois extension <span class="math">\(E/F\)</span> (splitting field of a separable polynomial), <span class="math">\(\lvert\operatorname{Gal}(E/F)\rvert=[E:F]\)</span>. In general <span class="math">\(\lvert\operatorname{Aut}(E/F)\rvert\le[E:F]\)</span>, with strict inequality for <span class="math">\(\mathbb Q(\sqrt[3]2)/\mathbb Q\)</span> (only the identity). <span class="math">\(\operatorname{Gal}(\mathbb Q(\zeta_n)/\mathbb Q)\cong(\mathbb Z/n)^{*}\)</span>. <span class="math">\(\operatorname{Gal}(\mathbb F_{p^n}/\mathbb F_p)\)</span> is cyclic of order <span class="math">\(n\)</span>, generated by Frobenius <span class="math">\(x\mapsto x^p\)</span>.</p>
+<h3 id="finite-fields">Finite fields</h3>
+<p><strong>Theorem (Galois).</strong></p>
+<ol>
+<li>A finite field has <span class="math">\(q=p^n\)</span> elements, <span class="math">\(p=\operatorname{char}\)</span>, <span class="math">\(n=[F:\mathbb F_p]\)</span>. No field has <span class="math">\(6,10,12,15,18,20,\dots\)</span> elements.</li>
+<li>For every prime power <span class="math">\(q=p^n\)</span> there is a field <span class="math">\(\mathbb F_q=\mathrm{GF}(q)\)</span>, the splitting field of <span class="math">\(x^q-x\)</span> over <span class="math">\(\mathbb F_p\)</span>, and it is <strong>unique</strong> up to isomorphism. Note <span class="math">\(\mathbb Z_{p^n}\not\cong\mathbb F_{p^n}\)</span> for <span class="math">\(n&gt;1\)</span>.</li>
+<li><span class="math">\(x^q-x=\prod_{a\in\mathbb F_q}(x-a)\)</span>. Every <span class="math">\(a\in\mathbb F_q\)</span> satisfies <span class="math">\(a^q=a\)</span>; the nonzero ones satisfy <span class="math">\(a^{q-1}=1\)</span>.</li>
+<li><span class="math">\(\mathbb F_{p^m}\)</span> is a subfield of <span class="math">\(\mathbb F_{p^n}\)</span> iff <span class="math">\(m\mid n\)</span>, and then it is the unique subfield of order <span class="math">\(p^m\)</span>. So <span class="math">\(\mathbb F_{p^n}\)</span> has exactly <span class="math">\(\tau(n)\)</span> subfields. For example <span class="math">\(\mathbb F_{2^{12}}\)</span> has <span class="math">\(6\)</span> subfields; <span class="math">\(\mathbb F_{2^6}\supset\mathbb F_{2^3},\mathbb F_{2^2}\supset\mathbb F_2\)</span>; <span class="math">\(\mathbb F_4\not\subset\mathbb F_8\)</span>.</li>
+<li>The multiplicative group <span class="math">\(\mathbb F_q^{*}\)</span> is <strong>cyclic</strong> of order <span class="math">\(q-1\)</span>. Proof idea: for each <span class="math">\(d\mid q-1\)</span> the polynomial <span class="math">\(x^d-1\)</span> has at most <span class="math">\(d\)</span> roots, so there are at most <span class="math">\(d\)</span> elements of order dividing <span class="math">\(d\)</span>; counting by orders forces exactly <span class="math">\(\varphi(d)\)</span> elements of order <span class="math">\(d\)</span>, in particular <span class="math">\(\varphi(q-1)&gt;0\)</span> generators. More generally every finite subgroup of <span class="math">\(F^{*}\)</span> (<span class="math">\(F\)</span> any field) is cyclic.</li>
+<li><span class="math">\(\operatorname{Aut}(\mathbb F_{p^n})\)</span> is cyclic of order <span class="math">\(n\)</span> generated by Frobenius <span class="math">\(\sigma(x)=x^p\)</span>.</li>
+<li><span class="math">\(\mathbb F_q\)</span> is the quotient <span class="math">\(\mathbb F_p[x]/(f)\)</span> for any irreducible <span class="math">\(f\)</span> of degree <span class="math">\(n\)</span>. The root of <span class="math">\(f\)</span> need not be a generator of <span class="math">\(\mathbb F_q^{*}\)</span>; if it is, <span class="math">\(f\)</span> is called <strong>primitive</strong>.</li>
+<li>An irreducible polynomial of degree <span class="math">\(d\)</span> over <span class="math">\(\mathbb F_p\)</span> divides <span class="math">\(x^{p^n}-x\)</span> iff <span class="math">\(d\mid n\)</span>. Thus <span class="math">\(x^{p^n}-x\)</span> is the product of all monic irreducibles over <span class="math">\(\mathbb F_p\)</span> of degree dividing <span class="math">\(n\)</span>.</li>
+</ol>
+<p>Counting results:</p>
+<ul>
+<li>Number of <span class="math">\(x\in\mathbb F_q^{*}\)</span> with <span class="math">\(x^n=1\)</span> is <span class="math">\(\gcd(n,q-1)\)</span> (cyclic group). <strong>2026 Q52:</strong> <span class="math">\(\mathbb F_{27}^{*}\)</span> is cyclic of order <span class="math">\(26=2\cdot13\)</span>; <span class="math">\(x^{13}=1\)</span> has <span class="math">\(\gcd(13,26)=13\)</span> solutions in <span class="math">\(\mathbb F_{27}\)</span> (the OCR of the exponent is uncertain; the worked key reads <span class="math">\(x^{13}=1\)</span> and gives <span class="math">\(13\)</span>). If the exponent differs, apply <span class="math">\(\gcd(n,26)\)</span> and remember <span class="math">\(x=0\)</span> is not a solution of <span class="math">\(x^n=1\)</span>.</li>
+<li>Number of generators of <span class="math">\(\mathbb F_q^{*}\)</span>: <span class="math">\(\varphi(q-1)\)</span>. <span class="math">\(\mathbb F_{25}^{*}\)</span>: <span class="math">\(\varphi(24)=8\)</span>.</li>
+<li>Number of squares in <span class="math">\(\mathbb F_q^{*}\)</span> (<span class="math">\(q\)</span> odd): <span class="math">\((q-1)/2\)</span>.</li>
+<li>Elements of <span class="math">\(\mathbb F_{p^n}\)</span> lying in no proper subfield: by inclusion-exclusion. For <span class="math">\(\mathbb F_{2^6}\)</span>: <span class="math">\(64-8-4+2=54\)</span>, and <span class="math">\(54/6=9\)</span> monic irreducible sextics (matches <span class="math">\(N_2(6)=9\)</span>). For <span class="math">\(\mathbb F_{16}\)</span>: <span class="math">\(16-4=12\)</span> elements generate it over <span class="math">\(\mathbb F_2\)</span>.</li>
+<li>Number of monic irreducible polynomials of degree <span class="math">\(n\)</span> over <span class="math">\(\mathbb F_q\)</span>: <span class="math">\(\frac1n\sum_{d\mid n}\mu(d)q^{n/d}\)</span>.</li>
+<li>Wilson’s theorem is the constant term in <span class="math">\(x^{p-1}-1=\prod_{a\ne0}(x-a)\)</span>: <span class="math">\((p-1)!\equiv-1\pmod p\)</span>.</li>
+</ul>
+<p>Small examples: <span class="math">\(\mathbb F_4=\{0,1,\omega,\omega^2\}\)</span> with <span class="math">\(\omega^2=\omega+1\)</span>; <span class="math">\(\mathbb F_8=\mathbb F_2[x]/(x^3+x+1)\)</span>; <span class="math">\(\mathbb F_9=\mathbb F_3[x]/(x^2+1)\)</span> (here <span class="math">\(x\)</span> has order <span class="math">\(4\)</span>, not a generator; <span class="math">\(x+1\)</span> has order <span class="math">\(8\)</span>); <span class="math">\(\mathbb F_{27}=\mathbb F_3[x]/(x^3-x+1)\)</span>.</p>
+<h3 id="roots-of-unity">Roots of unity</h3>
+<p>The complex <span class="math">\(n\)</span>-th roots of <span class="math">\(1\)</span> are <span class="math">\(\zeta_n^k=e^{2\pi ik/n}\)</span>, <span class="math">\(k=0,\dots,n-1\)</span>. They form a cyclic group <span class="math">\(\mu_n\)</span> of order <span class="math">\(n\)</span>; <span class="math">\(\zeta^k\)</span> is <strong>primitive</strong> iff <span class="math">\(\gcd(k,n)=1\)</span>, so there are <span class="math">\(\varphi(n)\)</span> primitive ones.</p>
+<ul>
+<li><span class="math">\(\sum_{k=0}^{n-1}\zeta^k=0\)</span> for any <span class="math">\(\zeta\neq1\)</span> with <span class="math">\(\zeta^n=1\)</span>. So the sum of all <span class="math">\(n\)</span>-th roots is <span class="math">\(0\)</span> (<span class="math">\(n&gt;1\)</span>), and the sum of any <span class="math">\(3n\)</span> consecutive powers <span class="math">\(1+\omega+\dots+\omega^{3n-1}\)</span> is <span class="math">\(n\cdot0=0\)</span> (<strong>2019 Q99</strong>, answer <span class="math">\(0\)</span>).</li>
+<li>Product of all <span class="math">\(n\)</span>-th roots of unity: <span class="math">\((-1)^{n+1}\)</span> (from the constant term of <span class="math">\(x^n-1\)</span>). For <span class="math">\(n=6\)</span>: <span class="math">\(-1\)</span>.</li>
+<li>Sum of the primitive <span class="math">\(n\)</span>-th roots is <span class="math">\(\mu(n)\)</span> (Möbius): <span class="math">\(\mu(30)=-1\)</span>, <span class="math">\(\mu(12)=0\)</span>, <span class="math">\(\mu(10)=1\)</span>.</li>
+<li>Roots of unity in <span class="math">\(\mathbb Q\)</span>: <span class="math">\(\pm1\)</span>. In <span class="math">\(\mathbb Q(i)\)</span>: the <span class="math">\(4\)</span>th roots. In <span class="math">\(\mathbb Q(\sqrt{-3})\)</span>: the <span class="math">\(6\)</span>th roots. A finite subgroup of <span class="math">\(\mathbb C^{*}\)</span> is some <span class="math">\(\mu_n\)</span>.</li>
+<li><span class="math">\(\mathbb Q(\zeta_n)=\mathbb Q(\zeta_{2n})\)</span> for odd <span class="math">\(n\)</span>.</li>
+</ul>
+<h3 id="cyclotomic-polynomials">Cyclotomic polynomials</h3>
+<p><span class="math">\(\Phi_n(x)=\prod_{\gcd(k,n)=1}(x-\zeta_n^k)\)</span>, monic of degree <span class="math">\(\varphi(n)\)</span> with <strong>integer</strong> coefficients, and <strong>irreducible over <span class="math">\(\mathbb Q\)</span></strong> (so <span class="math">\([\mathbb Q(\zeta_n):\mathbb Q]=\varphi(n)\)</span>).</p>
+<ul>
+<li><span class="math">\(x^n-1=\prod_{d\mid n}\Phi_d(x)\)</span>; compute recursively by division.</li>
+<li><span class="math">\(\Phi_p=x^{p-1}+\dots+1\)</span>; <span class="math">\(\Phi_{p^k}(x)=\Phi_p(x^{p^{k-1}})\)</span>; <span class="math">\(\Phi_{2n}(x)=\Phi_n(-x)\)</span> for odd <span class="math">\(n&gt;1\)</span>.</li>
+<li><span class="math">\(\Phi_n(0)=1\)</span> for <span class="math">\(n&gt;1\)</span>. <span class="math">\(\Phi_n(1)=p\)</span> if <span class="math">\(n=p^k\)</span>, and <span class="math">\(\Phi_n(1)=1\)</span> if <span class="math">\(n&gt;1\)</span> is not a prime power.</li>
+</ul>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th><span class="math">\(n\)</span></th>
+<th><span class="math">\(\Phi_n(x)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math">\(1\)</span></td>
+<td><span class="math">\(x-1\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(2\)</span></td>
+<td><span class="math">\(x+1\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(3\)</span></td>
+<td><span class="math">\(x^2+x+1\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(4\)</span></td>
+<td><span class="math">\(x^2+1\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(5\)</span></td>
+<td><span class="math">\(x^4+x^3+x^2+x+1\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(6\)</span></td>
+<td><span class="math">\(x^2-x+1\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(8\)</span></td>
+<td><span class="math">\(x^4+1\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(9\)</span></td>
+<td><span class="math">\(x^6+x^3+1\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(10\)</span></td>
+<td><span class="math">\(x^4-x^3+x^2-x+1\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(12\)</span></td>
+<td><span class="math">\(x^4-x^2+1\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(15\)</span></td>
+<td><span class="math">\(x^8-x^7+x^5-x^4+x^3-x+1\)</span></td>
+</tr>
+</tbody>
+</table></div>
+<p>All entries were recomputed by polynomial division in Python. Over <span class="math">\(\mathbb F_p\)</span> with <span class="math">\(p\nmid n\)</span>, <span class="math">\(\Phi_n\)</span> factors into <span class="math">\(\varphi(n)/d\)</span> irreducibles of degree <span class="math">\(d=\operatorname{ord}_n(p)\)</span>. That is why <span class="math">\(x^4+1\)</span> factors modulo every prime.</p>
+<h3 id="constructibility-degrees-only">Constructibility (degrees only)</h3>
+<p>A real <span class="math">\(\alpha\)</span> is constructible iff it lies in a tower of quadratic extensions of <span class="math">\(\mathbb Q\)</span>, so <span class="math">\([\mathbb Q(\alpha):\mathbb Q]\)</span> must be a power of <span class="math">\(2\)</span>. Hence doubling the cube (<span class="math">\(\sqrt[3]2\)</span> has degree <span class="math">\(3\)</span>), trisecting <span class="math">\(60^\circ\)</span> (cubic <span class="math">\(4x^3-3x-\tfrac12\)</span>) and squaring the circle (<span class="math">\(\pi\)</span> transcendental) are impossible. A regular <span class="math">\(n\)</span>-gon is constructible iff <span class="math">\(\varphi(n)\)</span> is a power of <span class="math">\(2\)</span>, iff <span class="math">\(n=2^k p_1\cdots p_r\)</span> with <span class="math">\(p_i\)</span> distinct Fermat primes (<span class="math">\(3,5,17,257,65537\)</span>). So <span class="math">\(3,4,5,6,8,10,12,15,16,17,\dots\)</span> yes; <span class="math">\(7,9,11,13,14,18,19\)</span> no.</p>
+</section><section class="note-section ns-formulas-and-results" aria-labelledby="formulas-and-results"><h2 id="formulas-and-results">Formulas and results</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Fact</th>
+<th>Statement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tower law</td>
+<td><span class="math">\([E:F]=[E:K][K:F]\)</span></td>
+</tr>
+<tr>
+<td>Simple algebraic extension</td>
+<td><span class="math">\([F(\alpha):F]=\deg m_\alpha\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(F(\alpha)\)</span></td>
+<td><span class="math">\(\cong F[x]/(m_\alpha)\)</span></td>
+</tr>
+<tr>
+<td>Splitting field degree</td>
+<td>divides <span class="math">\(n!\)</span>; irreducible degree <span class="math">\(n\)</span>: <span class="math">\(n\mid[K:F]\)</span></td>
+</tr>
+<tr>
+<td>Finite field order</td>
+<td><span class="math">\(p^n\)</span>; exists and unique for each prime power</td>
+</tr>
+<tr>
+<td>Subfields of <span class="math">\(\mathbb F_{p^n}\)</span></td>
+<td><span class="math">\(\mathbb F_{p^m}\)</span>, <span class="math">\(m\mid n\)</span>, one each; <span class="math">\(\tau(n)\)</span> in all</td>
+</tr>
+<tr>
+<td><span class="math">\(\mathbb F_q^{*}\)</span></td>
+<td>cyclic of order <span class="math">\(q-1\)</span>; <span class="math">\(\varphi(q-1)\)</span> generators</td>
+</tr>
+<tr>
+<td>Solutions of <span class="math">\(x^n=1\)</span> in <span class="math">\(\mathbb F_q\)</span></td>
+<td><span class="math">\(\gcd(n,q-1)\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(x^q-x\)</span></td>
+<td><span class="math">\(\prod_{a\in\mathbb F_q}(x-a)\)</span></td>
+</tr>
+<tr>
+<td>Frobenius</td>
+<td><span class="math">\(\sigma(x)=x^p\)</span>; <span class="math">\(\operatorname{Aut}(\mathbb F_{p^n})\cong\mathbb Z_n\)</span></td>
+</tr>
+<tr>
+<td>Splitting field of irreducible degree <span class="math">\(n\)</span> over <span class="math">\(\mathbb F_q\)</span></td>
+<td><span class="math">\(\mathbb F_{q^n}\)</span></td>
+</tr>
+<tr>
+<td>Primitive <span class="math">\(n\)</span>-th roots</td>
+<td><span class="math">\(\varphi(n)\)</span>; sum <span class="math">\(=\mu(n)\)</span></td>
+</tr>
+<tr>
+<td>Product of all <span class="math">\(n\)</span>-th roots</td>
+<td><span class="math">\((-1)^{n+1}\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(x^n-1\)</span></td>
+<td><span class="math">\(\prod_{d\mid n}\Phi_d\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(\deg\Phi_n\)</span>, <span class="math">\([\mathbb Q(\zeta_n):\mathbb Q]\)</span></td>
+<td><span class="math">\(\varphi(n)\)</span></td>
+</tr>
+<tr>
+<td>Constructible number</td>
+<td>degree over <span class="math">\(\mathbb Q\)</span> is a power of <span class="math">\(2\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\([\mathbb Q(\sqrt a,\sqrt b):\mathbb Q]\)</span></td>
+<td><span class="math">\(4\)</span> unless <span class="math">\(a,b\)</span> or <span class="math">\(ab\)</span> is a square</td>
+</tr>
+</tbody>
+</table></div>
+</section><section class="note-section ns-worked-examples" aria-labelledby="worked-examples"><h2 id="worked-examples">Worked examples</h2>
+<h3 id="example-1-degree-and-minimal-polynomial-of-sqrt2sqrt3">Example 1: degree and minimal polynomial of <span class="math">\(\sqrt2+\sqrt3\)</span></h3>
+<p>Let <span class="math">\(\alpha=\sqrt2+\sqrt3\)</span>. <span class="math">\(\alpha^2=5+2\sqrt6\)</span>, <span class="math">\((\alpha^2-5)^2=24\)</span>, so <span class="math">\(\alpha^4-10\alpha^2+1=0\)</span> (numerically <span class="math">\(\approx10^{-14}\)</span>). Now <span class="math">\(\alpha^3=11\sqrt2+9\sqrt3\)</span>, so <span class="math">\(\sqrt2=(\alpha^3-9\alpha)/2\in\mathbb Q(\alpha)\)</span> and then <span class="math">\(\sqrt3=\alpha-\sqrt2\in\mathbb Q(\alpha)\)</span>. Hence <span class="math">\(\mathbb Q(\alpha)=\mathbb Q(\sqrt2,\sqrt3)\)</span> has degree <span class="math">\(4\)</span>, so the minimal polynomial has degree <span class="math">\(4\)</span>. The monic quartic with root <span class="math">\(\alpha\)</span> is <span class="math">\(x^4-10x^2+1\)</span>, so that is the minimal polynomial.</p>
+<h3 id="example-2-splitting-field-degrees">Example 2: splitting field degrees</h3>
+<p><span class="math">\(x^3-2\)</span>: roots <span class="math">\(\sqrt[3]2,\sqrt[3]2\omega,\sqrt[3]2\omega^2\)</span>. <span class="math">\(\mathbb Q(\sqrt[3]2)\)</span> has degree <span class="math">\(3\)</span> and is real, so <span class="math">\(\omega\notin\)</span> it; <span class="math">\([\mathbb Q(\omega):\mathbb Q]=2\)</span>; so the splitting field has degree divisible by <span class="math">\(2\)</span> and <span class="math">\(3\)</span>, and at most <span class="math">\(3!=6\)</span>: degree <span class="math">\(6\)</span>.
+<span class="math">\(x^4-2\)</span>: <span class="math">\(\mathbb Q(\sqrt[4]2)\)</span> has degree <span class="math">\(4\)</span> (Eisenstein), real, so <span class="math">\(i\notin\)</span> it, so <span class="math">\([\mathbb Q(\sqrt[4]2,i):\mathbb Q]=8\)</span>.
+<span class="math">\(x^4+x^2+1\)</span>: see 2025 Q36 above, degree <span class="math">\(2\)</span>.</p>
+<h3 id="example-3-subfields-and-generators-of-mathbb-f_64">Example 3: subfields and generators of <span class="math">\(\mathbb F_{64}\)</span></h3>
+<p><span class="math">\(64=2^6\)</span>, divisors of <span class="math">\(6\)</span>: <span class="math">\(1,2,3,6\)</span>. Subfields: <span class="math">\(\mathbb F_2,\mathbb F_4,\mathbb F_8,\mathbb F_{64}\)</span> (four, <span class="math">\(=\tau(6)\)</span>). <span class="math">\(\mathbb F_4\cap\mathbb F_8=\mathbb F_2\)</span>. <span class="math">\(\mathbb F_{64}^{*}\)</span> is cyclic of order <span class="math">\(63\)</span>; generators: <span class="math">\(\varphi(63)=36\)</span>. Elements of exact degree <span class="math">\(6\)</span>: <span class="math">\(64-8-4+2=54\)</span>.</p>
+<h3 id="example-4-xn1-in-mathbb-f_27-2026-q52">Example 4: <span class="math">\(x^n=1\)</span> in <span class="math">\(\mathbb F_{27}\)</span> (2026 Q52)</h3>
+<p><span class="math">\(\mathbb F_{27}^{*}\cong\mathbb Z_{26}\)</span>. Solutions of <span class="math">\(x^{13}=1\)</span>: the subgroup of order <span class="math">\(\gcd(13,26)=13\)</span>. Solutions of <span class="math">\(x^2=1\)</span>: <span class="math">\(2\)</span>. Solutions of <span class="math">\(x^3=1\)</span>: <span class="math">\(\gcd(3,26)=1\)</span> (only <span class="math">\(x=1\)</span>).</p>
+<h3 id="example-5-cyclotomic-polynomials">Example 5: cyclotomic polynomials</h3>
+<p><span class="math">\(\Phi_{12}\)</span>: <span class="math">\(x^{12}-1=\prod_{d\mid12}\Phi_d\)</span> with <span class="math">\(d=1,2,3,4,6,12\)</span>. The divisors <span class="math">\(1,2,3,6\)</span> are the divisors of <span class="math">\(6\)</span>, so <span class="math">\(\Phi_1\Phi_2\Phi_3\Phi_6=x^6-1\)</span>; also <span class="math">\(\Phi_4=x^2+1\)</span>. Hence <span class="math">\(\Phi_{12}=\dfrac{x^{12}-1}{(x^6-1)(x^2+1)}=\dfrac{x^6+1}{x^2+1}=x^4-x^2+1\)</span>. Check: <span class="math">\(\Phi_{12}(1)=1\)</span> as <span class="math">\(12\)</span> is not a prime power. <span class="math">\([\mathbb Q(\zeta_{12}):\mathbb Q]=\varphi(12)=4\)</span>.</p>
+<h3 id="example-6-roots-of-unity-sums">Example 6: roots of unity sums</h3>
+<p>If <span class="math">\(\omega\neq1\)</span>, <span class="math">\(\omega^3=1\)</span>, then <span class="math">\(1+\omega+\dots+\omega^{3n-1}\)</span> is <span class="math">\(n\)</span> copies of <span class="math">\((1+\omega+\omega^2)=0\)</span>. So the sum is <span class="math">\(0\)</span> (2019 Q99). If the sum runs one term further, to <span class="math">\(\omega^{3n}\)</span>, it equals <span class="math">\(1\)</span>; always count the terms before grouping them in threes.</p>
+</section><section class="note-section ns-common-traps" aria-labelledby="common-traps"><h2 id="common-traps">Common traps</h2>
+<ul>
+<li><strong>Degree of the polynomial <span class="math">\(\neq\)</span> degree of the splitting field.</strong> <span class="math">\(x^4+x^2+1\)</span> has splitting degree <span class="math">\(2\)</span>; <span class="math">\(x^3-2\)</span> has degree <span class="math">\(6\)</span>, not <span class="math">\(3\)</span>.</li>
+<li><strong>Adjoining two quadratic roots.</strong> <span class="math">\([\mathbb Q(\sqrt2,\sqrt8):\mathbb Q]=2\)</span> because <span class="math">\(\sqrt8=2\sqrt2\)</span>. Check whether <span class="math">\(ab\)</span> is a square.</li>
+<li><strong><span class="math">\(\mathbb Q(\sqrt[3]2)\)</span> is not normal.</strong> It does not contain <span class="math">\(\omega\)</span>; its automorphism group over <span class="math">\(\mathbb Q\)</span> is trivial although the degree is <span class="math">\(3\)</span>.</li>
+<li><strong>Tower law needs a tower.</strong> <span class="math">\([\mathbb Q(\sqrt[3]2,\sqrt2):\mathbb Q]=6\)</span> because <span class="math">\(2\)</span> and <span class="math">\(3\)</span> are coprime; for non-coprime degrees the product can be too big.</li>
+<li><strong><span class="math">\(\mathbb Z_{p^n}\)</span> is not <span class="math">\(\mathbb F_{p^n}\)</span>.</strong> <span class="math">\(\mathbb Z_4\)</span> has zero divisors; <span class="math">\(\mathbb F_4=\mathbb F_2[x]/(x^2+x+1)\)</span>.</li>
+<li><strong>Subfields of finite fields.</strong> <span class="math">\(\mathbb F_{p^m}\subseteq\mathbb F_{p^n}\)</span> needs <span class="math">\(m\mid n\)</span>. <span class="math">\(\mathbb F_4\)</span> is not in <span class="math">\(\mathbb F_8\)</span> nor in <span class="math">\(\mathbb F_{32}\)</span>; <span class="math">\(\mathbb F_9\subset\mathbb F_{81}\)</span>.</li>
+<li><strong>Order of a field.</strong> No field of order <span class="math">\(6,10,12,15,18\)</span>; fields of order <span class="math">\(4,8,9,16,25,27\)</span> exist.</li>
+<li><strong>Solutions of <span class="math">\(x^n=1\)</span> in <span class="math">\(\mathbb F_q\)</span></strong> are <span class="math">\(\gcd(n,q-1)\)</span>, not <span class="math">\(\gcd(n,q)\)</span>; and <span class="math">\(0\)</span> never counts.</li>
+<li><strong>Number of generators</strong> of <span class="math">\(\mathbb F_q^{*}\)</span> is <span class="math">\(\varphi(q-1)\)</span>, not <span class="math">\(q-1\)</span> or <span class="math">\(\varphi(q)\)</span>.</li>
+<li><strong>Primitive roots of unity.</strong> Only <span class="math">\(\varphi(n)\)</span> of the <span class="math">\(n\)</span>-th roots are primitive; sum of them is <span class="math">\(\mu(n)\)</span>, not <span class="math">\(0\)</span> in general (the sum of all <span class="math">\(n\)</span>-th roots is <span class="math">\(0\)</span>).</li>
+<li><strong>Roots of unity sum with the first term.</strong> <span class="math">\(1+\omega+\dots+\omega^{3n-1}\)</span> has exactly <span class="math">\(3n\)</span> terms; count terms before using <span class="math">\(1+\omega+\omega^2=0\)</span>.</li>
+<li><strong><span class="math">\(\Phi_n(1)\)</span>.</strong> It is <span class="math">\(p\)</span> only for prime powers <span class="math">\(p^k\)</span>; it is <span class="math">\(1\)</span> for other <span class="math">\(n&gt;1\)</span>.</li>
+<li><strong>Transcendental.</strong> <span class="math">\(\pi\)</span> and <span class="math">\(e\)</span> are transcendental; <span class="math">\(\pi+e\)</span> and <span class="math">\(\pi e\)</span> cannot both be algebraic, but it is not known whether either is.</li>
+</ul>
+</section><section class="note-section ns-previous-year-questions" aria-labelledby="previous-year-questions"><h2 id="previous-year-questions">Previous-year questions</h2>
+<h3 id="2019-q99-re-typed-from-a-video-answer-a">2019 Q99 (re-typed from a video; answer (a))</h3>
+<p>Let <span class="math">\(\omega\neq1\)</span> be a cube root of unity. Value of <span class="math">\(1+\omega+\omega^2+\dots+\omega^{3n-1}\)</span>? <strong>Answer: <span class="math">\(0\)</span>.</strong> Group the <span class="math">\(3n\)</span> terms in <span class="math">\(n\)</span> blocks of three; each block is <span class="math">\(\omega^{3j}(1+\omega+\omega^2)=0\)</span>.</p>
+<h3 id="2019-unnumbered-question-17-partial-from-a-video-answer-d-4">2019, unnumbered question 17 (partial, from a video; answer (d) <span class="math">\(4\)</span>)</h3>
+<p>Degree of <span class="math">\(\mathbb Q(\sqrt2,\sqrt3)\)</span> over <span class="math">\(\mathbb Q\)</span>. <strong>Answer: <span class="math">\(4\)</span>.</strong> <span class="math">\([\mathbb Q(\sqrt2):\mathbb Q]=2\)</span> and <span class="math">\(\sqrt3\notin\mathbb Q(\sqrt2)\)</span>, so the tower law gives <span class="math">\(2\cdot2=4\)</span>. (The video’s option mark was not seen; the mathematical answer is <span class="math">\(4\)</span>.)</p>
+<h3 id="2025-q36-official-key-a">2025 Q36 (official key: A)</h3>
+<p>Degree of the splitting field of <span class="math">\(x^4+x^2+1\in\mathbb Q[x]\)</span>: (A) <span class="math">\(2\)</span> (B) <span class="math">\(3\)</span> (C) <span class="math">\(4\)</span> (D) <span class="math">\(6\)</span>. <strong>Answer: A, <span class="math">\(2\)</span>.</strong> <span class="math">\(x^4+x^2+1=(x^2+x+1)(x^2-x+1)\)</span>; the four roots are the primitive <span class="math">\(3\)</span>rd and <span class="math">\(6\)</span>th roots of unity, all in <span class="math">\(\mathbb Q(\omega)\)</span>, degree <span class="math">\(2\)</span>.</p>
+<h3 id="2026-q52-worked-key-d-13">2026 Q52 (worked key: D, <span class="math">\(13\)</span>)</h3>
+<p>Number of elements of <span class="math">\(\mathbb F_{27}\)</span> satisfying <span class="math">\(x^n=1\)</span> (worked key reads the equation as <span class="math">\(x^{13}=1\)</span>; the exponent in the OCR is uncertain). <strong>Answer: <span class="math">\(13\)</span>.</strong> <span class="math">\(\mathbb F_{27}^{*}\)</span> is cyclic of order <span class="math">\(26\)</span>, and <span class="math">\(\lvert\{x:x^{13}=1\}\rvert=\gcd(13,26)=13\)</span>.</p>
+</section><section class="note-section ns-quick-revision" aria-labelledby="quick-revision"><h2 id="quick-revision">Quick revision</h2>
+<ul>
+<li>Tower law: <span class="math">\([E:F]=[E:K][K:F]\)</span>; <span class="math">\([F(\alpha):F]=\deg\)</span> of minimal polynomial.</li>
+<li><span class="math">\(\mathbb Q(\sqrt a,\sqrt b)\)</span> has degree <span class="math">\(4\)</span> unless <span class="math">\(a,b\)</span> or <span class="math">\(ab\)</span> is a square: <span class="math">\([\mathbb Q(\sqrt2,\sqrt3):\mathbb Q]=4\)</span>.</li>
+<li>Splitting fields: <span class="math">\(x^3-2\to6\)</span>, <span class="math">\(x^4-2\to8\)</span>, <span class="math">\(x^4+x^2+1\to2\)</span>, <span class="math">\(x^n-1\to\varphi(n)\)</span>.</li>
+<li>Splitting field of irreducible degree <span class="math">\(n\)</span> over <span class="math">\(\mathbb F_q\)</span> is <span class="math">\(\mathbb F_{q^n}\)</span>.</li>
+<li><span class="math">\(\lvert\mathbb F\rvert=p^n\)</span>; unique field for each prime power; <span class="math">\(\mathbb F_{p^m}\subseteq\mathbb F_{p^n}\)</span> iff <span class="math">\(m\mid n\)</span>.</li>
+<li><span class="math">\(\mathbb F_q^{*}\)</span> is cyclic: <span class="math">\(\varphi(q-1)\)</span> generators; <span class="math">\(x^n=1\)</span> has <span class="math">\(\gcd(n,q-1)\)</span> solutions.</li>
+<li><span class="math">\(x^q-x=\prod_{a\in\mathbb F_q}(x-a)\)</span>; Frobenius <span class="math">\(x\mapsto x^p\)</span> generates <span class="math">\(\operatorname{Aut}(\mathbb F_{p^n})\cong\mathbb Z_n\)</span>.</li>
+<li>Sum of all <span class="math">\(n\)</span>-th roots of unity is <span class="math">\(0\)</span>; <span class="math">\(1+\omega+\dots+\omega^{3n-1}=0\)</span>; product is <span class="math">\((-1)^{n+1}\)</span>.</li>
+<li><span class="math">\(\Phi_n\)</span> has degree <span class="math">\(\varphi(n)\)</span>, is irreducible over <span class="math">\(\mathbb Q\)</span>; <span class="math">\(x^n-1=\prod_{d\mid n}\Phi_d\)</span>.</li>
+<li><span class="math">\(\Phi_{12}=x^4-x^2+1\)</span>, <span class="math">\(\Phi_8=x^4+1\)</span>, <span class="math">\(\Phi_6=x^2-x+1\)</span>.</li>
+<li>Constructible <span class="math">\(\Rightarrow\)</span> degree is a power of <span class="math">\(2\)</span>; <span class="math">\(n\)</span>-gon needs <span class="math">\(\varphi(n)\)</span> a power of <span class="math">\(2\)</span>.</li>
+</ul>
+</section></article></div><section class="section reader-end"><button class="read-btn" type="button" data-read-btn aria-pressed="false"><span class="box" aria-hidden="true"></span><span data-read-label>Mark as read</span></button><ul class="units end-links"><li><a class="unit-card" href="/uphesc-maths/learn/algebra/fields-and-extensions/practice/"><span class="unit-top"><span class="unit-name">Practise this topic</span></span><p class="flush">15 questions with worked solutions</p></a></li><li><a class="unit-card" href="/uphesc-maths/learn/algebra/modules/"><span class="unit-top"><span class="unit-name">Next: Modules and Noetherian rings</span></span><p class="flush">Medium priority · 1 h 10 min</p></a></li></ul><p class="prev-link"><a href="/uphesc-maths/learn/algebra/polynomial-rings-and-domains/">Previous: Polynomial rings and factorisation domains</a></p></section></div><footer class="foot"><p>Built from every paper that survives: the full 2025 and 2026 papers (140 maths questions) and half of 2019 (35, from a solution video). 2015 left only an answer key, and nothing was found for 2021. The commission has never published its booklets. Unit counts use 2025 and 2026 only, so they show a range, not a trend.</p><p>2025 answers match the official key. 2026 has no key yet, so its answers were worked out by hand and marked high, medium or low confidence, and every unsure one was solved again, blind. 2019 answers come from the video and are not checked against the official key.</p></footer></main><script type="module">var e=document.documentElement,t=()=>e.dataset.mode?e.dataset.mode===`dark`:matchMedia(`(prefers-color-scheme: dark)`).matches;document.querySelector(`[data-mode-toggle]`)?.addEventListener(`click`,()=>{let n=t()?`light`:`dark`;e.dataset.mode=n;try{localStorage.setItem(`um:mode`,n)}catch{}}),!e.dataset.mode&&t()&&(e.dataset.mode=`dark`);var n=document.querySelectorAll(`[data-old-toggle]`),r=t=>{t?e.dataset.old=`on`:delete e.dataset.old,n.forEach(e=>e.setAttribute(`aria-checked`,String(t)))};r(e.dataset.old===`on`),n.forEach(t=>t.addEventListener(`click`,()=>{let t=e.dataset.old!==`on`;r(t);try{localStorage.setItem(`um:old`,t?`on`:`off`)}catch{}}));var i=document.querySelectorAll(`[data-view]`),a=t=>{t===`bars`?e.dataset.view=`bars`:delete e.dataset.view,i.forEach(e=>e.setAttribute(`aria-pressed`,String(e.dataset.view===t)))};a(e.dataset.view===`bars`?`bars`:`heat`),i.forEach(e=>e.addEventListener(`click`,()=>{a(e.dataset.view);try{localStorage.setItem(`um:view`,e.dataset.view)}catch{}}));var o=document.createElement(`div`);o.className=`tip`,o.setAttribute(`role`,`tooltip`),o.hidden=!0,document.body.append(o);var s=null,c=(e,t)=>{let n=o.offsetWidth,r=o.offsetHeight,i=e+12,a=t+12;i+n>innerWidth-8&&(i=Math.max(8,e-n-12)),a+r>innerHeight-8&&(a=Math.max(8,t-r-12)),o.style.left=`${i}px`,o.style.top=`${a}px`},l=()=>{if(s){let e=s.getBoundingClientRect();c(e.left+e.width*.3,e.bottom-8)}},u=e=>{e!==s&&(s=e,o.replaceChildren(...[...e.querySelector(`.tip-src`).childNodes].map(e=>e.cloneNode(!0)))),o.hidden=!1},d=()=>{o.hidden=!0,s=null};document.addEventListener(`pointermove`,e=>{if(e.pointerType!==`mouse`)return;let t=e.target.closest(`[data-tip]`);t?(u(t),c(e.clientX,e.clientY)):s&&d()}),document.addEventListener(`focusin`,e=>{let t=e.target.closest(`[data-tip]`);t&&(u(t),l())}),document.addEventListener(`focusout`,()=>d()),addEventListener(`scroll`,()=>{s&&document.activeElement===s?l():s&&d()},{passive:!0}),document.addEventListener(`keydown`,e=>{e.key===`Escape`&&d()});var f=`um:done`,p={};try{p=JSON.parse(localStorage.getItem(f)||`{}`)}catch{}var m=()=>{document.querySelectorAll(`[data-progress]`).forEach(e=>{let t=[...document.querySelectorAll(`[data-group="${e.dataset.progress}"]`)],n=t.filter(e=>e.checked).length;e.querySelector(`.progress-bar span`).style.width=`${n/t.length*100}%`,e.querySelector(`[data-count]`).textContent=`${n} of ${t.length} done`})};document.querySelectorAll(`input[data-check]`).forEach(e=>{e.checked=!!p[e.dataset.check],e.addEventListener(`change`,()=>{p[e.dataset.check]=e.checked;try{localStorage.setItem(f,JSON.stringify(p))}catch{}m()})}),m();</script></body></html><script type="module" src="/uphesc-maths/_astro/index.astro_astro_type_script_index_0_lang.t7qZbIYF.js"></script>

@@ -1,0 +1,356 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Rigid body motion and Euler&#39;s equations · UPESSC maths</title><meta name="description" content="What to study for the UPESSC (formerly UPHESC) Assistant Professor maths paper, built from every paper that survives."><link rel="icon" href="/uphesc-maths/favicon.svg" type="image/svg+xml"><link rel="preload" href="/uphesc-maths/fonts/inter-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin><!-- the saved light/dark, 2019 and chart-view choices, before first paint --><script>
+    try { var m = localStorage.getItem('um:mode'); if (m) document.documentElement.dataset.mode = m; } catch (e) {}
+    try { if (localStorage.getItem('um:old') === 'on') document.documentElement.dataset.old = 'on'; } catch (e) {}
+    try { if (localStorage.getItem('um:view') === 'bars') document.documentElement.dataset.view = 'bars'; } catch (e) {}
+  </script><!-- maths: the vendored MathJax typesets \( \) and \[ \] text, loaded only on pages that have any --><script>(function(){const VENDOR = "/uphesc-maths/vendor";
+
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+      loader: { paths: { mathjax: VENDOR + '/mathjax', fonts: VENDOR + '/mathjax/fonts' } },
+      output: { font: 'mathjax-stix2', displayOverflow: 'scroll' },
+      options: { ignoreHtmlClass: 'no-math', processHtmlClass: 'math', menuOptions: { settings: { enrich: false, speech: false, braille: false } } },
+      chtml: { displayOverflow: 'scroll' },
+      // an inline formula with a piece wider than its line gets its own scrolling line, like display maths
+      startup: { pageReady: () => MathJax.startup.defaultPageReady().then(fitMath) },
+    };
+    function fitMath() {
+      for (const m of document.querySelectorAll('mjx-container:not([display="true"]):not(.mjx-wide)')) {
+        const box = m.closest('p, li, dd, blockquote, div');
+        if (!box || m.closest('td, th')) continue;
+        const right = box.getBoundingClientRect().right + 1;
+        if ([...m.getClientRects()].some((r) => r.right > right)) m.classList.add('mjx-wide');
+      }
+    }
+    let fitQueued = 0;
+    const queueFit = () => { if (window.MathJax?.startup?.document && !fitQueued) fitQueued = requestAnimationFrame(() => { fitQueued = 0; fitMath(); }); };
+    addEventListener('resize', queueFit);
+    addEventListener('click', () => setTimeout(queueFit, 50));
+    document.addEventListener('DOMContentLoaded', () => {
+      if (!document.querySelector('.math')) return;
+      const s = document.createElement('script');
+      s.async = true;
+      s.src = VENDOR + '/mathjax/tex-chtml-nofont.js';
+      document.head.appendChild(s);
+    });
+  })();</script><link rel="stylesheet" href="/uphesc-maths/_astro/Base.CkQ5KWO8.css"></head><body data-tab="learn"><nav class="appnav" aria-label="Main"><a class="appnav-brand" href="/uphesc-maths/" aria-label="UPESSC maths home">∑</a><a class="appnav-item" href="/uphesc-maths/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4 10.2 12 4l8 6.2V19a1 1 0 0 1-1 1h-4.5v-5.5h-5V20H5a1 1 0 0 1-1-1z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Plan</span></a><a class="appnav-item" href="/uphesc-maths/learn/" aria-current="page"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M12 6.5C10 5 7.5 4.5 4 4.5v13c3.5 0 6 .5 8 2 2-1.5 4.5-2 8-2v-13c-3.5 0-6 .5-8 2zM12 6.5v13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Learn</span></a><a class="appnav-item" href="/uphesc-maths/units/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4 5h7v7H4zM13 5h7v7h-7zM4 14h7v6H4zM13 14h7v6h-7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Units</span></a><a class="appnav-item" href="/uphesc-maths/papers/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M7 3h7l4 4v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zM14 3v4h4M9 12h6M9 16h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Papers</span></a><a class="appnav-item" href="/uphesc-maths/revise/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M5 12.5 9.5 17 19 7.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Revise</span></a></nav><header class="topbar"><a class="bar-back" href="/uphesc-maths/learn/mechanics-fluids/" aria-label="Back"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a><p class="bar-title">Unit 8</p><button class="bar-btn" type="button" data-mode-toggle aria-label="Switch light or dark"><svg class="i-moon" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path></svg><svg class="i-sun" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path></svg></button></header><main class="page"><div class="reader" data-topic="rigid-body-motion"><header class="page-head topic-head"><p class="kicker"><a href="/uphesc-maths/learn/mechanics-fluids/">Unit 8 · Mechanics and Fluid Dynamics</a></p><h1>Rigid body motion and Euler&#39;s equations</h1><ul class="meta"><li class="prio medium">Medium priority</li><li>1 h 50 min to study</li><li>Asked once</li><li class="read-flag" data-read-flag hidden>Read</li></ul><p class="pyq-line">Previous papers: 2026 Q71</p><p class="prereq">Read first: <a href="/uphesc-maths/learn/mechanics-fluids/lagrangian-mechanics/">Lagrangian mechanics</a></p></header><div class="reader-grid"><nav class="toc" aria-label="On this page"><details class="toc-box" data-toc><summary>On this page</summary><ol><li><a href="#why-it-matters-for-the-exam">Why it matters for the exam</a></li><li><a href="#core-ideas">Core ideas</a></li><li class="sub"><a href="#degrees-of-freedom-and-euler-angles">Degrees of freedom and Euler angles</a></li><li class="sub"><a href="#moments-and-products-of-inertia-inertia-tensor">Moments and products of inertia, inertia tensor</a></li><li class="sub"><a href="#parallel-and-perpendicular-axis-theorems">Parallel and perpendicular axis theorems</a></li><li class="sub"><a href="#standard-moments-of-inertia-mass-m">Standard moments of inertia (mass <span class="math">\(M\)</span>)</a></li><li class="sub"><a href="#angular-momentum-and-kinetic-energy">Angular momentum and kinetic energy</a></li><li class="sub"><a href="#eulers-dynamical-equations">Euler’s dynamical equations</a></li><li class="sub"><a href="#torque-free-symmetric-top-i_1i_2ne-i_3">Torque-free symmetric top (<span class="math">\(I_1=I_2\ne I_3\)</span>)</a></li><li class="sub"><a href="#stability-of-torque-free-rotation-about-a-principal-axis">Stability of torque-free rotation about a principal axis</a></li><li class="sub"><a href="#heavy-symmetric-top-basic">Heavy symmetric top (basic)</a></li><li><a href="#formulas-and-results">Formulas and results</a></li><li><a href="#worked-examples">Worked examples</a></li><li class="sub"><a href="#example-1-principal-moments-of-a-cube-about-a-corner">Example 1: principal moments of a cube about a corner</a></li><li class="sub"><a href="#example-2-parallel-and-perpendicular-axis-theorems">Example 2: parallel and perpendicular axis theorems</a></li><li class="sub"><a href="#example-3-stability-of-rotation-about-the-intermediate-axis">Example 3: stability of rotation about the intermediate axis</a></li><li class="sub"><a href="#example-4-free-symmetric-top">Example 4: free symmetric top</a></li><li class="sub"><a href="#example-5-rolling-down-an-incline">Example 5: rolling down an incline</a></li><li><a href="#common-traps">Common traps</a></li><li><a href="#previous-year-questions">Previous-year questions</a></li><li class="sub"><a href="#2026-q71-torque-free-rotation-about-the-intermediate-axis">2026-Q71: torque-free rotation about the intermediate axis</a></li><li class="sub"><a href="#related">Related</a></li><li><a href="#quick-revision">Quick revision</a></li></ol></details></nav><article class="prose"><section class="note-section ns-why-it-matters-for-the-exam" aria-labelledby="why-it-matters-for-the-exam"><h2 id="why-it-matters-for-the-exam">Why it matters for the exam</h2>
+<p>Rigid-body questions are rare but direct: the degrees of freedom of a rigid body (2025-Q68, also in the Lagrangian topic) and the stability of torque-free rotation (2026-Q71). Expect one item on moments of inertia (parallel or perpendicular axis theorem), principal axes or Euler’s equations. The syllabus line names “Euler’s dynamical equations”, so know the equations, the symmetric top and the intermediate-axis result.</p>
+</section><section class="note-section ns-core-ideas" aria-labelledby="core-ideas"><h2 id="core-ideas">Core ideas</h2>
+<h3 id="degrees-of-freedom-and-euler-angles">Degrees of freedom and Euler angles</h3>
+<p>A rigid body has 6 degrees of freedom: 3 for the centre of mass, 3 for orientation. With one point fixed there are 3; about a fixed axis, 1.</p>
+<p>The orientation is fixed by three <strong>Euler angles</strong> <span class="math">\((\varphi,\theta,\psi)\)</span> (the <span class="math">\(z\)</span>-<span class="math">\(x\)</span>-<span class="math">\(z\)</span> convention): rotate by <span class="math">\(\varphi\)</span> about the space <span class="math">\(z\)</span>-axis, by <span class="math">\(\theta\)</span> about the new <span class="math">\(x\)</span>-axis (the line of nodes), by <span class="math">\(\psi\)</span> about the new <span class="math">\(z\)</span>-axis (the body symmetry axis).</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Angle</th>
+<th>Name</th>
+<th>Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math">\(\varphi\)</span></td>
+<td>precession</td>
+<td><span class="math">\(0\le\varphi&lt;2\pi\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(\theta\)</span></td>
+<td>nutation (tilt of the body axis from the space <span class="math">\(z\)</span>-axis)</td>
+<td><span class="math">\(0\le\theta\le\pi\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(\psi\)</span></td>
+<td>spin</td>
+<td><span class="math">\(0\le\psi&lt;2\pi\)</span></td>
+</tr>
+</tbody>
+</table></div>
+<p>Components of the angular velocity along the body axes:</p>
+<p><span class="math">\(\omega_1=\dot\varphi\sin\theta\sin\psi+\dot\theta\cos\psi,\)</span>
+<span class="math">\(\omega_2=\dot\varphi\sin\theta\cos\psi-\dot\theta\sin\psi,\)</span>
+<span class="math">\(\omega_3=\dot\varphi\cos\theta+\dot\psi.\)</span></p>
+<p>Three angles are used because any rotation matrix is fixed by three parameters. Velocity of a point: <span class="math">\(\mathbf v=\mathbf V+\boldsymbol\omega\times\mathbf r\)</span>.</p>
+<h3 id="moments-and-products-of-inertia-inertia-tensor">Moments and products of inertia, inertia tensor</h3>
+<p>For a body of mass elements <span class="math">\(m_\alpha\)</span> at <span class="math">\((x_\alpha,y_\alpha,z_\alpha)\)</span> (or a continuous body, replace sums by <span class="math">\(\int\,dm\)</span>):</p>
+<p><span class="math">\(I_{xx}=\sum m(y^2+z^2),\quad I_{yy}=\sum m(z^2+x^2),\quad I_{zz}=\sum m(x^2+y^2),\)</span></p>
+<p><span class="math">\(I_{xy}=-\sum mxy,\quad I_{yz}=-\sum myz,\quad I_{zx}=-\sum mzx.\)</span></p>
+<p>The first three are <strong>moments of inertia</strong>; the others are <strong>products of inertia</strong> (some books omit the minus sign in the definition and put it in the matrix: be careful). They form the symmetric <strong>inertia tensor</strong></p>
+<p><span class="math">\(\mathsf I=\begin{pmatrix}I_{xx}&amp;I_{xy}&amp;I_{xz}\\I_{xy}&amp;I_{yy}&amp;I_{yz}\\I_{xz}&amp;I_{yz}&amp;I_{zz}\end{pmatrix}.\)</span></p>
+<p>In vector form <span class="math">\(I_{ij}=\sum m\,(r^2\delta_{ij}-x_ix_j)\)</span>. The moment of inertia about an axis through the origin with unit direction <span class="math">\(\mathbf n\)</span> is</p>
+<p><span class="math">\(I_n=\mathbf n^T\mathsf I\,\mathbf n=\sum m\,\rho_\perp^2.\)</span></p>
+<p>The tensor is symmetric and positive definite, so it has three real positive eigenvalues <span class="math">\(I_1,I_2,I_3\)</span> (the <strong>principal moments</strong>) and three orthogonal eigenvectors (the <strong>principal axes</strong>). In the principal-axes frame all products of inertia vanish and <span class="math">\(\mathsf I=\mathrm{diag}(I_1,I_2,I_3)\)</span>. The principal moments are the roots of <span class="math">\(\det(\mathsf I-\lambda\mathbf 1)=0\)</span>.</p>
+<p>Properties:</p>
+<ul>
+<li>Triangle inequality: <span class="math">\(I_1\le I_2+I_3\)</span> (and cyclic). Equality holds for a planar body.</li>
+<li>Symmetry axes are principal axes. A body with an axis of <span class="math">\(n\)</span>-fold symmetry (<span class="math">\(n\ge3\)</span>) has equal moments about the two perpendicular axes (a symmetric top). A sphere or cube about its centre has <span class="math">\(I_1=I_2=I_3\)</span> (spherical top).</li>
+<li>Principal axes for a body with a plane of symmetry: the normal to the plane is a principal axis.</li>
+<li>The <strong>moment-of-inertia ellipsoid</strong>: <span class="math">\(\mathbf x^T\mathsf I\mathbf x=1\)</span>. Its axes are the principal axes, with semi-axes <span class="math">\(1/\sqrt{I_k}\)</span>.</li>
+</ul>
+<h3 id="parallel-and-perpendicular-axis-theorems">Parallel and perpendicular axis theorems</h3>
+<p><strong>Parallel axis (Huygens-Steiner).</strong> If the axis through the centre of mass has moment <span class="math">\(I_{cm}\)</span>, a parallel axis at distance <span class="math">\(d\)</span> has</p>
+<p><span class="math">\(I=I_{cm}+Md^2.\)</span></p>
+<p>For the full tensor: <span class="math">\(I_{ij}=I^{cm}_{ij}+M\,(a^2\delta_{ij}-a_ia_j)\)</span>, where <span class="math">\(\mathbf a\)</span> is the vector from the centre of mass to the new origin. For a product of inertia, <span class="math">\(I_{xy}=I^{cm}_{xy}-Mab\)</span>.</p>
+<p><strong>Perpendicular axis.</strong> For a planar lamina (flat body) in the <span class="math">\(xy\)</span>-plane,</p>
+<p><span class="math">\(I_z=I_x+I_y.\)</span></p>
+<p>It applies only to plane laminae, with all three axes through the same point. Use it together with symmetry: a uniform disc has <span class="math">\(I_x=I_y\)</span>, so <span class="math">\(I_{\rm diameter}=\tfrac12I_z\)</span>.</p>
+<h3 id="standard-moments-of-inertia-mass-m">Standard moments of inertia (mass <span class="math">\(M\)</span>)</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Body and axis</th>
+<th><span class="math">\(I\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Thin rod, length <span class="math">\(l\)</span>, through centre, perpendicular</td>
+<td><span class="math">\(\dfrac{Ml^2}{12}\)</span></td>
+</tr>
+<tr>
+<td>Thin rod, through an end, perpendicular</td>
+<td><span class="math">\(\dfrac{Ml^2}{3}\)</span></td>
+</tr>
+<tr>
+<td>Ring (thin hoop), radius <span class="math">\(R\)</span>, axis perpendicular through centre</td>
+<td><span class="math">\(MR^2\)</span></td>
+</tr>
+<tr>
+<td>Ring, about a diameter</td>
+<td><span class="math">\(\dfrac12MR^2\)</span></td>
+</tr>
+<tr>
+<td>Uniform disc or solid cylinder, symmetry axis</td>
+<td><span class="math">\(\dfrac12MR^2\)</span></td>
+</tr>
+<tr>
+<td>Disc, about a diameter</td>
+<td><span class="math">\(\dfrac14MR^2\)</span></td>
+</tr>
+<tr>
+<td>Solid cylinder (radius <span class="math">\(R\)</span>, length <span class="math">\(h\)</span>), transverse axis through centre</td>
+<td><span class="math">\(M\left(\dfrac{R^2}{4}+\dfrac{h^2}{12}\right)\)</span></td>
+</tr>
+<tr>
+<td>Hollow thin cylinder, axis</td>
+<td><span class="math">\(MR^2\)</span></td>
+</tr>
+<tr>
+<td>Solid sphere, any diameter</td>
+<td><span class="math">\(\dfrac25MR^2\)</span></td>
+</tr>
+<tr>
+<td>Hollow thin spherical shell, any diameter</td>
+<td><span class="math">\(\dfrac23MR^2\)</span></td>
+</tr>
+<tr>
+<td>Rectangular plate <span class="math">\(a\times b\)</span>, axis perpendicular through centre</td>
+<td><span class="math">\(\dfrac{M(a^2+b^2)}{12}\)</span></td>
+</tr>
+<tr>
+<td>Rectangular plate, in-plane axis parallel to side <span class="math">\(b\)</span> through centre</td>
+<td><span class="math">\(\dfrac{Ma^2}{12}\)</span></td>
+</tr>
+<tr>
+<td>Rectangular block (sides <span class="math">\(a,b,c\)</span>), axis through centre parallel to side <span class="math">\(c\)</span></td>
+<td><span class="math">\(\dfrac{M(a^2+b^2)}{12}\)</span></td>
+</tr>
+<tr>
+<td>Solid cone (radius <span class="math">\(R\)</span>), symmetry axis</td>
+<td><span class="math">\(\dfrac3{10}MR^2\)</span></td>
+</tr>
+<tr>
+<td>Ellipsoid, semi-axes <span class="math">\(a,b,c\)</span>, about the <span class="math">\(a\)</span> axis</td>
+<td><span class="math">\(\dfrac{M(b^2+c^2)}{5}\)</span></td>
+</tr>
+<tr>
+<td>Ring, tangent axis perpendicular to plane</td>
+<td><span class="math">\(2MR^2\)</span></td>
+</tr>
+<tr>
+<td>Solid sphere, tangent axis</td>
+<td><span class="math">\(\dfrac75MR^2\)</span></td>
+</tr>
+<tr>
+<td>Uniform cube (side <span class="math">\(a\)</span>) about a corner, along the body diagonal</td>
+<td><span class="math">\(\dfrac16Ma^2\)</span></td>
+</tr>
+<tr>
+<td>Uniform cube about a corner, a perpendicular-to-diagonal axis</td>
+<td><span class="math">\(\dfrac{11}{12}Ma^2\)</span></td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="angular-momentum-and-kinetic-energy">Angular momentum and kinetic energy</h3>
+<p>For rotation with angular velocity <span class="math">\(\boldsymbol\omega\)</span> about a fixed point (or about the centre of mass):</p>
+<p><span class="math">\(\mathbf L=\mathsf I\boldsymbol\omega,\qquad T_{\rm rot}=\tfrac12\boldsymbol\omega^T\mathsf I\boldsymbol\omega=\tfrac12\boldsymbol\omega\cdot\mathbf L.\)</span></p>
+<p>In principal axes <span class="math">\(L_k=I_k\omega_k\)</span> and <span class="math">\(T=\tfrac12(I_1\omega_1^2+I_2\omega_2^2+I_3\omega_3^2)\)</span>. In general <span class="math">\(\mathbf L\)</span> is <strong>not parallel</strong> to <span class="math">\(\boldsymbol\omega\)</span>: it is parallel only if <span class="math">\(\boldsymbol\omega\)</span> lies along a principal axis, or the body is a spherical top.</p>
+<p>For a body moving with centre-of-mass velocity <span class="math">\(\mathbf V\)</span> (König theorem):</p>
+<p><span class="math">\(T=\tfrac12MV^2+\tfrac12\boldsymbol\omega^T\mathsf I_{cm}\boldsymbol\omega,\qquad\mathbf L=\mathbf R_{cm}\times M\mathbf V+\mathsf I_{cm}\boldsymbol\omega.\)</span></p>
+<p>Rolling without slipping: <span class="math">\(v=\omega R\)</span> and <span class="math">\(T=\tfrac12Mv^2\left(1+\dfrac{I_{cm}}{MR^2}\right)\)</span>. The acceleration down an incline is <span class="math">\(a=\dfrac{g\sin\alpha}{1+I_{cm}/MR^2}\)</span>: sphere <span class="math">\(\tfrac57g\sin\alpha\)</span>, solid cylinder <span class="math">\(\tfrac23g\sin\alpha\)</span>, hoop <span class="math">\(\tfrac12g\sin\alpha\)</span>.</p>
+<h3 id="eulers-dynamical-equations">Euler’s dynamical equations</h3>
+<p>The equation <span class="math">\(d\mathbf L/dt=\mathbf N\)</span> holds in an inertial frame. In the body frame (rotating with <span class="math">\(\boldsymbol\omega\)</span>), <span class="math">\(\left(\dfrac{d\mathbf L}{dt}\right)_{\rm body}+\boldsymbol\omega\times\mathbf L=\mathbf N\)</span>. With axes along the principal axes at the fixed point or centre of mass:</p>
+<p><span class="math">\(\boxed{\begin{aligned}I_1\dot\omega_1-(I_2-I_3)\,\omega_2\omega_3&amp;=N_1,\\I_2\dot\omega_2-(I_3-I_1)\,\omega_3\omega_1&amp;=N_2,\\I_3\dot\omega_3-(I_1-I_2)\,\omega_1\omega_2&amp;=N_3.\end{aligned}}\)</span></p>
+<p>Equivalent: <span class="math">\(I_1\dot\omega_1=(I_2-I_3)\omega_2\omega_3+N_1\)</span> and cyclic. Torque-free case <span class="math">\(N=0\)</span> has two first integrals:</p>
+<p><span class="math">\(2T=I_1\omega_1^2+I_2\omega_2^2+I_3\omega_3^2=\text{const},\qquad L^2=I_1^2\omega_1^2+I_2^2\omega_2^2+I_3^2\omega_3^2=\text{const}.\)</span></p>
+<p>(Energy ellipsoid and angular-momentum sphere in <span class="math">\(L\)</span>-space; their intersection is the <strong>polhode</strong>.) Rotation about a principal axis with constant <span class="math">\(\omega\)</span> is a solution: if <span class="math">\(\omega_2=\omega_3=0\)</span>, then <span class="math">\(\dot\omega_1=0\)</span>.</p>
+<h3 id="torque-free-symmetric-top-i_1i_2ne-i_3">Torque-free symmetric top (<span class="math">\(I_1=I_2\ne I_3\)</span>)</h3>
+<p>The third equation gives <span class="math">\(\dot\omega_3=0\)</span>, so <span class="math">\(\omega_3\)</span> is constant. The first two become</p>
+<p><span class="math">\(\dot\omega_1=-\Omega\,\omega_2,\qquad\dot\omega_2=\Omega\,\omega_1,\qquad\Omega=\frac{I_3-I_1}{I_1}\,\omega_3.\)</span></p>
+<p>So <span class="math">\((\omega_1,\omega_2)\)</span> rotates in the body frame with constant magnitude at angular rate <span class="math">\(\Omega\)</span>: <span class="math">\(\boldsymbol\omega\)</span> precesses about the symmetry axis. In the space frame <span class="math">\(\mathbf L\)</span> is fixed, <span class="math">\(\mathbf L\)</span>, <span class="math">\(\boldsymbol\omega\)</span> and the symmetry axis are coplanar, the symmetry axis precesses about <span class="math">\(\mathbf L\)</span> at</p>
+<p><span class="math">\(\dot\varphi=\frac{L}{I_1}\quad(\theta\ \text{constant}),\)</span></p>
+<p>with <span class="math">\(\cos\theta=\dfrac{I_3\omega_3}{L}\)</span>. Direction of body-frame precession: same sense as the spin for an oblate body (<span class="math">\(I_3&gt;I_1\)</span>), opposite for a prolate body (<span class="math">\(I_3&lt;I_1\)</span>). The Earth is slightly oblate with <span class="math">\((I_3-I_1)/I_1\approx1/305\)</span>, which gives Euler’s free-wobble period of about 305 days (the observed Chandler wobble is about 433 days because the Earth is not perfectly rigid).</p>
+<h3 id="stability-of-torque-free-rotation-about-a-principal-axis">Stability of torque-free rotation about a principal axis</h3>
+<p>Take <span class="math">\(I_1&lt;I_2&lt;I_3\)</span> and a rotation of rate <span class="math">\(\Omega\)</span> about one principal axis, with small perturbations of the other two components. Linearising Euler’s equations:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Axis</th>
+<th>Perturbation equation</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Axis 1 (smallest <span class="math">\(I\)</span>)</td>
+<td><span class="math">\(\ddot\omega_2=-\Omega^2\dfrac{(I_3-I_1)(I_2-I_1)}{I_2I_3}\,\omega_2\)</span></td>
+<td>oscillation: <strong>stable</strong></td>
+</tr>
+<tr>
+<td>Axis 2 (intermediate <span class="math">\(I\)</span>)</td>
+<td><span class="math">\(\ddot\omega_1=+\Omega^2\dfrac{(I_3-I_2)(I_2-I_1)}{I_1I_3}\,\omega_1\)</span></td>
+<td>exponential growth, rate <span class="math">\(\Omega\sqrt{\dfrac{(I_3-I_2)(I_2-I_1)}{I_1I_3}}\)</span>: <strong>unstable</strong></td>
+</tr>
+<tr>
+<td>Axis 3 (largest <span class="math">\(I\)</span>)</td>
+<td><span class="math">\(\ddot\omega_1=-\Omega^2\dfrac{(I_3-I_1)(I_3-I_2)}{I_1I_2}\,\omega_1\)</span></td>
+<td>oscillation: <strong>stable</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>Each row has the form <span class="math">\(\ddot\omega=K\omega\)</span>: <span class="math">\(K&lt;0\)</span> (oscillation) for axes 1 and 3, <span class="math">\(K&gt;0\)</span> (exponential growth) for axis 2. This is the “tennis racket theorem”: rotation about the intermediate axis is unstable, and the body flips over repeatedly. Rotation about the largest-moment axis is also stable under energy dissipation; rotation about the smallest-moment axis is stable for a rigid body but unstable for a body that dissipates energy (a satellite with internal friction ends up spinning about the largest-moment axis).</p>
+<h3 id="heavy-symmetric-top-basic">Heavy symmetric top (basic)</h3>
+<p>A top with <span class="math">\(I_1=I_2\)</span> and fixed point at distance <span class="math">\(l\)</span> from the centre of mass has</p>
+<p><span class="math">\(L=\tfrac12I_1(\dot\theta^2+\dot\varphi^2\sin^2\theta)+\tfrac12I_3(\dot\psi+\dot\varphi\cos\theta)^2-Mgl\cos\theta.\)</span></p>
+<p><span class="math">\(\varphi\)</span> and <span class="math">\(\psi\)</span> are cyclic, so <span class="math">\(p_\varphi\)</span> and <span class="math">\(p_\psi=I_3\omega_3\)</span> are conserved, and so is energy. The steady precession rate for fast spin is <span class="math">\(\dot\varphi\approx\dfrac{Mgl}{I_3\omega_3}\)</span>.</p>
+</section><section class="note-section ns-formulas-and-results" aria-labelledby="formulas-and-results"><h2 id="formulas-and-results">Formulas and results</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Formula</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Degrees of freedom</td>
+<td>free 6; one point fixed 3; fixed axis 1</td>
+</tr>
+<tr>
+<td>Moment, product</td>
+<td><span class="math">\(I_{xx}=\sum m(y^2+z^2)\)</span>; <span class="math">\(I_{xy}=-\sum mxy\)</span></td>
+</tr>
+<tr>
+<td>About axis <span class="math">\(\mathbf n\)</span></td>
+<td><span class="math">\(I_n=\mathbf n^T\mathsf I\mathbf n\)</span></td>
+</tr>
+<tr>
+<td>Principal moments</td>
+<td>roots of <span class="math">\(\det(\mathsf I-\lambda\mathbf 1)=0\)</span></td>
+</tr>
+<tr>
+<td>Parallel axis</td>
+<td><span class="math">\(I=I_{cm}+Md^2\)</span></td>
+</tr>
+<tr>
+<td>Perpendicular axis (lamina)</td>
+<td><span class="math">\(I_z=I_x+I_y\)</span></td>
+</tr>
+<tr>
+<td>Angular momentum</td>
+<td><span class="math">\(\mathbf L=\mathsf I\boldsymbol\omega\)</span>; <span class="math">\(L_k=I_k\omega_k\)</span></td>
+</tr>
+<tr>
+<td>Kinetic energy</td>
+<td><span class="math">\(T=\tfrac12\boldsymbol\omega\cdot\mathbf L=\tfrac12\sum I_k\omega_k^2\)</span></td>
+</tr>
+<tr>
+<td>Euler’s equations</td>
+<td><span class="math">\(I_1\dot\omega_1-(I_2-I_3)\omega_2\omega_3=N_1\)</span>, cyclic</td>
+</tr>
+<tr>
+<td>Symmetric top, body frame</td>
+<td><span class="math">\(\omega_3\)</span> const; rate <span class="math">\(\Omega=\dfrac{I_3-I_1}{I_1}\omega_3\)</span></td>
+</tr>
+<tr>
+<td>Symmetric top, space frame</td>
+<td><span class="math">\(\dot\varphi=L/I_1\)</span>; <span class="math">\(\cos\theta=I_3\omega_3/L\)</span></td>
+</tr>
+<tr>
+<td>Rod about centre, end</td>
+<td><span class="math">\(\dfrac{Ml^2}{12}\)</span>, <span class="math">\(\dfrac{Ml^2}{3}\)</span></td>
+</tr>
+<tr>
+<td>Disc, ring, sphere</td>
+<td><span class="math">\(\tfrac12MR^2\)</span>, <span class="math">\(MR^2\)</span>, <span class="math">\(\tfrac25MR^2\)</span></td>
+</tr>
+<tr>
+<td>Rolling on incline</td>
+<td><span class="math">\(a=\dfrac{g\sin\alpha}{1+I_{cm}/MR^2}\)</span></td>
+</tr>
+<tr>
+<td>Intermediate-axis growth rate</td>
+<td><span class="math">\(\Omega\sqrt{\dfrac{(I_3-I_2)(I_2-I_1)}{I_1I_3}}\)</span></td>
+</tr>
+</tbody>
+</table></div>
+</section><section class="note-section ns-worked-examples" aria-labelledby="worked-examples"><h2 id="worked-examples">Worked examples</h2>
+<h3 id="example-1-principal-moments-of-a-cube-about-a-corner">Example 1: principal moments of a cube about a corner</h3>
+<p>A uniform cube of side <span class="math">\(a\)</span> and mass <span class="math">\(M\)</span> about a corner: <span class="math">\(I_{xx}=I_{yy}=I_{zz}=\tfrac23Ma^2\)</span> and <span class="math">\(I_{xy}=I_{yz}=I_{zx}=-\tfrac14Ma^2\)</span>. In units of <span class="math">\(Ma^2\)</span> the tensor is <span class="math">\(\begin{pmatrix}2/3&amp;-1/4&amp;-1/4\\-1/4&amp;2/3&amp;-1/4\\-1/4&amp;-1/4&amp;2/3\end{pmatrix}\)</span>. The body diagonal <span class="math">\((1,1,1)/\sqrt3\)</span> is a principal axis with</p>
+<p><span class="math">\(I=\tfrac23+2\left(-\tfrac14\right)=\tfrac16.\)</span></p>
+<p>The other two principal moments (any two perpendicular axes orthogonal to the diagonal) are <span class="math">\(\tfrac23+\tfrac14=\tfrac{11}{12}\)</span> each. Check: trace <span class="math">\(=\tfrac16+2\cdot\tfrac{11}{12}=2=3\cdot\tfrac23\)</span>. The cube about a corner is a symmetric top.</p>
+<h3 id="example-2-parallel-and-perpendicular-axis-theorems">Example 2: parallel and perpendicular axis theorems</h3>
+<ul>
+<li>Ring, axis tangent and perpendicular to the plane: <span class="math">\(MR^2+MR^2=2MR^2\)</span>.</li>
+<li>Disc, axis tangent in the plane: <span class="math">\(\tfrac14MR^2+MR^2=\tfrac54MR^2\)</span>.</li>
+<li>Square plate of side <span class="math">\(a\)</span> about a diagonal: about the perpendicular axis through the centre <span class="math">\(I_z=\dfrac{M(a^2+a^2)}{12}=\dfrac{Ma^2}{6}\)</span>. By symmetry the two diagonals have equal moments, so <span class="math">\(I_{\rm diag}=\tfrac12I_z=\dfrac{Ma^2}{12}\)</span>.</li>
+</ul>
+<h3 id="example-3-stability-of-rotation-about-the-intermediate-axis">Example 3: stability of rotation about the intermediate axis</h3>
+<p><span class="math">\(I_1=1\)</span>, <span class="math">\(I_2=2\)</span>, <span class="math">\(I_3=3\)</span> (kg m<span class="math">\(^2\)</span>), spinning about axis 2 at <span class="math">\(\Omega=1\)</span> rad/s. The perturbation grows like <span class="math">\(e^{\lambda t}\)</span> with</p>
+<p><span class="math">\(\lambda=\Omega\sqrt{\frac{(3-2)(2-1)}{1\cdot3}}=\frac1{\sqrt3}\approx0.577\ \text{s}^{-1}.\)</span></p>
+<p>(Checked by numerical integration of Euler’s equations.) About axis 1 with <span class="math">\(\Omega=1\)</span> the perturbation oscillates with frequency <span class="math">\(\sqrt{\dfrac{(3-1)(2-1)}{2\cdot3}}=\dfrac1{\sqrt3}\)</span>, so axis 1 and 3 are stable.</p>
+<h3 id="example-4-free-symmetric-top">Example 4: free symmetric top</h3>
+<p><span class="math">\(I_1=I_2=2\)</span>, <span class="math">\(I_3=3\)</span> (kg m<span class="math">\(^2\)</span>), <span class="math">\(\omega_3=10\)</span> rad/s. The body-frame precession rate is <span class="math">\(\Omega=\dfrac{3-2}{2}\cdot10=5\)</span> rad/s. The component <span class="math">\(\omega_3\)</span> stays <span class="math">\(10\)</span> rad/s. With a small transverse <span class="math">\(\omega_\perp\)</span>, the angle <span class="math">\(\theta\)</span> between <span class="math">\(\mathbf L\)</span> and the symmetry axis is small: <span class="math">\(\tan\theta=\dfrac{I_1\omega_\perp}{I_3\omega_3}\)</span>. In the space frame the axis precesses at <span class="math">\(\dot\varphi=L/I_1\approx I_3\omega_3/I_1=15\)</span> rad/s.</p>
+<h3 id="example-5-rolling-down-an-incline">Example 5: rolling down an incline</h3>
+<p>A solid sphere, a solid cylinder and a hoop start together at rest on a <span class="math">\(30^\circ\)</span> incline. <span class="math">\(a=\dfrac{g\sin\alpha}{1+k}\)</span> with <span class="math">\(k=\tfrac25,\tfrac12,1\)</span> gives <span class="math">\(a=\tfrac57\cdot\tfrac g2\)</span>, <span class="math">\(\tfrac23\cdot\tfrac g2\)</span>, <span class="math">\(\tfrac12\cdot\tfrac g2\)</span>. The sphere wins, then the cylinder, then the hoop, independent of mass and radius.</p>
+</section><section class="note-section ns-common-traps" aria-labelledby="common-traps"><h2 id="common-traps">Common traps</h2>
+<ul>
+<li><strong>Free rigid body: 6; one point fixed: 3</strong> (not 6 and not 2).</li>
+<li><strong><span class="math">\(\mathbf L\ne I\boldsymbol\omega\)</span> as a scalar equation.</strong> <span class="math">\(\mathbf L=\mathsf I\boldsymbol\omega\)</span> is a matrix equation. <span class="math">\(\mathbf L\parallel\boldsymbol\omega\)</span> only along a principal axis.</li>
+<li><strong>Intermediate axis is unstable; smallest and largest are stable.</strong> The 2026 question uses <span class="math">\(I_1&lt;I_2&lt;I_3\)</span> and asks about the middle one: exponential divergence (tumbling), not stable oscillation, uniform precession or no change.</li>
+<li><strong>Perpendicular axis theorem is for planar laminae only.</strong> It fails for a sphere or a cylinder.</li>
+<li><strong>Parallel axis theorem needs one axis through the centre of mass.</strong> You cannot go directly from one off-centre axis to another.</li>
+<li><strong>Disc about a diameter is <span class="math">\(\tfrac14MR^2\)</span>, ring about a diameter is <span class="math">\(\tfrac12MR^2\)</span></strong>, solid sphere <span class="math">\(\tfrac25MR^2\)</span>, hollow sphere <span class="math">\(\tfrac23MR^2\)</span>. Options are built from these swapped.</li>
+<li><strong>Rod about the end is <span class="math">\(Ml^2/3\)</span></strong>, about the centre <span class="math">\(Ml^2/12\)</span>: the difference is <span class="math">\(M(l/2)^2\)</span>.</li>
+<li><strong>Signs in Euler’s equations:</strong> <span class="math">\(I_1\dot\omega_1=(I_2-I_3)\omega_2\omega_3\)</span>. Swapping <span class="math">\((I_2-I_3)\)</span> to <span class="math">\((I_3-I_2)\)</span> is the common error.</li>
+<li><strong>Euler’s angles are not components of <span class="math">\(\boldsymbol\omega\)</span>.</strong> The <span class="math">\(\omega_k\)</span> are combinations of <span class="math">\(\dot\varphi,\dot\theta,\dot\psi\)</span>.</li>
+<li><strong>Products of inertia have a minus sign</strong> in the standard definition.</li>
+</ul>
+</section><section class="note-section ns-previous-year-questions" aria-labelledby="previous-year-questions"><h2 id="previous-year-questions">Previous-year questions</h2>
+<h3 id="2026-q71-torque-free-rotation-about-the-intermediate-axis">2026-Q71: torque-free rotation about the intermediate axis</h3>
+<p><strong>Question.</strong> A rigid body rotates torque-free with <span class="math">\(I_1&lt;I_2&lt;I_3\)</span>. If it is slightly perturbed from rotation about the intermediate axis, the long-term behaviour from Euler’s equations is: (A) stable oscillation (B) exponential divergence (C) uniform precession (D) no change.</p>
+<p><strong>Answer: B.</strong> Linearising about rotation at <span class="math">\(\Omega\)</span> about axis 2 gives <span class="math">\(\ddot\omega_1=\Omega^2\dfrac{(I_3-I_2)(I_2-I_1)}{I_1I_3}\omega_1\)</span> with a positive coefficient, so the perturbation grows exponentially. (Worked key, unofficial; no defect noted.)</p>
+<h3 id="related">Related</h3>
+<p>2025-Q68 (rigid body with one point fixed has 3 generalized coordinates) is in the Lagrangian topic.</p>
+</section><section class="note-section ns-quick-revision" aria-labelledby="quick-revision"><h2 id="quick-revision">Quick revision</h2>
+<ul>
+<li>Free rigid body 6 degrees of freedom; one point fixed 3 (Euler angles <span class="math">\(\varphi,\theta,\psi\)</span>).</li>
+<li><span class="math">\(I_{xx}=\sum m(y^2+z^2)\)</span>, <span class="math">\(I_{xy}=-\sum mxy\)</span>; tensor symmetric, positive definite, principal axes orthogonal.</li>
+<li>Parallel axis <span class="math">\(I=I_{cm}+Md^2\)</span>; perpendicular axis <span class="math">\(I_z=I_x+I_y\)</span> (laminae only).</li>
+<li>Rod <span class="math">\(Ml^2/12\)</span> (centre), <span class="math">\(Ml^2/3\)</span> (end); disc <span class="math">\(\tfrac12MR^2\)</span>; ring <span class="math">\(MR^2\)</span>; solid sphere <span class="math">\(\tfrac25MR^2\)</span>; shell <span class="math">\(\tfrac23MR^2\)</span>.</li>
+<li><span class="math">\(\mathbf L=\mathsf I\boldsymbol\omega\)</span>, <span class="math">\(T=\tfrac12\boldsymbol\omega\cdot\mathbf L\)</span>; <span class="math">\(\mathbf L\parallel\boldsymbol\omega\)</span> only on a principal axis.</li>
+<li>Euler: <span class="math">\(I_1\dot\omega_1-(I_2-I_3)\omega_2\omega_3=N_1\)</span> and cyclic.</li>
+<li>Torque-free symmetric top: <span class="math">\(\omega_3\)</span> const, body-frame rate <span class="math">\(\frac{I_3-I_1}{I_1}\omega_3\)</span>, space-frame <span class="math">\(\dot\varphi=L/I_1\)</span>.</li>
+<li>Torque-free: <span class="math">\(T\)</span> and <span class="math">\(L^2\)</span> are conserved.</li>
+<li>Rotation about the smallest or largest principal axis is stable; about the intermediate axis it is unstable (tennis racket).</li>
+<li>Rolling: <span class="math">\(a=g\sin\alpha/(1+I/MR^2)\)</span>; sphere <span class="math">\(\tfrac57\)</span>, cylinder <span class="math">\(\tfrac23\)</span>, hoop <span class="math">\(\tfrac12\)</span> of <span class="math">\(g\sin\alpha\)</span>.</li>
+</ul>
+</section></article></div><section class="section reader-end"><button class="read-btn" type="button" data-read-btn aria-pressed="false"><span class="box" aria-hidden="true"></span><span data-read-label>Mark as read</span></button><ul class="units end-links"><li><a class="unit-card" href="/uphesc-maths/learn/mechanics-fluids/rigid-body-motion/practice/"><span class="unit-top"><span class="unit-name">Practise this topic</span></span><p class="flush">13 questions with worked solutions</p></a></li><li><a class="unit-card" href="/uphesc-maths/learn/mechanics-fluids/small-oscillations/"><span class="unit-top"><span class="unit-name">Next: Small oscillations and normal modes</span></span><p class="flush">High priority · 2 h</p></a></li></ul><p class="prev-link"><a href="/uphesc-maths/learn/mechanics-fluids/hamiltonian-mechanics/">Previous: Hamiltonian mechanics, Poisson brackets and canonical transformations</a></p></section></div><footer class="foot"><p>Built from every paper that survives: the full 2025 and 2026 papers (140 maths questions) and half of 2019 (35, from a solution video). 2015 left only an answer key, and nothing was found for 2021. The commission has never published its booklets. Unit counts use 2025 and 2026 only, so they show a range, not a trend.</p><p>2025 answers match the official key. 2026 has no key yet, so its answers were worked out by hand and marked high, medium or low confidence, and every unsure one was solved again, blind. 2019 answers come from the video and are not checked against the official key.</p></footer></main><script type="module">var e=document.documentElement,t=()=>e.dataset.mode?e.dataset.mode===`dark`:matchMedia(`(prefers-color-scheme: dark)`).matches;document.querySelector(`[data-mode-toggle]`)?.addEventListener(`click`,()=>{let n=t()?`light`:`dark`;e.dataset.mode=n;try{localStorage.setItem(`um:mode`,n)}catch{}}),!e.dataset.mode&&t()&&(e.dataset.mode=`dark`);var n=document.querySelectorAll(`[data-old-toggle]`),r=t=>{t?e.dataset.old=`on`:delete e.dataset.old,n.forEach(e=>e.setAttribute(`aria-checked`,String(t)))};r(e.dataset.old===`on`),n.forEach(t=>t.addEventListener(`click`,()=>{let t=e.dataset.old!==`on`;r(t);try{localStorage.setItem(`um:old`,t?`on`:`off`)}catch{}}));var i=document.querySelectorAll(`[data-view]`),a=t=>{t===`bars`?e.dataset.view=`bars`:delete e.dataset.view,i.forEach(e=>e.setAttribute(`aria-pressed`,String(e.dataset.view===t)))};a(e.dataset.view===`bars`?`bars`:`heat`),i.forEach(e=>e.addEventListener(`click`,()=>{a(e.dataset.view);try{localStorage.setItem(`um:view`,e.dataset.view)}catch{}}));var o=document.createElement(`div`);o.className=`tip`,o.setAttribute(`role`,`tooltip`),o.hidden=!0,document.body.append(o);var s=null,c=(e,t)=>{let n=o.offsetWidth,r=o.offsetHeight,i=e+12,a=t+12;i+n>innerWidth-8&&(i=Math.max(8,e-n-12)),a+r>innerHeight-8&&(a=Math.max(8,t-r-12)),o.style.left=`${i}px`,o.style.top=`${a}px`},l=()=>{if(s){let e=s.getBoundingClientRect();c(e.left+e.width*.3,e.bottom-8)}},u=e=>{e!==s&&(s=e,o.replaceChildren(...[...e.querySelector(`.tip-src`).childNodes].map(e=>e.cloneNode(!0)))),o.hidden=!1},d=()=>{o.hidden=!0,s=null};document.addEventListener(`pointermove`,e=>{if(e.pointerType!==`mouse`)return;let t=e.target.closest(`[data-tip]`);t?(u(t),c(e.clientX,e.clientY)):s&&d()}),document.addEventListener(`focusin`,e=>{let t=e.target.closest(`[data-tip]`);t&&(u(t),l())}),document.addEventListener(`focusout`,()=>d()),addEventListener(`scroll`,()=>{s&&document.activeElement===s?l():s&&d()},{passive:!0}),document.addEventListener(`keydown`,e=>{e.key===`Escape`&&d()});var f=`um:done`,p={};try{p=JSON.parse(localStorage.getItem(f)||`{}`)}catch{}var m=()=>{document.querySelectorAll(`[data-progress]`).forEach(e=>{let t=[...document.querySelectorAll(`[data-group="${e.dataset.progress}"]`)],n=t.filter(e=>e.checked).length;e.querySelector(`.progress-bar span`).style.width=`${n/t.length*100}%`,e.querySelector(`[data-count]`).textContent=`${n} of ${t.length} done`})};document.querySelectorAll(`input[data-check]`).forEach(e=>{e.checked=!!p[e.dataset.check],e.addEventListener(`change`,()=>{p[e.dataset.check]=e.checked;try{localStorage.setItem(f,JSON.stringify(p))}catch{}m()})}),m();</script></body></html><script type="module" src="/uphesc-maths/_astro/index.astro_astro_type_script_index_0_lang.t7qZbIYF.js"></script>

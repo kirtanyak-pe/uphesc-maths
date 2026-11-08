@@ -1,0 +1,362 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Countability and separation axioms · UPESSC maths</title><meta name="description" content="What to study for the UPESSC (formerly UPHESC) Assistant Professor maths paper, built from every paper that survives."><link rel="icon" href="/uphesc-maths/favicon.svg" type="image/svg+xml"><link rel="preload" href="/uphesc-maths/fonts/inter-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin><!-- the saved light/dark, 2019 and chart-view choices, before first paint --><script>
+    try { var m = localStorage.getItem('um:mode'); if (m) document.documentElement.dataset.mode = m; } catch (e) {}
+    try { if (localStorage.getItem('um:old') === 'on') document.documentElement.dataset.old = 'on'; } catch (e) {}
+    try { if (localStorage.getItem('um:view') === 'bars') document.documentElement.dataset.view = 'bars'; } catch (e) {}
+  </script><!-- maths: the vendored MathJax typesets \( \) and \[ \] text, loaded only on pages that have any --><script>(function(){const VENDOR = "/uphesc-maths/vendor";
+
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+      loader: { paths: { mathjax: VENDOR + '/mathjax', fonts: VENDOR + '/mathjax/fonts' } },
+      output: { font: 'mathjax-stix2', displayOverflow: 'scroll' },
+      options: { ignoreHtmlClass: 'no-math', processHtmlClass: 'math', menuOptions: { settings: { enrich: false, speech: false, braille: false } } },
+      chtml: { displayOverflow: 'scroll' },
+      // an inline formula with a piece wider than its line gets its own scrolling line, like display maths
+      startup: { pageReady: () => MathJax.startup.defaultPageReady().then(fitMath) },
+    };
+    function fitMath() {
+      for (const m of document.querySelectorAll('mjx-container:not([display="true"]):not(.mjx-wide)')) {
+        const box = m.closest('p, li, dd, blockquote, div');
+        if (!box || m.closest('td, th')) continue;
+        const right = box.getBoundingClientRect().right + 1;
+        if ([...m.getClientRects()].some((r) => r.right > right)) m.classList.add('mjx-wide');
+      }
+    }
+    let fitQueued = 0;
+    const queueFit = () => { if (window.MathJax?.startup?.document && !fitQueued) fitQueued = requestAnimationFrame(() => { fitQueued = 0; fitMath(); }); };
+    addEventListener('resize', queueFit);
+    addEventListener('click', () => setTimeout(queueFit, 50));
+    document.addEventListener('DOMContentLoaded', () => {
+      if (!document.querySelector('.math')) return;
+      const s = document.createElement('script');
+      s.async = true;
+      s.src = VENDOR + '/mathjax/tex-chtml-nofont.js';
+      document.head.appendChild(s);
+    });
+  })();</script><link rel="stylesheet" href="/uphesc-maths/_astro/Base.CkQ5KWO8.css"></head><body data-tab="learn"><nav class="appnav" aria-label="Main"><a class="appnav-brand" href="/uphesc-maths/" aria-label="UPESSC maths home">∑</a><a class="appnav-item" href="/uphesc-maths/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4 10.2 12 4l8 6.2V19a1 1 0 0 1-1 1h-4.5v-5.5h-5V20H5a1 1 0 0 1-1-1z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Plan</span></a><a class="appnav-item" href="/uphesc-maths/learn/" aria-current="page"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M12 6.5C10 5 7.5 4.5 4 4.5v13c3.5 0 6 .5 8 2 2-1.5 4.5-2 8-2v-13c-3.5 0-6 .5-8 2zM12 6.5v13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Learn</span></a><a class="appnav-item" href="/uphesc-maths/units/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4 5h7v7H4zM13 5h7v7h-7zM4 14h7v6H4zM13 14h7v6h-7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Units</span></a><a class="appnav-item" href="/uphesc-maths/papers/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M7 3h7l4 4v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zM14 3v4h4M9 12h6M9 16h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Papers</span></a><a class="appnav-item" href="/uphesc-maths/revise/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M5 12.5 9.5 17 19 7.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Revise</span></a></nav><header class="topbar"><a class="bar-back" href="/uphesc-maths/learn/topology-geometry/" aria-label="Back"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a><p class="bar-title">Unit 5</p><button class="bar-btn" type="button" data-mode-toggle aria-label="Switch light or dark"><svg class="i-moon" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path></svg><svg class="i-sun" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path></svg></button></header><main class="page"><div class="reader" data-topic="countability-and-separation"><header class="page-head topic-head"><p class="kicker"><a href="/uphesc-maths/learn/topology-geometry/">Unit 5 · Topology and Differential Geometry</a></p><h1>Countability and separation axioms</h1><ul class="meta"><li class="prio high">High priority</li><li>2 h to study</li><li>Asked 3 times</li><li class="read-flag" data-read-flag hidden>Read</li></ul><p class="pyq-line">Previous papers: 2025 Q94, 2025 Q96, 2026 Q42</p><p class="prereq">Read first: <a href="/uphesc-maths/learn/topology-geometry/topological-spaces/">Topological spaces</a>, <a href="/uphesc-maths/learn/topology-geometry/connectedness-and-compactness/">Connectedness and compactness</a></p></header><div class="reader-grid"><nav class="toc" aria-label="On this page"><details class="toc-box" data-toc><summary>On this page</summary><ol><li><a href="#why-it-matters-for-the-exam">Why it matters for the exam</a></li><li><a href="#core-ideas">Core ideas</a></li><li class="sub"><a href="#countability-axioms">Countability axioms</a></li><li class="sub"><a href="#the-separation-axioms">The separation axioms</a></li><li class="sub"><a href="#urysohns-lemma-and-tietzes-theorem">Urysohn’s lemma and Tietze’s theorem</a></li><li class="sub"><a href="#urysohn-metrization-theorem">Urysohn metrization theorem</a></li><li><a href="#formulas-and-results">Formulas and results</a></li><li><a href="#worked-examples">Worked examples</a></li><li class="sub"><a href="#example-1-classify-a-finite-topology">Example 1. Classify a finite topology</a></li><li class="sub"><a href="#example-2-mathbb-r_ell-is-not-second-countable">Example 2. <span class="math">\(\mathbb R_\ell\)</span> is not second countable</a></li><li class="sub"><a href="#example-3-every-metric-space-is-normal">Example 3. Every metric space is normal</a></li><li class="sub"><a href="#example-4-hypotheses-of-urysohn-metrization">Example 4. Hypotheses of Urysohn metrization</a></li><li class="sub"><a href="#example-5-number-of-compatible-metrics">Example 5. Number of compatible metrics</a></li><li class="sub"><a href="#example-6-tietze-needs-a-closed-set">Example 6. Tietze needs a closed set</a></li><li><a href="#common-traps">Common traps</a></li><li><a href="#previous-year-questions">Previous-year questions</a></li><li class="sub"><a href="#2025-q94-official-key-d-the-question-is-defective">2025-Q94 (official key D; the question is defective)</a></li><li class="sub"><a href="#2025-q96-official-key-a">2025-Q96 (official key A)</a></li><li class="sub"><a href="#2026-q42-worked-key-d-unofficial">2026-Q42 (worked key D; unofficial)</a></li><li><a href="#quick-revision">Quick revision</a></li></ol></details></nav><article class="prose"><section class="note-section ns-why-it-matters-for-the-exam" aria-labelledby="why-it-matters-for-the-exam"><h2 id="why-it-matters-for-the-exam">Why it matters for the exam</h2>
+<p>This topic gave a question in both the 2025 and 2026 papers: the separation axioms of metric spaces (2025-Q94), “totally bounded implies separable” (2025-Q96), and Urysohn metrization applied to a manifold (2026-Q42). Questions ask for the exact implication chain between <span class="math">\(T_0,\dots,T_4\)</span>, for a counterexample, or for the hypotheses of Urysohn’s lemma, Tietze’s theorem and Urysohn’s metrization theorem.</p>
+</section><section class="note-section ns-core-ideas" aria-labelledby="core-ideas"><h2 id="core-ideas">Core ideas</h2>
+<h3 id="countability-axioms">Countability axioms</h3>
+<ul>
+<li><strong>First countable:</strong> every point has a countable local base (neighbourhoods <span class="math">\(U_1\supseteq U_2\supseteq\cdots\)</span> such that every neighbourhood contains some <span class="math">\(U_n\)</span>).</li>
+<li><strong>Second countable:</strong> the topology has a countable basis.</li>
+<li><strong>Separable:</strong> there is a countable dense subset.</li>
+<li><strong>Lindelöf:</strong> every open cover has a countable subcover.</li>
+</ul>
+<p><strong>Implications.</strong></p>
+<p><span class="math">\(\text{second countable}\Rightarrow\text{first countable},\qquad\text{second countable}\Rightarrow\text{separable},\qquad\text{second countable}\Rightarrow\text{Lindelöf},\qquad\text{compact}\Rightarrow\text{Lindelöf}.\)</span></p>
+<p>None of the reverse implications holds in general. For <strong>metric spaces</strong>:</p>
+<ul>
+<li>every metric space is first countable (balls <span class="math">\(B(x,1/n)\)</span>);</li>
+<li>separable <span class="math">\(\iff\)</span> second countable <span class="math">\(\iff\)</span> Lindelöf.</li>
+</ul>
+<p>So in a metric space the three global countability conditions collapse into one.</p>
+<p><strong>Which operations preserve what.</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Subspace</th>
+<th>Continuous image</th>
+<th>Countable product</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>first countable</td>
+<td>yes</td>
+<td>no (open continuous surjection: yes)</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>second countable</td>
+<td>yes</td>
+<td>no (open continuous surjection: yes)</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>separable</td>
+<td>no in general (yes for open subsets, and for all metric subspaces)</td>
+<td>yes</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>Lindelöf</td>
+<td>closed subspaces only</td>
+<td>yes</td>
+<td>no in general</td>
+</tr>
+</tbody>
+</table></div>
+<p>Every uncountable product of nontrivial spaces fails to be first countable. A product of at most <span class="math">\(\mathfrak c\)</span> separable spaces is separable (<span class="math">\(\mathbb R^{\mathbb R}\)</span> is separable but not first countable).</p>
+<p><strong>Standard examples.</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Space</th>
+<th>1st countable</th>
+<th>2nd countable</th>
+<th>Separable</th>
+<th>Lindelöf</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math">\(\mathbb R^n\)</span> (usual)</td>
+<td>yes</td>
+<td>yes</td>
+<td>yes</td>
+<td>yes</td>
+</tr>
+<tr>
+<td><span class="math">\(\mathbb R_\ell\)</span> (lower limit)</td>
+<td>yes</td>
+<td><strong>no</strong></td>
+<td>yes</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>uncountable discrete</td>
+<td>yes</td>
+<td>no</td>
+<td>no</td>
+<td>no</td>
+</tr>
+<tr>
+<td>countable discrete</td>
+<td>yes</td>
+<td>yes</td>
+<td>yes</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>uncountable cofinite</td>
+<td><strong>no</strong></td>
+<td>no</td>
+<td>yes</td>
+<td>yes (compact)</td>
+</tr>
+<tr>
+<td>uncountable cocountable</td>
+<td><strong>no</strong></td>
+<td>no</td>
+<td>no</td>
+<td>yes</td>
+</tr>
+<tr>
+<td><span class="math">\(\ell^\infty\)</span> (sup-norm)</td>
+<td>yes</td>
+<td>no</td>
+<td><strong>no</strong></td>
+<td>no</td>
+</tr>
+<tr>
+<td><span class="math">\(\ell^p\)</span>, <span class="math">\(1\le p&lt;\infty\)</span>; <span class="math">\(C[a,b]\)</span>; <span class="math">\(L^p\)</span></td>
+<td>yes</td>
+<td>yes</td>
+<td>yes</td>
+<td>yes</td>
+</tr>
+</tbody>
+</table></div>
+<p>Why <span class="math">\(\mathbb R_\ell\)</span> is not second countable: for each real <span class="math">\(a\)</span> the open set <span class="math">\([a,a+1)\)</span> must contain a basic set <span class="math">\(B_a\)</span> with <span class="math">\(a\in B_a\)</span>; then <span class="math">\(\inf B_a=a\)</span>, so <span class="math">\(a\mapsto B_a\)</span> is injective and a basis is uncountable. <span class="math">\(\mathbb R_\ell\)</span> is separable (<span class="math">\(\mathbb Q\)</span> is dense), so separable does not imply second countable. This is the classic counterexample.</p>
+<p>Why a totally bounded metric space is separable (2025-Q96): for each <span class="math">\(n\)</span> choose a finite <span class="math">\(1/n\)</span>-net <span class="math">\(F_n\)</span>. Then <span class="math">\(\bigcup_nF_n\)</span> is countable and dense.</p>
+<p>Sequences: in a first countable space, <span class="math">\(x\in\overline A\)</span> iff some sequence in <span class="math">\(A\)</span> converges to <span class="math">\(x\)</span>, and a function is continuous iff it preserves convergent sequences. Neither holds without first countability. Example: in an uncountable set with the cocountable topology only eventually constant sequences converge, yet the closure of an uncountable proper subset <span class="math">\(A\)</span> is all of <span class="math">\(X\)</span>, and no sequence in <span class="math">\(A\)</span> converges to a point outside <span class="math">\(A\)</span>.</p>
+<h3 id="the-separation-axioms">The separation axioms</h3>
+<p>All spaces below: <span class="math">\(x,y\)</span> distinct points; <span class="math">\(C,D\)</span> disjoint closed sets.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Axiom</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math">\(T_0\)</span> (Kolmogorov)</td>
+<td>for <span class="math">\(x\ne y\)</span>, some open set contains exactly one of them</td>
+</tr>
+<tr>
+<td><span class="math">\(T_1\)</span></td>
+<td>for <span class="math">\(x\ne y\)</span>, there is an open set containing <span class="math">\(x\)</span> but not <span class="math">\(y\)</span>, and vice versa; equivalent: <strong>points are closed</strong> (so finite sets are closed)</td>
+</tr>
+<tr>
+<td><span class="math">\(T_2\)</span> (Hausdorff)</td>
+<td><span class="math">\(x\ne y\)</span> have disjoint open neighbourhoods</td>
+</tr>
+<tr>
+<td>Regular</td>
+<td>a closed set <span class="math">\(C\)</span> and a point <span class="math">\(x\notin C\)</span> have disjoint open neighbourhoods. <strong><span class="math">\(T_3\)</span> = regular and <span class="math">\(T_1\)</span></strong></td>
+</tr>
+<tr>
+<td>Completely regular</td>
+<td>for closed <span class="math">\(C\)</span> and <span class="math">\(x\notin C\)</span> there is a continuous <span class="math">\(f:X\to[0,1]\)</span> with <span class="math">\(f(x)=0\)</span>, <span class="math">\(f\vert _C=1\)</span>. <strong>Tychonoff (<span class="math">\(T_{3\frac12}\)</span>) = completely regular and <span class="math">\(T_1\)</span></strong></td>
+</tr>
+<tr>
+<td>Normal</td>
+<td>disjoint closed sets <span class="math">\(C,D\)</span> have disjoint open neighbourhoods. <strong><span class="math">\(T_4\)</span> = normal and <span class="math">\(T_1\)</span></strong></td>
+</tr>
+<tr>
+<td>Completely normal</td>
+<td>every subspace is normal (<span class="math">\(T_5\)</span> when also <span class="math">\(T_1\)</span>)</td>
+</tr>
+</tbody>
+</table></div>
+<p>Useful reformulations.</p>
+<ul>
+<li>Regular: for every open <span class="math">\(U\ni x\)</span> there is an open <span class="math">\(V\)</span> with <span class="math">\(x\in V\subseteq\overline V\subseteq U\)</span>.</li>
+<li>Normal: for every closed <span class="math">\(C\subseteq U\)</span> open there is an open <span class="math">\(V\)</span> with <span class="math">\(C\subseteq V\subseteq\overline V\subseteq U\)</span>.</li>
+<li><span class="math">\(T_1\)</span> implies <span class="math">\(T_0\)</span>; in the presence of <span class="math">\(T_1\)</span>, normal implies regular (points are closed).</li>
+</ul>
+<p><strong>The chain of implications.</strong></p>
+<p><span class="math">\(T_4\Rightarrow T_{3\frac12}\Rightarrow T_3\Rightarrow T_2\Rightarrow T_1\Rightarrow T_0 .\)</span></p>
+<p>None of the arrows reverses. Note: <span class="math">\(T_4\Rightarrow T_{3\frac12}\)</span> uses Urysohn’s lemma; <span class="math">\(T_3\Rightarrow T_2\)</span> because points are closed.</p>
+<p><strong>Counterexamples (know at least one for each).</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Space</th>
+<th>Satisfies</th>
+<th>Fails</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sierpinski space <span class="math">\(\{0,1\}\)</span>, open sets <span class="math">\(\emptyset,\{1\},X\)</span></td>
+<td><span class="math">\(T_0\)</span></td>
+<td><span class="math">\(T_1\)</span></td>
+</tr>
+<tr>
+<td>Infinite set, cofinite topology</td>
+<td><span class="math">\(T_1\)</span></td>
+<td><span class="math">\(T_2\)</span></td>
+</tr>
+<tr>
+<td><span class="math">\(\mathbb R\)</span> with the <span class="math">\(K\)</span>-topology (basis: open intervals and sets <span class="math">\((a,b)\setminus K\)</span>, <span class="math">\(K=\{1/n\}\)</span>)</td>
+<td><span class="math">\(T_2\)</span></td>
+<td>regular</td>
+</tr>
+<tr>
+<td>Sorgenfrey plane <span class="math">\(\mathbb R_\ell\times\mathbb R_\ell\)</span></td>
+<td>completely regular, <span class="math">\(T_1\)</span></td>
+<td>normal</td>
+</tr>
+<tr>
+<td>3-point space <span class="math">\(\{a,b,c\}\)</span> with open sets <span class="math">\(\emptyset,\{a\},\{a,b\},X\)</span></td>
+<td>normal</td>
+<td><span class="math">\(T_1\)</span>, regular</td>
+</tr>
+<tr>
+<td>indiscrete space, 2 or more points</td>
+<td>regular, normal</td>
+<td><span class="math">\(T_0\)</span></td>
+</tr>
+</tbody>
+</table></div>
+<p>(There are also regular non-completely-regular spaces, but they are not examined.)</p>
+<p>Two warnings from the table. First, normal and regular do not imply <span class="math">\(T_0\)</span> without a <span class="math">\(T_1\)</span> hypothesis (that is why <span class="math">\(T_3\)</span> and <span class="math">\(T_4\)</span> include <span class="math">\(T_1\)</span>). Second, normal does not imply regular unless <span class="math">\(T_1\)</span> holds.</p>
+<p><strong>Every metric space is <span class="math">\(T_4\)</span></strong> (indeed completely normal). Proof: points are closed and any two points have disjoint balls of radius <span class="math">\(d/2\)</span>, so <span class="math">\(T_2\)</span>. For disjoint closed <span class="math">\(A,B\)</span> the sets <span class="math">\(U=\{x:d(x,A)&lt;d(x,B)\}\)</span> and <span class="math">\(V=\{x:d(x,B)&lt;d(x,A)\}\)</span> are open (distance functions are continuous), disjoint, and contain <span class="math">\(A\)</span> and <span class="math">\(B\)</span> respectively. The function
+<span class="math">\(f(x)=\frac{d(x,A)}{d(x,A)+d(x,B)}\)</span>
+is continuous, <span class="math">\(0\)</span> on <span class="math">\(A\)</span> and <span class="math">\(1\)</span> on <span class="math">\(B\)</span> (so Urysohn’s lemma is trivial in metric spaces). Hence <strong>every metric space is <span class="math">\(T_1\)</span>, <span class="math">\(T_2\)</span>, <span class="math">\(T_3\)</span> and <span class="math">\(T_4\)</span></strong>; all four statements in 2025-Q94 are true.</p>
+<p><strong>Other facts.</strong></p>
+<ul>
+<li>Compact Hausdorff <span class="math">\(\Rightarrow\)</span> normal. More generally regular Lindelöf <span class="math">\(\Rightarrow\)</span> normal; hence second countable regular <span class="math">\(\Rightarrow\)</span> normal.</li>
+<li>Hereditary: <span class="math">\(T_0,T_1,T_2\)</span>, regular, completely regular. <strong>Normality is not hereditary</strong> (only for closed subspaces). Productive: <span class="math">\(T_0\)</span> through completely regular. <strong>Normality is not productive</strong>: <span class="math">\(\mathbb R_\ell\times\mathbb R_\ell\)</span> is not normal although <span class="math">\(\mathbb R_\ell\)</span> is. (Also <span class="math">\(\mathbb R^J\)</span> for uncountable <span class="math">\(J\)</span> is not normal.)</li>
+<li>Hausdorff: limits of sequences are unique; the diagonal is closed in <span class="math">\(X\times X\)</span>; two continuous maps into a Hausdorff space that agree on a dense set are equal; compact sets are closed; the graph of a continuous map into a Hausdorff space is closed.</li>
+<li>Quotients: <span class="math">\(T_i\)</span> properties are not preserved in general (see topic 4).</li>
+</ul>
+<h3 id="urysohns-lemma-and-tietzes-theorem">Urysohn’s lemma and Tietze’s theorem</h3>
+<p><strong>Urysohn’s lemma.</strong> If <span class="math">\(X\)</span> is normal and <span class="math">\(A,B\)</span> are disjoint closed sets, there is a continuous <span class="math">\(f:X\to[0,1]\)</span> with <span class="math">\(f|_A=0\)</span> and <span class="math">\(f|_B=1\)</span>. (Converse: if such functions exist for all disjoint closed pairs, <span class="math">\(X\)</span> is normal.)</p>
+<p>Proof idea: build open sets <span class="math">\(U_r\)</span> for dyadic rationals <span class="math">\(r\in[0,1]\)</span> with <span class="math">\(\overline{U_r}\subseteq U_s\)</span> for <span class="math">\(r&lt;s\)</span> by repeated use of the “<span class="math">\(C\subseteq V\subseteq\overline V\subseteq U\)</span>” form of normality; define <span class="math">\(f(x)=\inf\{r:x\in U_r\}\)</span>.</p>
+<p><strong>Tietze extension theorem.</strong> If <span class="math">\(X\)</span> is normal, <span class="math">\(A\subseteq X\)</span> is <strong>closed</strong> and <span class="math">\(f:A\to[a,b]\)</span> (or <span class="math">\(\mathbb R\)</span>) is continuous, then <span class="math">\(f\)</span> extends to a continuous function on all of <span class="math">\(X\)</span>. Converse: if every continuous <span class="math">\(f:A\to[0,1]\)</span> on a closed <span class="math">\(A\)</span> extends, <span class="math">\(X\)</span> is normal. The extension can be chosen with the same bounds.</p>
+<p>Why “closed” is needed: <span class="math">\(A=(0,1]\subset[0,1]\)</span> and <span class="math">\(f(x)=\sin(1/x)\)</span> is continuous and bounded on <span class="math">\(A\)</span> but has no continuous extension to <span class="math">\([0,1]\)</span>.</p>
+<p><strong>Consequences.</strong> A normal <span class="math">\(T_1\)</span> space has many continuous functions: it is completely regular. Disjoint closed sets in a normal space are separated by continuous functions.</p>
+<h3 id="urysohn-metrization-theorem">Urysohn metrization theorem</h3>
+<p><strong>Theorem.</strong> Every second countable regular (<span class="math">\(T_3\)</span>, i.e. regular and <span class="math">\(T_1\)</span>) space is metrizable.</p>
+<p>Proof idea: second countable and regular implies normal. Using Urysohn’s lemma pick a countable family of functions <span class="math">\(f_n:X\to[0,1]\)</span> that separates points from closed sets; the map <span class="math">\(x\mapsto(f_n(x))_n\)</span> embeds <span class="math">\(X\)</span> into the Hilbert cube <span class="math">\([0,1]^{\mathbb N}\)</span>, which is metrizable. So <span class="math">\(X\)</span> is homeomorphic to a subspace of a metric space.</p>
+<p>Facts to remember.</p>
+<ul>
+<li>It is a <strong>sufficient</strong> condition. A metrizable space need not be second countable: an uncountable discrete space is metrizable and not second countable. Metrizable and separable together are equivalent to second countable regular <span class="math">\(T_1\)</span>.</li>
+<li>Every second countable regular <span class="math">\(T_1\)</span> space embeds in the Hilbert cube <span class="math">\([0,1]^{\mathbb N}\)</span>.</li>
+<li>A <strong>compact Hausdorff</strong> space is metrizable iff second countable.</li>
+<li>Non-metrizable examples: cofinite on an infinite set (not Hausdorff); <span class="math">\(\mathbb R_\ell\)</span> (separable but not second countable; a metrizable separable space is second countable); <span class="math">\(\mathbb R^{\mathbb R}\)</span> (not first countable); the box product <span class="math">\(\mathbb R^\omega\)</span> (not first countable); the long line (locally Euclidean, Hausdorff, not second countable); the ordered square <span class="math">\([0,1]\times[0,1]\)</span> with lexicographic order topology (compact, not separable, not metrizable).</li>
+<li><span class="math">\(\mathbb R^\omega\)</span> with the product topology is metrizable (<span class="math">\(d(x,y)=\sum 2^{-n}\min(\lvert x_n-y_n\rvert,1)\)</span>).</li>
+<li>Nagata-Smirnov: a space is metrizable iff it is regular and <span class="math">\(T_1\)</span> with a <span class="math">\(\sigma\)</span>-locally finite basis. Smirnov: iff paracompact Hausdorff and locally metrizable.</li>
+</ul>
+<p><strong>Manifolds and Urysohn (2026-Q42).</strong> A manifold is Hausdorff and second countable and locally Euclidean; locally compact Hausdorff implies regular, so Urysohn’s theorem makes it metrizable. If <span class="math">\(d\)</span> is one compatible metric, so is <span class="math">\(c\,d\)</span> for every <span class="math">\(c&gt;0\)</span> and <span class="math">\(\min(d,1)\)</span>, and so on. All these metrics are different but induce the same topology, so there are <strong>infinitely many</strong> compatible metrics. This is the answer to 2026-Q42.</p>
+</section><section class="note-section ns-formulas-and-results" aria-labelledby="formulas-and-results"><h2 id="formulas-and-results">Formulas and results</h2>
+<ul>
+<li>Chain: <span class="math">\(T_4\Rightarrow T_{3\frac12}\Rightarrow T_3\Rightarrow T_2\Rightarrow T_1\Rightarrow T_0\)</span>, none reversible.</li>
+<li><span class="math">\(T_1\iff\)</span> points closed. <span class="math">\(T_3\)</span> = regular + <span class="math">\(T_1\)</span>. <span class="math">\(T_4\)</span> = normal + <span class="math">\(T_1\)</span>.</li>
+<li>Every metric space: first countable, <span class="math">\(T_4\)</span>, completely regular.</li>
+<li>Metric: separable <span class="math">\(\iff\)</span> second countable <span class="math">\(\iff\)</span> Lindelöf. Totally bounded <span class="math">\(\Rightarrow\)</span> separable.</li>
+<li>Second countable <span class="math">\(\Rightarrow\)</span> first countable, separable, Lindelöf. Compact <span class="math">\(\Rightarrow\)</span> Lindelöf.</li>
+<li>Compact Hausdorff <span class="math">\(\Rightarrow\)</span> normal. Regular + Lindelöf <span class="math">\(\Rightarrow\)</span> normal.</li>
+<li>Urysohn lemma: normal <span class="math">\(\Rightarrow\)</span> <span class="math">\(\exists f:X\to[0,1]\)</span>, <span class="math">\(f|_A=0\)</span>, <span class="math">\(f|_B=1\)</span>.</li>
+<li>Tietze: normal, <span class="math">\(A\)</span> closed, <span class="math">\(f:A\to[a,b]\)</span> continuous extends.</li>
+<li>Urysohn metrization: second countable regular <span class="math">\(T_1\)</span> <span class="math">\(\Rightarrow\)</span> metrizable (converse false).</li>
+<li>Hereditary: <span class="math">\(T_0\)</span>-completely regular, countability axioms 1 and 2. Not hereditary: normality, separability, compactness.</li>
+<li>Not productive: normality (<span class="math">\(\mathbb R_\ell^2\)</span>).</li>
+<li><span class="math">\(\mathbb R_\ell\)</span>: separable, first countable, Lindelöf, <strong>not</strong> second countable, <strong>not</strong> metrizable.</li>
+</ul>
+</section><section class="note-section ns-worked-examples" aria-labelledby="worked-examples"><h2 id="worked-examples">Worked examples</h2>
+<h3 id="example-1-classify-a-finite-topology">Example 1. Classify a finite topology</h3>
+<p><span class="math">\(X=\{a,b,c\}\)</span>, open sets <span class="math">\(\emptyset,\{a\},\{a,b\},X\)</span>.</p>
+<ul>
+<li><span class="math">\(T_0\)</span>: <span class="math">\(a\)</span> and <span class="math">\(b\)</span> are separated by <span class="math">\(\{a\}\)</span>, <span class="math">\(b\)</span> and <span class="math">\(c\)</span> by <span class="math">\(\{a,b\}\)</span>, <span class="math">\(a\)</span> and <span class="math">\(c\)</span> by <span class="math">\(\{a\}\)</span>. <strong>Yes.</strong></li>
+<li><span class="math">\(T_1\)</span>: a point <span class="math">\(c\)</span> and <span class="math">\(a\)</span>: every open set containing <span class="math">\(c\)</span> is <span class="math">\(X\)</span> so contains <span class="math">\(a\)</span>; no open set contains <span class="math">\(c\)</span> but not <span class="math">\(a\)</span>. <strong>No.</strong> (Closed sets are <span class="math">\(\emptyset,\{c\},\{b,c\},X\)</span>; <span class="math">\(\{a\}\)</span> is not closed.)</li>
+<li>Hausdorff, regular: <strong>No</strong> (<span class="math">\(T_1\)</span> fails, and <span class="math">\(a\)</span>, <span class="math">\(c\)</span> have no disjoint neighbourhoods since every nbhd of <span class="math">\(c\)</span> is <span class="math">\(X\)</span>).</li>
+<li>Normal: nonempty closed sets <span class="math">\(\{c\},\{b,c\},X\)</span> all contain <span class="math">\(c\)</span>, so there are no disjoint nonempty closed sets, and normality holds vacuously. <strong>Yes.</strong></li>
+</ul>
+<p>So this space is <span class="math">\(T_0\)</span>, normal, not <span class="math">\(T_1\)</span>, not regular. It shows that normal does not imply regular without <span class="math">\(T_1\)</span>.</p>
+<h3 id="example-2-mathbb-r_ell-is-not-second-countable">Example 2. <span class="math">\(\mathbb R_\ell\)</span> is not second countable</h3>
+<p>Suppose <span class="math">\(\mathcal B\)</span> is a basis of <span class="math">\(\mathbb R_\ell\)</span>. For each <span class="math">\(a\in\mathbb R\)</span> the set <span class="math">\([a,a+1)\)</span> is open and contains <span class="math">\(a\)</span>, so there is <span class="math">\(B_a\in\mathcal B\)</span> with <span class="math">\(a\in B_a\subseteq[a,a+1)\)</span>. Every point of <span class="math">\(B_a\)</span> is at least <span class="math">\(a\)</span>, so <span class="math">\(\min B_a=a\)</span>. Distinct <span class="math">\(a\)</span> give distinct <span class="math">\(B_a\)</span>. Hence <span class="math">\(\mathcal B\)</span> is uncountable. Therefore no countable basis exists.</p>
+<h3 id="example-3-every-metric-space-is-normal">Example 3. Every metric space is normal</h3>
+<p>Let <span class="math">\(A,B\)</span> be disjoint nonempty closed sets in <span class="math">\((X,d)\)</span>. For <span class="math">\(x\notin A\)</span>, <span class="math">\(d(x,A)&gt;0\)</span> since <span class="math">\(A\)</span> is closed. The function <span class="math">\(f(x)=d(x,A)/\bigl(d(x,A)+d(x,B)\bigr)\)</span> has nonvanishing denominator (a point cannot be at distance <span class="math">\(0\)</span> from both closed sets), is continuous, equals <span class="math">\(0\)</span> on <span class="math">\(A\)</span> and <span class="math">\(1\)</span> on <span class="math">\(B\)</span>. Then <span class="math">\(f^{-1}[0,\tfrac12)\)</span> and <span class="math">\(f^{-1}(\tfrac12,1]\)</span> are disjoint open sets containing <span class="math">\(A\)</span> and <span class="math">\(B\)</span>.</p>
+<h3 id="example-4-hypotheses-of-urysohn-metrization">Example 4. Hypotheses of Urysohn metrization</h3>
+<p>Is an uncountable set <span class="math">\(X\)</span> with the discrete topology metrizable? Yes (discrete metric). Is it second countable? No (a basis must contain every singleton). So Urysohn’s theorem gives a sufficient, not a necessary, condition.</p>
+<p>Is the cofinite topology on <span class="math">\(\mathbb N\)</span> metrizable? It is second countable (countably many cofinite sets) and <span class="math">\(T_1\)</span>, but not regular: for <span class="math">\(x\notin C\)</span> finite closed, any two nonempty open sets meet. So the theorem does not apply, and in fact it is not Hausdorff, hence not metrizable.</p>
+<h3 id="example-5-number-of-compatible-metrics">Example 5. Number of compatible metrics</h3>
+<p>A manifold such as <span class="math">\(S^2\)</span> is Hausdorff, second countable, regular, so metrizable. Given one metric <span class="math">\(d\)</span>, the metrics <span class="math">\(cd\)</span> for <span class="math">\(c&gt;0\)</span> are pairwise different and all compatible. So the number of compatible metrics is infinite.</p>
+<h3 id="example-6-tietze-needs-a-closed-set">Example 6. Tietze needs a closed set</h3>
+<p><span class="math">\(X=[0,1]\)</span> is normal (compact Hausdorff). Take <span class="math">\(A=(0,1]\)</span>, which is <strong>not</strong> closed in <span class="math">\(X\)</span>, and <span class="math">\(f(x)=\sin(1/x)\)</span>, bounded and continuous on <span class="math">\(A\)</span>. A continuous extension <span class="math">\(g\)</span> to <span class="math">\([0,1]\)</span> would give <span class="math">\(g(0)=\lim_{x\to0^+}\sin(1/x)\)</span>, which does not exist. So the extension fails, and the hypothesis “<span class="math">\(A\)</span> closed” cannot be dropped.</p>
+</section><section class="note-section ns-common-traps" aria-labelledby="common-traps"><h2 id="common-traps">Common traps</h2>
+<ul>
+<li><strong>The implication direction.</strong> Regular does not mean <span class="math">\(T_2\)</span> unless <span class="math">\(T_1\)</span> is included: indiscrete spaces are regular and normal. Hence the definitions of <span class="math">\(T_3,T_4\)</span> add “and <span class="math">\(T_1\)</span>”.</li>
+<li><strong><span class="math">\(T_4\Rightarrow T_3\)</span> needs <span class="math">\(T_1\)</span>.</strong> Normal alone does not give regular (3-point example).</li>
+<li><strong>Every metric space is <span class="math">\(T_4\)</span>.</strong> There is no “incorrect” option among <span class="math">\(T_1,\dots,T_4\)</span> for metric spaces (2025-Q94).</li>
+<li><strong>Metrizable does not imply second countable</strong>; second countable regular implies metrizable. Examiners swap the direction.</li>
+<li><strong>Separable versus second countable.</strong> In general only second countable <span class="math">\(\Rightarrow\)</span> separable. <span class="math">\(\mathbb R_\ell\)</span> is separable and not second countable. In metric spaces they coincide.</li>
+<li><strong>Lindelöf is not compact.</strong> <span class="math">\(\mathbb R\)</span> is Lindelöf, not compact. Second countable <span class="math">\(\Rightarrow\)</span> Lindelöf.</li>
+<li><strong>Sequences.</strong> Closure points need not be limits of sequences in non-first-countable spaces.</li>
+<li><strong>Normality is not hereditary or productive.</strong> The Sorgenfrey plane is the standard counterexample; subspaces of normal spaces need not be normal; only closed subspaces are.</li>
+<li><strong>Hausdorff versus <span class="math">\(T_1\)</span>.</strong> Cofinite infinite space: <span class="math">\(T_1\)</span>, not Hausdorff. Finite <span class="math">\(T_1\)</span> spaces are discrete.</li>
+<li><strong>Urysohn’s lemma needs normal; Tietze needs normal and closed <span class="math">\(A\)</span>.</strong> A completely regular space need not be normal.</li>
+<li><strong>Cocountable topology.</strong> It is <span class="math">\(T_1\)</span>, not Hausdorff, Lindelöf, not separable and not first countable.</li>
+<li><strong>Totally bounded implies separable, not compact.</strong></li>
+</ul>
+</section><section class="note-section ns-previous-year-questions" aria-labelledby="previous-year-questions"><h2 id="previous-year-questions">Previous-year questions</h2>
+<h3 id="2025-q94-official-key-d-the-question-is-defective">2025-Q94 (official key D; the question is defective)</h3>
+<p><em>Which one of the following statements is incorrect? (A) Every metric space is a <span class="math">\(T_1\)</span> space (B) … <span class="math">\(T_2\)</span> space (C) … <span class="math">\(T_3\)</span> space (D) … <span class="math">\(T_4\)</span> space.</em></p>
+<p><strong>Official key: D.</strong> In fact all four statements are true: every metric space is <span class="math">\(T_1\)</span>, <span class="math">\(T_2\)</span>, <span class="math">\(T_3\)</span> and <span class="math">\(T_4\)</span> (the function <span class="math">\(d(x,A)/(d(x,A)+d(x,B))\)</span> separates disjoint closed sets). The question has no correct “incorrect” option, and the official key still gives D, probably because <span class="math">\(T_4\)</span> is the strongest. If asked in a test, remember that metric spaces satisfy all of them.</p>
+<h3 id="2025-q96-official-key-a">2025-Q96 (official key A)</h3>
+<p><em>Every totally bounded metric space is (A) separable (B) reducible (C) compact (D) locally compact.</em></p>
+<p><strong>Answer: A.</strong> A finite <span class="math">\(1/n\)</span>-net for each <span class="math">\(n\)</span> gives a countable dense set. (C) fails because compactness also needs completeness: <span class="math">\((0,1)\)</span> is totally bounded but not compact. (D) fails for <span class="math">\(\mathbb Q\cap[0,1]\)</span>, which is totally bounded but not locally compact. “Reducible” is not a topological term.</p>
+<h3 id="2026-q42-worked-key-d-unofficial">2026-Q42 (worked key D; unofficial)</h3>
+<p><em>Let a manifold be Hausdorff, second countable and regular. Using the Urysohn metrization theorem, the number of compatible metrics possible is (A) <span class="math">\(0\)</span> (B) <span class="math">\(1\)</span> (C) finite (D) infinite.</em></p>
+<p><strong>Answer: D.</strong> The manifold is metrizable by Urysohn’s theorem. If <span class="math">\(d\)</span> is a compatible metric, then <span class="math">\(c\,d\)</span> with <span class="math">\(c&gt;0\)</span> is a different compatible metric, giving infinitely many. (The wording “number of compatible metrics” is vague, so the key is a judgement; it is the only consistent choice.)</p>
+</section><section class="note-section ns-quick-revision" aria-labelledby="quick-revision"><h2 id="quick-revision">Quick revision</h2>
+<ul>
+<li>Chain: <span class="math">\(T_4\Rightarrow T_{3\frac12}\Rightarrow T_3\Rightarrow T_2\Rightarrow T_1\Rightarrow T_0\)</span>, no arrow reverses.</li>
+<li><span class="math">\(T_1\iff\)</span> points closed. <span class="math">\(T_3\)</span> = regular + <span class="math">\(T_1\)</span>; <span class="math">\(T_4\)</span> = normal + <span class="math">\(T_1\)</span>.</li>
+<li>Every metric space is <span class="math">\(T_4\)</span> (use <span class="math">\(d(x,A)\)</span>).</li>
+<li>Counterexamples: Sierpinski (<span class="math">\(T_0\)</span>, not <span class="math">\(T_1\)</span>); cofinite (<span class="math">\(T_1\)</span>, not <span class="math">\(T_2\)</span>); <span class="math">\(K\)</span>-topology (<span class="math">\(T_2\)</span>, not regular); Sorgenfrey plane (regular, not normal).</li>
+<li>2nd countable <span class="math">\(\Rightarrow\)</span> 1st countable, separable, Lindelöf. Metric: separable <span class="math">\(\iff\)</span> 2nd countable <span class="math">\(\iff\)</span> Lindelöf.</li>
+<li><span class="math">\(\mathbb R_\ell\)</span>: separable, 1st countable, not 2nd countable, not metrizable.</li>
+<li>Totally bounded metric <span class="math">\(\Rightarrow\)</span> separable.</li>
+<li>Compact Hausdorff <span class="math">\(\Rightarrow\)</span> normal; regular Lindelöf <span class="math">\(\Rightarrow\)</span> normal.</li>
+<li>Urysohn lemma: normal, disjoint closed <span class="math">\(A,B\)</span> <span class="math">\(\Rightarrow\)</span> continuous <span class="math">\(f:X\to[0,1]\)</span>, <span class="math">\(0\)</span> on <span class="math">\(A\)</span>, <span class="math">\(1\)</span> on <span class="math">\(B\)</span>.</li>
+<li>Tietze: normal, <span class="math">\(A\)</span> closed, bounded continuous <span class="math">\(f\)</span> on <span class="math">\(A\)</span> extends.</li>
+<li>Urysohn metrization: second countable regular <span class="math">\(T_1\Rightarrow\)</span> metrizable. Converse false (uncountable discrete).</li>
+<li>Normality is neither hereditary nor productive.</li>
+</ul>
+</section></article></div><section class="section reader-end"><button class="read-btn" type="button" data-read-btn aria-pressed="false"><span class="box" aria-hidden="true"></span><span data-read-label>Mark as read</span></button><ul class="units end-links"><li><a class="unit-card" href="/uphesc-maths/learn/topology-geometry/countability-and-separation/practice/"><span class="unit-top"><span class="unit-name">Practise this topic</span></span><p class="flush">14 questions with worked solutions</p></a></li><li><a class="unit-card" href="/uphesc-maths/learn/topology-geometry/product-and-quotient-topology/"><span class="unit-top"><span class="unit-name">Next: Product and quotient topology</span></span><p class="flush">Medium priority · 1 h 40 min</p></a></li></ul><p class="prev-link"><a href="/uphesc-maths/learn/topology-geometry/connectedness-and-compactness/">Previous: Connectedness and compactness</a></p></section></div><footer class="foot"><p>Built from every paper that survives: the full 2025 and 2026 papers (140 maths questions) and half of 2019 (35, from a solution video). 2015 left only an answer key, and nothing was found for 2021. The commission has never published its booklets. Unit counts use 2025 and 2026 only, so they show a range, not a trend.</p><p>2025 answers match the official key. 2026 has no key yet, so its answers were worked out by hand and marked high, medium or low confidence, and every unsure one was solved again, blind. 2019 answers come from the video and are not checked against the official key.</p></footer></main><script type="module">var e=document.documentElement,t=()=>e.dataset.mode?e.dataset.mode===`dark`:matchMedia(`(prefers-color-scheme: dark)`).matches;document.querySelector(`[data-mode-toggle]`)?.addEventListener(`click`,()=>{let n=t()?`light`:`dark`;e.dataset.mode=n;try{localStorage.setItem(`um:mode`,n)}catch{}}),!e.dataset.mode&&t()&&(e.dataset.mode=`dark`);var n=document.querySelectorAll(`[data-old-toggle]`),r=t=>{t?e.dataset.old=`on`:delete e.dataset.old,n.forEach(e=>e.setAttribute(`aria-checked`,String(t)))};r(e.dataset.old===`on`),n.forEach(t=>t.addEventListener(`click`,()=>{let t=e.dataset.old!==`on`;r(t);try{localStorage.setItem(`um:old`,t?`on`:`off`)}catch{}}));var i=document.querySelectorAll(`[data-view]`),a=t=>{t===`bars`?e.dataset.view=`bars`:delete e.dataset.view,i.forEach(e=>e.setAttribute(`aria-pressed`,String(e.dataset.view===t)))};a(e.dataset.view===`bars`?`bars`:`heat`),i.forEach(e=>e.addEventListener(`click`,()=>{a(e.dataset.view);try{localStorage.setItem(`um:view`,e.dataset.view)}catch{}}));var o=document.createElement(`div`);o.className=`tip`,o.setAttribute(`role`,`tooltip`),o.hidden=!0,document.body.append(o);var s=null,c=(e,t)=>{let n=o.offsetWidth,r=o.offsetHeight,i=e+12,a=t+12;i+n>innerWidth-8&&(i=Math.max(8,e-n-12)),a+r>innerHeight-8&&(a=Math.max(8,t-r-12)),o.style.left=`${i}px`,o.style.top=`${a}px`},l=()=>{if(s){let e=s.getBoundingClientRect();c(e.left+e.width*.3,e.bottom-8)}},u=e=>{e!==s&&(s=e,o.replaceChildren(...[...e.querySelector(`.tip-src`).childNodes].map(e=>e.cloneNode(!0)))),o.hidden=!1},d=()=>{o.hidden=!0,s=null};document.addEventListener(`pointermove`,e=>{if(e.pointerType!==`mouse`)return;let t=e.target.closest(`[data-tip]`);t?(u(t),c(e.clientX,e.clientY)):s&&d()}),document.addEventListener(`focusin`,e=>{let t=e.target.closest(`[data-tip]`);t&&(u(t),l())}),document.addEventListener(`focusout`,()=>d()),addEventListener(`scroll`,()=>{s&&document.activeElement===s?l():s&&d()},{passive:!0}),document.addEventListener(`keydown`,e=>{e.key===`Escape`&&d()});var f=`um:done`,p={};try{p=JSON.parse(localStorage.getItem(f)||`{}`)}catch{}var m=()=>{document.querySelectorAll(`[data-progress]`).forEach(e=>{let t=[...document.querySelectorAll(`[data-group="${e.dataset.progress}"]`)],n=t.filter(e=>e.checked).length;e.querySelector(`.progress-bar span`).style.width=`${n/t.length*100}%`,e.querySelector(`[data-count]`).textContent=`${n} of ${t.length} done`})};document.querySelectorAll(`input[data-check]`).forEach(e=>{e.checked=!!p[e.dataset.check],e.addEventListener(`change`,()=>{p[e.dataset.check]=e.checked;try{localStorage.setItem(f,JSON.stringify(p))}catch{}m()})}),m();</script></body></html><script type="module" src="/uphesc-maths/_astro/index.astro_astro_type_script_index_0_lang.t7qZbIYF.js"></script>

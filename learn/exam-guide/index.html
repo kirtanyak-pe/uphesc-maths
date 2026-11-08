@@ -1,0 +1,440 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Exam guide · UPESSC maths</title><meta name="description" content="What to study for the UPESSC (formerly UPHESC) Assistant Professor maths paper, built from every paper that survives."><link rel="icon" href="/uphesc-maths/favicon.svg" type="image/svg+xml"><link rel="preload" href="/uphesc-maths/fonts/inter-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin><!-- the saved light/dark, 2019 and chart-view choices, before first paint --><script>
+    try { var m = localStorage.getItem('um:mode'); if (m) document.documentElement.dataset.mode = m; } catch (e) {}
+    try { if (localStorage.getItem('um:old') === 'on') document.documentElement.dataset.old = 'on'; } catch (e) {}
+    try { if (localStorage.getItem('um:view') === 'bars') document.documentElement.dataset.view = 'bars'; } catch (e) {}
+  </script><!-- maths: the vendored MathJax typesets \( \) and \[ \] text, loaded only on pages that have any --><script>(function(){const VENDOR = "/uphesc-maths/vendor";
+
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+      loader: { paths: { mathjax: VENDOR + '/mathjax', fonts: VENDOR + '/mathjax/fonts' } },
+      output: { font: 'mathjax-stix2', displayOverflow: 'scroll' },
+      options: { ignoreHtmlClass: 'no-math', processHtmlClass: 'math', menuOptions: { settings: { enrich: false, speech: false, braille: false } } },
+      chtml: { displayOverflow: 'scroll' },
+      // an inline formula with a piece wider than its line gets its own scrolling line, like display maths
+      startup: { pageReady: () => MathJax.startup.defaultPageReady().then(fitMath) },
+    };
+    function fitMath() {
+      for (const m of document.querySelectorAll('mjx-container:not([display="true"]):not(.mjx-wide)')) {
+        const box = m.closest('p, li, dd, blockquote, div');
+        if (!box || m.closest('td, th')) continue;
+        const right = box.getBoundingClientRect().right + 1;
+        if ([...m.getClientRects()].some((r) => r.right > right)) m.classList.add('mjx-wide');
+      }
+    }
+    let fitQueued = 0;
+    const queueFit = () => { if (window.MathJax?.startup?.document && !fitQueued) fitQueued = requestAnimationFrame(() => { fitQueued = 0; fitMath(); }); };
+    addEventListener('resize', queueFit);
+    addEventListener('click', () => setTimeout(queueFit, 50));
+    document.addEventListener('DOMContentLoaded', () => {
+      if (!document.querySelector('.math')) return;
+      const s = document.createElement('script');
+      s.async = true;
+      s.src = VENDOR + '/mathjax/tex-chtml-nofont.js';
+      document.head.appendChild(s);
+    });
+  })();</script><link rel="stylesheet" href="/uphesc-maths/_astro/Base.CkQ5KWO8.css"></head><body data-tab="learn"><nav class="appnav" aria-label="Main"><a class="appnav-brand" href="/uphesc-maths/" aria-label="UPESSC maths home">∑</a><a class="appnav-item" href="/uphesc-maths/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4 10.2 12 4l8 6.2V19a1 1 0 0 1-1 1h-4.5v-5.5h-5V20H5a1 1 0 0 1-1-1z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Plan</span></a><a class="appnav-item" href="/uphesc-maths/learn/" aria-current="page"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M12 6.5C10 5 7.5 4.5 4 4.5v13c3.5 0 6 .5 8 2 2-1.5 4.5-2 8-2v-13c-3.5 0-6 .5-8 2zM12 6.5v13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Learn</span></a><a class="appnav-item" href="/uphesc-maths/units/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4 5h7v7H4zM13 5h7v7h-7zM4 14h7v6H4zM13 14h7v6h-7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Units</span></a><a class="appnav-item" href="/uphesc-maths/papers/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M7 3h7l4 4v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zM14 3v4h4M9 12h6M9 16h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Papers</span></a><a class="appnav-item" href="/uphesc-maths/revise/"><span class="appnav-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M5 12.5 9.5 17 19 7.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span>Revise</span></a></nav><header class="topbar"><a class="bar-back" href="/uphesc-maths/learn/" aria-label="Back"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a><p class="bar-title">Learn</p><button class="bar-btn" type="button" data-mode-toggle aria-label="Switch light or dark"><svg class="i-moon" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path></svg><svg class="i-sun" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path></svg></button></header><main class="page"><header class="page-head"><h1>Exam guide</h1><p class="lede">How the paper works, how it is marked, and how to plan the weeks before it.</p></header><div class="reader-grid"><nav class="toc" aria-label="On this page"><details class="toc-box" data-toc><summary>On this page</summary><ol><li><a href="#timeline">Timeline</a></li><li><a href="#eligibility">Eligibility</a></li><li><a href="#paper-pattern-and-marking">Paper pattern and marking</a></li><li><a href="#what-the-maths-papers-asked">What the maths papers asked</a></li><li><a href="#time-strategy">Time strategy</a></li><li><a href="#12-week-timetable">12-week timetable</a></li><li><a href="#how-to-use-this-site">How to use this site</a></li><li><a href="#the-last-week">The last week</a></li></ol></details></nav><article class="prose"><h2 id="timeline">Timeline</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Advertisement</th>
+<th>Maths written exam</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Advt 46</td>
+<td>11 January 2015</td>
+<td>First written exam found: General Knowledge 60 marks plus subject 140 marks, then interview</td>
+</tr>
+<tr>
+<td>Advt 47</td>
+<td>12 January 2019</td>
+<td>Only answer keys were published; the revised key is dated 29 May 2019</td>
+</tr>
+<tr>
+<td>Advt 50</td>
+<td>October to December 2021, in phases</td>
+<td>The Maths date and paper were not found</td>
+</tr>
+<tr>
+<td>Advt 51</td>
+<td>16 April 2025</td>
+<td>Cancelled on 7 January 2026 after a paper leak</td>
+</tr>
+<tr>
+<td>Advt 51 (re-exam)</td>
+<td>18 and 19 April 2026</td>
+<td>Maths on 19 April 2026, first shift; no official key is public</td>
+</tr>
+<tr>
+<td>Advt 04/2026</td>
+<td>19 and 20 November 2026</td>
+<td>1,936 posts. Exam-city slips released 8 November 2026; admit cards due from 15 November 2026. The new pattern is below</td>
+</tr>
+</tbody>
+</table></div>
+<p>Papers from Advt 46, 47 and 50 are mostly not public, so the questions on this site come from 2019 (35 of 70 maths questions recovered), 2025 (full paper with the official key) and 2026 (full paper, worked key).</p>
+<h2 id="eligibility">Eligibility</h2>
+<p>The conditions below are taken from the commission’s notices as repeated by several coaching sites. Check the current notification before you apply, because details change between advertisements.</p>
+<ul>
+<li><strong>Degree:</strong> a Master’s degree in the subject (or an allied subject as the notice allows) with at least 55 per cent marks or an equivalent grade. Reserved categories get a lower cut-off as the notice states.</li>
+<li><strong>Test or doctorate:</strong> NET (UGC or CSIR), SLET or SET qualification, or a PhD that the UGC regulations in force accept in place of it.</li>
+<li><strong>Age limit:</strong> sources disagree (one gives an upper limit of 62 years for this commission, while 21 to 40 appears for the different UP Public Service Commission). We could not confirm it, so read the age clause and the relaxations in the notification itself.</li>
+<li><strong>Where to check:</strong> the commission’s own website (upessc.up.gov.in) and the notification PDF.</li>
+</ul>
+<h2 id="paper-pattern-and-marking">Paper pattern and marking</h2>
+<p><strong>The new pattern for Advt 04/2026 (exam on 19 and 20 November 2026):</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Questions</td>
+<td>120, all multiple choice, four options</td>
+</tr>
+<tr>
+<td>Parts</td>
+<td>30 General Knowledge; 90 Mathematics</td>
+</tr>
+<tr>
+<td>Marks</td>
+<td>3 per correct answer, total 360</td>
+</tr>
+<tr>
+<td>Negative marking</td>
+<td>1 mark deducted per wrong answer</td>
+</tr>
+<tr>
+<td>Time</td>
+<td>2 hours</td>
+</tr>
+<tr>
+<td>After the written test</td>
+<td>Interview</td>
+</tr>
+</tbody>
+</table></div>
+<p>This pattern is reported the same way by several job and coaching sites (Testbook, Adda247, Dainik Jagran and others), but we could not read it in the official notification. The admit card (due from 15 November) and the instructions printed on it are the final word. Check there:</p>
+<ol>
+<li>the number of questions and the marks per question;</li>
+<li>whether there is negative marking and how much;</li>
+<li>your shift and exam centre.</li>
+</ol>
+<p>With negative marking, do not guess blind. A blind guess among four options is worth <span class="math">\(\tfrac14\cdot 3 - \tfrac34\cdot 1 = 0\)</span> marks on average. If you can rule out even one option, a guess among the remaining three is worth <span class="math">\(\tfrac13\cdot 3 - \tfrac23\cdot 1 = \tfrac13\)</span>, so attempt it. Leave a question blank only when you cannot rule out anything.</p>
+<p><strong>The older pattern (the 2025 and 2026 papers, verified from the papers):</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Questions</td>
+<td>100, all multiple choice, four options</td>
+</tr>
+<tr>
+<td>Parts</td>
+<td>Q1 to Q30 General Studies; Q31 to Q100 Mathematics (70)</td>
+</tr>
+<tr>
+<td>Marks</td>
+<td>2 per correct answer, total 200 (GK 60, Maths 140)</td>
+</tr>
+<tr>
+<td>Negative marking</td>
+<td>None</td>
+</tr>
+<tr>
+<td>Time</td>
+<td>2 hours, pen and OMR</td>
+</tr>
+</tbody>
+</table></div>
+<p>The past papers on this site follow the older pattern. The topics asked do not change with the new pattern; only the number of questions and the marking do.</p>
+<h2 id="what-the-maths-papers-asked">What the maths papers asked</h2>
+<p>The 70 maths questions were spread across the ten maths units almost evenly. No unit can be skipped.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Unit</th>
+<th>2019 (35 of 70 found)</th>
+<th>2025</th>
+<th>2026</th>
+<th>2025 + 2026 (of 140)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 Abstract Algebra</td>
+<td>3</td>
+<td>7</td>
+<td>6</td>
+<td>13</td>
+</tr>
+<tr>
+<td>2 Linear Algebra</td>
+<td>7</td>
+<td>8</td>
+<td>10</td>
+<td>18</td>
+</tr>
+<tr>
+<td>3 Real and Functional Analysis</td>
+<td>9</td>
+<td>10</td>
+<td>3</td>
+<td>13</td>
+</tr>
+<tr>
+<td>4 Complex Analysis</td>
+<td>9</td>
+<td>6</td>
+<td>7</td>
+<td>13</td>
+</tr>
+<tr>
+<td>5 Topology and Differential Geometry</td>
+<td>3</td>
+<td>7</td>
+<td>8</td>
+<td>15</td>
+</tr>
+<tr>
+<td>6 Differential Equations</td>
+<td>0</td>
+<td>7</td>
+<td>7</td>
+<td>14</td>
+</tr>
+<tr>
+<td>7 Calculus of Variations, Integral Equations and Transforms</td>
+<td>1</td>
+<td>5</td>
+<td>8</td>
+<td>13</td>
+</tr>
+<tr>
+<td>8 Mechanics and Fluid Dynamics</td>
+<td>0</td>
+<td>7</td>
+<td>7</td>
+<td>14</td>
+</tr>
+<tr>
+<td>9 Operations Research and Numerical Analysis</td>
+<td>1</td>
+<td>8</td>
+<td>7</td>
+<td>15</td>
+</tr>
+<tr>
+<td>10 Vedic Mathematics and Number Theory</td>
+<td>0</td>
+<td>5</td>
+<td>7</td>
+<td>12</td>
+</tr>
+<tr>
+<td>Total mapped</td>
+<td>33</td>
+<td>70</td>
+<td>70</td>
+<td>140</td>
+</tr>
+</tbody>
+</table></div>
+<p>The 2019 column has two more recovered questions that fit none of the units, and the 2019 recovery is partial, so do not compare it with the other years too closely. Unit 11 (General Studies) adds 30 questions in both 2025 and 2026.</p>
+<p>What changed between the two full papers: 2025 questions were mostly direct, one-concept questions. In 2026 many maths questions were chained (“first find X, then compute Y”), and Linear Algebra (10), Topology and Differential Geometry (8) and Integral Equations (6 in 2026) rose, while Analysis fell to 3. Prepare for both styles.</p>
+<h2 id="time-strategy">Time strategy</h2>
+<p>The new pattern puts 120 questions in 2 hours: one minute per question on average.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Block</th>
+<th>Questions</th>
+<th>Time</th>
+<th>Per question</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>General Knowledge</td>
+<td>30</td>
+<td>about 15 minutes</td>
+<td>about 30 seconds</td>
+</tr>
+<tr>
+<td>Mathematics</td>
+<td>90</td>
+<td>about 100 minutes</td>
+<td>about 67 seconds</td>
+</tr>
+<tr>
+<td>Spare</td>
+<td></td>
+<td>about 5 minutes</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p>Under the older pattern (100 questions) the split was about 20 minutes for GK and 99 minutes for 70 maths questions.</p>
+<ul>
+<li>Do GK first, quickly. GK is 90 of the 360 marks, and ICT, environment and polity facts take seconds if you know them. Never spend more than 45 seconds on one GK question; a fact you do not know is not recalled by staring.</li>
+<li>In Maths, take a first pass of about 50 seconds per question: answer what you can, mark any question that needs a long computation, and come back in a second pass.</li>
+<li>A chained question usually has one step that eliminates two options. Look for it before computing everything.</li>
+<li>For numerical answers, test the options against one simple case instead of deriving a formula.</li>
+<li>Mark the answer sheet as you go. With negative marking, do not fill unanswered questions at random in the last minute; fill only those where you ruled out at least one option.</li>
+</ul>
+<h2 id="12-week-timetable">12-week timetable</h2>
+<p>Plan: about 3 hours of maths on weekdays, a longer block at the weekend, and 45 minutes of GK every day. If the exam is closer than 12 weeks, keep the unit order but compress each block, and go straight to the last-week plan below.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Week</th>
+<th>Maths focus</th>
+<th>GK (Unit 11)</th>
+<th>Practice</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Unit 2 Linear Algebra, first half</td>
+<td>ICT</td>
+<td>Quiz after each topic</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Unit 2 second half; start Unit 1 Abstract Algebra</td>
+<td>Environment and ecology</td>
+<td>Quizzes; start an error log</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Unit 1 Abstract Algebra</td>
+<td>Teaching, research and aptitude</td>
+<td>Quizzes</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Unit 3 Real and Functional Analysis</td>
+<td>Polity and economy</td>
+<td>Quizzes</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Unit 4 Complex Analysis; Unit 7 methods</td>
+<td>Science and space</td>
+<td>Quizzes</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Unit 5 Topology and Differential Geometry</td>
+<td>History and national movement</td>
+<td>Quizzes</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Unit 6 Differential Equations; Unit 10 Number Theory</td>
+<td>Uttar Pradesh GK; start current-affairs notes</td>
+<td>Quizzes</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Unit 8 Mechanics and Fluids; Unit 9 OR and Numerical</td>
+<td>Current affairs, first pass</td>
+<td>Quizzes</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Revision of Units 1 to 5 from formula sheets; redo wrong quiz answers</td>
+<td>GK quizzes again</td>
+<td>Solve the 2025 paper in 2 hours</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Revision of Units 6 to 10</td>
+<td>GK fact sheet</td>
+<td>Solve the 2026 paper in 2 hours</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Weak units, using the error log</td>
+<td>Current affairs second pass</td>
+<td>Two timed mixed sets</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Last week (see below)</td>
+<td>Fact sheet only</td>
+<td>No new topics</td>
+</tr>
+</tbody>
+</table></div>
+<p>Within each unit, read the topics in the order listed on the unit page, since later topics assume the earlier ones.</p>
+<h3 id="if-the-exam-is-less-than-two-weeks-away">If the exam is less than two weeks away</h3>
+<p>Do not try to read every topic. Use the unit pages and the high-priority topics.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Days left</th>
+<th>What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>12 to 9</td>
+<td>One unit page per half day: read the formula sheet and the high-yield list, then the topics marked high priority, and do their quizzes. Start with Units 2, 1, 5 and 3.</td>
+</tr>
+<tr>
+<td>8 to 6</td>
+<td>Units 4, 6, 7, 8, 9 and 10 the same way. Note every wrong answer in an error log.</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Solve the 2026 paper in 2 hours, then check it against the worked key.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Solve the 2025 paper in 2 hours; redo the error log.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>GK day: Unit 11 notes and quizzes, current affairs of the last 12 months.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Formula sheets of all ten maths units; the error log once more.</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Light revision only; admit card, ID and travel to the centre checked.</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="how-to-use-this-site">How to use this site</h2>
+<ul>
+<li><strong>Exam guide (this page):</strong> pattern, marking, weights and the timetable.</li>
+<li><strong>Unit page:</strong> what the unit covers, how it is asked, the study order, a formula sheet and the high-yield list. Read the formula sheet at the start and again at the end.</li>
+<li><strong>Topic page:</strong> the full notes, then formulas, worked examples, common traps and the real past questions on that topic. Each topic has a priority label and an estimated study time.</li>
+<li><strong>Practice questions:</strong> 10 to 15 questions per topic in the exam’s style, with solutions. Attempt them without looking at the notes, then read the solution of every wrong answer.</li>
+<li><strong>Previous-year questions:</strong> treat these as the model for what is asked. 2025 answers follow the official key. 2026 answers are worked answers, and where a question has a defect the topic page says so.</li>
+</ul>
+<p>A good loop for each topic is: read the notes, close them, attempt the quiz, re-read only the parts you got wrong, and add one line per mistake to your error log.</p>
+<h2 id="the-last-week">The last week</h2>
+<ul>
+<li><strong>Seven to five days before:</strong> one more pass over each unit’s formula sheet and the high-yield list. Redo only the questions in your error log.</li>
+<li><strong>Four days before:</strong> re-solve the 2026 paper and the 2025 paper questions you got wrong.</li>
+<li><strong>Three days before:</strong> GK day. Go through the fact sheet in Unit 11 and the current-affairs notes for the last 12 months, then the GK quizzes.</li>
+<li><strong>Two days before:</strong> one timed full set (30 GK in 15 minutes, then maths), and look only at the errors afterwards.</li>
+<li><strong>One day before:</strong> light revision of formulas for 2 hours, no new topics, and check the admit card, ID proof, exam centre and travel time. Read the exam-day instructions printed on the admit card.</li>
+<li><strong>Exam day:</strong> do GK first, then Maths with the first-pass rule above, and keep the last minutes for the answer sheet.</li>
+</ul>
+</article></div><footer class="foot"><p>Built from every paper that survives: the full 2025 and 2026 papers (140 maths questions) and half of 2019 (35, from a solution video). 2015 left only an answer key, and nothing was found for 2021. The commission has never published its booklets. Unit counts use 2025 and 2026 only, so they show a range, not a trend.</p><p>2025 answers match the official key. 2026 has no key yet, so its answers were worked out by hand and marked high, medium or low confidence, and every unsure one was solved again, blind. 2019 answers come from the video and are not checked against the official key.</p></footer></main><script type="module">var e=document.documentElement,t=()=>e.dataset.mode?e.dataset.mode===`dark`:matchMedia(`(prefers-color-scheme: dark)`).matches;document.querySelector(`[data-mode-toggle]`)?.addEventListener(`click`,()=>{let n=t()?`light`:`dark`;e.dataset.mode=n;try{localStorage.setItem(`um:mode`,n)}catch{}}),!e.dataset.mode&&t()&&(e.dataset.mode=`dark`);var n=document.querySelectorAll(`[data-old-toggle]`),r=t=>{t?e.dataset.old=`on`:delete e.dataset.old,n.forEach(e=>e.setAttribute(`aria-checked`,String(t)))};r(e.dataset.old===`on`),n.forEach(t=>t.addEventListener(`click`,()=>{let t=e.dataset.old!==`on`;r(t);try{localStorage.setItem(`um:old`,t?`on`:`off`)}catch{}}));var i=document.querySelectorAll(`[data-view]`),a=t=>{t===`bars`?e.dataset.view=`bars`:delete e.dataset.view,i.forEach(e=>e.setAttribute(`aria-pressed`,String(e.dataset.view===t)))};a(e.dataset.view===`bars`?`bars`:`heat`),i.forEach(e=>e.addEventListener(`click`,()=>{a(e.dataset.view);try{localStorage.setItem(`um:view`,e.dataset.view)}catch{}}));var o=document.createElement(`div`);o.className=`tip`,o.setAttribute(`role`,`tooltip`),o.hidden=!0,document.body.append(o);var s=null,c=(e,t)=>{let n=o.offsetWidth,r=o.offsetHeight,i=e+12,a=t+12;i+n>innerWidth-8&&(i=Math.max(8,e-n-12)),a+r>innerHeight-8&&(a=Math.max(8,t-r-12)),o.style.left=`${i}px`,o.style.top=`${a}px`},l=()=>{if(s){let e=s.getBoundingClientRect();c(e.left+e.width*.3,e.bottom-8)}},u=e=>{e!==s&&(s=e,o.replaceChildren(...[...e.querySelector(`.tip-src`).childNodes].map(e=>e.cloneNode(!0)))),o.hidden=!1},d=()=>{o.hidden=!0,s=null};document.addEventListener(`pointermove`,e=>{if(e.pointerType!==`mouse`)return;let t=e.target.closest(`[data-tip]`);t?(u(t),c(e.clientX,e.clientY)):s&&d()}),document.addEventListener(`focusin`,e=>{let t=e.target.closest(`[data-tip]`);t&&(u(t),l())}),document.addEventListener(`focusout`,()=>d()),addEventListener(`scroll`,()=>{s&&document.activeElement===s?l():s&&d()},{passive:!0}),document.addEventListener(`keydown`,e=>{e.key===`Escape`&&d()});var f=`um:done`,p={};try{p=JSON.parse(localStorage.getItem(f)||`{}`)}catch{}var m=()=>{document.querySelectorAll(`[data-progress]`).forEach(e=>{let t=[...document.querySelectorAll(`[data-group="${e.dataset.progress}"]`)],n=t.filter(e=>e.checked).length;e.querySelector(`.progress-bar span`).style.width=`${n/t.length*100}%`,e.querySelector(`[data-count]`).textContent=`${n} of ${t.length} done`})};document.querySelectorAll(`input[data-check]`).forEach(e=>{e.checked=!!p[e.dataset.check],e.addEventListener(`change`,()=>{p[e.dataset.check]=e.checked;try{localStorage.setItem(f,JSON.stringify(p))}catch{}m()})}),m();</script></body></html><script type="module">var e=document.querySelector(`[data-toc]`);e&&matchMedia(`(min-width: 1024px)`).matches&&(e.open=!0);</script>
