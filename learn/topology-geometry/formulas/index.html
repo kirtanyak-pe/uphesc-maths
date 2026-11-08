@@ -60,8 +60,10 @@
 <li><strong>Arc length:</strong> <span class="math">\(s=\int_a^t\lvert\mathbf r'(u)\rvert\,du\)</span>. Unit tangent <span class="math">\(\mathbf T=\mathbf r'/\lvert\mathbf r'\rvert\)</span>.</li>
 <li><strong>Curvature:</strong> <span class="math">\(\kappa=\lvert\mathbf T'(s)\rvert=\dfrac{\lvert\mathbf r'\times\mathbf r''\rvert}{\lvert\mathbf r'\rvert^3}\)</span>. For a plane graph <span class="math">\(y=f(x)\)</span>: <span class="math">\(\kappa=\dfrac{\lvert f''\rvert}{(1+f'^2)^{3/2}}\)</span>.</li>
 <li><strong>Torsion:</strong> <span class="math">\(\tau=\dfrac{(\mathbf r'\times\mathbf r'')\cdot\mathbf r'''}{\lvert\mathbf r'\times\mathbf r''\rvert^2}\)</span>.</li>
-<li><strong>Frenet frame:</strong> <span class="math">\(\mathbf N=\mathbf T'/\kappa\)</span>, <span class="math">\(\mathbf B=\mathbf T\times\mathbf N\)</span>. Equations (derivatives with respect to <span class="math">\(s\)</span>):
-<span class="math">\(\mathbf T'=\kappa\mathbf N,\qquad\mathbf N'=-\kappa\mathbf T+\tau\mathbf B,\qquad\mathbf B'=-\tau\mathbf N.\)</span></li>
+<li><strong>Frenet frame:</strong> <span class="math">\(\mathbf N=\mathbf T'/\kappa\)</span>, <span class="math">\(\mathbf B=\mathbf T\times\mathbf N\)</span>. Equations (derivatives with respect to <span class="math">\(s\)</span>):</li>
+</ul>
+<div class="math math-display">\[\mathbf T'=\kappa\mathbf N,\qquad\mathbf N'=-\kappa\mathbf T+\tau\mathbf B,\qquad\mathbf B'=-\tau\mathbf N.\]</div>
+<ul>
 <li><strong>Darboux vector:</strong> <span class="math">\(\boldsymbol\omega=\tau\mathbf T+\kappa\mathbf B\)</span>.</li>
 <li><strong>Planes:</strong> osculating <span class="math">\((\mathbf T,\mathbf N)\)</span>, normal <span class="math">\((\mathbf N,\mathbf B)\)</span>, rectifying <span class="math">\((\mathbf T,\mathbf B)\)</span>. Osculating circle has radius <span class="math">\(1/\kappa\)</span>.</li>
 <li><strong>Characterisations:</strong> <span class="math">\(\tau\equiv0\)</span> iff the curve is planar; <span class="math">\(\kappa\equiv0\)</span> iff a straight line; <span class="math">\(\kappa\)</span> and <span class="math">\(\tau\)</span> both nonzero constants iff a circular helix; <span class="math">\(\tau/\kappa\)</span> constant iff a general helix (constant angle with a fixed direction); spherical curve: <span class="math">\(\rho^2+(\rho'\sigma)^2=a^2\)</span> with <span class="math">\(\rho=1/\kappa\)</span>, <span class="math">\(\sigma=1/\tau\)</span>.</li>
@@ -76,9 +78,11 @@
 <li><strong>Second fundamental form:</strong> <span class="math">\(II=L\,du^2+2M\,du\,dv+N\,dv^2\)</span> with <span class="math">\(L=\mathbf r_{uu}\cdot\mathbf N\)</span>, <span class="math">\(M=\mathbf r_{uv}\cdot\mathbf N\)</span>, <span class="math">\(N=\mathbf r_{vv}\cdot\mathbf N\)</span>.</li>
 <li><strong>Normal curvature:</strong> <span class="math">\(\kappa_n=\dfrac{II}{I}\)</span> in the direction <span class="math">\(du:dv\)</span>. Meusnier: <span class="math">\(\kappa_n=\kappa\cos\varphi\)</span> (<span class="math">\(\varphi\)</span> is the angle between the principal normal and the surface normal).</li>
 <li><strong>Principal curvatures</strong> <span class="math">\(\kappa_1,\kappa_2\)</span> are the extreme values of <span class="math">\(\kappa_n\)</span>, the roots of <span class="math">\((EG-F^2)\kappa^2-(EN-2FM+GL)\kappa+(LN-M^2)=0\)</span>. Euler: <span class="math">\(\kappa_n=\kappa_1\cos^2\theta+\kappa_2\sin^2\theta\)</span>. Principal directions are orthogonal (unless the point is umbilic).</li>
-<li><strong>Gaussian and mean curvature:</strong>
-<span class="math">\(K=\kappa_1\kappa_2=\frac{LN-M^2}{EG-F^2},\qquad H=\frac{\kappa_1+\kappa_2}2=\frac{EN-2FM+GL}{2(EG-F^2)}.\)</span>
-Then <span class="math">\(\kappa_{1,2}=H\pm\sqrt{H^2-K}\)</span>.</li>
+<li><strong>Gaussian and mean curvature:</strong></li>
+</ul>
+<div class="math math-display">\[K=\kappa_1\kappa_2=\frac{LN-M^2}{EG-F^2},\qquad H=\frac{\kappa_1+\kappa_2}2=\frac{EN-2FM+GL}{2(EG-F^2)}.\]</div>
+<p>Then <span class="math">\(\kappa_{1,2}=H\pm\sqrt{H^2-K}\)</span>.</p>
+<ul>
 <li><strong>Monge patch</strong> <span class="math">\(z=f(x,y)\)</span>: <span class="math">\(K=\dfrac{f_{xx}f_{yy}-f_{xy}^2}{(1+f_x^2+f_y^2)^2}\)</span>.</li>
 <li><strong>Theorema Egregium:</strong> <span class="math">\(K\)</span> depends only on <span class="math">\(E,F,G\)</span> and their derivatives, so it is preserved by isometries. <span class="math">\(K\)</span> does not change sign under <span class="math">\(\mathbf N\to-\mathbf N\)</span>; <span class="math">\(H\)</span> does.</li>
 <li><strong>Types of point:</strong> elliptic <span class="math">\(K&gt;0\)</span>, hyperbolic <span class="math">\(K&lt;0\)</span>, parabolic <span class="math">\(K=0\)</span> with one zero principal curvature, planar <span class="math">\(\kappa_1=\kappa_2=0\)</span>, umbilic <span class="math">\(\kappa_1=\kappa_2\)</span>. Minimal surface: <span class="math">\(H=0\)</span> (then <span class="math">\(K\le0\)</span>). Developable: <span class="math">\(K=0\)</span>.</li>

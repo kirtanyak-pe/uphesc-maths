@@ -85,7 +85,7 @@
 </tr>
 <tr>
 <td>first countable</td>
-<td>iff all factors are and only countably many are nontrivial</td>
+<td>iff all factors are and only countably many are non-indiscrete</td>
 <td>no (<span class="math">\(\mathbb R^\omega\)</span>)</td>
 </tr>
 <tr>
@@ -122,7 +122,7 @@
 </ul>
 <h3 id="quotient-topology">Quotient topology</h3>
 <p>Let <span class="math">\(q:X\to Y\)</span> be a surjection. The <strong>quotient topology</strong> on <span class="math">\(Y\)</span> is</p>
-<p><span class="math">\(V\subseteq Y\ \text{open}\iff q^{-1}(V)\ \text{open in }X.\)</span></p>
+<div class="math math-display">\[V\subseteq Y\ \text{open}\iff q^{-1}(V)\ \text{open in }X.\]</div>
 <p>It is the finest topology on <span class="math">\(Y\)</span> making <span class="math">\(q\)</span> continuous. A continuous surjection <span class="math">\(q\)</span> is a <strong>quotient map</strong> iff <span class="math">\(Y\)</span> carries this topology. For an equivalence relation <span class="math">\(\sim\)</span>, <span class="math">\(X/\!\sim\)</span> with the quotient topology is the quotient space.</p>
 <p>A subset of <span class="math">\(X\)</span> is <strong>saturated</strong> if it is a union of equivalence classes. <span class="math">\(q\)</span> is a quotient map iff images of saturated open (or closed) sets are open (or closed).</p>
 <p><strong>Universal property.</strong> <span class="math">\(g:Y\to Z\)</span> is continuous iff <span class="math">\(g\circ q\)</span> is continuous. A continuous <span class="math">\(f:X\to Z\)</span> that is constant on the fibres of <span class="math">\(q\)</span> factors uniquely as <span class="math">\(f=\bar f\circ q\)</span> with <span class="math">\(\bar f\)</span> continuous.</p>
@@ -131,7 +131,7 @@
 <p><strong>What quotients preserve.</strong> Connectedness, path-connectedness, compactness, separability are preserved by quotient maps (images under continuous maps). Hausdorffness, first countability, second countability are <strong>not</strong> preserved.</p>
 <ul>
 <li><span class="math">\(\mathbb R/\mathbb Q\)</span> (cosets of <span class="math">\(\mathbb Q\)</span> in <span class="math">\(\mathbb R\)</span>) has the indiscrete topology: any nonempty saturated open set contains a dense coset, hence is everything.</li>
-<li><span class="math">\(\mathbb R/\mathbb Z\)</span> with <span class="math">\(\mathbb Z\)</span> collapsed to one point is not first countable at the collapsed point.</li>
+<li>The quotient <span class="math">\(\mathbb R/\!\sim\)</span> that collapses the subset <span class="math">\(\mathbb Z\subset\mathbb R\)</span> to a single point (a bouquet of countably many circles, with the quotient topology) is not first countable at the collapsed point. Do not confuse it with the circle <span class="math">\(\mathbb R/\mathbb Z\)</span> of translations below.</li>
 <li>The <strong>line with two origins</strong> is the quotient of <span class="math">\(\mathbb R\sqcup\mathbb R\)</span> identifying <span class="math">\(x\)</span> in the first copy with <span class="math">\(x\)</span> in the second for <span class="math">\(x\ne0\)</span>. It is locally Euclidean, second countable and <strong>not Hausdorff</strong> (the two origins have no disjoint neighbourhoods).</li>
 <li>If <span class="math">\(q\)</span> is open, <span class="math">\(X/\!\sim\)</span> is Hausdorff iff the relation <span class="math">\(R=\{(x,x'):x\sim x'\}\)</span> is closed in <span class="math">\(X\times X\)</span>.</li>
 <li>A subspace of a quotient space need not be a quotient. The restriction of a quotient map to a saturated open (or closed) subset is a quotient map. The product of two quotient maps need not be a quotient map, but <span class="math">\(q\times\mathrm{id}_Z\)</span> is one if <span class="math">\(Z\)</span> is locally compact Hausdorff.</li>
@@ -147,7 +147,7 @@
 <tbody>
 <tr>
 <td>Circle <span class="math">\(S^1\)</span></td>
-<td><span class="math">\([0,1]/\{0,1\}\)</span>, or <span class="math">\(\mathbb R/\mathbb Z\)</span></td>
+<td><span class="math">\([0,1]/\{0,1\}\)</span>, or <span class="math">\(\mathbb R\)</span> modulo the translations <span class="math">\(x\sim x+1\)</span></td>
 </tr>
 <tr>
 <td>Sphere <span class="math">\(S^n\)</span></td>

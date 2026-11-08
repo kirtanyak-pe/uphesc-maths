@@ -48,14 +48,15 @@
 <p><strong>Fredholm alternative for BVPs.</strong> For <span class="math">\(L[y]=f\)</span> with homogeneous self-adjoint boundary conditions: if the homogeneous problem <span class="math">\(L[y]=0\)</span> has only <span class="math">\(y=0\)</span>, then <span class="math">\(L[y]=f\)</span> has a unique solution for every <span class="math">\(f\)</span>. If it has a non-trivial solution <span class="math">\(\phi\)</span>, then <span class="math">\(L[y]=f\)</span> has a solution only if <span class="math">\(\int f\phi\,dx=0\)</span> (and then it has infinitely many).</p>
 <p>Example: <span class="math">\(y''+y=1\)</span>, <span class="math">\(y(0)=y(\pi)=0\)</span>. Here <span class="math">\(\phi=\sin x\)</span> and <span class="math">\(\int_0^\pi\sin x\,dx=2\ne0\)</span>, so there is <strong>no</strong> solution.</p>
 <h3 id="the-sturm-liouville-form">The Sturm-Liouville form</h3>
-<p>The Sturm-Liouville (SL) equation is
-<span class="math">\(\big(p(x)y'\big)'+q(x)y+\lambda\,w(x)y=0,\qquad a\le x\le b,\)</span>
-with boundary conditions
-<span class="math">\(\alpha_1y(a)+\alpha_2y'(a)=0,\qquad \beta_1y(b)+\beta_2y'(b)=0\)</span>
-(real constants, <span class="math">\((\alpha_1,\alpha_2)\ne(0,0)\)</span>, <span class="math">\((\beta_1,\beta_2)\ne(0,0)\)</span>).</p>
+<p>The Sturm-Liouville (SL) equation is</p>
+<div class="math math-display">\[\big(p(x)y'\big)'+q(x)y+\lambda\,w(x)y=0,\qquad a\le x\le b,\]</div>
+<p>with boundary conditions</p>
+<div class="math math-display">\[\alpha_1y(a)+\alpha_2y'(a)=0,\qquad \beta_1y(b)+\beta_2y'(b)=0\]</div>
+<p>(real constants, <span class="math">\((\alpha_1,\alpha_2)\ne(0,0)\)</span>, <span class="math">\((\beta_1,\beta_2)\ne(0,0)\)</span>).</p>
 <p>It is <strong>regular</strong> if <span class="math">\(p,p',q,w\)</span> are continuous on the closed interval <span class="math">\([a,b]\)</span> and <span class="math">\(p&gt;0\)</span>, <span class="math">\(w&gt;0\)</span> on <span class="math">\([a,b]\)</span>. It is <strong>singular</strong> if <span class="math">\(p\)</span> or <span class="math">\(w\)</span> vanishes at an endpoint, or the interval is infinite (Legendre, Bessel, Hermite and Laguerre problems are singular). The function <span class="math">\(w\)</span> is the <strong>weight function</strong>.</p>
-<p><strong>Converting to SL form.</strong> Given <span class="math">\(a_0(x)y''+a_1(x)y'+\big(a_2(x)+\lambda a_3(x)\big)y=0\)</span>, multiply by <span class="math">\(\dfrac{1}{a_0}\exp\left(\int\frac{a_1}{a_0}dx\right)\)</span>:
-<span class="math">\(p=\exp\!\left(\int\frac{a_1}{a_0}dx\right),\quad q=p\,\frac{a_2}{a_0},\quad w=p\,\frac{a_3}{a_0}.\)</span></p>
+<p><strong>Converting to SL form.</strong> Given <span class="math">\(a_0(x)y''+a_1(x)y'+\big(a_2(x)+\lambda a_3(x)\big)y=0\)</span>, multiply by <span class="math">\(\dfrac{1}{a_0}\exp\left(\int\frac{a_1}{a_0}dx\right)\)</span>:</p>
+<div class="math math-display">\[p=\exp\!\left(\int\frac{a_1}{a_0}dx\right),\quad q=p\,\frac{a_2}{a_0},\quad w=p\,\frac{a_3}{a_0}.\]</div>
+<p><strong>Self-adjoint test.</strong> <span class="math">\(L=a_0y''+a_1y'+a_2y\)</span> is already in SL form (self-adjoint) exactly when <span class="math">\(a_1=a_0'\)</span>. Then <span class="math">\(L=(a_0y')'+a_2y\)</span>. If <span class="math">\(a_1\ne a_0'\)</span>, multiply by <span class="math">\(\dfrac{1}{a_0}\exp\int\dfrac{a_1}{a_0}dx\)</span> as above. Example: <span class="math">\(x^2y''+kxy'+y\)</span> is self-adjoint iff <span class="math">\(kx=2x\)</span>, i.e. <span class="math">\(k=2\)</span>. Another: <span class="math">\(y''+4y'+\lambda y=0\)</span> has <span class="math">\(p=e^{4x}\)</span> and <span class="math">\(w=e^{4x}\)</span>, giving <span class="math">\((e^{4x}y')'+\lambda e^{4x}y=0\)</span>.</p>
 <div class="table-wrap"><table>
 <thead>
 <tr>
@@ -102,6 +103,44 @@ with boundary conditions
 </tr>
 </tbody>
 </table></div>
+<p><strong>Eigenvalues of the singular problems in the table</strong> (solutions bounded at the singular endpoints):</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Problem</th>
+<th>Interval</th>
+<th>Eigenvalues</th>
+<th>Eigenfunctions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Legendre</td>
+<td><span class="math">\([-1,1]\)</span></td>
+<td><span class="math">\(n(n+1)\)</span>, <span class="math">\(n\ge0\)</span></td>
+<td><span class="math">\(P_n(x)\)</span></td>
+</tr>
+<tr>
+<td>Chebyshev</td>
+<td><span class="math">\([-1,1]\)</span></td>
+<td><span class="math">\(n^2\)</span>, <span class="math">\(n\ge0\)</span></td>
+<td><span class="math">\(T_n(x)=\cos(n\arccos x)\)</span></td>
+</tr>
+<tr>
+<td>Hermite</td>
+<td><span class="math">\(\mathbb R\)</span></td>
+<td><span class="math">\(2n\)</span>, <span class="math">\(n\ge0\)</span></td>
+<td><span class="math">\(H_n(x)\)</span></td>
+</tr>
+<tr>
+<td>Laguerre</td>
+<td><span class="math">\([0,\infty)\)</span></td>
+<td><span class="math">\(n\)</span>, <span class="math">\(n\ge0\)</span></td>
+<td><span class="math">\(L_n(x)\)</span></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Bessel problem.</strong> For <span class="math">\(xy''+y'+\left(\lambda x-\dfrac{\nu^2}{x}\right)y=0\)</span> on <span class="math">\([0,1]\)</span> with <span class="math">\(y\)</span> bounded and <span class="math">\(y(1)=0\)</span>, the eigenvalues are <span class="math">\(\lambda_n=\mu_n^2\)</span> where <span class="math">\(J_\nu(\mu_n)=0\)</span>, and <span class="math">\(\phi_n=J_\nu(\mu_nx)\)</span>. Orthogonality has weight <span class="math">\(x\)</span>: <span class="math">\(\displaystyle\int_0^1xJ_\nu(\mu_mx)J_\nu(\mu_nx)\,dx=0\)</span> for <span class="math">\(m\ne n\)</span>, and <span class="math">\(\displaystyle\int_0^1xJ_\nu(\mu_nx)^2dx=\tfrac12J_{\nu+1}(\mu_n)^2\)</span>. The Fourier-Bessel expansion is <span class="math">\(f=\sum c_nJ_\nu(\mu_nx)\)</span> with <span class="math">\(c_n=\dfrac{2}{J_{\nu+1}(\mu_n)^2}\displaystyle\int_0^1xf(x)J_\nu(\mu_nx)\,dx\)</span>. These problems are singular, so the regular-problem theorems (simplicity, oscillation count) are used with care; the real eigenvalues and orthogonality still hold.</p>
 <h3 id="properties-of-a-regular-sl-problem-separated-boundary-conditions">Properties of a regular SL problem (separated boundary conditions)</h3>
 <ol>
 <li><strong>Eigenvalues are real.</strong></li>
@@ -111,13 +150,13 @@ with boundary conditions
 <li><strong>Oscillation:</strong> the eigenfunction <span class="math">\(\phi_n\)</span> has exactly <span class="math">\(n-1\)</span> zeros in <span class="math">\((a,b)\)</span>.</li>
 <li><strong>Completeness:</strong> <span class="math">\(\{\phi_n\}\)</span> is a complete orthogonal set in <span class="math">\(L^2_w[a,b]\)</span>; <span class="math">\(f=\sum c_n\phi_n\)</span> with <span class="math">\(c_n=\dfrac{\int w f\phi_n}{\int w\phi_n^2}\)</span>, converging in mean for <span class="math">\(f\in L^2_w\)</span>, and pointwise (to the average at a jump) for piecewise smooth <span class="math">\(f\)</span>.</li>
 </ol>
-<p><strong>Why real and orthogonal (Lagrange identity).</strong> For <span class="math">\(Lu=(pu')'+qu\)</span> and <span class="math">\(u,v\)</span> satisfying the separated boundary conditions,
-<span class="math">\(\int_a^b(vLu-uLv)\,dx=\Big[p(vu'-uv')\Big]_a^b=0.\)</span>
-If <span class="math">\(L\phi_m=-\lambda_mw\phi_m\)</span> and <span class="math">\(L\phi_n=-\lambda_nw\phi_n\)</span>, then <span class="math">\((\lambda_n-\lambda_m)\int w\phi_m\phi_n=0\)</span>. Taking <span class="math">\(\phi_n=\bar\phi_m\)</span> gives <span class="math">\((\lambda-\bar\lambda)\int w\lvert\phi\rvert^2=0\)</span>, so <span class="math">\(\lambda\)</span> is real.</p>
-<p><strong>Sign of eigenvalues (Rayleigh quotient).</strong> Multiplying by <span class="math">\(y\)</span> and integrating,
-<span class="math">\(\lambda=\frac{-\big[p\,yy'\big]_a^b+\int_a^b\left(p\,y'^2-q\,y^2\right)dx}{\int_a^bw\,y^2\,dx}.\)</span>
-With Dirichlet (or Neumann) boundary terms vanishing and <span class="math">\(q\le0\)</span>, all eigenvalues are <span class="math">\(\ge0\)</span>; for Dirichlet conditions with <span class="math">\(q\le0\)</span> they are positive.</p>
-<p><strong>Periodic conditions</strong> (for example <span class="math">\(y(-L)=y(L)\)</span>, <span class="math">\(y'(-L)=y'(L)\)</span>) are self-adjoint, so eigenvalues are real and eigenfunctions of different eigenvalues are orthogonal, but eigenvalues need <strong>not be simple</strong>: the periodic problem for <span class="math">\(y''+\lambda y=0\)</span> has two eigenfunctions <span class="math">\(\cos\)</span> and <span class="math">\(\sin\)</span> for each <span class="math">\(\lambda=(n\pi/L)^2\)</span>, <span class="math">\(n\ge1\)</span>.</p>
+<p><strong>Why real and orthogonal (Lagrange identity).</strong> For <span class="math">\(Lu=(pu')'+qu\)</span> and <span class="math">\(u,v\)</span> satisfying the separated boundary conditions,</p>
+<div class="math math-display">\[\int_a^b(vLu-uLv)\,dx=\Big[p(vu'-uv')\Big]_a^b=0.\]</div>
+<p>If <span class="math">\(L\phi_m=-\lambda_mw\phi_m\)</span> and <span class="math">\(L\phi_n=-\lambda_nw\phi_n\)</span>, then <span class="math">\((\lambda_n-\lambda_m)\int w\phi_m\phi_n=0\)</span>. Taking <span class="math">\(\phi_n=\bar\phi_m\)</span> gives <span class="math">\((\lambda-\bar\lambda)\int w\lvert\phi\rvert^2=0\)</span>, so <span class="math">\(\lambda\)</span> is real.</p>
+<p><strong>Sign of eigenvalues (Rayleigh quotient).</strong> Multiplying by <span class="math">\(y\)</span> and integrating,</p>
+<div class="math math-display">\[\lambda=\frac{-\big[p\,yy'\big]_a^b+\int_a^b\left(p\,y'^2-q\,y^2\right)dx}{\int_a^bw\,y^2\,dx}.\]</div>
+<p>With Dirichlet (or Neumann) boundary terms vanishing and <span class="math">\(q\le0\)</span>, all eigenvalues are <span class="math">\(\ge0\)</span>; for Dirichlet conditions with <span class="math">\(q\le0\)</span> they are positive.</p>
+<p><strong>Periodic conditions</strong> (for example <span class="math">\(y(-L)=y(L)\)</span>, <span class="math">\(y'(-L)=y'(L)\)</span>) are self-adjoint, so eigenvalues are real and eigenfunctions of different eigenvalues are orthogonal, but the problem is <strong>not regular</strong> (the conditions are not separated) and eigenvalues need <strong>not be simple</strong>: the periodic problem for <span class="math">\(y''+\lambda y=0\)</span> has two eigenfunctions <span class="math">\(\cos\)</span> and <span class="math">\(\sin\)</span> for each <span class="math">\(\lambda=(n\pi/L)^2\)</span>, <span class="math">\(n\ge1\)</span>, while <span class="math">\(\lambda=0\)</span> is simple with <span class="math">\(y=1\)</span>. On <span class="math">\([0,2\pi]\)</span> with <span class="math">\(y(0)=y(2\pi)\)</span>, <span class="math">\(y'(0)=y'(2\pi)\)</span> the eigenvalues are <span class="math">\(n^2\)</span>, <span class="math">\(n=0,1,2,\dots\)</span>, with eigenfunctions <span class="math">\(1\)</span> and <span class="math">\(\cos nx\)</span>, <span class="math">\(\sin nx\)</span>.</p>
 <h3 id="standard-eigenvalue-problems-ylambda-y0-on-0l">Standard eigenvalue problems <span class="math">\(y''+\lambda y=0\)</span> on <span class="math">\([0,L]\)</span></h3>
 <p>Method: split into <span class="math">\(\lambda&lt;0\)</span>, <span class="math">\(\lambda=0\)</span>, <span class="math">\(\lambda&gt;0\)</span>. For <span class="math">\(\lambda=\mu^2&gt;0\)</span>, <span class="math">\(y=A\cos\mu x+B\sin\mu x\)</span>.</p>
 <div class="table-wrap"><table>
@@ -163,7 +202,7 @@ With Dirichlet (or Neumann) boundary terms vanishing and <span class="math">\(q\
 </tbody>
 </table></div>
 <p>With <span class="math">\(L=\pi\)</span> and <span class="math">\(y(0)=y(\pi)=0\)</span>: <span class="math">\(\lambda_n=n^2\)</span>, <span class="math">\(\phi_n=\sin nx\)</span> (this is the 2026 question). For Dirichlet conditions <span class="math">\(\lambda=0\)</span> gives <span class="math">\(y=Ax+B=0\)</span> and <span class="math">\(\lambda&lt;0\)</span> gives <span class="math">\(\sinh\)</span>, <span class="math">\(\cosh\)</span> combinations that cannot vanish at two points, so there are no eigenvalues <span class="math">\(\le0\)</span>. Orthogonality integrals: <span class="math">\(\displaystyle\int_0^L\sin\frac{m\pi x}{L}\sin\frac{n\pi x}{L}dx=\frac L2\,\delta_{mn}\)</span>, and <span class="math">\(\int_0^L\cos^2\frac{n\pi x}{L}dx=\frac L2\)</span> for <span class="math">\(n\ge1\)</span>, <span class="math">\(=L\)</span> for <span class="math">\(n=0\)</span>.</p>
-<p><strong>Robin conditions</strong> give transcendental equations. For <span class="math">\(y(0)=0\)</span>, <span class="math">\(y(L)\cdot h+y'(L)=0\)</span> with <span class="math">\(h&gt;0\)</span>, the eigenvalues are <span class="math">\(\mu_n^2\)</span> where <span class="math">\(\tan\mu L=-\mu/h\)</span>; there is no <span class="math">\(\lambda\le0\)</span>. Eigenvalues must then be found numerically.</p>
+<p><strong>Robin conditions</strong> give transcendental equations. For <span class="math">\(y(0)=0\)</span>, <span class="math">\(y(L)\cdot h+y'(L)=0\)</span> with <span class="math">\(h&gt;0\)</span>, the eigenvalues are <span class="math">\(\mu_n^2\)</span> where <span class="math">\(\tan\mu L=-\mu/h\)</span>; there is no <span class="math">\(\lambda\le0\)</span>. Eigenvalues must then be found numerically. Pay attention to the sign: <span class="math">\(y(L)h+y'(L)=0\)</span> with <span class="math">\(h&gt;0\)</span> gives <span class="math">\(\tan\mu L=-\mu/h\)</span>, whereas <span class="math">\(y'(L)-hy(L)=0\)</span> gives <span class="math">\(\tan\mu L=\mu/h\)</span> (and then a negative eigenvalue can appear when <span class="math">\(hL&gt;1\)</span>).</p>
 <h3 id="sturm-separation-and-comparison-theorems">Sturm separation and comparison theorems</h3>
 <p>These concern zeros of solutions of <span class="math">\(y''+q(x)y=0\)</span> with <span class="math">\(q\)</span> continuous. (Any <span class="math">\(y''+py'+qy=0\)</span> becomes this form via <span class="math">\(y=u\,e^{-\frac12\int p}\)</span>; the zeros of <span class="math">\(y\)</span> and <span class="math">\(u\)</span> coincide.)</p>
 <p><strong>Basic facts.</strong> Zeros of a non-trivial solution are <strong>simple</strong> (if <span class="math">\(y(x_0)=y'(x_0)=0\)</span> then <span class="math">\(y\equiv0\)</span>) and <strong>isolated</strong>, so there are finitely many in any closed bounded interval.</p>
@@ -178,8 +217,8 @@ With Dirichlet (or Neumann) boundary terms vanishing and <span class="math">\(q\
 <li><strong>Bessel zeros.</strong> For <span class="math">\(x^2y''+xy'+(x^2-\nu^2)y=0\)</span>, <span class="math">\(u=\sqrt x\,y\)</span> satisfies <span class="math">\(u''+\left(1+\dfrac{1/4-\nu^2}{x^2}\right)u=0\)</span>. If <span class="math">\(\nu&lt;\frac12\)</span> then <span class="math">\(q&gt;1\)</span> and zeros of <span class="math">\(J_\nu\)</span> are spaced <strong>less than <span class="math">\(\pi\)</span></strong> apart; if <span class="math">\(\nu&gt;\frac12\)</span>, spacing is <strong>more than <span class="math">\(\pi\)</span></strong>; if <span class="math">\(\nu=\frac12\)</span>, <span class="math">\(J_{1/2}\propto\sin x/\sqrt x\)</span> and spacing is exactly <span class="math">\(\pi\)</span>.</li>
 </ul>
 <h3 id="greens-function-for-a-bvp">Green’s function for a BVP</h3>
-<p>Consider <span class="math">\(Ly=(p\,y')'+q\,y=f(x)\)</span> on <span class="math">\([a,b]\)</span> with homogeneous separated boundary conditions, and assume the homogeneous problem has only the trivial solution. Let <span class="math">\(u_1\)</span> solve <span class="math">\(Lu=0\)</span> and satisfy the condition at <span class="math">\(a\)</span>; let <span class="math">\(u_2\)</span> solve <span class="math">\(Lu=0\)</span> and satisfy the condition at <span class="math">\(b\)</span>. Their Wronskian <span class="math">\(W=u_1u_2'-u_1'u_2\)</span> satisfies <span class="math">\(pW=\text{constant}\)</span>. Then
-<span class="math">\(y(x)=\int_a^bG(x,\xi)f(\xi)\,d\xi,\qquad G(x,\xi)=\begin{cases}\dfrac{u_1(x)u_2(\xi)}{p(\xi)W(\xi)},&amp;x\le\xi\\\dfrac{u_1(\xi)u_2(x)}{p(\xi)W(\xi)},&amp;x\ge\xi.\end{cases}\)</span></p>
+<p>Consider <span class="math">\(Ly=(p\,y')'+q\,y=f(x)\)</span> on <span class="math">\([a,b]\)</span> with homogeneous separated boundary conditions, and assume the homogeneous problem has only the trivial solution. Let <span class="math">\(u_1\)</span> solve <span class="math">\(Lu=0\)</span> and satisfy the condition at <span class="math">\(a\)</span>; let <span class="math">\(u_2\)</span> solve <span class="math">\(Lu=0\)</span> and satisfy the condition at <span class="math">\(b\)</span>. Their Wronskian <span class="math">\(W=u_1u_2'-u_1'u_2\)</span> satisfies <span class="math">\(pW=\text{constant}\)</span>. Then</p>
+<div class="math math-display">\[y(x)=\int_a^bG(x,\xi)f(\xi)\,d\xi,\qquad G(x,\xi)=\begin{cases}\dfrac{u_1(x)u_2(\xi)}{p(\xi)W(\xi)},&amp;x\le\xi\\\dfrac{u_1(\xi)u_2(x)}{p(\xi)W(\xi)},&amp;x\ge\xi.\end{cases}\]</div>
 <p><strong>Defining properties</strong> of <span class="math">\(G(x,\xi)\)</span> as a function of <span class="math">\(x\)</span>:</p>
 <ol>
 <li><span class="math">\(LG=0\)</span> for <span class="math">\(x\ne\xi\)</span>.</li>
@@ -232,6 +271,14 @@ With Dirichlet (or Neumann) boundary terms vanishing and <span class="math">\(q\
 <td><span class="math">\(\int(vLu-uLv)=[p(vu'-uv')]_a^b\)</span></td>
 </tr>
 <tr>
+<td>Self-adjoint test</td>
+<td><span class="math">\(a_1=a_0'\)</span></td>
+</tr>
+<tr>
+<td>Legendre eigenvalues</td>
+<td><span class="math">\(n(n+1)\)</span>, <span class="math">\(P_n\)</span></td>
+</tr>
+<tr>
 <td>Rayleigh quotient</td>
 <td><span class="math">\(\lambda=\dfrac{-[pyy']+\int(py'^2-qy^2)}{\int wy^2}\)</span></td>
 </tr>
@@ -261,15 +308,15 @@ With Dirichlet (or Neumann) boundary terms vanishing and <span class="math">\(q\
 <li><span class="math">\(\lambda=-\mu^2&lt;0\)</span>: <span class="math">\(y=A\sinh\mu x\)</span> (from <span class="math">\(y(0)=0\)</span>), <span class="math">\(y'(L)=A\mu\cosh\mu L=0\Rightarrow A=0\)</span>.</li>
 <li><span class="math">\(\lambda=\mu^2&gt;0\)</span>: <span class="math">\(y=B\sin\mu x\)</span>, <span class="math">\(y'(L)=B\mu\cos\mu L=0\Rightarrow\cos\mu L=0\Rightarrow\mu L=\frac{(2n-1)\pi}{2}\)</span>.</li>
 </ul>
-<p><span class="math">\(\lambda_n=\left(\frac{(2n-1)\pi}{2L}\right)^2,\qquad\phi_n=\sin\frac{(2n-1)\pi x}{2L},\quad n=1,2,\dots\)</span></p>
+<div class="math math-display">\[\lambda_n=\left(\frac{(2n-1)\pi}{2L}\right)^2,\qquad\phi_n=\sin\frac{(2n-1)\pi x}{2L},\quad n=1,2,\dots\]</div>
 <h3 id="example-2-reducing-to-sl-form-and-finding-the-weight">Example 2: reducing to SL form and finding the weight</h3>
 <p>(a) <span class="math">\(x^2y''+3xy'+\lambda y=0\)</span> on <span class="math">\([1,2]\)</span>. <span class="math">\(a_0=x^2\)</span>, <span class="math">\(a_1=3x\)</span>: <span class="math">\(p=\exp\int\frac3x=x^3\)</span>. <span class="math">\(w=p\cdot\frac{1}{x^2}=x\)</span>. SL form: <span class="math">\((x^3y')'+\lambda\,x\,y=0\)</span>; orthogonality weight <span class="math">\(x\)</span>.</p>
 <p>(b) Hermite <span class="math">\(y''-2xy'+\lambda y=0\)</span>: <span class="math">\(p=e^{-\int2x}=e^{-x^2}\)</span>, <span class="math">\(w=e^{-x^2}\)</span>, so <span class="math">\((e^{-x^2}y')'+\lambda e^{-x^2}y=0\)</span>.</p>
 <h3 id="example-3-euler-type-eigenvalue-problem">Example 3: Euler-type eigenvalue problem</h3>
 <p><span class="math">\(x^2y''+xy'+\lambda y=0\)</span>, <span class="math">\(y(1)=y(e^{\pi})=0\)</span>.</p>
-<p>Put <span class="math">\(t=\ln x\in[0,\pi]\)</span>: <span class="math">\(y_{tt}+\lambda y=0\)</span>, <span class="math">\(y(0)=y(\pi)=0\)</span>. So <span class="math">\(\lambda_n=n^2\)</span>, <span class="math">\(\phi_n=\sin(n\ln x)\)</span>. SL form: <span class="math">\((xy')'+\frac{\lambda}{x}y=0\)</span>, weight <span class="math">\(1/x\)</span>:
-<span class="math">\(\int_1^{e^\pi}\sin(m\ln x)\sin(n\ln x)\frac{dx}{x}=0\ (m\ne n).\)</span>
-If the interval were <span class="math">\([1,e]\)</span> the eigenvalues would be <span class="math">\((n\pi)^2\)</span>.</p>
+<p>Put <span class="math">\(t=\ln x\in[0,\pi]\)</span>: <span class="math">\(y_{tt}+\lambda y=0\)</span>, <span class="math">\(y(0)=y(\pi)=0\)</span>. So <span class="math">\(\lambda_n=n^2\)</span>, <span class="math">\(\phi_n=\sin(n\ln x)\)</span>. SL form: <span class="math">\((xy')'+\frac{\lambda}{x}y=0\)</span>, weight <span class="math">\(1/x\)</span>:</p>
+<div class="math math-display">\[\int_1^{e^\pi}\sin(m\ln x)\sin(n\ln x)\frac{dx}{x}=0\ (m\ne n).\]</div>
+<p>If the interval were <span class="math">\([1,e]\)</span> the eigenvalues would be <span class="math">\((n\pi)^2\)</span>.</p>
 <h3 id="example-4-robin-condition">Example 4: Robin condition</h3>
 <p><span class="math">\(y''+\lambda y=0\)</span>, <span class="math">\(y(0)=0\)</span>, <span class="math">\(y(1)+y'(1)=0\)</span>.</p>
 <ul>
@@ -281,9 +328,9 @@ If the interval were <span class="math">\([1,e]\)</span> the eigenvalues would b
 <p><span class="math">\(y''+2y'+(1+\lambda)y=0\)</span>, <span class="math">\(y(0)=y(\pi)=0\)</span>.</p>
 <p>Put <span class="math">\(y=e^{-x}u\)</span>: <span class="math">\(y''+2y'+y=e^{-x}u''\)</span>, so <span class="math">\(u''+\lambda u=0\)</span>, <span class="math">\(u(0)=u(\pi)=0\)</span>. Hence <span class="math">\(\lambda_n=n^2\)</span> and <span class="math">\(\phi_n=e^{-x}\sin nx\)</span>. SL form: <span class="math">\(p=e^{2x}\)</span>, <span class="math">\(w=e^{2x}\)</span>, i.e. <span class="math">\((e^{2x}y')'+(1+\lambda)e^{2x}y=0\)</span>. Orthogonality: <span class="math">\(\int_0^\pi e^{2x}\phi_m\phi_n\,dx=\int_0^\pi\sin mx\sin nx\,dx=0\)</span>.</p>
 <h3 id="example-6-greens-functions">Example 6: Green’s functions</h3>
-<p>(a) <span class="math">\(y''=f\)</span>, <span class="math">\(y(0)=y(1)=0\)</span>. <span class="math">\(p=1\)</span>, <span class="math">\(u_1=x\)</span>, <span class="math">\(u_2=x-1\)</span>, <span class="math">\(W=x\cdot1-1\cdot(x-1)=1\)</span>:
-<span class="math">\(G(x,\xi)=\begin{cases}\xi(x-1),&amp;\xi\le x\\x(\xi-1),&amp;x\le\xi\end{cases}=-x_&lt;(1-x_&gt;).\)</span>
-Check: for <span class="math">\(f=1\)</span>, <span class="math">\(y=\int_0^1G\,d\xi=\frac{x(x-1)}{2}\)</span>, which satisfies <span class="math">\(y''=1\)</span> and the boundary conditions. The derivative of <span class="math">\(G\)</span> jumps from <span class="math">\(\xi-1\)</span> to <span class="math">\(\xi\)</span>, a jump of <span class="math">\(1=1/p\)</span>. Also <span class="math">\(G\left(\tfrac12,\tfrac14\right)=-\tfrac18\)</span>.</p>
+<p>(a) <span class="math">\(y''=f\)</span>, <span class="math">\(y(0)=y(1)=0\)</span>. <span class="math">\(p=1\)</span>, <span class="math">\(u_1=x\)</span>, <span class="math">\(u_2=x-1\)</span>, <span class="math">\(W=x\cdot1-1\cdot(x-1)=1\)</span>:</p>
+<div class="math math-display">\[G(x,\xi)=\begin{cases}\xi(x-1),&amp;\xi\le x\\x(\xi-1),&amp;x\le\xi\end{cases}=-x_&lt;(1-x_&gt;).\]</div>
+<p>Check: for <span class="math">\(f=1\)</span>, <span class="math">\(y=\int_0^1G\,d\xi=\frac{x(x-1)}{2}\)</span>, which satisfies <span class="math">\(y''=1\)</span> and the boundary conditions. The derivative of <span class="math">\(G\)</span> jumps from <span class="math">\(\xi-1\)</span> to <span class="math">\(\xi\)</span>, a jump of <span class="math">\(1=1/p\)</span>. Also <span class="math">\(G\left(\tfrac12,\tfrac14\right)=-\tfrac18\)</span>.</p>
 <p>(b) <span class="math">\(y''+y=f\)</span> on <span class="math">\([0,\pi/2]\)</span>, <span class="math">\(y(0)=y(\pi/2)=0\)</span>. <span class="math">\(u_1=\sin x\)</span>, <span class="math">\(u_2=\cos x\)</span>, <span class="math">\(W=-1\)</span>: <span class="math">\(G(x,\xi)=-\sin x_&lt;\cos x_&gt;\)</span>. For <span class="math">\(f=1\)</span>: <span class="math">\(y=1-\cos x-\sin x\)</span>.</p>
 </section><section class="note-section ns-common-traps" aria-labelledby="common-traps"><h2 id="common-traps">Common traps</h2>
 <ul>
@@ -303,7 +350,7 @@ Check: for <span class="math">\(f=1\)</span>, <span class="math">\(y=\int_0^1G\,
 </section><section class="note-section ns-previous-year-questions" aria-labelledby="previous-year-questions"><h2 id="previous-year-questions">Previous-year questions</h2>
 <h3 id="2026-q57">2026 Q57</h3>
 <p><strong>Question (restated).</strong> The eigenvalues of the boundary value problem <span class="math">\(y''+\lambda y=0\)</span>, <span class="math">\(y(0)=y(\pi)=0\)</span> are given by: (A) <span class="math">\(n\)</span> (B) <span class="math">\(\pi n\)</span> (C) <span class="math">\(n^2\)</span> (D) <span class="math">\(2n\)</span> (with <span class="math">\(n=1,2,3,\dots\)</span>).</p>
-<p><strong>Answer: C (<span class="math">\(\lambda_n=n^2\)</span>), worked key (unofficial; the mathematics agrees).</strong></p>
+<p><strong>Answer: C (<span class="math">\(\lambda_n=n^2\)</span>). No official key has been published for 2026; this follows from the derivation below.</strong></p>
 <p>For <span class="math">\(\lambda\le0\)</span> only <span class="math">\(y=0\)</span> satisfies both conditions. For <span class="math">\(\lambda=\mu^2&gt;0\)</span>, <span class="math">\(y=B\sin\mu x\)</span> and <span class="math">\(y(\pi)=0\)</span> requires <span class="math">\(\sin\mu\pi=0\)</span>, so <span class="math">\(\mu=n\)</span>. Hence <span class="math">\(\lambda_n=n^2\)</span> with eigenfunctions <span class="math">\(\sin nx\)</span>. See the table above with <span class="math">\(L=\pi\)</span>.</p>
 </section><section class="note-section ns-quick-revision" aria-labelledby="quick-revision"><h2 id="quick-revision">Quick revision</h2>
 <ul>
@@ -315,7 +362,8 @@ Check: for <span class="math">\(f=1\)</span>, <span class="math">\(y=\int_0^1G\,
 <li>Mixed conditions: <span class="math">\(\left((2n-1)\pi/2L\right)^2\)</span>.</li>
 <li><span class="math">\(y''+\lambda y=0\)</span>, <span class="math">\(y(0)=y(\pi)=0\)</span>: <span class="math">\(\lambda=n^2\)</span>.</li>
 <li>Robin gives <span class="math">\(\tan\mu L=-\mu/h\)</span>-type equations (no closed form).</li>
-<li>Periodic conditions: eigenvalues not simple (two eigenfunctions each).</li>
+<li>Periodic conditions: eigenvalues not simple (two eigenfunctions each); the problem is not regular.</li>
+<li>Self-adjoint iff <span class="math">\(a_1=a_0'\)</span>. Legendre eigenvalues <span class="math">\(n(n+1)\)</span>, Hermite <span class="math">\(2n\)</span>, Chebyshev <span class="math">\(n^2\)</span>, Laguerre <span class="math">\(n\)</span>. Bessel eigenfunctions <span class="math">\(J_\nu(\mu_nx)\)</span> have weight <span class="math">\(x\)</span>.</li>
 <li>Sturm separation: independent solutions interlace. Comparison: larger <span class="math">\(q\)</span> oscillates faster.</li>
 <li><span class="math">\(q\ge m^2\)</span> implies zeros at most <span class="math">\(\pi/m\)</span> apart; <span class="math">\(q\le0\)</span> implies at most one zero.</li>
 <li>Green’s function: <span class="math">\(G=u_1(x_&lt;)u_2(x_&gt;)/(pW)\)</span>; continuous, symmetric, <span class="math">\(G_x\)</span> jumps by <span class="math">\(1/p\)</span>.</li>

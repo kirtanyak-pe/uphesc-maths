@@ -49,7 +49,7 @@
 <li>for any polynomial <span class="math">\(p\)</span>, <span class="math">\(p(T)\)</span> is defined, and <span class="math">\(p(T)q(T)=q(T)p(T)\)</span>.</li>
 </ul>
 <h3 id="kernel-and-range">Kernel and range</h3>
-<p><span class="math">\(\ker T=\{v: Tv=0\},\qquad \operatorname{range}T=T(V)=\{Tv\}.\)</span></p>
+<div class="math math-display">\[\ker T=\{v: Tv=0\},\qquad \operatorname{range}T=T(V)=\{Tv\}.\]</div>
 <p><span class="math">\(\ker T\le V\)</span> and <span class="math">\(\operatorname{range}T\le W\)</span> are subspaces. <span class="math">\(\operatorname{nullity}T=\dim\ker T\)</span>, <span class="math">\(\operatorname{rank}T=\dim\operatorname{range}T\)</span>.</p>
 <ul>
 <li><span class="math">\(T\)</span> is one-one (injective) iff <span class="math">\(\ker T=\{0\}\)</span>.</li>
@@ -59,7 +59,7 @@
 </ul>
 <h3 id="rank-nullity-theorem">Rank-Nullity Theorem</h3>
 <p>If <span class="math">\(V\)</span> is <strong>finite-dimensional</strong> and <span class="math">\(T:V\to W\)</span> is linear then</p>
-<p><span class="math">\(\dim V=\operatorname{nullity}T+\operatorname{rank}T.\)</span></p>
+<div class="math math-display">\[\dim V=\operatorname{nullity}T+\operatorname{rank}T.\]</div>
 <p>Proof idea: extend a basis <span class="math">\(u_1,\dots,u_k\)</span> of <span class="math">\(\ker T\)</span> to a basis <span class="math">\(u_1,\dots,u_k,v_1,\dots,v_r\)</span> of <span class="math">\(V\)</span>. Then <span class="math">\(Tv_1,\dots,Tv_r\)</span> is a basis of the range. (Equivalently, <span class="math">\(V/\ker T\cong\operatorname{range}T\)</span>, the first isomorphism theorem for vector spaces.)</p>
 <p>Consequences, for <span class="math">\(\dim V=n\)</span> and <span class="math">\(\dim W=m\)</span>:</p>
 <div class="table-wrap"><table>
@@ -104,7 +104,7 @@
 </ul>
 <h3 id="change-of-basis-and-similarity">Change of basis and similarity</h3>
 <p>Let <span class="math">\(P\)</span> be the matrix whose columns are the new basis vectors <span class="math">\(B'\)</span> written in the old basis <span class="math">\(B\)</span>. Then</p>
-<p><span class="math">\([v]_B=P[v]_{B'},\qquad [T]_{B'}=P^{-1}[T]_BP.\)</span></p>
+<div class="math math-display">\[[v]_B=P[v]_{B'},\qquad [T]_{B'}=P^{-1}[T]_BP.\]</div>
 <p>Two square matrices <span class="math">\(A,A'\)</span> are <strong>similar</strong> if <span class="math">\(A'=P^{-1}AP\)</span> for some invertible <span class="math">\(P\)</span>: they represent the same operator in different bases. For a map <span class="math">\(T:V\to W\)</span> with two independent changes of basis, the matrices are only <strong>equivalent</strong>: <span class="math">\(A'=Q^{-1}AP\)</span>.</p>
 <p>Similarity invariants (equal for similar matrices): determinant, trace, rank, nullity, characteristic polynomial, minimal polynomial, eigenvalues with their algebraic <strong>and</strong> geometric multiplicities, diagonalisability, Jordan form. Not invariants: entries, eigenvectors, row space, column space, symmetry.</p>
 <p><strong>Similar <span class="math">\(\Rightarrow\)</span> same characteristic polynomial; the converse is false.</strong> The matrices <span class="math">\(0\)</span> and <span class="math">\(\begin{pmatrix}0&amp;1\\0&amp;0\end{pmatrix}\)</span> have the same characteristic polynomial <span class="math">\(x^2\)</span> but different ranks, so they are not similar.</p>
@@ -174,7 +174,7 @@
 <h3 id="example-3-an-idempotent-that-is-not-a-projection-onto-an-orthogonal-complement">Example 3: an idempotent that is not a projection onto an orthogonal complement</h3>
 <p><span class="math">\(P=\begin{pmatrix}1&amp;1\\0&amp;0\end{pmatrix}\)</span> satisfies <span class="math">\(P^2=P\)</span>. <span class="math">\(\operatorname{range}P=\operatorname{span}\{(1,0)\}\)</span> and <span class="math">\(\ker P=\operatorname{span}\{(1,-1)\}\)</span>. These are not orthogonal, so <span class="math">\(P\)</span> is a projection along a non-perpendicular direction. <span class="math">\(\operatorname{tr}P=1=\operatorname{rank}P\)</span>, eigenvalues <span class="math">\(1,0\)</span>.</p>
 <h3 id="example-4-nilpotent-matrix">Example 4: nilpotent matrix</h3>
-<p><span class="math">\(N=\begin{pmatrix}0&amp;1&amp;2\\0&amp;0&amp;3\\0&amp;0&amp;0\end{pmatrix}\)</span>. Then <span class="math">\(N^2=\begin{pmatrix}0&amp;0&amp;3\\0&amp;0&amp;0\\0&amp;0&amp;0\end{pmatrix}\)</span> and <span class="math">\(N^3=0\)</span>, so the index is <span class="math">\(3\)</span>. Hence <span class="math">\((I-N)^{-1}=I+N+N^2=\begin{pmatrix}1&amp;1&amp;5\\0&amp;1&amp;3\\0&amp;0&amp;1\end{pmatrix}\)</span>; multiplying by <span class="math">\(I-N\)</span> returns <span class="math">\(I\)</span> (checked).</p>
+<p><span class="math">\(N=\begin{pmatrix}0&amp;1&amp;2\\0&amp;0&amp;3\\0&amp;0&amp;0\end{pmatrix}\)</span>. Then <span class="math">\(N^2=\begin{pmatrix}0&amp;0&amp;3\\0&amp;0&amp;0\\0&amp;0&amp;0\end{pmatrix}\)</span> and <span class="math">\(N^3=0\)</span>, so the index is <span class="math">\(3\)</span>. Hence <span class="math">\((I-N)^{-1}=I+N+N^2=\begin{pmatrix}1&amp;1&amp;5\\0&amp;1&amp;3\\0&amp;0&amp;1\end{pmatrix}\)</span>; indeed <span class="math">\((I-N)(I+N+N^2)=I-N^3=I\)</span>.</p>
 <h3 id="example-5-bounds-for-the-rank-of-a-product">Example 5: bounds for the rank of a product</h3>
 <p><span class="math">\(A\)</span> and <span class="math">\(B\)</span> are <span class="math">\(4\times4\)</span> of rank <span class="math">\(3\)</span> each. Then <span class="math">\(2\le\operatorname{rank}(AB)\le3\)</span> by Sylvester. The lower bound is attained: take <span class="math">\(A=\operatorname{diag}(1,1,1,0)\)</span> and <span class="math">\(B\)</span> the shift with <span class="math">\(Be_1=e_2\)</span>, <span class="math">\(Be_2=e_3\)</span>, <span class="math">\(Be_3=e_4\)</span>, <span class="math">\(Be_4=0\)</span>. Then <span class="math">\(\operatorname{range}B=\operatorname{span}\{e_2,e_3,e_4\}\)</span> and <span class="math">\(A\)</span> kills <span class="math">\(e_4\)</span>, so <span class="math">\(\operatorname{rank}AB=2\)</span>.</p>
 <h3 id="example-6-dimension-counts">Example 6: dimension counts</h3>
@@ -194,7 +194,7 @@
 <li><span class="math">\(A^2=0\)</span> does not give <span class="math">\(A=0\)</span>; <span class="math">\(AB=0\)</span> does not give <span class="math">\(A=0\)</span> or <span class="math">\(B=0\)</span>.</li>
 <li><span class="math">\(\operatorname{rank}(AB)\)</span> is not <span class="math">\(\operatorname{rank}A\cdot\operatorname{rank}B\)</span> and not <span class="math">\(\min\)</span> in general; only an upper bound.</li>
 <li>Direction of inclusion: <span class="math">\(\ker T\subseteq\ker T^2\)</span>, and <span class="math">\(\operatorname{range}T^2\subseteq\operatorname{range}T\)</span>.</li>
-<li>A sum of nilpotents is not nilpotent unless they commute.</li>
+<li>A sum of nilpotents need not be nilpotent: <span class="math">\(E_{12}+E_{21}\)</span> has eigenvalues <span class="math">\(\pm1\)</span>. If the two nilpotents <strong>commute</strong>, the sum (and the product) is nilpotent; non-commuting nilpotents such as <span class="math">\(E_{12},E_{23}\)</span> may still have a nilpotent sum.</li>
 </ul>
 </section><section class="note-section ns-previous-year-questions" aria-labelledby="previous-year-questions"><h2 id="previous-year-questions">Previous-year questions</h2>
 <h3 id="2025-q46-answer-a">2025 Q46 (answer A)</h3>

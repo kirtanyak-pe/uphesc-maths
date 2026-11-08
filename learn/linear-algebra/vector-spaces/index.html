@@ -175,8 +175,8 @@
 <td><span class="math">\(\lfloor n/2\rfloor+1\)</span></td>
 </tr>
 <tr>
-<td>Polynomials in <span class="math">\(P_n\)</span> vanishing at <span class="math">\(k\le n+1\)</span> given points</td>
-<td><span class="math">\(n+1-k\)</span></td>
+<td>Polynomials in <span class="math">\(P_n\)</span> vanishing at <span class="math">\(k\le n+1\)</span> distinct given points</td>
+<td><span class="math">\(n+1-k\)</span> (evaluations at distinct points are independent: Vandermonde, topic 3)</td>
 </tr>
 <tr>
 <td>Solutions of a linear homogeneous ODE of order <span class="math">\(n\)</span></td>
@@ -195,7 +195,7 @@
 <p>A shortcut for subspaces cut out by equations: each independent linear condition lowers the dimension by one. <span class="math">\(\dim\{x\in F^n: Ax=0\}=n-\operatorname{rank}A\)</span>.</p>
 <h3 id="sum-and-intersection-of-subspaces">Sum and intersection of subspaces</h3>
 <p><span class="math">\(U+W=\{u+w\}=\operatorname{span}(U\cup W)\)</span> is the smallest subspace containing both. The key formula is</p>
-<p><span class="math">\(\dim(U+W)=\dim U+\dim W-\dim(U\cap W).\)</span></p>
+<div class="math math-display">\[\dim(U+W)=\dim U+\dim W-\dim(U\cap W).\]</div>
 <p>Proof idea: take a basis of <span class="math">\(U\cap W\)</span>, extend it to a basis of <span class="math">\(U\)</span> and to a basis of <span class="math">\(W\)</span>; the union of the two extensions with the common part is a basis of <span class="math">\(U+W\)</span>.</p>
 <p>Consequences:</p>
 <ul>
@@ -223,7 +223,7 @@
 <p>For three or more subspaces, <span class="math">\(V=W_1\oplus\cdots\oplus W_k\)</span> requires <span class="math">\(\dim V=\sum\dim W_i\)</span> together with <span class="math">\(V=\sum W_i\)</span> (or each <span class="math">\(W_i\cap\sum_{j\ne i}W_j=0\)</span>). <strong>Pairwise trivial intersections are not enough:</strong> three distinct lines through the origin in <span class="math">\(\mathbb{R}^2\)</span> meet pairwise in <span class="math">\(0\)</span> but their sum has dimension <span class="math">\(2\)</span>, not <span class="math">\(3\)</span>.</p>
 <h3 id="quotient-spaces">Quotient spaces</h3>
 <p>For a subspace <span class="math">\(W\le V\)</span>, the quotient <span class="math">\(V/W=\{v+W: v\in V\}\)</span> is a vector space under <span class="math">\((v+W)+(v'+W)=(v+v')+W\)</span> and <span class="math">\(a(v+W)=av+W\)</span>. The quotient map <span class="math">\(\pi:V\to V/W\)</span> is onto with kernel <span class="math">\(W\)</span>, so</p>
-<p><span class="math">\(\dim V/W=\dim V-\dim W.\)</span></p>
+<div class="math math-display">\[\dim V/W=\dim V-\dim W.\]</div>
 <p>If <span class="math">\(w_1,\dots,w_k\)</span> is a basis of <span class="math">\(W\)</span> extended by <span class="math">\(v_{k+1},\dots,v_n\)</span> to a basis of <span class="math">\(V\)</span>, then <span class="math">\(v_{k+1}+W,\dots,v_n+W\)</span> is a basis of <span class="math">\(V/W\)</span>. Any complement of <span class="math">\(W\)</span> is isomorphic to <span class="math">\(V/W\)</span>. Note <span class="math">\(v+W=v'+W\iff v-v'\in W\)</span>.</p>
 <h3 id="vector-spaces-over-finite-fields-counting">Vector spaces over finite fields (counting)</h3>
 <p>Let <span class="math">\(\lvert F\rvert=q\)</span> and <span class="math">\(\dim V=n\)</span>.</p>
@@ -275,7 +275,7 @@
 <li>Dimension depends on the field: <span class="math">\(\dim_{\mathbb{R}}\mathbb{C}^n=2n\)</span>, not <span class="math">\(n\)</span>. Hermitian matrices form a real space of dimension <span class="math">\(n^2\)</span>, not a complex space (multiplying by <span class="math">\(i\)</span> gives a skew-Hermitian matrix).</li>
 <li>Symmetric has <span class="math">\(n(n+1)/2\)</span> and skew has <span class="math">\(n(n-1)/2\)</span>. Their sum is <span class="math">\(n^2\)</span>; swapping them is the common slip.</li>
 <li>A condition such as <span class="math">\(x_1x_2=0\)</span> or <span class="math">\(x_1+x_2=1\)</span> is not linear, so it gives no subspace.</li>
-<li>A non-zero Wronskian proves independence, but a zero Wronskian does not prove dependence for arbitrary smooth functions (<span class="math">\(x^2\)</span> and <span class="math">\(x\lvert x\rvert\)</span>).</li>
+<li>A non-zero Wronskian proves independence, but a zero Wronskian does not prove dependence for arbitrary differentiable (<span class="math">\(C^1\)</span>) functions: <span class="math">\(x^2\)</span> and <span class="math">\(x\lvert x\rvert\)</span> have Wronskian <span class="math">\(0\)</span> everywhere yet are independent.</li>
 <li>In <span class="math">\(P_n\)</span> the dimension is <span class="math">\(n+1\)</span>, not <span class="math">\(n\)</span>.</li>
 </ul>
 </section><section class="note-section ns-previous-year-questions" aria-labelledby="previous-year-questions"><h2 id="previous-year-questions">Previous-year questions</h2>

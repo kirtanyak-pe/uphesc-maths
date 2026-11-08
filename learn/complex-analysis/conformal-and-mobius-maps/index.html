@@ -40,7 +40,7 @@
 <h3 id="conformal-maps">Conformal maps</h3>
 <p>A map <span class="math">\(w=f(z)\)</span> is <strong>conformal at <span class="math">\(z_0\)</span></strong> if it preserves angles between curves through <span class="math">\(z_0\)</span>, both in magnitude and in orientation (sense).</p>
 <p><strong>Key theorem.</strong> If <span class="math">\(f\)</span> is analytic at <span class="math">\(z_0\)</span> and <span class="math">\(f'(z_0)\neq0\)</span>, then <span class="math">\(f\)</span> is conformal at <span class="math">\(z_0\)</span>. Conversely, if <span class="math">\(f\)</span> is conformal at <span class="math">\(z_0\)</span> (and real differentiable there), then <span class="math">\(f\)</span> is analytic with <span class="math">\(f'(z_0)\neq0\)</span>. So</p>
-<p><span class="math">\(f\ \text{analytic and conformal at } z_0\iff f'(z_0)\neq0.\)</span></p>
+<div class="math math-display">\[f\ \text{analytic and conformal at } z_0\iff f'(z_0)\neq0.\]</div>
 <p>(This is the answer to 2026 Q70.)</p>
 <p>Geometry of <span class="math">\(f'(z_0)\ne0\)</span>: a tangent direction at <span class="math">\(z_0\)</span> is rotated by <span class="math">\(\arg f'(z_0)\)</span> and lengths are scaled by <span class="math">\(|f'(z_0)|\)</span> (the local magnification), the same in all directions. Small shapes keep their form: circles go to near-circles.</p>
 <ul>
@@ -51,7 +51,7 @@
 <li>The Riemann mapping theorem: any simply connected domain <span class="math">\(D\ne\mathbb C\)</span> can be mapped conformally and one-one onto the open unit disc. <span class="math">\(\mathbb C\)</span> cannot (Liouville). The map is unique once <span class="math">\(f(a)=0\)</span>, <span class="math">\(f'(a)&gt;0\)</span> is prescribed.</li>
 </ul>
 <h3 id="möbius-bilinear-linear-fractional-transformations">Möbius (bilinear, linear fractional) transformations</h3>
-<p><span class="math">\(T(z)=\frac{az+b}{cz+d},\qquad ad-bc\neq0 .\)</span></p>
+<div class="math math-display">\[T(z)=\frac{az+b}{cz+d},\qquad ad-bc\neq0 .\]</div>
 <p>Defined on the extended plane <span class="math">\(\widehat{\mathbb C}=\mathbb C\cup\{\infty\}\)</span> with <span class="math">\(T(-d/c)=\infty\)</span>, <span class="math">\(T(\infty)=a/c\)</span> (and <span class="math">\(T(\infty)=\infty\)</span> if <span class="math">\(c=0\)</span>).</p>
 <ul>
 <li><span class="math">\(T'(z)=\dfrac{ad-bc}{(cz+d)^2}\neq0\)</span>: conformal everywhere, one-one and onto <span class="math">\(\widehat{\mathbb C}\)</span>.</li>
@@ -73,9 +73,9 @@
 <li>Classification by trace (normalised by <span class="math">\(ad-bc=1\)</span>): parabolic if <span class="math">\((a+d)^2=4\)</span>, elliptic if <span class="math">\((a+d)^2\in[0,4)\)</span>, hyperbolic if <span class="math">\((a+d)^2&gt;4\)</span> real, loxodromic otherwise.</li>
 </ul>
 <h3 id="cross-ratio">Cross-ratio</h3>
-<p>For distinct <span class="math">\(z_1,z_2,z_3,z_4\)</span>:
-<span class="math">\((z_1,z_2;z_3,z_4)=\frac{(z_1-z_3)(z_2-z_4)}{(z_1-z_4)(z_2-z_3)}.\)</span>
-(Texts permute the points; the facts below hold for every convention. If one point is <span class="math">\(\infty\)</span>, delete the factors containing it.)</p>
+<p>For distinct <span class="math">\(z_1,z_2,z_3,z_4\)</span>:</p>
+<div class="math math-display">\[(z_1,z_2;z_3,z_4)=\frac{(z_1-z_3)(z_2-z_4)}{(z_1-z_4)(z_2-z_3)}.\]</div>
+<p>(Texts permute the points; the facts below hold for every convention. If one point is <span class="math">\(\infty\)</span>, delete the factors containing it.)</p>
 <ul>
 <li><strong>Invariance:</strong> a Möbius map preserves cross-ratios: <span class="math">\((Tz_1,Tz_2;Tz_3,Tz_4)=(z_1,z_2;z_3,z_4)\)</span>.</li>
 <li><strong>Reality criterion:</strong> the cross-ratio of four distinct points is <strong>real if and only if the four points lie on one circle or one straight line</strong> (concyclic or collinear in <span class="math">\(\widehat{\mathbb C}\)</span>). So if the four points are on a circle, it is real (2019).</li>
@@ -168,13 +168,13 @@
 </ul>
 </section><section class="note-section ns-worked-examples" aria-labelledby="worked-examples"><h2 id="worked-examples">Worked examples</h2>
 <h3 id="example-1-image-of-a-circle-under-a-möbius-map-2025-q62">Example 1: image of a circle under a Möbius map (2025 Q62)</h3>
-<p><span class="math">\(w=\dfrac{5-4z}{4z-2}\)</span> maps <span class="math">\(|z|=1\)</span> to a circle. Solve for <span class="math">\(z\)</span>: <span class="math">\(w(4z-2)=5-4z\Rightarrow z=\dfrac{2w+5}{4(w+1)}\)</span>. Condition <span class="math">\(|z|=1\)</span>: <span class="math">\(|2w+5|^2=16|w+1|^2\)</span>. With <span class="math">\(w=u+iv\)</span>:
-<span class="math">\(4(u^2+v^2)+20u+25=16(u^2+v^2)+32u+16\ \Longrightarrow\ u^2+v^2+u-\tfrac34=0 .\)</span>
-So <span class="math">\((u+\frac12)^2+v^2=1\)</span>: centre <span class="math">\(\left(-\tfrac12,0\right)\)</span>, radius <span class="math">\(1\)</span>. (The pole is <span class="math">\(z=\frac12\)</span>, inside the circle, so the image is a circle, not a line.)</p>
+<p><span class="math">\(w=\dfrac{5-4z}{4z-2}\)</span> maps <span class="math">\(|z|=1\)</span> to a circle. Solve for <span class="math">\(z\)</span>: <span class="math">\(w(4z-2)=5-4z\Rightarrow z=\dfrac{2w+5}{4(w+1)}\)</span>. Condition <span class="math">\(|z|=1\)</span>: <span class="math">\(|2w+5|^2=16|w+1|^2\)</span>. With <span class="math">\(w=u+iv\)</span>:</p>
+<div class="math math-display">\[4(u^2+v^2)+20u+25=16(u^2+v^2)+32u+16\ \Longrightarrow\ u^2+v^2+u-\tfrac34=0 .\]</div>
+<p>So <span class="math">\((u+\frac12)^2+v^2=1\)</span>: centre <span class="math">\(\left(-\tfrac12,0\right)\)</span>, radius <span class="math">\(1\)</span>. (The pole is <span class="math">\(z=\frac12\)</span>, inside the circle, so the image is a circle, not a line.)</p>
 <h3 id="example-2-möbius-map-from-three-points">Example 2: Möbius map from three points</h3>
-<p>Find the Möbius map with <span class="math">\(0\mapsto-1\)</span>, <span class="math">\(1\mapsto-i\)</span>, <span class="math">\(\infty\mapsto1\)</span>. Use <span class="math">\((w,-i;-1,1)=(z,1;0,\infty)\)</span>. Both sides are the cross-ratio that sends the three given points <span class="math">\(-1,-i,1\)</span> (resp. <span class="math">\(0,1,\infty\)</span>) to <span class="math">\(0,1,\infty\)</span>:
-<span class="math">\(\frac{(w+1)(-i-1)}{(w-1)(-i+1)}=z .\)</span>
-The constant is <span class="math">\(\frac{-i-1}{-i+1}=-\frac{1+i}{1-i}=-\frac{(1+i)^2}{2}=-i\)</span>, so <span class="math">\(-i\,\frac{w+1}{w-1}=z\)</span>, i.e. <span class="math">\(\frac{w+1}{w-1}=iz\)</span>. Solving: <span class="math">\(w=\dfrac{1+iz}{iz-1}\)</span>. Check: <span class="math">\(z=0\)</span> gives <span class="math">\(-1\)</span>; <span class="math">\(z=1\)</span> gives <span class="math">\(\frac{1+i}{i-1}=-i\)</span>; <span class="math">\(z\to\infty\)</span> gives <span class="math">\(1\)</span>.</p>
+<p>Find the Möbius map with <span class="math">\(0\mapsto-1\)</span>, <span class="math">\(1\mapsto-i\)</span>, <span class="math">\(\infty\mapsto1\)</span>. Use <span class="math">\((w,-i;-1,1)=(z,1;0,\infty)\)</span>. Both sides are the cross-ratio that sends the three given points <span class="math">\(-1,-i,1\)</span> (resp. <span class="math">\(0,1,\infty\)</span>) to <span class="math">\(0,1,\infty\)</span>:</p>
+<div class="math math-display">\[\frac{(w+1)(-i-1)}{(w-1)(-i+1)}=z .\]</div>
+<p>The constant is <span class="math">\(\frac{-i-1}{-i+1}=-\frac{1+i}{1-i}=-\frac{(1+i)^2}{2}=-i\)</span>, so <span class="math">\(-i\,\frac{w+1}{w-1}=z\)</span>, i.e. <span class="math">\(\frac{w+1}{w-1}=iz\)</span>. Solving: <span class="math">\(w=\dfrac{1+iz}{iz-1}\)</span>. Check: <span class="math">\(z=0\)</span> gives <span class="math">\(-1\)</span>; <span class="math">\(z=1\)</span> gives <span class="math">\(\frac{1+i}{i-1}=-i\)</span>; <span class="math">\(z\to\infty\)</span> gives <span class="math">\(1\)</span>.</p>
 <h3 id="example-3-image-of-the-real-axis-and-the-half-plane">Example 3: image of the real axis and the half-plane</h3>
 <p><span class="math">\(w=\dfrac{z-i}{z+i}\)</span> (2026 Q81). For real <span class="math">\(z=x\)</span>: <span class="math">\(|x-i|=|x+i|=\sqrt{x^2+1}\)</span>, so <span class="math">\(|w|=1\)</span>. The real axis together with <span class="math">\(\infty\)</span> maps onto the whole unit circle (<span class="math">\(z=\infty\)</span> goes to <span class="math">\(w=1\)</span>). The upper half-plane goes to <span class="math">\(|w|&lt;1\)</span>.</p>
 <h3 id="example-4-fixed-points-and-composition">Example 4: fixed points and composition</h3>
@@ -206,7 +206,7 @@ The constant is <span class="math">\(\frac{-i-1}{-i+1}=-\frac{1+i}{1-i}=-\frac{(
 <h3 id="2025-q62-the-transformation-wdfrac5-4z4z-2-maps-z1-to-a-circle-in-the-w-plane-whose-centre-is">2025 Q62: the transformation <span class="math">\(w=\dfrac{5-4z}{4z-2}\)</span> maps <span class="math">\(|z|=1\)</span> to a circle in the <span class="math">\(w\)</span>-plane whose centre is</h3>
 <p><strong>Answer: (A) <span class="math">\(\left(-\tfrac12,0\right)\)</span>.</strong> Solved in Example 1: <span class="math">\(u^2+v^2+u-\frac34=0\)</span>, centre <span class="math">\((-\frac12,0)\)</span>, radius <span class="math">\(1\)</span>.</p>
 <h3 id="2026-q70-f-analytic-and-conformal-at-z_0-then">2026 Q70: <span class="math">\(f\)</span> analytic and conformal at <span class="math">\(z_0\)</span>; then</h3>
-<p><strong>Answer: (A) <span class="math">\(f'(z_0)\neq0\)</span>.</strong> The other options were conditions such as <span class="math">\(f\)</span> constant, <span class="math">\(f\)</span> harmonic, or a vanishing condition (the photographed option text is partly illegible). Analytic and conformal at <span class="math">\(z_0\)</span> is equivalent to <span class="math">\(f'(z_0)\neq0\)</span>.</p>
+<p><strong>Answer: (A) <span class="math">\(f'(z_0)\neq0\)</span>.</strong> Analytic and conformal at <span class="math">\(z_0\)</span> is equivalent to <span class="math">\(f'(z_0)\neq0\)</span>; conditions such as <span class="math">\(f\)</span> constant or <span class="math">\(f\)</span> harmonic do not give conformality.</p>
 <h3 id="2026-q81-under-wdfracz-izi-the-image-of-the-real-axis-is">2026 Q81: under <span class="math">\(w=\dfrac{z-i}{z+i}\)</span> the image of the real axis is</h3>
 <p><strong>Answer: (A) the unit circle</strong> (options: unit circle, imaginary axis, real axis, circle of radius <span class="math">\(2\)</span>). For real <span class="math">\(z\)</span>, <span class="math">\(|z-i|=|z+i|\)</span>, so <span class="math">\(|w|=1\)</span>.</p>
 </section><section class="note-section ns-quick-revision" aria-labelledby="quick-revision"><h2 id="quick-revision">Quick revision</h2>
